@@ -29,6 +29,6 @@ public class AdminCarController {
 		
 		System.out.println("글쓰기 시작");
 		
-		return "redirect:petList.do";
+		return "carwriteForm";
 	}
 }
