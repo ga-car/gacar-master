@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,47 +11,47 @@
 	<table>
 		<tr>
 			<td colspan="2">
-				<center>Â÷·®µî·ÏÆû</center>
+				<center>ì°¨ëŸ‰ë“±ë¡í¼</center>
 			</td>
 		</tr>
 		<tr>
-			<td>Â÷·®¹øÈ£</td>
+			<td>ì°¨ëŸ‰ë²ˆí˜¸</td>
 			<td><input type="text" name="car_no"></td>
 		</tr>
 		<tr>
-			<td>Â÷Á¾</td>
+			<td>ì°¨ì¢…</td>
 			<td><input type="text" name="car_type"></td>
 		</tr>
 		<tr>
-			<td>Â÷·®ºê·£µå</td>
+			<td>ì°¨ëŸ‰ë¸Œëžœë“œ</td>
 			<td><input type="text" name="car_brand"></td>
 		</tr>
 		<tr>
-			<td>Â÷·®¸í</td>
+			<td>ì°¨ëŸ‰ëª…</td>
 			<td><input type="text" name="car_name"></td>
 		</tr>
 		<tr>
-			<td>ÀÎ½Â</td>
+			<td>ì¸ìŠ¹</td>
 			<td><input type="text" name="car_pnum"></td>
 		</tr>
 		<tr>
-			<td>À§µµ(½ÃÀÛÁ¡)</td>
+			<td>ìœ„ë„(ì‹œìž‘ì )</td>
 			<td><input type="text" name="car_lat"></td>
 		</tr>
 		<tr>
-			<td>°æµµ(½ÃÀÛÁ¡)</td>
+			<td>ê²½ë„(ì‹œìž‘ì )</td>
 			<td><input type="text" name="car_long"></td>
 		</tr>
 		<tr>
-			<td>¼­ºñ½ºÀ§Ä¡</td>
+			<td>ì„œë¹„ìŠ¤ìœ„ì¹˜</td>
 			<td><input type="text" name="car_local"></td>
 		</tr>
 		<tr>
-			<td>ÀÌ¹ÌÁö</td>
+			<td>ì´ë¯¸ì§€</td>
 			<td><input type="file" name="car_orgname"></td>
 		</tr>
 		<tr>
-			<td>¿ä±Ý</td>
+			<td>ìš”ê¸ˆ</td>
 			<td><input type="text" name="car_charge"></td>
 		</tr>
 		<tr>
