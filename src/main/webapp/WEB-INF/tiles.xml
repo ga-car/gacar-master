@@ -13,6 +13,10 @@
 		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
 	
+	<definition name="carwriteForm" extends="main">
+      <put-attribute name="body" value="/WEB-INF/views/admin/car/writeForm.jsp" />
+    </definition>
+	
 	
 	
 </tiles-definitions>
