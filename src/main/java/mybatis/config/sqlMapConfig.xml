@@ -19,6 +19,9 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 	</settings>
 	<!-- ModelMapping -->
 	<typeAliases>
+<<<<<<< HEAD
+	<typeAlias type="com.Project.notice.NoticeModel" alias="noticeModel" />
+=======
 		<!-- review -->
 		<typeAlias alias="reviewModel" type="com.Project.review.ReviewModel" />
 		<typeAlias alias="carpoolModel" type="com.Project.carpool.CarpoolModel" />
@@ -30,9 +33,13 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="loginModel" type="com.Project.login.LoginModel" />
 		<typeAlias alias="adminModel" type="com.Project.admin.AdminModel" />
 		<typeAlias alias="rentacarModel" type="com.Project.rentacar.RentacarModel" />
+>>>>>>> refs/remotes/origin/master
 	</typeAliases>
 	<!-- SQL 정의한 xml문서 Mapping -->
 	<mappers>
+<<<<<<< HEAD
+	<mapper resource="mybatis/config/noticeSQL.xml" />
+=======
 		<mapper resource="mybatis/config/reviewSQL.xml" />
 		<mapper resource="mybatis/config/carpoolSQL.xml" />
 		<mapper resource="mybatis/config/notifySQL.xml" />
@@ -43,6 +50,7 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mybatis/config/loginSQL.xml" />
 		<mapper resource="mybatis/config/adminSQL.xml" />
 		<mapper resource="mybatis/config/rentacarSQL.xml" />
+>>>>>>> refs/remotes/origin/master
 	</mappers>
 
 </configuration>

@@ -20,6 +20,7 @@ import com.Project.util.Paging;
 import com.Project.validator.NoticeValidator;
 
 @Controller
+@RequestMapping("/notice")
 public class NotifyController {
 
 	@Resource
@@ -36,7 +37,7 @@ public class NotifyController {
 	private Paging page;
 
 	//리스트 처리(검색)
-	@RequestMapping(value="/notice/noticeList.dog", method=RequestMethod.GET)
+	@RequestMapping(value="list.do", method=RequestMethod.GET)
 	public ModelAndView noticeList(HttpServletRequest request) throws UnsupportedEncodingException{
 		
 		ModelAndView mav = new ModelAndView();
@@ -109,7 +110,7 @@ public class NotifyController {
 	}
 
 	//공지사항 상세보기
-	@RequestMapping("/notice/noticeView.dog")
+	@RequestMapping("detail.do")
 	public ModelAndView noticeView(HttpServletRequest request){
 		   
 		ModelAndView mav = new ModelAndView();
@@ -127,7 +128,7 @@ public class NotifyController {
 		return mav;
 	}
 	
-	//공지사항 글쓰기 폼
+	/*//공지사항 글쓰기 폼
 	@RequestMapping(value="/notice/noticeWrite.dog", method=RequestMethod.GET)
 	public ModelAndView noticeForm(HttpServletRequest request) {
 		
@@ -204,5 +205,5 @@ public class NotifyController {
 		mav.addObject("no", noticeModel.getNo());
 		
 		return mav;	
-	}
+	}*/
 }
