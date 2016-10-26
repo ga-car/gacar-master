@@ -26,14 +26,14 @@
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>이용약관</title>
-<link href="../style.css" rel="stylesheet" type="text/css">
+<!-- <link href="../style.css" rel="stylesheet" type="text/css"> -->
 </head>
 <center>
 	<body>
 
-		<form name="join_agree" action="member.dog" method="post"
+		<form name="join_agree" action="member.do" method="post"
 			onsubmit="return check()">
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<table width="30px" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td align="center" style="padding: 50px;">
 
@@ -183,7 +183,6 @@
 										<tr>
 											<td colspan="2" align="center" style="padding:20px 0px;">
 												<input type="submit" value="동의함" class="submit">
-												<!-- <input type="button" value="동의안함" onclick="location.href='main.dog'" class="hreflink"></td> -->
 												<a href="/pet/main.dog"><input type="button" value="동의안함" class="hreflink"></a>
 											</td>
 										</tr>
