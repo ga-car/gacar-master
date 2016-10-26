@@ -28,7 +28,6 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="mypageModel" type="com.Project.mypage.MypageModel" />
 		<typeAlias alias="joinModel" type="com.Project.join.JoinModel" />
 		<typeAlias alias="loginModel" type="com.Project.login.LoginModel" />
-		<typeAlias alias="adminModel" type="com.Project.admin.AdminModel" />
 		<typeAlias alias="rentacarModel" type="com.Project.rentacar.RentacarModel" />
 	</typeAliases>
 	<!-- SQL 정의한 xml문서 Mapping -->
