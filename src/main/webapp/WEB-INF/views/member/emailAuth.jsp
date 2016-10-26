@@ -24,18 +24,6 @@
 		}
 	}
 	
-/* 	function other() {
-		
-		var form=document.checkEmailForm;
-		
-		if(form.email.value==""){
-			alert("E-mail을 입력해주세요.");
-			form.email.focus();
-			return false;
-		}
-		else
-			alert("dd")
-	} */
 </script>
 <c:if test="${email!=null}">
 <center>

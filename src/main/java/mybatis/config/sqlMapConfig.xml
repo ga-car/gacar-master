@@ -27,9 +27,8 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="faqModel" type="com.Project.faq.FaqModel" />
 		<typeAlias alias="qnaModel" type="com.Project.qna.QnaModel" />
 		<typeAlias alias="mypageModel" type="com.Project.mypage.MypageModel" />
-		<typeAlias alias="joinModel" type="com.Project.join.JoinModel" />
-		<typeAlias alias="loginModel" type="com.Project.login.LoginModel" />
 		<typeAlias alias="rentacarModel" type="com.Project.rentacar.RentacarModel" />
+		<typeAlias alias="memberModel" type="com.Project.member.MemberModel"/>
 
 	</typeAliases>
 	<!-- SQL 정의한 xml문서 Mapping -->
@@ -41,10 +40,9 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mybatis/config/faqSQL.xml" />
 		<mapper resource="mybatis/config/qnaSQL.xml" />
 		<mapper resource="mybatis/config/mypageSQL.xml" />
-		<mapper resource="mybatis/config/joinSQL.xml" />
-		<mapper resource="mybatis/config/loginSQL.xml" />
 		<mapper resource="mybatis/config/adminSQL.xml" />
 		<mapper resource="mybatis/config/rentacarSQL.xml" />
+		<mapper resource="mybatis/config/memberSQL.xml"/>
 
 	</mappers>
 	
