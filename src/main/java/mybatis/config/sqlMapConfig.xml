@@ -21,14 +21,15 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 
 	<!-- ModelMapping -->
 	<typeAliases>
-	<typeAlias type="com.Project.notice.NoticeModel" alias="noticeModel" />
+	<typeAlias type="com.Project.notify.NotifyModel" alias="noticeModel" />
 	</typeAliases>
 
  	
 	
 	<!-- SQL 정의한 xml문서 Mapping -->
 	<mappers>
-	<mapper resource="mybatis/config/noticeSQL.xml" />
+	<mapper resource="mybatis/config/notifySQL.xml" />
 	</mappers>
+	
 
 </configuration>
