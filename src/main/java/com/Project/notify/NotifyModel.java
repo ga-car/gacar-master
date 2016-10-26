@@ -47,5 +47,4 @@ public class NotifyModel {
 	public void setReadcount(int readcount) {
 		this.readcount = readcount;
 	}
-
 }
