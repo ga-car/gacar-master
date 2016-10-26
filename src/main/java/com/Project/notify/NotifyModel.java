@@ -1,9 +1,5 @@
 package com.Project.notify;
 
-<<<<<<< HEAD
-public class NotifyModel {
-
-=======
 import java.util.Date;
 
 public class NotifyModel {
@@ -50,6 +46,6 @@ public class NotifyModel {
 	}
 	public void setReadcount(int readcount) {
 		this.readcount = readcount;
-	}
->>>>>>> refs/remotes/origin/master
+	}/*
+>>>>>>> refs/remotes/origin/master*/
 }
