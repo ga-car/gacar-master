@@ -104,7 +104,7 @@ public class NotifyController {
 		mav.addObject("totalCount", totalCount);
 		mav.addObject("pagingHtml", pagingHtml);
 		mav.addObject("currentPage", currentPage);
-		mav.addObject("noticeList", noticeList);
+		mav.addObject("notifyList", noticeList);
 		mav.setViewName("noticeList");
 		return mav;
 	}
@@ -122,7 +122,7 @@ public class NotifyController {
 		notifyService.noticeUpdateReadcount(no);
 		
 		mav.addObject("currentPage", currentPage);
-		mav.addObject("noticeModel", noticeModel);
+		mav.addObject("notifyModel", noticeModel);
 		mav.setViewName("noticeView");
 		
 		return mav;

@@ -4,6 +4,6 @@ import com.Project.rentacar.RentacarModel;
 
 public interface AdminDao {
 
-	Object insertRentacar(RentacarModel reatacarModel);
+	public int insertRentacar(RentacarModel reatacarModel);
 
 }
