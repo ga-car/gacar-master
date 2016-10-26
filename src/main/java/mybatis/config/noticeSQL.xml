@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="notice">
+
+	<resultMap type="noticeModel" id="noticeModelRes">
+		<result property="no" column="no" />		
+		<result property="name" column="name" />		
+		<result property="subject" column="subject" />
+		<result property="content" column="content" />
+		<result property="regdate" column="regdate" />
+		<result property="readcount" column="readcount" />
+	</resultMap>
+		
+	<!-- 글목록  -->
+	<select id="noticeList" resultMap="noticeModelRes">
+			SELECT * FROM NOTICE 
+			ORDER BY no DESC
+	</select>
+	
+	<!-- 글쓰기 -->
+	<insert id="noticeWrite" parameterType="Integer">
+			INSERT INTO NOTICE
+			(NO, SUBJECT, CONTENT, REGDATE, NAME)
+			VALUES
+			(NOTICE_SEQ.NEXTVAL, #{subject}, #{content}, SYSDATE, #{name})
+	</insert>
+
+	<!-- 조회수 1증가 -->
+	<update id="noticeUpdateReadcount" parameterType="Integer">
+			UPDATE NOTICE 
+			SET
+				READCOUNT = READCOUNT + 1
+			WHERE
+				NO = #{no}	
+	</update>
+	
+	<!-- 글 상세보기 -->
+	<select id="noticeView" resultMap="noticeModelRes" parameterType="Integer">
+			SELECT * FROM NOTICE 
+			WHERE NO = #{no}
+	</select>
+
+	<!-- 글 하나 불러오기 -->
+	<select id="noticeSelect" resultMap="noticeModelRes" parameterType="Integer">
+			SELECT * FROM NOTICE 
+			WHERE NO = #{no}
+	</select>
+	
+	<!-- 글수정 -->
+	<update id="noticeModify" parameterType="noticeModel">
+			UPDATE NOTICE
+			SET
+				NAME = #{name},
+				SUBJECT = #{subject},
+				CONTENT = #{content}
+			WHERE
+				NO = #{no}	
+	</update>
+
+	<!-- 글삭제 -->
+	<delete id="noticeDelete" parameterType="Integer">
+			DELETE FROM NOTICE WHERE NO=#{no}
+	</delete>
+
+	<!-- 제목검색 -->
+	<select id="noticeSearch0" resultMap="noticeModelRes" parameterType="String">
+		SELECT * FROM NOTICE
+		 WHERE subject like #{search}
+		 ORDER BY no DESC
+	</select>
+	
+	<!-- 내용검색 -->
+	<select id="noticeSearch1" resultMap="noticeModelRes" parameterType="String">
+		SELECT * FROM NOTICE
+		WHERE content like #{search}
+		ORDER BY no DESC
+	</select>
+
+	<!-- 작성자검색 -->
+	<select id="noticeSearch2" resultMap="noticeModelRes" parameterType="String">
+		SELECT * FROM NOTICE
+		WHERE name like #{search}
+		ORDER BY no DESC
+	</select>
+</mapper>
