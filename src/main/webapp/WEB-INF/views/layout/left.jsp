@@ -8,6 +8,5 @@
 </head>
 <body>
 왼쪽
-<a href="/rentacar/member/memberAgree.do" class="log">회원가입</a>
 </body>
 </html>
