@@ -50,7 +50,7 @@
 	    </div>
 	    
 	    <div style="margin-top:15px; text-align:center;">
-			<span class="btn btnC_04 btnP_04"><a href="/rentacar/main.do"><input type="button" value="메인화면으로"></a></span>
+			<span class="btn btnC_04 btnP_04"><a href="/pet/main.dog"><input type="button" value="메인화면으로"></a></span>
 			
 		</div>
 	</div>

@@ -17,17 +17,13 @@
       <put-attribute name="body" value="/WEB-INF/views/admin/car/writeForm.jsp" />
     </definition>
 	
-	<!-- Member -->
-	<definition name="memberAgree" extends="main">
-		<put-attribute name="body" value="/WEB-INF/views/member/memberJoinAgree.jsp"/>
+	<!-- 공지사항 -->
+	<definition name="noticeList" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/notice/noticeList.jsp" />
 	</definition>
 	
-	<definition name="member" extends="main">
-		<put-attribute name="body" value="/WEB-INF/views/member/memberJoin.jsp"/>
-	</definition>	
-	
-	<definition name="memberEnd" extends="main">
-		<put-attribute name="body" value="/WEB-INF/views/member/memberJoinEnd.jsp"/>
+	<definition name="noticeView" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/notice/noticeView.jsp" />
 	</definition>
 	
 	
