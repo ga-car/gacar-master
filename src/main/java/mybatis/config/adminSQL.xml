@@ -20,9 +20,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertRentacar" parameterType="rentacarModel">
 		insert into car
 		(car_no, car_type, car_brand, car_name, car_pnum, car_lat, car_long,
-		car_local, car_orgname, car_savename, car_charge)
+		car_zipcode, car_addr, car_addr2, car_orgname, car_savename, car_charge)
 		values(car_no.NEXTVAL, #{car_type}, #{car_brand}, #{car_name},
-		#{car_pnum}, #{car_lat}, #{car_long}, #{car_local}, #{car_orgname},
+		#{car_pnum}, #{car_lat}, #{car_long}, #{car_zipcode}, #{car_addr}, #{car_addr2}, #{car_orgname},
 		#{car_savename}, #{car_charge})
 	</insert>
 </mapper>
+<!-- create table car(
+car_no number NOT NULL PRIMARY KEY,
+car_type varchar2(50) NOT NULL,
+car_brand varchar2(20) NOT NULL,
+car_name varchar2(30) DEFAULT 'XXXX',
+car_pnum number DEFAULT 'XXXXXXX',
+car_lat varchar2(50) NOT NULL,
+car_long varchar2(4000) NOT NULL,
+car_zipcode varchar2(20) NOT NULL,
+car_addr varchar2(50) NOT NULL,
+car_addr2 varchar2(50) NOT NULL,
+car_orgname varchar2(50),
+car_savename varchar2(50),	
+car_charge varchar2(50),
+);
+create sequence car_no; -->

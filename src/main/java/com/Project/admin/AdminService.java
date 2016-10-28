@@ -8,7 +8,7 @@ import com.Project.rentacar.RentacarModel;
 
 public class AdminService implements AdminDao {
 
-	@Resource(name = "sqlSessionTemplate")
+	@Resource
 	private SqlSessionTemplate sqlSessionTemplate;
 
 	@Override
