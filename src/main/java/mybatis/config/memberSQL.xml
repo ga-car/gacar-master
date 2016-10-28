@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+						
+<mapper namespace="member">
+
+	<resultMap type="memberModel" id="memberRes">
+		<result property="num" column="num"/>
+		<result property="email" column="email"/>
+		<result property="password" column="password"/>
+		<result property="name" column="name"/>
+		<result property="phone" column="phone"/>
+		<result property="zipcode" column="zipcode"/>
+		<result property="addr" column="addr"/>
+		<result property="addr2" column="addr2"/>
+		<result property="cartype" column="cartype"/>
+		<result property="carnum" column="carnum"/>
+		<result property="licensetype" column="licensetype"/>
+		<result property="licensenum" column="licensenum"/>
+		<result property="licensedate" column="licensedate"/>
+		<result property="memlevel" column="memlevel"/>
+		<result property="point" column="point"/>
+		<result property="usenum" column="usenum"/>
+		<result property="joindate" column="joindate"/>
+		<result property="accessdate" column="accessdate"/>
+		<result property="del" column="del"/>
+		<result property="deldate" column="deldate"/>
+	</resultMap>
+
+	<sql id="select-all">
+		SELECT * FROM MEMBER_C
+	</sql>
+	
+	<insert id="insertMember" parameterType="memberModel">
+		insert into MEMBER_C(num, email, password, name, phone, zipcode, addr, addr2, cartype, carnum, licensetype, licensenum, licensedate, joindate)
+					values(seq_MEMBER.nextval, #{email}, #{password}, #{name}, #{phone}, #{zipcode}, #{addr}, #{addr2}, #{cartype}, #{carnum}, #{licensetype}, #{licensenum}, #{licensedate}, sysdate   )
+	</insert>
+	
+	<select id="getMember" parameterType="String" resultMap="memberRes">
+		<include refid="select-all" />
+		WHERE email = #{email}
+	</select>
+
+
+
+</mapper>

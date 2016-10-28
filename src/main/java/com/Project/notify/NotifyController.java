@@ -20,7 +20,7 @@ import com.Project.util.Paging;
 import com.Project.validator.NoticeValidator;
 
 @Controller
-@RequestMapping("/notice")
+@RequestMapping("/notify")
 public class NotifyController {
 
 	@Resource
