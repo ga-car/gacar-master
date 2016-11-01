@@ -2,7 +2,7 @@ package com.Project.faq;
 
 import java.util.Date;
 
-public class FaqModel {
+public class FAQModel {
 	
 	private int no;
 	private String name;	
