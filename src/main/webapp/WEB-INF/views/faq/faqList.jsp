@@ -10,8 +10,8 @@
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<link href="/review/resources/admincss/bootstrap.min.css" rel="stylesheet">
-<link href="/review/resources/admincss/sb-admin-2.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet">
 <title>Insert title here</title>
 <style type="text/css">
 	thead>tr>th{text-align: center;}
@@ -41,7 +41,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="page-header">
-						<img src="/review/resources/images/SkinImg/2.jpg">
+						<img src="/rentacar/resources/images/SkinImg/2.jpg">
 					<strong><font size="6px">FAQ</font></strong>&nbsp;&nbsp;
 					<font color="red">FAQ 게시판입니다.</font>
 					</div>
@@ -55,71 +55,36 @@
 
 						<!-- /.panel-heading -->
 
-						<div class="dataTable_wrapper">
-							<table class="table table-striped table-bordered table-hover"
-								id="dataTables-example">
-								<thead>
-									<tr class="danger">
-										<th width="10%">글번호</th>
-										<th width="40%">제목</th>
-										<th width="20%">작성자</th>
-										<th width="20%">작성일</th>
-										<th width="10%">조회수</th>
-									</tr>
-								</thead>
-								<%-- <tbody>
-
-									<c:forEach items="${list }" var="list">
-										<tr class="odd gradeX" onclick="onView('${list.no}');">
-											<td>${list.no }</td>
-											<td>${list.subject }</td>
-											<td>${list.name }</td>
-											<td class="center"><fmt:formatDate
-													value="${list.regdate }" pattern="YYYY-MM-dd" /></td>
-											<td class="center">${list.readcount }</td>
-										</tr>
-									</c:forEach>
-
-								</tbody> --%>
-								
-								<tbody>
+		<div class="dataTable_wrapper">
+			<table class="table table-striped table-bordered table-hover"
+				id="dataTables-example">
+				<thead>
+					<tr class="danger">
+						<th style="width: 7%; text-align:center;">글번호</th>
+						<th style="width: ; text-align:center;">제목</th>
+						<th style="width: 15%; text-align:center;">작성자</th>										
+						<th style="width: 15%; text-align:center;">작성일</th>
+					</tr>
+				</thead>
+				<tbody>
 					<c:forEach var="list" items="${faqList}">
-						<c:url var="viewURL" value="faqView.do" >
-							<c:param name="no" value="${list.no }" />
-						    <c:param name="currentPage" value="${currentPage }" />
-						</c:url>
 					<tr>
 						<td>${list.no}</td>
-						<td style="text-align:left;">
-							<a href="${viewURL}">${list.subject}</a>
-						</td>
+						<td style="text-align:left;"><h6>${list.subject}</h6></td>
 						<td>${list.name}</td> 
 						<td><fmt:formatDate value="${list.regdate}" pattern="yyyy.MM.dd"/></td>
-						<td>
-							${list.readcount}
-						</td>
 					</tr>
 					<tr>
 						<td colspan = 5 >${list.content }</td>
 					</tr>
 					</c:forEach>
-
 				</tbody>
-							</table>
-						</div>
-						
-					</div>
-						<div class="menu-wrap">
-								<c:if test="${session_member_name == 'admin' }">
-									<button type="button" onclick="onWrite()"
-										class="btn btn-primary">쓰기</button>
-								</c:if>
-
-								<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
-							</div>
-				</div>
-			
-			</div>
+			</table>
+		</div>
+		</div>
+		</div>
+	</div>
+</div>
 
 
 			<c:if test="${fn:length(faqList) le 0}">

@@ -26,7 +26,20 @@
 		<put-attribute name="body" value="/WEB-INF/views/notice/noticeView.jsp" />
 	</definition>
 	
-		<!-- 리뷰게시판 -->
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+<!-- 리뷰게시판 -->
    <definition name="reviewList" extends="main">
       <put-attribute name="body" value="/WEB-INF/views/review/reviewlist.jsp" />
    </definition>
@@ -51,17 +64,24 @@
 		<put-attribute name="body" value="/WEB-INF/views/faq/faqList.jsp" />
 	</definition>
 	
-	<definition name="faqView" extends="main">
-		<put-attribute name="body" value="/WEB-INF/views/faq/faqView.jsp" />
+	
+	<!-- 관리자 -->
+	 <definition name="adminreviewList" extends="main">
+      <put-attribute name="body" value="/WEB-INF/views/admin/review/reviewadminList.jsp" />
+   </definition>
+    <definition name="adminfaqList" extends="main">
+      <put-attribute name="body" value="/WEB-INF/views/admin/faq/faqadminList.jsp" />
+   </definition>
+   
+	<definition name="adminfaqForm" extends="main">
+	<put-attribute name="body" value="/WEB-INF/views/admin/faq/faqadminForm.jsp" />
 	</definition>
-
-	<definition name="faqForm" extends="main">
-	<put-attribute name="body" value="/WEB-INF/views/faq/faqForm.jsp" />
+	<definition name="adminfaqModify" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/admin/faq/faqadminModify.jsp" />
 	</definition>
-
-	<definition name="faqModify" extends="main">
-		<put-attribute name="body" value="/WEB-INF/views/faq/faqModify.jsp" />
-	</definition>
+	
+	
+	
 	
 </tiles-definitions>
 	

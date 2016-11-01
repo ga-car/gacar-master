@@ -10,8 +10,8 @@
 <script src="http://code.jquery.com/jquery-1.9.1.js"/>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"/>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<link href="/review/resources/admincss/bootstrap.min.css" rel="stylesheet">
-<link href="/review/resources/admincss/sb-admin-2.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet">
 <title>Insert title here</title>
 <style type="text/css">
 	thead>tr>th{text-align: center;}
@@ -72,7 +72,7 @@
 											<td>${list.no}</td>
 											<td style="text-align:center;">
 												<c:if test="${list.imagefile_savname != 'NULL'}">
-													<a href="${viewURL}"> =${list.subject}<img src="/review/resources/images/reviewImage.PNG" width="20" height="20">&nbsp;</a>
+													<a href="${viewURL}"> =${list.subject}<img src="/rentacar/resources/images/reviewImage.PNG" width="20" height="20">&nbsp;</a>
 												</c:if>
 												<c:if test="${list.imagefile_savname == 'NULL'}">
 													<a href="${viewURL}"> ${list.subject}</a>
