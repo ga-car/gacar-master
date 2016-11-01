@@ -1,8 +1,12 @@
 package com.Project.admin;
 
+import java.util.List;
+
 import com.Project.rentacar.RentacarModel;
 
-public interface AdminDao {
+public interface AdminDAO {
+	
+	List<RentacarModel> rentacarList();
 
-	public int insertRentacar(RentacarModel reatacarModel);
+	int insertRentacar(RentacarModel reatacarModel);
 }
