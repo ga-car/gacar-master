@@ -18,7 +18,7 @@ public interface NotifyDAO {
 	
 	List<NotifyModel> noticeSearch2(String search);
 	
-	int noticeModify(NotifyModel noticeModel);
+	int noticeModify(NotifyModel notifyModel);
 	
 	int noticeDelete(int no);
 }

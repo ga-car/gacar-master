@@ -1,0 +1,393 @@
+@charset "utf-8";
+
+#header .header_area{width:1000px;height:100px;margin:auto;position:relative;top:0;left:0;}
+#header .header_area h1 a{display:block;}
+
+#header .header_area .search_main{position:absolute;top:35px;left:320px;}
+#header .header_area .search_main .search_inner{position:relative;top:0;left:0;padding-right:40px;}
+#header .header_area .search_main .search_inner .txt{width:300px;height:34px;line-height:32px;}
+#header .header_area .search_main .search_inner .search_btn{position:absolute;top:0;right:0;color:#fff;background:#db0000;width:40px;height:36px;cursor:pointer;}
+
+#header .header_area .util_menu{position:absolute;top:10px;right:0;}
+#header .header_area .util_menu ul{overflow:hidden;}
+#header .header_area .util_menu ul li{float:left;}
+#header .header_area .util_menu ul li a{display:block;padding:0 8px;}
+#header .tab_cate {width:100%;height:200px;background: url(../images/SkinImg/top_li.gif) 0 0 repeat-x;}
+
+#header .tabs_area {
+	clear: both;
+	background: url(../images/SkinImg/top_li.gif) 0 0 repeat-x;
+	width: 1040px;
+	margin: 0 auto;
+}
+
+#header .tab_cate a:focus, #header .tab_cate a:active {
+	outline: none;
+	ie-dummy: expression(this.hideFocus = true);
+	border: 0px none;
+}
+
+#header .tab_cate .tabs {
+	padding: 25px 0 0 0;
+	font-size: 0;
+}
+
+#header .tab_cate .tabs li {
+	display: inline-block;
+	/* *display: inline;
+	*zoom: 1; */
+	margin: 0;
+	font-size: 0;
+}
+
+#header .tab_cate ul.tabs li a.tab_a1 {
+	background: url(../images/SkinImg/menu1.png) 0 -65px no-repeat;
+	width: 520px;
+	height: 65px;
+}
+
+#header .tab_cate ul.tabs li a.tab_a2 {
+	background: url(../images/SkinImg/menu2.png) 0 -65px no-repeat;
+	width: 520px;
+	height: 65px;
+}
+
+#header .tab_cate ul.tabs li a {
+	display: block;
+}
+
+#header .tab_cate ul.tabs li.act a, #header .tab_cate ul.tabs li.act a:hover
+	{
+	background-position: 0 0px;
+}
+
+#header .tab_cate ul.tabs li a:hover {
+	background-position: 0 -130px;
+}
+
+#header .tab_cate ul.tabs li a span {
+	display: none;
+}
+
+
+
+#container{width:1000px;margin:auto;}
+
+
+
+
+/********************************************** footer *************************************************************************/
+
+.foot_logo {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.foot_logo img {
+	margin: 0 0 0 14px;
+	vertical-align: bottom;
+}
+
+#footer {
+	border-top:4px solid #FF4F00;
+	position: relative;
+	clear: both;
+	zoom: 1;
+	background: #323232; 
+}
+
+.ft_box {
+	width: 1040px;
+	padding: 10px 0 0;
+	 background: #323232; 
+	margin: 0 auto;
+}
+
+.foot_area {
+	width: 1040px;
+	padding: 25px 0 0;
+	
+
+	margin: 0 auto;
+}
+
+.xans-layout-footer {
+	position: relative;
+	font-size: 0;
+	color: #6a6a6a;
+}
+
+.xans-layout-footer a {
+	color: #6a6a6a;
+}
+
+.xans-layout-footer .utilMenu {
+	overflow: hidden;
+	zoom: 1;
+	width: 100%;
+	min-height: 216px;
+	display: block;
+}
+
+.xans-layout-footer .utilMenu .utilMenu_unit {
+	float: left;
+	min-width: 140px;
+	margin: 0 34px 0 0;
+}
+
+.xans-layout-footer .utilMenu .bank_info {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+.xans-layout-footer .utilMenu h4 {
+	color: #aaa;
+	font-size: 12px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 10px;
+}
+
+.xans-layout-footer .utilMenu li {
+	margin: 0 0 3px 0;
+	font-size: 12px;
+	line-height: 16px;
+}
+
+.xans-layout-footer .utilMenu li a {
+	font-size: 12px;
+}
+
+.xans-layout-footer .utilMenu li a:hover {
+	text-decoration: none;
+	color: #ccc;
+}
+
+.xans-layout-footer .utilMenu li.phone {
+	font-size: 19px;
+	line-height: 17px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	color: #FC0;
+	margin: 0 0 5px;
+	letter-spacing: -1px;
+}
+
+.xans-layout-footer .utilMenu_unit2 {
+	width:;
+	margin: 25px 0 5px;
+}
+
+.xans-layout-footer .utilMenu_unit2 h4 {
+	color: #FFF;
+	margin: 10px 0 8px 0;
+	line-height: 13px;
+	font-size: 11px;
+	letter-spacing: -1px;
+}
+
+.xans-layout-footer .utilMenu_unit2 p {
+	font-size: 11px;
+	letter-spacing: -1px;
+	line-height: 1.4em;
+	margin: 0 0 7px;
+}
+
+.xans-layout-footer .utilMenu_unit2 a {
+	color: #FC0;
+	font-size: 11px;
+	letter-spacing: -1px;
+}
+
+.xans-layout-footer .qrcode {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-left: 1px solid #333;
+	padding-left: 55px;
+	width: 220px;
+	min-height: 145px;
+}
+
+.xans-layout-footer .qrcode .social {
+	margin: 7px 0 15px;
+	width: 100%;
+	display: inline-block;
+}
+
+.xans-layout-footer .qrcode .social a {
+	margin: 0 5px 0 0;
+	display: inline-block;
+}
+
+.xans-layout-footer .qrcode img {
+	width:;
+}
+
+.xans-layout-footer .inner {
+	
+}
+
+.xans-layout-footer p#copy {
+	font-size: 11px;
+	margin: 5px 0 0;
+}
+
+.xans-layout-footer #address {
+	padding: 20px 0 0;
+	margin: 25px 0 0;
+}
+
+.xans-layout-footer #address span {
+	padding: 0;
+}
+
+.xans-layout-footer #address span a, .xans-layout-footer #address span a:hover
+	{
+	
+}
+
+.xans-layout-footer #top {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.xans-layout-footer #logo {
+	position: absolute;
+	right: 25px;
+	bottom: 0;
+}
+
+/********************************************** GNB 탭 *************************************************************************/
+#header .tab_container {
+	position: relative;
+	z-index: 9;
+	clear: both;
+	width: 1040px;
+	margin: -3px auto 0; 
+}
+
+#header .tab_container .con_position {
+	margin: 0 0 -85px;
+}
+
+#header .tab_content {
+	position: relative;
+	padding: 0;
+	font-size: 1.2em;
+	border: 1px solid #ccc;
+	border-top: 0;
+	background: #eaeaea;
+	background: -moz-linear-gradient(top, #f7f7f7 0%, #eaeaea 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7f7f7),
+		color-stop(100%, #eaeaea));
+	background: -webkit-linear-gradient(top, #f7f7f7 0%, #eaeaea 100%);
+	background: -o-linear-gradient(top, #f7f7f7 0%, #eaeaea 100%);
+	background: -ms-linear-gradient(top, #f7f7f7 0%, #eaeaea 100%);
+	background: linear-gradient(to bottom, #f7f7f7 0%, #eaeaea 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7',
+		endColorstr='#eaeaea', GradientType=0);
+}
+
+#header .xans-layout-category {
+	clear: both;
+	margin: 0;
+}
+
+#header .xans-layout-category ul {
+	position: relative;
+	text-align: center;
+	font-size: 0;
+	display: inline-block;
+	width: 100%;
+}
+
+#header .xans-layout-category li.pst {
+	background: url(../images/SkinImg/menu_li.gif) left 47% no-repeat;
+	text-align: left;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	position: relative;
+	width: 9%;
+	vertical-align: top;
+}
+
+#header .xans-layout-category li.pst>a {
+	display: inline-block;
+	width: 100%;
+	height: 85px;
+	overflow: hidden;
+}
+
+#header .xans-layout-category li.pst>a span {
+	text-indent: -9999px;
+	display: inline-block;
+}
+
+#header .xans-layout-category li.pst1 {
+	background: none;
+}
+
+#header .xans-layout-category li.pst1>a {
+	background: url(../images/SkinImg/menu_01.png) 50% 0 no-repeat;
+}
+
+#header .xans-layout-category li.pst2>a {
+	background: url(../images/SkinImg/menu_02.png) 50% 0 no-repeat;
+}
+
+#header .xans-layout-category li.pst3>a {
+	background: url(../images/SkinImg/menu_03.png) 50% 0 no-repeat;
+}
+
+#header .xans-layout-category li.pst4>a {
+	background: url(../images/SkinImg/menu_04.png) 50% 0 no-repeat;
+}
+
+#header .xans-layout-category li.pst5>a {
+	background: url(../images/SkinImg/menu_05.png) 50% 0 no-repeat;
+}
+
+#header .xans-layout-category li.pst6>a {
+	background: url(../images/SkinImg/menu_12.png) 50% 0 no-repeat;
+}
+
+#header .xans-layout-category li.pst7>a {
+	background: url(../images/SkinImg/menu_12.png) 50% 0 no-repeat;
+}
+
+#header .xans-layout-category li.pst8>a {
+	background: url(../images/SkinImg/menu_12.png) 50% 0 no-repeat;
+}
+
+#header .xans-layout-category li.pst9>a {
+	background: url(../images/SkinImg/menu_12.png) 50% 0 no-repeat;
+}
+
+#header .xans-layout-category li.pst10>a {
+	background: url(../images/SkinImg/menu_12.png) 50% 0 no-repeat;
+}
+
+#header .xans-layout-category li.pst11>a {
+	background: url(../images/SkinImg/menu_11.png) 50% 0 no-repeat;
+}
+
+#header .xans-layout-category li:last-child {
+	margin-right: 0 !important;
+}
+
+#header .xans-layout-category li a:hover, #header .xans-layout-category li.on>a
+	{
+	background-position: 50% -85px;
+}
+
+#header .xans-layout-category>div>ul>li.active a {
+	background-position: 50% -85px;
+}
+
+
+

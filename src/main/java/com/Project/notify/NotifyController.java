@@ -28,19 +28,18 @@ public class NotifyController {
 	private int searchNum;
 	private String isSearch;
 	
-	//페이징을 위한 변수 설정
 	private int currentPage = 1;	 
 	private int totalCount; 		 
 	private int blockCount = 10;	 
 	private int blockPage = 5; 	 
 	private String pagingHtml;  
-	private Paging page;
-
-	//리스트 처리(검색)
-	@RequestMapping(value="list.do", method=RequestMethod.GET)
-	public ModelAndView noticeList(HttpServletRequest request) throws UnsupportedEncodingException{
-		
-		ModelAndView mav = new ModelAndView();
+	private Paging page;	
+	
+	
+	@RequestMapping(value="/list.do", method=RequestMethod.GET)
+	public ModelAndView noticeList(HttpServletRequest request) throws UnsupportedEncodingException
+	{ 
+	ModelAndView mav = new ModelAndView();
 		
 		if(request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty() || request.getParameter("currentPage").equals("0")) {
             currentPage = 1;
@@ -104,106 +103,28 @@ public class NotifyController {
 		mav.addObject("totalCount", totalCount);
 		mav.addObject("pagingHtml", pagingHtml);
 		mav.addObject("currentPage", currentPage);
-		mav.addObject("notifyList", noticeList);
+		mav.addObject("noticeList", noticeList);
 		mav.setViewName("noticeList");
 		return mav;
 	}
 
 	//공지사항 상세보기
-	@RequestMapping("detail.do")
+	@RequestMapping("/detail.do")
 	public ModelAndView noticeView(HttpServletRequest request){
 		   
 		ModelAndView mav = new ModelAndView();
 		
 		int no = Integer.parseInt(request.getParameter("no"));
 		
-		NotifyModel noticeModel = notifyService.noticeView(no);
+		NotifyModel notifyModel = notifyService.noticeView(no);
 		
 		notifyService.noticeUpdateReadcount(no);
 		
 		mav.addObject("currentPage", currentPage);
-		mav.addObject("notifyModel", noticeModel);
+		mav.addObject("notifyModel", notifyModel);
 		mav.setViewName("noticeView");
 		
 		return mav;
 	}
 	
-	/*//공지사항 글쓰기 폼
-	@RequestMapping(value="/notice/noticeWrite.dog", method=RequestMethod.GET)
-	public ModelAndView noticeForm(HttpServletRequest request) {
-		
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("noticeModel", new NotifyModel());
-		mav.setViewName("noticeForm");
-		return mav;
-	}
-	
-	//공지사항 글쓰기
-	@RequestMapping(value="/notice/noticeWrite.dog", method=RequestMethod.POST)
-	public ModelAndView noticeWrite(@ModelAttribute("noticeModel") NotifyModel noticeModel, BindingResult result, 
-			HttpServletRequest request, HttpSession session){
-		
-		ModelAndView mav = new ModelAndView();
-		
-		new NoticeValidator().validate(noticeModel, result);
-		
-		if(result.hasErrors()) {
-			mav.setViewName("noticeForm");
-			return mav;
-		}
-		
-		String content = noticeModel.getContent().replaceAll("\r\n", "<br />");
-		noticeModel.setContent(content);
-		
-		notifyService.noticeWrite(noticeModel);
-		
-		mav.addObject("noticeModel", noticeModel);
-		mav.setViewName("redirect:noticeList.dog");
-		
-		return mav;
-	}
-	
-	//공지사항 삭제
-	@RequestMapping("/notice/noticeDelete.dog")
-	public ModelAndView noticeDelete(HttpServletRequest request){
-		
-		ModelAndView mav = new ModelAndView();
-		int no = Integer.parseInt(request.getParameter("no"));
-		notifyService.noticeDelete(no);
-		mav.setViewName("redirect:noticeList.dog");
-		
-		return mav;	
-	}
-	
-	//공지사항 수정폼
-	@RequestMapping("/notice/noticeModify.dog")
-	public ModelAndView noticeModifyForm(@ModelAttribute("noticeModel") NotifyModel noticeModel, BindingResult result, HttpServletRequest request){
-		
-		ModelAndView mav = new ModelAndView();
-		noticeModel = notifyService.noticeView(noticeModel.getNo());
-		
-		String content = noticeModel.getContent().replaceAll("<br />", "\r\n");
-		noticeModel.setContent(content);
-		
-		mav.addObject("noticeModel", noticeModel);
-		mav.setViewName("noticeModify");
-		
-		return mav;	
-	}
-	
-	//공지사항 수정
-	@RequestMapping("/notice/noticeModifySuccess.dog")
-	public ModelAndView noticeModify(@ModelAttribute("noticeModel") NotifyModel noticeModel, HttpServletRequest request){
-		
-		ModelAndView mav = new ModelAndView("redirect:noticeView.dog");
-		
-		String content = noticeModel.getContent().replaceAll("\r\n", "<br />");
-		noticeModel.setContent(content);
-		
-		notifyService.noticeModify(noticeModel);
-		
-		mav.addObject("no", noticeModel.getNo());
-		
-		return mav;	
-	}*/
 }

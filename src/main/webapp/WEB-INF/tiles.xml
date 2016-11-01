@@ -13,8 +13,12 @@
 		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
 	
-	<definition name="carwriteForm" extends="main">
+	<definition name="carWriteForm" extends="main">
       <put-attribute name="body" value="/WEB-INF/views/admin/car/writeForm.jsp" />
+    </definition>
+    
+	<definition name="carListForm" extends="main">
+      <put-attribute name="body" value="/WEB-INF/views/admin/car/listForm.jsp" />
     </definition>
 	
 	<!-- 공지사항 -->
@@ -25,7 +29,59 @@
 	<definition name="noticeView" extends="main">
 		<put-attribute name="body" value="/WEB-INF/views/notice/noticeView.jsp" />
 	</definition>
+	<!-- 공지사항 관리자 -->
+	<definition name="noticeadminList" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/admin/notice/noticeadminList.jsp" />
+	</definition>
 	
+	<definition name="noticeadminView" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/admin/notice/noticeadminView.jsp" />
+	</definition>
+	
+	<definition name="noticeadminForm" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/admin/notice/noticeadminForm.jsp" />
+	</definition>
+	
+	<definition name="noticeadminModify" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/admin/notice/noticeadminModify.jsp" />
+	</definition> 
+	
+		<!-- 리뷰게시판 -->
+   <definition name="reviewList" extends="main">
+      <put-attribute name="body" value="/WEB-INF/views/review/reviewlist.jsp" />
+   </definition>
+   
+   <definition name="reviewWrite" extends="main">
+      <put-attribute name="body" value="/WEB-INF/views/review/reviewForm.jsp" />
+   </definition>
+   
+   <definition name="reviewView" extends="main">
+      <put-attribute name="body" value="/WEB-INF/views/review/reviewView.jsp" />
+   </definition>
+   
+   <definition name="reviewModify" extends="main">
+      <put-attribute name="body" value="/WEB-INF/views/review/reviewModify.jsp" />
+   </definition>
+	
+	
+	
+	
+<!--  FAQ  -->
+	<definition name="faqList" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/faq/faqList.jsp" />
+	</definition>
+	
+	<definition name="faqView" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/faq/faqView.jsp" />
+	</definition>
+
+	<definition name="faqForm" extends="main">
+	<put-attribute name="body" value="/WEB-INF/views/faq/faqForm.jsp" />
+	</definition>
+
+	<definition name="faqModify" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/faq/faqModify.jsp" />
+	</definition>
 	
 </tiles-definitions>
 	
