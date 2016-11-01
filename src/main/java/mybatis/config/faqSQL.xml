@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="faq">
 
-	<resultMap type="faqModel" id="faqModelRes">
+	<resultMap type="FAQModel" id="faqModelRes">
 		<result property="no" column="no" />		
 		<result property="name" column="name" />		
 		<result property="subject" column="subject" />
