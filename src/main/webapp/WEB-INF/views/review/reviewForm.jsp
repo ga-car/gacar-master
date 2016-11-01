@@ -22,9 +22,9 @@ function reviewList() {
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
-<link href="/review/resources/admincss/bootstrap.min.css" rel="stylesheet">
-<link href="/review/resources/css/reset.css" rel="stylesheet">
-<link href="/review/resources/admincss/sb-admin-2.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
+<link href="/rentacar/resources/css/reset.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css"> 
 
@@ -117,7 +117,7 @@ var oEditors = [];
 	nhn.husky.EZCreator.createInIFrame({
 	oAppRef: oEditors,
 	elPlaceHolder: document.getElementById('txtContent'), // html editor가 들어갈 textarea id
-	sSkinURI: "/review/resources/se/SmartEditor2Skin.html",  // html editor가 skin url
+	sSkinURI: "/rentacar/resources/se/SmartEditor2Skin.html",  // html editor가 skin url
 	fOnAppLoad: function () { 
         //수정모드를 구현할 때 사용할 부분. 로딩이 끝난 후 값이 체워지게 하는 구현을 하면 된다.
          var subject = '${reviewModel.subject}';               
@@ -131,19 +131,19 @@ var oEditors = [];
 var onWrite = function(){
 	oEditors.getById["txtContent"].exec("UPDATE_CONTENTS_FIELD", []); // 에디터의 내용이 textarea에 적용됨
 	var boardWriteForm = document.getElementById("boardWriteForm");  
-	boardWriteForm.action ="/review/reviewWrite.do";              
+	boardWriteForm.action ="/rentacar/reviewWrite.do";              
 	boardWriteForm.submit();  
 };
 
 var onModify = function(){
 	oEditors.getById["txtContent"].exec("UPDATE_CONTENTS_FIELD", []); // 에디터의 내용이 textarea에 적용됨
 	var boardWriteForm = document.getElementById("boardWriteForm");  
-	boardWriteForm.action ="/review/review/reviewModifySuccess.do";              
+	boardWriteForm.action ="/rentacar/review/reviewModifySuccess.do";              
 	boardWriteForm.submit();  
 };
 
 var pasteHTML = function(imagefile_savname){
-    var sHTML = '<img src="review/resources/reviewUpload/'+imagefile_savname+'">';/* ${pageContext.request.contextPath} */
+    var sHTML = '<img src="rentacar/resources/reviewUpload/'+imagefile_savname+'">';/* ${pageContext.request.contextPath} */
     oEditors.getById["txtContent"].exec("PASTE_HTML", [sHTML]);
 };
 </script>

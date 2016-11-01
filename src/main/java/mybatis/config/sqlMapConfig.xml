@@ -21,6 +21,8 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 		<!-- review -->
 		<typeAlias alias="reviewModel" type="com.Project.review.ReviewModel" />
+		
+		
 		<typeAlias alias="carpoolModel" type="com.Project.carpool.CarpoolModel" />
 		<typeAlias alias="notifyModel" type="com.Project.notify.NotifyModel" />
 		<typeAlias alias="faqModel" type="com.Project.faq.FAQModel" />

@@ -8,9 +8,9 @@
 <head>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
-<link href="/pet/resources/admincss/bootstrap.min.css" rel="stylesheet">
-<link href="/pet/resources/css/reset.css" rel="stylesheet">
-<link href="/pet/resources/admincss/sb-admin-2.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
+<link href="/rentacar/resources/css/reset.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet">
 <style type="text/css"> 
 
 	.contents-wrap{margin:30px 0 0 0;min-height: 500px;}
@@ -34,7 +34,7 @@ function faqDelete() {
 <div id="wrapper">
 <div class="category_top">
 	<ul>
-	 	<li class="post1">커뮤니티</li><li>></li><li class="post2">공지사항</li>			
+	 	<li class="post1">커뮤니티</li><li>></li><li class="post2">FAQ</li>			
 	</ul>
 </div>
 		<div id="page-wrapper">
