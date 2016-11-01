@@ -9,81 +9,119 @@
 	<!-- Main Page -->
 	<definition name="main" template="/WEB-INF/views/layout/main_layout.jsp">
 		<put-attribute name="left" value="/WEB-INF/views/layout/left.jsp" />
-		<put-attribute name="body" value="/WEB-INF/views/layout/container.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/layout/container.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
-	
-	<definition name="carwriteForm" extends="main">
-      <put-attribute name="body" value="/WEB-INF/views/admin/car/writeForm.jsp" />
-    </definition>
-	
+
+	<definition name="carWriteForm" extends="main">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/car/writeForm.jsp" />
+	</definition>
+
+	<definition name="carListForm" extends="main">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/car/listForm.jsp" />
+	</definition>
+
 	<!-- 공지사항 -->
 	<definition name="noticeList" extends="main">
-		<put-attribute name="body" value="/WEB-INF/views/notice/noticeList.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/notice/noticeList.jsp" />
 	</definition>
-	
+
 	<definition name="noticeView" extends="main">
-		<put-attribute name="body" value="/WEB-INF/views/notice/noticeView.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/notice/noticeView.jsp" />
 	</definition>
-	
-	
-	
-	
-	
-	
-	
+	<!-- 공지사항 관리자 -->
+	<definition name="noticeadminList" extends="main">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/notice/noticeadminList.jsp" />
+	</definition>
 
+	<definition name="noticeadminView" extends="main">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/notice/noticeadminView.jsp" />
+	</definition>
 
+	<definition name="noticeadminForm" extends="main">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/notice/noticeadminForm.jsp" />
+	</definition>
 
+	<definition name="noticeadminModify" extends="main">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/notice/noticeadminModify.jsp" />
+	</definition>
 
+	<!-- 리뷰게시판 -->
+	<definition name="reviewList" extends="main">
+		<put-attribute name="body"
+			value="/WEB-INF/views/review/reviewlist.jsp" />
+	</definition>
 
+	<definition name="reviewWrite" extends="main">
+		<put-attribute name="body"
+			value="/WEB-INF/views/review/reviewForm.jsp" />
+	</definition>
 
+	<definition name="reviewView" extends="main">
+		<put-attribute name="body"
+			value="/WEB-INF/views/review/reviewView.jsp" />
+	</definition>
 
-<!-- 리뷰게시판 -->
-   <definition name="reviewList" extends="main">
-      <put-attribute name="body" value="/WEB-INF/views/review/reviewlist.jsp" />
-   </definition>
-   
-   <definition name="reviewWrite" extends="main">
-      <put-attribute name="body" value="/WEB-INF/views/review/reviewForm.jsp" />
-   </definition>
-   
-   <definition name="reviewView" extends="main">
-      <put-attribute name="body" value="/WEB-INF/views/review/reviewView.jsp" />
-   </definition>
-   
-   <definition name="reviewModify" extends="main">
-      <put-attribute name="body" value="/WEB-INF/views/review/reviewModify.jsp" />
-   </definition>
-	
-	
-	
-	
-<!--  FAQ  -->
+	<definition name="reviewModify" extends="main">
+		<put-attribute name="body"
+			value="/WEB-INF/views/review/reviewModify.jsp" />
+	</definition>
+	<!-- FAQ -->
 	<definition name="faqList" extends="main">
 		<put-attribute name="body" value="/WEB-INF/views/faq/faqList.jsp" />
 	</definition>
-	
-	
 	<!-- 리뷰관리자 -->
-	 <definition name="adminreviewList" extends="main">
-      <put-attribute name="body" value="/WEB-INF/views/admin/review/reviewadminList.jsp" />
-   </definition>
-   
-   	<!-- faq관리자 -->
-    <definition name="adminfaqList" extends="main">
-      <put-attribute name="body" value="/WEB-INF/views/admin/faq/faqadminList.jsp" />
-   </definition>
+	<definition name="adminreviewList" extends="main">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/review/reviewadminList.jsp" />
+	</definition>
+
+	<!-- faq관리자 -->
+	<definition name="adminfaqList" extends="main">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/faq/faqadminList.jsp" />
+	</definition>
 	<definition name="adminfaqForm" extends="main">
-	<put-attribute name="body" value="/WEB-INF/views/admin/faq/faqadminForm.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/faq/faqadminForm.jsp" />
+
 	</definition>
 	<definition name="adminfaqModify" extends="main">
-		<put-attribute name="body" value="/WEB-INF/views/admin/faq/faqadminModify.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/faq/faqadminModify.jsp" />
 	</definition>
-	
-	
-	
-	
+
+	<!-- Member -->
+	<definition name="mem_default" template="/WEB-INF/views/layout/mem_layout.jsp">
+		<put-attribute name="body"
+			value="/WEB-INF/views/layout/container.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+	</definition>
+
+	<definition name="memberAgree" extends="mem_default">
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/memberJoinAgree.jsp" />
+	</definition>
+
+	<definition name="member" extends="mem_default">
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/memberJoin.jsp" />
+	</definition>
+
+	<definition name="memberEnd" extends="mem_default">
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/memberJoinEnd.jsp" />
+	</definition>
+
 </tiles-definitions>
 	
 	

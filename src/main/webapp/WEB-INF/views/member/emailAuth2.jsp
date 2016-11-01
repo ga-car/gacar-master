@@ -20,9 +20,11 @@
 		if(form.authnum.value==authNum){
 			alert("인증이 완료되었습니다.");
 			opener.document.getElementById("mailcheck").value="인증완료";
-			opener.document.joinform.email.readOnly=true;
-			opener.document.getElementById("mailauth").value="email변경";
+			opener.document.pwFindForm.email.readOnly=true;
+			/* opener.document.getElementById("mailauth").value="email변경"; */
+			opener.document.getElementById("mailauth").style.display="none";
 			self.close();
+			/* window.close(); */
 		}
 	}
 	
@@ -58,8 +60,10 @@
 	<table width=400 border=0 cellspacing=0 cellpadding=5 class="BTABLE">
 		<tr align=center>
 			<td height=30>
-				<font class="BFONT2"><b>${email2}</b> 은(는) 이미 사용 중인 E-mail입니다!<br/>
-				다른 E-mail 계정을 입력하세요.</font>
+				<%-- <font class="BFONT2"><b>${email2}</b> 은(는) 이미 사용 중인 E-mail입니다!<br/>
+				다른 E-mail 계정을 입력하세요.</font> --%>
+				<font class="BFONT2"><b>가입되어 있지 않은 이메일 입니다.<br/> 이메일 주소가 기억이 안 날 경우, 이메일 찾기를 먼저해주세요.</b></font>
+				
 			</td>
 		</tr>
 		<tr align=center>
@@ -80,25 +84,6 @@
 		</tr>
 	</table>
 	</form> -->
-</c:if>
-
-<c:if test="${email3!=null}">
-<center>
-<br/><br/>
-	<table width=400 border=0 cellspacing=0 cellpadding=5 class="BTABLE">
-		<tr align=center>
-			<td height=30>
-				<font class="BFONT2"><b>${email3}</b> 은(는) 유효하지 않은 E-mail입니다!<br/>
-				다른 E-mail 계정을 입력하세요.</font>
-			</td>
-		</tr>
-		<tr align=center>
-			<td>
-				<a href="javascript:this.close();"><input type="button" value="확인" ></a>
-			</td>
-		</tr>
-	</table>
-</center>
 </c:if>
 
 <head>

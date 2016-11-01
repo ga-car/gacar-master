@@ -1,4 +1,4 @@
-package com.Project.notify;
+package com.Project.admin;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
@@ -19,9 +19,10 @@ import com.Project.notify.NotifyService;
 import com.Project.util.Paging;
 import com.Project.validator.NoticeValidator;
 
+
 @Controller
-@RequestMapping("/notify")
-public class NotifyController {
+@RequestMapping("/admin/notify")
+public class AdminNotifyController {
 
 	@Resource
 	private NotifyService notifyService;
@@ -82,7 +83,7 @@ public class NotifyController {
 			mav.addObject("pagingHtml", pagingHtml);
 			mav.addObject("currentPage", currentPage);
 			mav.addObject("noticeList", noticeList);
-			mav.setViewName("noticeList");
+			mav.setViewName("noticeadminList");
 			return mav;
 		}
 		
@@ -104,7 +105,7 @@ public class NotifyController {
 		mav.addObject("pagingHtml", pagingHtml);
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("noticeList", noticeList);
-		mav.setViewName("noticeList");
+		mav.setViewName("noticeadminList");
 		return mav;
 	}
 
@@ -122,9 +123,88 @@ public class NotifyController {
 		
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("notifyModel", notifyModel);
-		mav.setViewName("noticeView");
+		mav.setViewName("noticeadminView");
 		
 		return mav;
 	}
+	
+	//공지사항 글쓰기 폼
+		@RequestMapping(value="/write.do", method=RequestMethod.GET)
+		public ModelAndView noticeForm(HttpServletRequest request) {
+			
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("notifyModel", new NotifyModel());
+			mav.setViewName("noticeadminForm");
+			return mav;
+		}
+		
+		//공지사항 글쓰기
+		@RequestMapping(value="/write.do", method=RequestMethod.POST)
+		public ModelAndView noticeWrite(@ModelAttribute("notifyModel") NotifyModel notifyModel, BindingResult result, 
+				HttpServletRequest request, HttpSession session){
+			System.out.println(notifyModel.getSubject());
+			ModelAndView mav = new ModelAndView();
+			
+			new NoticeValidator().validate(notifyModel, result);
+			
+			if(result.hasErrors()) {
+				mav.setViewName("noticeadminForm");
+				return mav;
+			}
+			
+			String content = notifyModel.getContent().replaceAll("\r\n", "<br />");
+			notifyModel.setContent(content);
+			
+			notifyService.noticeWrite(notifyModel);
+			
+			mav.addObject("notifyModel", notifyModel);
+			mav.setViewName("redirect:list.do");
+			
+			return mav;
+		}
+		
+		//공지사항 삭제
+		@RequestMapping("/delete.do")
+		public ModelAndView noticeDelete(HttpServletRequest request){
+			
+			ModelAndView mav = new ModelAndView();
+			int no = Integer.parseInt(request.getParameter("no"));
+			notifyService.noticeDelete(no);
+			mav.setViewName("redirect:/admin/notify/list.do");
+			
+			return mav;	
+		}
+		
+		//공지사항 수정폼
+		@RequestMapping("/modify.do")
+		public ModelAndView noticeModifyForm(@ModelAttribute("notifyModel") NotifyModel notifyModel, BindingResult result, HttpServletRequest request){
+			
+			ModelAndView mav = new ModelAndView();
+			notifyModel = notifyService.noticeView(notifyModel.getNo());
+			
+			String content = notifyModel.getContent().replaceAll("<br />", "\r\n");
+			notifyModel.setContent(content);
+			
+			mav.addObject("notifyModel", notifyModel);
+			mav.setViewName("noticeadminModify");
+			
+			return mav;	
+		}
+		
+		//공지사항 수정
+		@RequestMapping("/modifySuccess.do")
+		public ModelAndView noticeModify(@ModelAttribute("notifyModel") NotifyModel notifyModel, HttpServletRequest request){
+			
+			ModelAndView mav = new ModelAndView("redirect:/admin/notify/list.do");
+			
+			String content = notifyModel.getContent().replaceAll("\r\n", "<br />");
+			notifyModel.setContent(content);
+			
+			notifyService.noticeModify(notifyModel);
+			
+			mav.addObject("no", notifyModel.getNo());
+			
+			return mav;	
+		}
 	
 }
