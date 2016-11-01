@@ -38,7 +38,7 @@
 <!-- <script type="text/javascript">
 function noticeDelete() {
 	alert("삭제하겠습니까?");
-	location.href='noticeDelete.dog?no=${noticeModel.no}';
+	location.href='noticeDelete.dog?no=${notifyModel.no}';
 }
 </script> -->
 </head>
@@ -69,18 +69,18 @@ function noticeDelete() {
 								id="dataTables-example">
 								<thead>
 									<tr class="danger">
-										<th>${noticeModel.subject }</th>
+										<th>${notifyModel.subject }</th>
 
 									</tr>
 								</thead>
 								<tbody>
 
 									<tr>
-										<td align=right><strong>${noticeModel.name }</strong>&nbsp;&nbsp;|&nbsp;&nbsp;<fmt:formatDate
-												value="${noticeModel.regdate }" pattern="yyyy-MM-dd" /></td>
+										<td align=right><strong>${notifyModel.name }</strong>&nbsp;&nbsp;|&nbsp;&nbsp;<fmt:formatDate
+												value="${notifyModel.regdate }" pattern="yyyy-MM-dd" /></td>
 									</tr>
 									<tr>
-										<td>${noticeModel.content }</td>
+										<td>${notifyModel.content }</td>
 
 									</tr>
 
@@ -88,10 +88,10 @@ function noticeDelete() {
 							</table>
 						</div>
 						<form class="viewForm" method="post">
-							<input type="hidden" name="${noticeModel.no }" />
+							<input type="hidden" name="${notifyModel.no }" />
 							<%-- <input type="hidden" name="seq" value="${item.seq }" /> --%>
 							<c:if test="${session_member_id == 'admin' }">
-								<button type="button" onclick="onModify(${noticeModel.no })"
+								<button type="button" onclick="onModify(${notifyModel.no })"
 									class="btn btn-primary">수정</button>
 							</c:if>
 							<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
