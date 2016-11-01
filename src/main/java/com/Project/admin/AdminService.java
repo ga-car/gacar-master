@@ -3,8 +3,6 @@ package com.Project.admin;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +15,8 @@ public class AdminService implements AdminDAO {
 	private SqlSessionTemplate sqlSessionTemplate;
 	
 	@Override
-	public List<RentacarModel> rentacarList() {
-		return sqlSessionTemplate.selectList("admin.rentacarList"); 
+	public List<RentacarModel> rentacarAdminList() {
+		return sqlSessionTemplate.selectList("admin.rentacarAdminList"); 
 	}
 
 	@Override

@@ -17,7 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="car_image" column="car_image" />
 		<result property="car_charge" column="car_charge" />
 	</resultMap>
-	<select id="rentacarList" resultMap="rentacarModelRes">
+	<select id="rentacarAdminList" resultMap="rentacarModelRes">
 			select * from car 
 			order by car_no desc
 	</select>
