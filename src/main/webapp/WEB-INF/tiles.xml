@@ -13,8 +13,12 @@
 		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
 	
-	<definition name="carwriteForm" extends="main">
+	<definition name="carWriteForm" extends="main">
       <put-attribute name="body" value="/WEB-INF/views/admin/car/writeForm.jsp" />
+    </definition>
+    
+	<definition name="carListForm" extends="main">
+      <put-attribute name="body" value="/WEB-INF/views/admin/car/listForm.jsp" />
     </definition>
 	
 	<!-- 공지사항 -->
