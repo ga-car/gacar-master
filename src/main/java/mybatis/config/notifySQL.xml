@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="notice">
-
+ 
 	<resultMap type="notifyModel" id="noticeModelRes">
 		<result property="no" column="no" />		
 		<result property="name" column="name" />		
@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="regdate" column="regdate" />
 		<result property="readcount" column="readcount" />
 	</resultMap>
-		
+	
 	<!-- 글목록  -->
 	<select id="noticeList" resultMap="noticeModelRes">
 			SELECT * FROM NOTICE 
@@ -23,9 +23,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 글쓰기 -->
 	<insert id="noticeWrite" parameterType="Integer">
 			INSERT INTO NOTICE
-			(NO, SUBJECT, CONTENT, REGDATE, NAME)
+			(NO, SUBJECT, CONTENT, REGDATE, NAME )
 			VALUES
-			(NOTICE_SEQ.NEXTVAL, #{subject}, #{content}, SYSDATE, #{name})
+			(NOTICE_SEQ.NEXTVAL, #{subject}, #{content}, SYSDATE, #{name} )
 	</insert>
 
 	<!-- 조회수 1증가 -->
@@ -53,7 +53,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="noticeModify" parameterType="notifyModel">
 			UPDATE NOTICE
 			SET
-				NAME = #{name},
+				<!-- NAME = #{name}, -->
 				SUBJECT = #{subject},
 				CONTENT = #{content}
 			WHERE

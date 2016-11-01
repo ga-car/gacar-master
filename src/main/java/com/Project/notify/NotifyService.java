@@ -22,8 +22,8 @@ public class NotifyService implements NotifyDAO {
 
 	//글쓰기
 	@Override
-	public int noticeWrite(NotifyModel NotifyModel) {
-		return sqlSessionTemplate.insert("notice.noticeWrite", NotifyModel);
+	public int noticeWrite(NotifyModel notifyModel) {
+		return sqlSessionTemplate.insert("notice.noticeWrite", notifyModel);
 	}
 	
 	//글 하나 불러오기
@@ -58,8 +58,8 @@ public class NotifyService implements NotifyDAO {
 
 	//글수정
 	@Override
-	public int noticeModify(NotifyModel NotifyModel) {
-		return sqlSessionTemplate.update("notice.noticeModify",NotifyModel); 
+	public int noticeModify(NotifyModel notifyModel) {
+		return sqlSessionTemplate.update("notice.noticeModify",notifyModel); 
 	}
 
 	//글삭제
