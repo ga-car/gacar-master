@@ -11,34 +11,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="car_name" column="car_name" />
 		<result property="car_pnum" column="car_pnum" />
 		<result property="car_lat" column="car_lat" />
-		<result property="car_long" column="car_long" />
-		<result property="car_local" column="car_local" />
-		<result property="car_orgname" column="car_orgname" />
-		<result property="car_savename" column="car_savename" />
+		<result property="car_lng" column="car_lng" />
+		<result property="car_addr" column="car_addr" />
+		<result property="car_addr2" column="car_addr2" />
+		<result property="car_image" column="car_image" />
 		<result property="car_charge" column="car_charge" />
 	</resultMap>
+	<select id="rentacarList" resultMap="rentacarModelRes">
+			select * from car 
+			order by car_no desc
+	</select>
 	<insert id="insertRentacar" parameterType="rentacarModel">
 		insert into car
-		(car_no, car_type, car_brand, car_name, car_pnum, car_lat, car_long,
-		car_zipcode, car_addr, car_addr2, car_orgname, car_savename, car_charge)
-		values(car_no.NEXTVAL, #{car_type}, #{car_brand}, #{car_name},
-		#{car_pnum}, #{car_lat}, #{car_long}, #{car_zipcode}, #{car_addr}, #{car_addr2}, #{car_orgname},
-		#{car_savename}, #{car_charge})
+		(car_no, car_type, car_brand, car_name, car_pnum, car_lat, car_lng,
+		car_zipcode, car_addr, car_addr2, car_image, car_charge)
+		values(#{car_no}, #{car_type}, #{car_brand}, #{car_name}, #{car_pnum},
+		#{car_lat}, #{car_lng}, #{car_zipcode}, #{car_addr}, #{car_addr2},
+		#{car_image}, #{car_charge})
 	</insert>
 </mapper>
-<!-- create table car(
-car_no number NOT NULL PRIMARY KEY,
-car_type varchar2(50) NOT NULL,
-car_brand varchar2(20) NOT NULL,
-car_name varchar2(30) DEFAULT 'XXXX',
-car_pnum number DEFAULT 'XXXXXXX',
-car_lat varchar2(50) NOT NULL,
-car_long varchar2(4000) NOT NULL,
-car_zipcode varchar2(20) NOT NULL,
-car_addr varchar2(50) NOT NULL,
-car_addr2 varchar2(50) NOT NULL,
-car_orgname varchar2(50),
-car_savename varchar2(50),	
-car_charge varchar2(50),
-);
-create sequence car_no; -->
+<!-- create table car( car_no varchar2(25) NOT NULL PRIMARY KEY, car_type 
+	varchar2(30) NOT NULL, car_brand varchar2(30) NOT NULL, car_name varchar2(30) 
+	NOT NULL, car_pnum number(10) NOT NULL, car_lat varchar2(20) NOT NULL, car_lng 
+	varchar2(20) NOT NULL, car_zipcode varchar2(10) NOT NULL, car_addr varchar2(100) 
+	NOT NULL, car_addr2 varchar2(100) NOT NULL, car_image varchar2(100) NOT NULL, 
+	car_charge number(10) NOT NULL); -->

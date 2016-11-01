@@ -2,17 +2,26 @@ package com.Project.rentacar;
 
 public class RentacarModel {
 
+	private String car_no;
 	private String car_type;
 	private String car_brand;
 	private String car_name;
 	private int car_pnum;
 	private String car_lat;
-	private String car_long;
+	private String car_lng;
 	private String car_zipcode;
 	private String car_addr;
 	private String car_addr2;
 	private String car_image;
 	private String car_charge;
+
+	public String getCar_no() {
+		return car_no;
+	}
+
+	public void setCar_no(String car_no) {
+		this.car_no = car_no;
+	}
 
 	public String getCar_type() {
 		return car_type;
@@ -54,12 +63,12 @@ public class RentacarModel {
 		this.car_lat = car_lat;
 	}
 
-	public String getCar_long() {
-		return car_long;
+	public String getCar_lng() {
+		return car_lng;
 	}
 
-	public void setCar_long(String car_long) {
-		this.car_long = car_long;
+	public void setCar_lng(String car_lng) {
+		this.car_lng = car_lng;
 	}
 
 	public String getCar_zipcode() {

@@ -3,8 +3,7 @@ package com.Project.admin;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -23,16 +22,62 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.Project.rentacar.RentacarModel;
+import com.Project.util.Paging;
 
 @Controller
 @RequestMapping(value = "/admin")
 public class AdminCarController {
 
+	@Resource
 	private AdminService adminService;
 
+	
 	String uploadPath = "F:\\";
+	
+	private int currentPage = 1;	 
+	private int totalCount; 		 
+	private int blockCount = 10;	 
+	private int blockPage = 5; 	 
+	private String pagingHtml;  
+	private Paging page;
 
-	private List<RentacarModel> rentacarModel = new ArrayList<RentacarModel>();
+	@RequestMapping(value = "/car/list.do", method = RequestMethod.GET)
+	public ModelAndView listRentacarform(HttpServletRequest request) throws UnsupportedEncodingException {
+
+		ModelAndView mav = new ModelAndView();
+
+		if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
+				|| request.getParameter("currentPage").equals("0")) {
+			currentPage = 1;
+		} else {
+			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		}
+
+		List<RentacarModel> rentacarList;
+
+		String isSearch = request.getParameter("isSearch");
+		
+		rentacarList = adminService.rentacarList();
+
+		totalCount = rentacarList.size();
+
+		page = new Paging(currentPage, totalCount, blockCount, blockPage, "list");
+		pagingHtml = page.getPagingHtml().toString();
+
+		int lastCount = totalCount;
+
+		if (page.getEndCount() < totalCount)
+			lastCount = page.getEndCount() + 1;
+
+		rentacarList = rentacarList.subList(page.getStartCount(), lastCount);
+
+		mav.addObject("totalCount", totalCount);
+		mav.addObject("pagingHtml", pagingHtml);
+		mav.addObject("currentPage", currentPage);
+		mav.addObject("rentacarList", rentacarList);
+		mav.setViewName("carListForm");
+		return mav;
+	}
 
 	@RequestMapping(value = "/car/write.do", method = RequestMethod.GET)
 	public ModelAndView insertRentacarform() {
@@ -47,10 +92,8 @@ public class AdminCarController {
 			MultipartHttpServletRequest multipartHttpServletRequest, HttpSession session)
 			throws FileNotFoundException, IOException {
 
-		System.out.println("글쓰기 시작");
-
 		ModelAndView mav = new ModelAndView();
-		
+
 		MultipartFile multipartFile = multipartHttpServletRequest.getFile("car_image");
 		String filename = multipartFile.getOriginalFilename();
 
@@ -61,13 +104,13 @@ public class AdminCarController {
 		} else {
 			rentacarModel.setCar_image("NULL");
 		}
-		
+
 		System.out.printf("%s \n", rentacarModel.getCar_lat());
 		System.out.printf("%s \n", rentacarModel.getCar_image());
-		/*adminService.insertRentacar(rentacarModel);*/
+		/* adminService.insertRentacar(rentacarModel); */
+		adminService.insertRentacar(rentacarModel);
 
-		mav.addObject("rentacarModel", rentacarModel);
-		mav.setViewName("redirect:write.do");
+		mav.setViewName("redirect:list.do");
 		return mav;
 	}
 }

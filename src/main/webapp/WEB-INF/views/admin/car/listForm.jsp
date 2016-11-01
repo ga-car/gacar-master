@@ -1,9 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>car List</title>
 </head>
 <body>
@@ -11,7 +12,33 @@
 	<form enctype="multipart/form-data" method="post">
 		<table>
 			<tr>
-			<td>Â÷Á¾</td><td>Â÷·®ºê·£µå</td><td>Â÷·®¸í</td><td>ÀÎ½Â</td><td colspan="2">¼­ºñ½ºÀ§Ä¡</td>
+				<td>ì°¨ëŸ‰ë²ˆí˜¸</td>
+				<td>ì°¨ì¢…</td>
+				<td>ì°¨ëŸ‰ë¸Œëœë“œ</td>
+				<td>ì°¨ëŸ‰ëª…</td>
+				<td>ì¸ìŠ¹</td>
+				<td colspan="2">ì„œë¹„ìŠ¤ìœ„ì¹˜</td>
+			</tr>
+			<c:forEach var="rentacarList" items="${rentacarList}"
+				varStatus="stat">
+				<tr>
+					<td>${rentacarList.car_no}</td>
+					<td>${rentacarList.car_type}</td>
+					<td>${rentacarList.car_brand}</td>
+					<td>${rentacarList.car_name}</td>
+					<td>${rentacarList.car_pnum}</td>
+					<td>${rentacarList.car_addr}&nbsp;${rentacarList.car_addr2}<input
+						type="hidden" name="car_lat" value="${rentacarList.car_lat}"
+						id="car_lat" /> <input type="hidden" name="car_lng"
+						value="${rentacarList.car_lng}" id="car_lng" />
+					</td>
+				</tr>
+			</c:forEach>
+			<tr>
+				<td>${pagingHtml}</td>
+			</tr>
+			<tr>
+				<td><a href="/rentacar/admin/car/write.do">ê¸€ì“°ê¸°</a></td>
 			</tr>
 		</table>
 	</form>
