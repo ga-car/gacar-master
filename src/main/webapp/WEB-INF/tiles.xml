@@ -13,23 +13,23 @@
 		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
 	
-	<definition name="carwriteForm" extends="main">
-      <put-attribute name="body" value="/WEB-INF/views/admin/car/writeForm.jsp" />
-    </definition>
-	
 	<!-- Member -->
-	<definition name="memberAgree" extends="main">
+	<definition name="mem_default" template="/WEB-INF/views/layout/mem_layout.jsp">
+		<put-attribute name="body" value="/WEB-INF/views/layout/container.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+	</definition>
+	
+	<definition name="memberAgree" extends="mem_default">
 		<put-attribute name="body" value="/WEB-INF/views/member/memberJoinAgree.jsp"/>
 	</definition>
 	
-	<definition name="member" extends="main">
+	<definition name="member" extends="mem_default">
 		<put-attribute name="body" value="/WEB-INF/views/member/memberJoin.jsp"/>
 	</definition>	
 	
-	<definition name="memberEnd" extends="main">
+	<definition name="memberEnd" extends="mem_default">
 		<put-attribute name="body" value="/WEB-INF/views/member/memberJoinEnd.jsp"/>
 	</definition>
-	
 	
 </tiles-definitions>
 	

@@ -4,25 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="admin">
-	<resultMap type="rentacarModel" id="rentacarModelRes">
-		<result property="car_no" column="car_no" />
-		<result property="car_type" column="car_type" />
-		<result property="car_brand" column="car_brand" />
-		<result property="car_name" column="car_name" />
-		<result property="car_pnum" column="car_pnum" />
-		<result property="car_lat" column="car_lat" />
-		<result property="car_long" column="car_long" />
-		<result property="car_local" column="car_local" />
-		<result property="car_orgname" column="car_orgname" />
-		<result property="car_savename" column="car_savename" />
-		<result property="car_charge" column="car_charge" />
+	<resultMap type="adminModel" id="adminModelRes">
+	
 	</resultMap>
-	<insert id="insertRentacar" parameterType="rentacarModel">
-		insert into car
-		(car_no, car_type, car_brand, car_name, car_pnum, car_lat, car_long,
-		car_local, car_orgname, car_savename, car_charge)
-		values(car_no.NEXTVAL, #{car_type}, #{car_brand}, #{car_name},
-		#{car_pnum}, #{car_lat}, #{car_long}, #{car_local}, #{car_orgname},
-		#{car_savename}, #{car_charge})
-	</insert>
 </mapper>

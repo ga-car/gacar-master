@@ -25,22 +25,52 @@
 		<result property="accessdate" column="accessdate"/>
 		<result property="del" column="del"/>
 		<result property="deldate" column="deldate"/>
+		<result property="jumin1" column="jumin1"/>
+		<result property="jumin2" column="jumin2"/>
 	</resultMap>
 
+	<resultMap type="zipcodeModel" id="zipcodeRes">
+		<result property="zipcode" column="zipcode" />
+		<result property="area1" column="area1" />
+		<result property="area2" column="area2" />
+		<result property="area3" column="area3" />
+		<result property="area4" column="area4" />
+	</resultMap>
+	
 	<sql id="select-all">
 		SELECT * FROM MEMBER_C
 	</sql>
 	
 	<insert id="insertMember" parameterType="memberModel">
-		insert into MEMBER_C(num, email, password, name, phone, zipcode, addr, addr2, cartype, carnum, licensetype, licensenum, licensedate, joindate)
-					values(seq_MEMBER.nextval, #{email}, #{password}, #{name}, #{phone}, #{zipcode}, #{addr}, #{addr2}, #{cartype}, #{carnum}, #{licensetype}, #{licensenum}, #{licensedate}, sysdate   )
+		insert into MEMBER_C(num, email, password, name, phone, zipcode, addr, addr2, cartype, carnum, licensetype, licensenum, licensedate, joindate, jumin1, jumin2)
+					values(seq_MEMBER.nextval, #{email}, #{password}, #{name}, #{phone}, #{zipcode}, #{addr}, #{addr2}, #{cartype}, #{carnum}, #{licensetype}, #{licensenum}, #{licensedate}, sysdate, #{jumin1}, #{jumin2})
 	</insert>
 	
 	<select id="getMember" parameterType="String" resultMap="memberRes">
 		<include refid="select-all" />
-		WHERE email = #{email}
+		where email = #{email}
+	</select>
+	
+	<select id="zipcodeCheck" parameterType="zipcodeModel" resultMap="zipcodeRes"> 
+		select * from zipcode where AREA3 like '%'|| #{area3} ||'%'
+	</select>
+	
+	        <!-- 로그인 체크 -->
+	<select id="login" parameterType="memberModel" resultMap="memberRes">
+		<include refid="select-all" />
+		where email=#{email} and password=#{password}
 	</select>
 
+	<!-- 이름으로 비밀번호 와 아이디 찾기 --> 
+	<select id="emailFind" parameterType="memberModel" resultMap="memberRes">
+		<include refid="select-all" />
+		where name=#{name} and jumin1=#{jumin1}
+	</select>
+	
+	<select id="pwFind" parameterType="memberModel" resultMap="memberRes">
+		<include refid="select-all" />
+		where name=#{name} and email=#{email}
+	</select>
 
 
 </mapper>
