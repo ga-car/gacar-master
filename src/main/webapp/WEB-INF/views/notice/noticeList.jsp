@@ -135,9 +135,9 @@ tbody>tr:HOVER {
 
 					</div>
 					<div class="menu-wrap">
-						<c:if test="${session_member_name == 'admin' }">
+					<%-- 	<c:if test="${session_member_name == 'admin' }">
 							<button type="button" onclick="onWrite()" class="btn btn-primary">쓰기</button>
-						</c:if>
+						</c:if> --%>
 
 						<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
 					</div>
@@ -184,10 +184,10 @@ tbody>tr:HOVER {
 
 
 </body>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	$('.searchOption').val($('.searchOptionVal').val());
 	var onWrite = function() {
 		location.href = 'noticeWrite.dog';
 	};
-</script>
+</script> -->
 </html>

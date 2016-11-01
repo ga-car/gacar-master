@@ -4,9 +4,10 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
+
 <head>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script> -->
 <link href="/pet/resources/admincss/bootstrap.min.css" rel="stylesheet">
 <link href="/pet/resources/css/reset.css" rel="stylesheet">
 <link href="/pet/resources/admincss/sb-admin-2.css" rel="stylesheet">
@@ -35,15 +36,17 @@
 }
 </style>
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 function noticeDelete() {
 	alert("삭제하겠습니까?");
-	location.href='noticeDelete.dog?no=${notifyModel.no}';
+	location.href='delete.do?no=${notifyModel.no}';
 }
-</script> -->
+</script>
 </head>
 
 <body>
+
+
 	<div id="wrapper">
 		<div class="category_top">
 			<ul>
@@ -63,7 +66,9 @@ function noticeDelete() {
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="panel panel-default">
+
 						<!-- /.panel-heading -->
+
 						<div class="dataTable_wrapper">
 							<table class="table table-striped table-bordered table-hover"
 								id="dataTables-example">
@@ -90,10 +95,10 @@ function noticeDelete() {
 						<form class="viewForm" method="post">
 							<input type="hidden" name="${notifyModel.no }" />
 							<%-- <input type="hidden" name="seq" value="${item.seq }" /> --%>
-							<c:if test="${session_member_id == 'admin' }">
+							<%-- <c:if test="${session_member_id == 'admin' }"> --%>
 								<button type="button" onclick="onModify(${notifyModel.no })"
 									class="btn btn-primary">수정</button>
-							</c:if>
+							<%-- </c:if> --%>
 							<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
 						</form>
 
@@ -102,14 +107,25 @@ function noticeDelete() {
 				</div>
 			</div>
 		</div>
+
+
+
+
+
+
+
 	</div>
+
+
+
+
 </body>
 <script type="text/javascript">
-/* 	var onModify = function(no){
+	var onModify = function(no){
 		var form = $('.viewForm')[0];
-		form.action = 'noticeModify.dog?no='+no;
+		form.action = 'modify.do?no='+no;
 		form.submit();
-	}; */
+	};
 	
 	var onList = function(){
 		location.href='list.do'

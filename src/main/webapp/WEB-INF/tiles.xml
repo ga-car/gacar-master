@@ -29,6 +29,22 @@
 	<definition name="noticeView" extends="main">
 		<put-attribute name="body" value="/WEB-INF/views/notice/noticeView.jsp" />
 	</definition>
+	<!-- 공지사항 관리자 -->
+	<definition name="noticeadminList" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/admin/notice/noticeadminList.jsp" />
+	</definition>
+	
+	<definition name="noticeadminView" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/admin/notice/noticeadminView.jsp" />
+	</definition>
+	
+	<definition name="noticeadminForm" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/admin/notice/noticeadminForm.jsp" />
+	</definition>
+	
+	<definition name="noticeadminModify" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/admin/notice/noticeadminModify.jsp" />
+	</definition> 
 	
 		<!-- 리뷰게시판 -->
    <definition name="reviewList" extends="main">
