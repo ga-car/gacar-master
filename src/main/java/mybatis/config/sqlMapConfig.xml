@@ -24,7 +24,7 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="reviewModel" type="com.Project.review.ReviewModel" />
 		<typeAlias alias="carpoolModel" type="com.Project.carpool.CarpoolModel" />
 		<typeAlias alias="notifyModel" type="com.Project.notify.NotifyModel" />
-		<typeAlias alias="faqModel" type="com.Project.faq.FaqModel" />
+		<typeAlias alias="faqModel" type="com.Project.faq.FAQModel" />
 		<typeAlias alias="qnaModel" type="com.Project.qna.QnaModel" />
 		<typeAlias alias="mypageModel" type="com.Project.mypage.MypageModel" />
 		<typeAlias alias="joinModel" type="com.Project.join.JoinModel" />
@@ -36,9 +36,9 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 
 		<mapper resource="mybatis/config/reviewSQL.xml" />
+		<mapper resource="mybatis/config/faqSQL.xml" />
 		<mapper resource="mybatis/config/carpoolSQL.xml" />
 		<mapper resource="mybatis/config/notifySQL.xml" />
-		<mapper resource="mybatis/config/faqSQL.xml" />
 		<mapper resource="mybatis/config/qnaSQL.xml" />
 		<mapper resource="mybatis/config/mypageSQL.xml" />
 		<mapper resource="mybatis/config/joinSQL.xml" />

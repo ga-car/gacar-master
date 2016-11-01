@@ -30,6 +30,42 @@
 		<put-attribute name="body" value="/WEB-INF/views/notice/noticeView.jsp" />
 	</definition>
 	
+		<!-- 리뷰게시판 -->
+   <definition name="reviewList" extends="main">
+      <put-attribute name="body" value="/WEB-INF/views/review/reviewlist.jsp" />
+   </definition>
+   
+   <definition name="reviewWrite" extends="main">
+      <put-attribute name="body" value="/WEB-INF/views/review/reviewForm.jsp" />
+   </definition>
+   
+   <definition name="reviewView" extends="main">
+      <put-attribute name="body" value="/WEB-INF/views/review/reviewView.jsp" />
+   </definition>
+   
+   <definition name="reviewModify" extends="main">
+      <put-attribute name="body" value="/WEB-INF/views/review/reviewModify.jsp" />
+   </definition>
+	
+	
+	
+	
+<!--  FAQ  -->
+	<definition name="faqList" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/faq/faqList.jsp" />
+	</definition>
+	
+	<definition name="faqView" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/faq/faqView.jsp" />
+	</definition>
+
+	<definition name="faqForm" extends="main">
+	<put-attribute name="body" value="/WEB-INF/views/faq/faqForm.jsp" />
+	</definition>
+
+	<definition name="faqModify" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/faq/faqModify.jsp" />
+	</definition>
 	
 </tiles-definitions>
 	
