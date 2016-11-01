@@ -132,9 +132,9 @@ function fnChkByte(obj, maxByte){
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
-<link href="/pet/resources/admincss/bootstrap.min.css" rel="stylesheet">
-<link href="/pet/resources/css/reset.css" rel="stylesheet">
-<link href="/pet/resources/admincss/sb-admin-2.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
+<link href="/rentacar/resources/css/reset.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet">
 <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -152,7 +152,7 @@ function fnChkByte(obj, maxByte){
 
 <div class="category_top">
    <ul>
-       <li class="post1">커뮤니티</li><li>></li><li class="post2">구매후기</li>         
+       <li class="post1">커뮤니티</li><li>></li><li class="post2">이용후기</li>         
    </ul>
 </div>
 
@@ -194,8 +194,8 @@ function fnChkByte(obj, maxByte){
 						<tr><!-- 글내용 -->
 							<th>글내용</th>
 							<td colspan=3 height=600 style="padding: 0px !important;">
-							<img src="/pet/resources/reviewUpload/${reviewModel.imagefile_savname}" onerror="this.src='/pet/resources/images/noimg_130.gif'" />
-								<br/>${reviewModel.content}
+							<img src="/rentacar/resources/reviewUpload/${reviewModel.imagefile_savname}" onerror="this.src='/Project/resources/images/noimg_130.gif'" />
+								<br/>${reviewModel.content}		
 							</td>
 						</tr>
 						
@@ -275,9 +275,9 @@ function fnChkByte(obj, maxByte){
 						</div>
 					
 			</c:forEach>
-			</div>
+			</div></div>
 			 --%>
-	</div></div>
+	</div>
 
 <br /><br />
 </body>

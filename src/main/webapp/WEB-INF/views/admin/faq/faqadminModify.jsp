@@ -9,9 +9,9 @@
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
-<link href="/pet/resources/admincss/bootstrap.min.css" rel="stylesheet">
-<link href="/pet/resources/css/reset.css" rel="stylesheet">
-<link href="/pet/resources/admincss/sb-admin-2.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
+<link href="/rentacar/resources/css/reset.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css">
 #boardWriteForm{margin: 30px 0;}
@@ -31,7 +31,7 @@
 	</ul>
 </div>		
 	<div id="wrapper">
-		<form:form commandName="faqModel" action="/pet/faq/faqModifySuccess.do" method="post"> 
+		<form:form commandName="faqModel" action="/rentacar/admin/faqModifySuccess.do" method="post"> 
 			<div id="page-wrapper">
         		 <div class="row">
            			 <div class="col-lg-12">
@@ -64,7 +64,7 @@
 							</tr>
 							<tr>
 								<td colspan=6 height=300 style="padding: 0px !important;">
-									<form:textarea path="content" theme="simple" value="${faqModel.content}"style="padding:3px; margin:0px; width: 100%; height: 100%;"/>
+									<form:textarea path="content" theme="simple" value="${faqModel.content}" style="padding:3px; margin:0px; width: 100%; height: 100%;"/>
 								</td>
 							</tr>
 					</tbody>

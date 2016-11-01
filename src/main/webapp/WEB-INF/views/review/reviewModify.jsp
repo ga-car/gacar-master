@@ -21,9 +21,9 @@ function reviewList() {
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
-<link href="/review/resources/admincss/bootstrap.min.css" rel="stylesheet">
-<link href="/review/resources/css/reset.css" rel="stylesheet">
-<link href="/review/resources/admincss/sb-admin-2.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
+<link href="/rentacar/resources/css/reset.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet">
 <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -46,7 +46,7 @@ function reviewList() {
 </div>
 
 <div id="wrapper">
-<form:form commandName="reviewModel" action="/review/review/reviewModifySuccess.do" enctype="multipart/form-data" method="post">
+<form:form commandName="reviewModel" action="/rentacar/reviewModifySuccess.do" enctype="multipart/form-data" method="post">
       <input type="hidden" name="no" value="${reviewModel.no}" />
       <div id="page-wrapper">
          <div class="row">
@@ -96,7 +96,7 @@ function reviewList() {
 							<th width="100">현재 이미지 </th>
 							<td colspan=3>
 								<c:if test="${!empty reviewModel.imagefile_savname}">
-                            		<img src="/review/resources/reviewUpload/${reviewModel.imagefile_savname}" width="100" height="100" alt="" onerror="this.src='/review/resources/images/noimg_130.gif'" /><input type="hidden"  name="imagefile_savname" value="${reviewModel.imagefile_savname}">
+                            		<img src="/rentacar/resources/reviewUpload/${reviewModel.imagefile_savname}" width="100" height="100" alt="" onerror="this.src='/rentacar/resources/images/noimg_130.gif'" /><input type="hidden"  name="imagefile_savname" value="${reviewModel.imagefile_savname}">
                            		</c:if>
                            	</td>
 						</tr>
