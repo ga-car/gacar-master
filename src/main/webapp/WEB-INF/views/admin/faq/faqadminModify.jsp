@@ -55,8 +55,8 @@
 						</td>
 						 <th >사용자 ID</th>
 						 	<td>
-							${session_member_name}
-							<input type="hidden" name="name" value="${session_member_name}" />
+							${session_email}
+							<input type="hidden" name="email" value="${session_email}" />
 							</td>
 							</tr>
 							<tr>

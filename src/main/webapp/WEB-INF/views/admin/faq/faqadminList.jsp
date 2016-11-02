@@ -91,7 +91,7 @@ function onWrite (){
 									
 										<td style="text-align:center;vertical-align:middle;">${faqList.no}</td>
 										<td style="text-align:center;vertical-align:middle;"><a href="${viewURL2}">${faqList.subject}</a></td>
-										<td style="text-align:center;vertical-align:middle;">${faqList.name}</td>
+										<td style="text-align:center;vertical-align:middle;">${faqList.email}</td>
 										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${faqList.regdate}" pattern="YY.MM.dd HH:mm" /></td>						
 										<td style="text-align:center;vertical-align:middle;">									
 									<a href="${viewURL3}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a></td>									

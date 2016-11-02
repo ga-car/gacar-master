@@ -63,7 +63,7 @@ function faqDelete() {
 								<tbody>
 
 									<tr>
-										<td align=right><strong>${faqModel.name }</strong>&nbsp;&nbsp;|&nbsp;&nbsp;<fmt:formatDate
+										<td align=right><strong>${faqModel.email }</strong>&nbsp;&nbsp;|&nbsp;&nbsp;<fmt:formatDate
 												value="${faqModel.regdate }" pattern="yyyy-MM-dd" /></td>
 									</tr>
 									<tr>
@@ -77,7 +77,7 @@ function faqDelete() {
 																			<form class="viewForm" method="post">
 			<input type="hidden" name="${faqModel.no }" />
 			<%-- <input type="hidden" name="seq" value="${item.seq }" /> --%>
-			<c:if test="${session_member_id == 'admin' }">	
+			<c:if test="${session_email == 'admin' }">	
 			<button type="button" onclick="onModify(${faqModel.no })" class="btn btn-primary">수정</button>
 			</c:if>
 			<button type="button" onclick="onList()" class="btn btn-primary">목록</button>

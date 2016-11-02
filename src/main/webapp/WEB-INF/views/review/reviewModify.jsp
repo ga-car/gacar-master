@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+"src/main/webapp/WEB-INF/views/review/reviewModify.jsp"<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -62,7 +62,7 @@ function reviewList() {
 								<input type="textarea" name="subject" value="${reviewModel.subject}"/>
 								<font color="red"><form:errors path="subject" /></font>
 							</td>
-						</tr>
+				s		</tr>
 					</thead>
 					
 					<tbody>
@@ -70,7 +70,7 @@ function reviewList() {
 							<th>사용자 ID</th>
 							<td>
 								<strong>
-									${session_member_name }
+									${session_email }
 								</strong>
 							</td>
 							<td>
@@ -79,7 +79,7 @@ function reviewList() {
 							<td>
 								<fmt:formatDate value="${reviewModel.regdate}" pattern="yyyy.MM.dd"/>
 							</td>
-							<input type="hidden" name="name" value="${session_member_name }"/>
+							<input type="hidden" name="email" value="${session_email }"/>
 						</tr>
 						
 						<tr><!-- 글내용 -->

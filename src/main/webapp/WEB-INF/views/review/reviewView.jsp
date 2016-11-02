@@ -179,7 +179,7 @@ function fnChkByte(obj, maxByte){
 							<th>사용자 ID</th>
 							<td>
 								<strong>
-									${reviewModel.name}
+									${reviewModel.email}
 								</strong>
 							</td>
 							<td>
@@ -207,7 +207,7 @@ function fnChkByte(obj, maxByte){
 	</div>
 		<div class="menu-wrap">
 				<!-- 수정 삭제 목록 버튼 -->
-					<c:if test="${session_member_name == reviewModel.name || session_member_id == 'admin'}">	<!-- 관리자 혹은 글쓴이는 글 수정 , 삭제가능 -->
+					<c:if test="${session_email == reviewModel.email || session_email == 'admin'}">	<!-- 관리자 혹은 글쓴이는 글 수정 , 삭제가능 -->
 						<button type="button" onclick="reviewModify();" class="btn btn-primary">수정</button>
 						<button type="button" onclick="reviewDelete();" class="btn btn-primary">삭제</button>
 					</c:if>
@@ -235,11 +235,11 @@ function fnChkByte(obj, maxByte){
             			<div class="reply_write">
                   			<div class="textarea_grp" style="width: 1000px;">
                   				<!-- 작성자 -->
-                  				<c:if test="${session_member_id == null}">
+                  				<c:if test="${session_email == null}">
                   					<input type="text" style="align:center; margin: 10px; width: 950px; height: 55px;" value="로그인 후에  댓글 작성이 가능합니다." readonly="readonly"/>
 	      	 					</c:if>
-                  				<c:if test="${session_member_id != null}">	<!-- 로그인 안하면 글쓰기가 안보임 -->
-									<input type="hidden" name="commenter" value="${session_member_name }"/>																
+                  				<c:if test="${session_email != null}">	<!-- 로그인 안하면 글쓰기가 안보임 -->
+									<input type="hidden" name="commenter" value="${session_email }"/>																
 									<textarea name="commentt" id="commentt" onKeyUp="javascript:fnChkByte(this,'200')" style="margin: 10px; width: 849px; height: 55px;"></textarea>
 									<button type="button" onclick="reviewcommWrite();" class="btn1 btn-primary1">댓글쓰기</button>
 									<br/>&nbsp;&nbsp;&nbsp;<span id="byteInfo">0</span>/200Byte
@@ -261,7 +261,7 @@ function fnChkByte(obj, maxByte){
 						<div class="reply_view">
 							<div class="reply_tit">
 								<p class="tit"><strong>${CommList.commenter }</strong>님  <fmt:formatDate value="${CommList.reg_date}" pattern="yy.MM.dd"></fmt:formatDate><span class="ip"></span> </p>
-									<c:if test="${session_member_name == CommList.commenter || session_member_id == 'admin'}">	<!-- 관리자 혹은 글쓴이는 댓글 삭제가능 -->
+									<c:if test="${session_email == CommList.commenter || session_email == 'admin'}">	<!-- 관리자 혹은 글쓴이는 댓글 삭제가능 -->
 										<a href="reviewcommDelete.do?comment_num=${CommList.comment_num}&no=${reviewModel.no}" class="btn btnC_01 btnP_02">
 <!-- <!-- 					  -->-->		<span class="btn btnC_05 reply_btn">
 											삭제</span>

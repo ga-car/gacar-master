@@ -78,7 +78,7 @@
 													<a href="${viewURL}"> ${list.subject}</a>
 												</c:if>
 											</td>
-											<td>${list.name}</td> 
+											<td>${list.email}</td> 
 											<td>
 												<fmt:formatDate value="${list.regdate}" pattern="yyyy.MM.dd"/>
 											</td>
@@ -92,11 +92,10 @@
 						
 					</div>
 					<div class="menu-wrap">
-<%-- 						<c:if test="${session_member_name != null }">	<!-- 로그인을 해야 글을 쓸수 있음 -->
+ 						<c:if test="${session_email != null }">	<!-- 로그인을 해야 글을 쓸수 있음 -->
 							<button type="button" onclick="onWrite()" class="btn btn-primary">쓰기</button>
-						</c:if> --%>
-						<button type="button" onclick="onWrite()" class="btn btn-primary">쓰기</button>
-							<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
+						</c:if> 
+					<!-- 목록 버튼 필요없어보임 --><!-- 	<button type="button" onclick="onList()" class="btn btn-primary">목록</button> -->
 					</div>
 				</div>
 			</div>
