@@ -127,6 +127,32 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/member/memberJoinEnd.jsp" />
 	</definition>
+	
+	<!-- 1:1문의 관리자 -->
+	<definition name="qnaAdmin" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/admin/qna/qnaAdmin.jsp" />
+	</definition>
+	<definition name="qnaAdminView" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/admin/qna/qnaAdminView.jsp" />
+	</definition>
+
+	<!-- 1:1문의 -->
+	<definition name="qnaList" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/qna/qnaList.jsp" />
+	</definition>
+
+	<definition name="qnaForm" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/qna/qnaForm.jsp" />
+	</definition>
+
+	<definition name="qnaView" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/qna/qnaView.jsp" />
+	</definition>
+
+	<definition name="qnaModify" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/qna/qnaModify.jsp" />
+	</definition>
+	
 
 </tiles-definitions>
 	

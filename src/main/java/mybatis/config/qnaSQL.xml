@@ -4,7 +4,186 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="qna">
+
 	<resultMap type="qnaModel" id="qnaModelRes">
-	
+		<result property="no" column="no" />
+		<result property="subject" column="subject" />
+		<result property="contents" column="contents" />
+	<result property="email" column="email" />
+		<result property="regdate" column="regdate" />
+		<result property="readcount" column="readcount" />
+		<result property="secret" column="secret" />
+		<result property="commcount" column="commcount" />
+		<result property="admin" column="admin" />
 	</resultMap>
+
+	<resultMap type="qnaCommModel" id="qnaCommModelRes">
+		<result property="content_num" column="content_num" />
+		<result property="commenter" column="commenter" />
+		<result property="commentt" column="commentt" />
+		<result property="reg_date" column="reg_date" />
+	</resultMap>
+	<!-- 글목록 -->
+	<select id="qnaList" resultMap="qnaModelRes">
+		SELECT * FROM QNA
+		ORDER BY NO DESC
+	</select>
+
+	<!-- 글쓰기 -->
+	<insert id="qnaWrite" parameterType="Integer">
+		INSERT INTO QNA
+		(NO, SUBJECT,
+		CONTENTS, REGDATE,EMAIL, SECRET)
+		VALUES
+		(QNA_SEQ.NEXTVAL,
+		#{subject}, #{contents}, SYSDATE,#{email},#{secret})
+	</insert>
+
+	<!-- 조회수 1증가 -->
+	<update id="qnaUpdateReadcount" parameterType="Integer">
+		UPDATE QNA
+		SET
+		READCOUNT = READCOUNT + 1
+		WHERE
+		NO = #{no}
+	</update>
+
+	<!-- 글 상세보기 -->
+	<select id="qnaView" resultMap="qnaModelRes" parameterType="Integer">
+		SELECT * FROM QNA
+		WHERE
+		NO = #{no}
+	</select>
+
+	<!-- 글수정 -->
+	<update id="qnaModify" parameterType="qnaModel">
+		UPDATE QNA
+		SET
+		SUBJECT =
+		#{subject},
+		CONTENTS = #{contents},
+		SECRET=#{secret}
+		WHERE
+		NO = #{no}
+	</update>
+
+	<!-- 글삭제 -->
+	<delete id="qnaDelete" parameterType="Integer">
+		DELETE QNA
+		WHERE
+		NO = #{no}
+	</delete>
+
+	<!-- 게시판 검색 -->
+	<!-- 제목검색 -->
+	<select id="qnaSearch0" resultMap="qnaModelRes" parameterType="String">
+		SELECT * FROM QNA
+		WHERE subject like #{search}
+		ORDER BY NO DESC
+	</select>
+
+	<!-- 내용검색 -->
+	<select id="qnaSearch1" resultMap="qnaModelRes" parameterType="String">
+		SELECT * FROM QNA
+		WHERE contents like #{search}
+		ORDER BY NO DESC
+	</select>
+
+	<!-- 작성자검색 -->
+	<select id="qnaSearch2" resultMap="qnaModelRes" parameterType="String">
+		SELECT * FROM QNA
+		WHERE email like #{search}
+		ORDER BY NO DESC
+	</select>
+
+	<!-- 관리자 답변유무 확인 콤보박스 -->
+	<!-- 답변완료 -->
+	<select id="qnaReply1" resultMap="qnaModelRes" parameterType="int">
+		SELECT * FROM QNA
+		WHERE ADMIN>=1
+		ORDER BY NO DESC
+	</select>
+
+	<!-- 답변 전 -->
+	<select id="qnaReply2" resultMap="qnaModelRes" parameterType="int">
+		SELECT * FROM QNA
+		WHERE ADMIN=0
+		ORDER BY NO DESC
+	</select>
+
+	<!-- 댓글 목록 -->
+	<select id="qnaCommList" resultMap="qnaCommModelRes"
+		parameterType="int">
+		SELECT * FROM QNA_COMMENT
+		where content_num = #{no}
+		ORDER
+		BY COMMENT_NUM desc
+	</select>
+
+	<!-- 댓글 쓰기 -->
+	<insert id="qnaCommWrite" parameterType="qnaCommModel">
+		insert into
+		qna_comment(comment_num, content_num, commenter, commentt, reg_date )
+		values(qna_comment_SEQ.NEXTVAL, #{content_num}, #{commenter},
+		#{commentt}, sysdate)
+	</insert>
+
+	<!-- 댓글 삭제 -->
+	<delete id="qnaCommDelete" parameterType="qnaCommModel">
+		DELETE QNA_COMMENT
+		WHERE
+		comment_num = #{comment_num}
+	</delete>
+
+	<!-- 댓글 모두 삭제 -->
+	<delete id="qnaAllCommDelete" parameterType="qnaModel">
+		DELETE QNA_COMMENT
+		WHERE
+		content_num = #{no}
+	</delete>
+
+	<!-- 댓글 세기 -->
+	<select id="qnaCommCount" parameterType="integer" resultType="integer">
+		SELECT count(*) FROM QNA_COMMENT
+		where
+		content_num = #{no}
+	</select>
+
+	<!-- 댓글 1 상승 -->
+	<update id="qnaCommUpdate1" parameterType="Integer">
+		UPDATE QNA
+		SET
+		COMMCOUNT = COMMCOUNT + 1
+		WHERE
+		NO = #{no}
+	</update>
+
+	<!-- 댓글 1 하락 -->
+	<update id="qnaCommUpdate2" parameterType="Integer">
+		UPDATE QNA
+		SET
+		COMMCOUNT = COMMCOUNT - 1
+		WHERE
+		NO = #{no}
+	</update>
+
+	<!-- 관리자 답변 1 상승 -->
+	<update id="AdminUpdateReply" parameterType="Integer">
+		UPDATE QNA
+		SET
+		ADMIN =
+		ADMIN + 1
+		WHERE
+		NO = #{no}
+	</update>
+
+	<!-- 관리자 답변 1 하락 -->
+	<update id="AdminDeleteReply" parameterType="Integer">
+		UPDATE QNA
+		SET
+		ADMIN =
+		ADMIN - 1
+		WHERE
+		NO = #{no}
+	</update>
 </mapper>
