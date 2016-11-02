@@ -78,7 +78,7 @@ function delchk(){
 									<tr class="gradeA even" role="row">
 										<td style="text-align:center;vertical-align:middle;">${reviewList.no}</td>
 										<td style="text-align:center;vertical-align:middle;">${reviewList.subject}</td>
-										<td style="text-align:center;vertical-align:middle;">${reviewList.name}</td>
+										<td style="text-align:center;vertical-align:middle;">${reviewList.email}</td>
 										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${reviewList.regdate}" pattern="YY.MM.dd HH:mm" /></td>
 										<td style="text-align:center;vertical-align:middle;">${reviewList.readcount}</td>									
 										<td style="text-align:center;vertical-align:middle;">									

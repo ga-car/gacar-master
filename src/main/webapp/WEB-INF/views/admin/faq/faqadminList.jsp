@@ -27,6 +27,7 @@ function onWrite (){
 .paging a:first-child{margin-left:0;}
 .paging strong{color:#fff;background:#337AB7;border:1px solid #337AB7;}
 .paging .page_arw{font-size:11px;line-height:30px;}
+.menu-wrap{text-align: right;}
 </style>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
@@ -91,7 +92,7 @@ function onWrite (){
 									
 										<td style="text-align:center;vertical-align:middle;">${faqList.no}</td>
 										<td style="text-align:center;vertical-align:middle;"><a href="${viewURL2}">${faqList.subject}</a></td>
-										<td style="text-align:center;vertical-align:middle;">${faqList.name}</td>
+										<td style="text-align:center;vertical-align:middle;">${faqList.email}</td>
 										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${faqList.regdate}" pattern="YY.MM.dd HH:mm" /></td>						
 										<td style="text-align:center;vertical-align:middle;">									
 									<a href="${viewURL3}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a></td>									

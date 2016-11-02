@@ -71,7 +71,7 @@
 					<tr>
 						<td>${list.no}</td>
 						<td style="text-align:left;"><h6>${list.subject}</h6></td>
-						<td>${list.name}</td> 
+						<td>${list.email}</td> 
 						<td><fmt:formatDate value="${list.regdate}" pattern="yyyy.MM.dd"/></td>
 					</tr>
 					<tr>

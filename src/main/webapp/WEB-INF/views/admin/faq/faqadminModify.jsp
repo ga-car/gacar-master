@@ -21,6 +21,7 @@
    .recode-wrap{text-align: right; color: #888;}
    .hit-wrap{color:#888; margin: 10px 0;}
    .viewForm{margin: 20px 0 0 0;}
+   .menu-wrap{text-align: right;}
 </style>
 <title>faq</title> 
 </head>
@@ -55,15 +56,15 @@
 						</td>
 						 <th >사용자 ID</th>
 						 	<td>
-							${session_member_name}
-							<input type="hidden" name="name" value="${session_member_name}" />
+							${session_email}
+							<input type="hidden" name="email" value="${session_email}" />
 							</td>
 							</tr>
 							<tr>
 								<th colspan=6>글내용<font color="red">(제목이나 내용 중 하나라도 입력하지 않으면 수정할 수 없습니다.)</font></th>
 							</tr>
 							<tr>
-								<td colspan=6 height=300 style="padding: 0px !important;">
+								<td colspan=6 height=450 style="padding: 0px !important;">
 									<form:textarea path="content" theme="simple" value="${faqModel.content}" style="padding:3px; margin:0px; width: 100%; height: 100%;"/>
 								</td>
 							</tr>

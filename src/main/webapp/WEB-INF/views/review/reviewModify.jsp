@@ -34,6 +34,7 @@ function reviewList() {
    .recode-wrap{text-align: right; color: #888;}
    .hit-wrap{color:#888; margin: 10px 0;}
    .viewForm{margin: 20px 0 0 0;}
+   .menu-wrap{text-align: right;}
 </style>
 <title>REVIEW</title> 
 </head>
@@ -62,7 +63,7 @@ function reviewList() {
 								<input type="textarea" name="subject" value="${reviewModel.subject}"/>
 								<font color="red"><form:errors path="subject" /></font>
 							</td>
-						</tr>
+					</tr>
 					</thead>
 					
 					<tbody>
@@ -70,7 +71,7 @@ function reviewList() {
 							<th>사용자 ID</th>
 							<td>
 								<strong>
-									${session_member_name }
+									${session_email }
 								</strong>
 							</td>
 							<td>
@@ -79,12 +80,12 @@ function reviewList() {
 							<td>
 								<fmt:formatDate value="${reviewModel.regdate}" pattern="yyyy.MM.dd"/>
 							</td>
-							<input type="hidden" name="name" value="${session_member_name }"/>
+							<input type="hidden" name="email" value="${session_email }"/>
 						</tr>
 						
 						<tr><!-- 글내용 -->
 							<th>글내용</th>
-							<td colspan=3 height=600 style="padding: 0px !important;">
+							<td colspan=3 height=400 style="padding: 0px !important;">
 							   <textarea name="content" value="${reviewModel.content}"
 							   		style="margin: 3px; width: 100%; height: 100%;">${reviewModel.content}</textarea> 
 							   <font color="red"><form:errors path="content" /></font>

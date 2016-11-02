@@ -69,15 +69,15 @@ function reviewList() {
 							<th>사용자 ID</th>
 							<td colspan=3>
 								<strong>
-									${session_member_name }
+									${session_email }
 								</strong>
 							</td>
-							<input type="hidden" name="name" value="${session_member_name }"/>
+							<input type="hidden" name="email" value="${session_email }"/>
 						</tr>
 						
 						<tr><!-- 글내용 -->
 							<th>글내용</th>
-							<td colspan=3 height=600 style="padding: 0px !important;">
+							<td colspan=3 height=450 style="padding: 0px !important;">
 							   <textarea  name="content" style=" padding:3px; margin: 1px; width: 100%; height: 98%;"></textarea>
 							   <font color="red"><form:errors path="content" /></font><br/><!-- 벨리데이터 표시 -->
 							</td>
@@ -97,7 +97,7 @@ function reviewList() {
 		</div>
 	</div>
 		<!-- 취소 작성완료 버튼 -->
-				<div class="menu-wrap">
+				<div class="menu-wrap" style="text-align: right;">
 					<button type="button" onclick="this.form.submit();" class="btn btn-primary">작성완료</button>
 					<button type="button" onclick="reviewList();" class="btn btn-primary">목록</button>
 				</div>
