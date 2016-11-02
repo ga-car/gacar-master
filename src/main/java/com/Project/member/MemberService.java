@@ -1,11 +1,14 @@
 package com.Project.member;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Service;
 
 import com.Project.member.MemberModel;
+import com.Project.member.ZipcodeModel;
 
 @Service
 public class MemberService implements MemberDao{
@@ -21,6 +24,26 @@ public class MemberService implements MemberDao{
 	@Override
 	public MemberModel getMember(String email) {
 		return sqlSessionTemplate.selectOne("member.getMember", email);
+	}
+	
+	@Override
+	public List<ZipcodeModel> zipcodeCheck(ZipcodeModel zipcodeModel) throws Exception {
+		return sqlSessionTemplate.selectList("member.zipcodeCheck", zipcodeModel);
+	}
+	
+	@Override
+	public MemberModel login(MemberModel mem) {
+		return sqlSessionTemplate.selectOne("member.login", mem);
+	}
+	
+	@Override
+	public MemberModel emailFind(MemberModel mem){
+		return sqlSessionTemplate.selectOne("member.emailFind", mem);
+	}
+	
+	@Override
+	public MemberModel pwFind(MemberModel mem) {
+		return sqlSessionTemplate.selectOne("member.pwFind", mem);
 	}
 
 }

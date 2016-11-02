@@ -14,6 +14,8 @@ public class MemberModel {
 	private String zipcode;
 	private String addr;
 	private String addr2;
+	private String jumin1;
+	private String jumin2;
 	
 	private String cartype;
 	private String carnum;
@@ -156,6 +158,18 @@ public class MemberModel {
 	}
 	public void setDeldate(Date deldate) {
 		this.deldate = deldate;
+	}
+	public String getJumin1() {
+		return jumin1;
+	}
+	public void setJumin1(String jumin1) {
+		this.jumin1 = jumin1;
+	}
+	public String getJumin2() {
+		return jumin2;
+	}
+	public void setJumin2(String jumin2) {
+		this.jumin2 = jumin2;
 	}
 	
 	

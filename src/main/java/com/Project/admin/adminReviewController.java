@@ -1,4 +1,4 @@
-package com.Project.review;
+package com.Project.admin;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -31,7 +31,8 @@ import com.Project.review.ReviewService;
 
 
 @Controller
-public class ReviewController {
+@RequestMapping("/admin")
+public class adminReviewController {
 	
 	private static final String uploadPath = "C:\\java\\GACAR\\src\\main\\webapp\\resources\\reviewUpload\\";
 	
@@ -99,7 +100,7 @@ public class ReviewController {
 			mav.addObject("pagingHtml", pagingHtml);
 			mav.addObject("currentPage", currentPage);
 			mav.addObject("reviewList", reviewList);
-			mav.setViewName("reviewList");
+			mav.setViewName("adminreviewList");
 			return mav;
 		}
 		
@@ -121,7 +122,7 @@ public class ReviewController {
 		mav.addObject("pagingHtml", pagingHtml);
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("reviewList", reviewList);
-		mav.setViewName("reviewList");
+		mav.setViewName("adminreviewList");
 		return mav;
 	}
 	
@@ -221,7 +222,7 @@ public class ReviewController {
 		int no = Integer.parseInt(request.getParameter("no"));
 		reviewService.reviewDelete(no);
 	/*	reviewService.reviewallcommDelete(no);*/
-		mav.setViewName("redirect:/reviewList.do");
+		mav.setViewName("redirect:/admin/reviewList.do");
 		
 		return mav;	
 	}
@@ -295,7 +296,7 @@ public class ReviewController {
         reviewService.reviewModify(reviewModel);
 		
 		mav.addObject("no", reviewModel.getNo());
-		mav.setViewName("redirect:/reviewView.do");
+		mav.setViewName("redirect:/admin/reviewView.do");
 		return mav;	
 	}
 }

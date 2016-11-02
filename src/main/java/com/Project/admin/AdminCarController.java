@@ -10,7 +10,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.BindingResult;
@@ -54,10 +53,8 @@ public class AdminCarController {
 		}
 
 		List<RentacarModel> rentacarList;
-
-		String isSearch = request.getParameter("isSearch");
 		
-		rentacarList = adminService.rentacarList();
+		rentacarList = adminService.rentacarAdminList();
 
 		totalCount = rentacarList.size();
 
@@ -75,7 +72,7 @@ public class AdminCarController {
 		mav.addObject("pagingHtml", pagingHtml);
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("rentacarList", rentacarList);
-		mav.setViewName("carListForm");
+		mav.setViewName("AdmincarListForm");
 		return mav;
 	}
 
@@ -83,7 +80,7 @@ public class AdminCarController {
 	public ModelAndView insertRentacarform() {
 		/* return "admin/car/writeForm"; */
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("carWriteForm");
+		mav.setViewName("AdmincarWriteForm");
 		return mav;
 	}
 

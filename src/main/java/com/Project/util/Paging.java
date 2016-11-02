@@ -2,15 +2,15 @@ package com.Project.util;
 
 public class Paging {
 
-	private int currentPage;   // ����������
-	private int totalCount;	 // ��ü �Խù� ��
-	private int totalPage;	 // ��ü ������ ��
-	private int blockCount;	 // �� ��������  �Խù��� ��
-	private int blockPage;	 // �� ȭ�鿡 ������ ������ ��
-	private int startCount;	 // �� ���������� ������ �Խñ��� ���� ��ȣ
-	private int endCount;	 // �� ���������� ������ �Խñ��� �� ��ȣ
-	private int startPage;	 // ���� ������
-	private int endPage;	 // ������ ������
+	private int currentPage; // ����������
+	private int totalCount; // ��ü �Խù� ��
+	private int totalPage; // ��ü ������ ��
+	private int blockCount; // �� �������� �Խù��� ��
+	private int blockPage; // �� ȭ�鿡 ������ ������ ��
+	private int startCount; // �� ���������� ������ �Խñ��� ���� ��ȣ
+	private int endCount; // �� ���������� ������ �Խñ��� �� ��ȣ
+	private int startPage; // ���� ������
+	private int endPage; // ������ ������
 	private String PageName;
 
 	private StringBuffer pagingHtml;
@@ -52,6 +52,7 @@ public class Paging {
 		// ���� block ������
 		pagingHtml = new StringBuffer();
 		if (currentPage > blockPage) {
+
 			pagingHtml.append("<a class='page prv' href=" + PageName + ".do?currentPage=" + (startPage - 1) + ">");
 			pagingHtml.append("&lt;");
 			pagingHtml.append("</a>");
