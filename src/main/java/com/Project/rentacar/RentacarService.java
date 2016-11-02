@@ -17,6 +17,10 @@ public class RentacarService implements RentacarDao{
 	public List<RentacarModel> rentacarList() {
 		return sqlSessionTemplate.selectList("rentacar.rentacarList"); 
 	}
+
+	public List<RentacarModel> rentacarSearchList(String Search) {
+		return sqlSessionTemplate.selectList("rentacar.rentacarSearchList", "%"+Search+"%"); 
+	}
 	
 
 }
