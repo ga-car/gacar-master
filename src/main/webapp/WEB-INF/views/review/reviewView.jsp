@@ -145,6 +145,7 @@ function fnChkByte(obj, maxByte){
    .recode-wrap{text-align: right; color: #888;}
    .hit-wrap{color:#888; margin: 10px 0;}
    .viewForm{margin: 20px 0 0 0;}
+   .menu-wrap{text-align: right;}
 </style>
 <title>REVIEW</title> 
 </head>
@@ -193,7 +194,7 @@ function fnChkByte(obj, maxByte){
 						
 						<tr><!-- 글내용 -->
 							<th>글내용</th>
-							<td colspan=3 height=600 style="padding: 0px !important;">
+							<td colspan=3 height=450 style="padding: 0px !important;">
 							<img src="/rentacar/resources/reviewUpload/${reviewModel.imagefile_savname}" onerror="this.src='/Project/resources/images/noimg_130.gif'" />
 								<br/>${reviewModel.content}		
 							</td>

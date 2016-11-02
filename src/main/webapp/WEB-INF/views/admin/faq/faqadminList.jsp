@@ -27,6 +27,7 @@ function onWrite (){
 .paging a:first-child{margin-left:0;}
 .paging strong{color:#fff;background:#337AB7;border:1px solid #337AB7;}
 .paging .page_arw{font-size:11px;line-height:30px;}
+.menu-wrap{text-align: right;}
 </style>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>

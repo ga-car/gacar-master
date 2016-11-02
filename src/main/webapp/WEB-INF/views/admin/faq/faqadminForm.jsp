@@ -32,6 +32,7 @@ function reviewList() {
    .recode-wrap{text-align: right; color: #888;}
    .hit-wrap{color:#888; margin: 10px 0;}
    .viewForm{margin: 20px 0 0 0;}
+   .menu-wrap{text-align: right;}
 </style>
 <title>faq</title> 
 </head>
@@ -69,7 +70,7 @@ function reviewList() {
 						
 						<tr><!-- 글내용 -->
 							<th>글내용</th>
-							<td colspan=3 height=600 style="padding: 0px !important;">
+							<td colspan=3 height=450 style="padding: 0px !important;">
 							   <textarea  name="content" style=" padding:3px; margin: 1px; width: 100%; height: 98%;"></textarea>
 							   <font color="red"><form:errors path="content" /></font>
 							</td>

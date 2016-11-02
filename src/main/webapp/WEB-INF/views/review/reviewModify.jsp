@@ -1,4 +1,4 @@
-"src/main/webapp/WEB-INF/views/review/reviewModify.jsp"<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -34,6 +34,7 @@ function reviewList() {
    .recode-wrap{text-align: right; color: #888;}
    .hit-wrap{color:#888; margin: 10px 0;}
    .viewForm{margin: 20px 0 0 0;}
+   .menu-wrap{text-align: right;}
 </style>
 <title>REVIEW</title> 
 </head>
@@ -62,7 +63,7 @@ function reviewList() {
 								<input type="textarea" name="subject" value="${reviewModel.subject}"/>
 								<font color="red"><form:errors path="subject" /></font>
 							</td>
-				s		</tr>
+					</tr>
 					</thead>
 					
 					<tbody>
@@ -84,7 +85,7 @@ function reviewList() {
 						
 						<tr><!-- 글내용 -->
 							<th>글내용</th>
-							<td colspan=3 height=600 style="padding: 0px !important;">
+							<td colspan=3 height=400 style="padding: 0px !important;">
 							   <textarea name="content" value="${reviewModel.content}"
 							   		style="margin: 3px; width: 100%; height: 100%;">${reviewModel.content}</textarea> 
 							   <font color="red"><form:errors path="content" /></font>
