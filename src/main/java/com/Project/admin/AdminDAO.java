@@ -6,7 +6,7 @@ import com.Project.rentacar.RentacarModel;
 
 public interface AdminDAO {
 	
-	List<RentacarModel> rentacarList();
-
 	int insertRentacar(RentacarModel reatacarModel);
+
+	List<RentacarModel> rentacarAdminList();
 }
