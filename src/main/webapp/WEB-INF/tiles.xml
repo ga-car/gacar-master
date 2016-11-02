@@ -16,9 +16,10 @@
 
 	<!-- 차량예약 -->
 	<definition name="carListForm" extends="main">
-		<put-attribute name="body" value="/WEB-INF/views/car/listForm.jsp" />
-	</definition>
-
+      <put-attribute name="body" value="/WEB-INF/views/car/listForm.jsp" />
+      <put-attribute name="left" value="/WEB-INF/views/car/listLeft.jsp" />
+    </definition>
+    
 	<!-- 차량예약 관리자 -->
 	<definition name="AdmincarWriteForm" extends="main">
 		<put-attribute name="body"
