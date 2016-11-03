@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <script type="text/JavaScript">
 	function chkBox(bool) { // 전체선택/해제 
 		var obj = document.getElementsByName("join");
-		for (var i = 0; i < obj.length; i++)
+		for ( var i = 0; i < obj.length; i++)
 			obj[i].checked = bool;
 	}
 
@@ -26,12 +25,10 @@
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>이용약관</title>
-<link href="../style.css" rel="stylesheet" type="text/css">
+<!-- <link href="../style.css" rel="stylesheet" type="text/css"> -->
 </head>
 <body>
-
-	<form name="join_agree" action="member.do" method="post"
-		onsubmit="return check()">
+	<form name="join_agree" action="member.do" method="post" onsubmit="return check()">
 		<table width="30px" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td align="center" style="padding: 50px;">
@@ -44,16 +41,12 @@
 							<td height="60"></td>
 						</tr>
 						<tr>
-							<td align="right" class="edge"><label for="agreeAll">
-									<strong>이용약관, 개인정보 수집 및 이용에 모두 동의합니다.</strong> <input
-									type="checkbox" id="agreeAll" value="" class="checkbox"
-									onclick=chkBox(this.checked) /> <br />
+							<td align="right" class="edge"><label for="agreeAll"> <strong>이용약관, 개인정보 수집 및 이용에 모두 동의합니다.</strong> <input type="checkbox" id="agreeAll" value="" class="checkbox" onclick=chkBox(this.checked) /> <br />
 								<br />
 							</label></td>
 						</tr>
 						<tr>
-							<td align="center"
-								style="border: #ccc 1px solid; border-top: #fff 1px solid;">
+							<td align="center" style="border: #ccc 1px solid; border-top: #fff 1px solid;">
 								<table width="500" border="0" cellspacing="0" cellpadding="0">
 									<tr>
 										<td align="left" class="formtext">CARSHARE_C 이용약관</td>
@@ -142,10 +135,7 @@
 										<td height="10">&nbsp;</td>
 									</tr>
 									<tr>
-										<td height="30" valign="top" align="right"><label
-											for="agreeUse"> CARSHARE_C 이용약관에 동의합니다. <input
-												type="checkbox" id="agreeUse" name="join" value=""
-												class="checkbox" />
+										<td height="30" valign="top" align="right"><label for="agreeUse"> CARSHARE_C 이용약관에 동의합니다. <input type="checkbox" id="agreeUse" name="join" value="" class="checkbox" />
 										</label></td>
 									</tr>
 									<tr>
@@ -175,17 +165,11 @@
 										<td height="10">&nbsp;</td>
 									</tr>
 									<tr>
-										<td valign="top" align="right"><label for="agreePrivacy">
-												개인정보수집, 이용 동의에 동의합니다. <input type="checkbox"
-												id="agreePrivacy" name="join" value="" class="checkbox" />
+										<td valign="top" align="right"><label for="agreePrivacy"> 개인정보수집, 이용 동의에 동의합니다. <input type="checkbox" id="agreePrivacy" name="join" value="" class="checkbox" />
 										</label></td>
 									</tr>
 									<tr>
-										<td colspan="2" align="center" style="padding: 20px 0px;">
-											<input type="submit" value="동의함" class="submit"> <!-- <input type="button" value="동의안함" onclick="location.href='main.dog'" class="hreflink"></td> -->
-											<a href="/rentacar/main.do"><input type="button"
-												value="동의안함" class="hreflink"></a>
-										</td>
+										<td colspan="2" align="center" style="padding: 20px 0px;"><input type="submit" value="동의함" class="submit"> <a href="/rentacar/main.do"><input type="button" value="동의안함" class="hreflink"></a></td>
 									</tr>
 								</table>
 							</td>
@@ -195,7 +179,6 @@
 				</td>
 			</tr>
 		</table>
-
 	</form>
 </body>
 </html>

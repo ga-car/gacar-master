@@ -1,6 +1,7 @@
 package com.Project.member;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
@@ -48,62 +49,38 @@ public class MemberController {
 
 	@RequestMapping("/memberAgree.do")
 	public ModelAndView memberStep1() {
-		ModelAndView mav = new ModelAndView();
 		mav.setViewName("memberAgree");
 		return mav;
 	}
 
 	@RequestMapping("/member.do")
-	public ModelAndView memberStep2() {
-		ModelAndView mav = new ModelAndView();
+	public ModelAndView memberStep2(@ModelAttribute("mem") MemberModel mem, BindingResult result) {
 		mav.setViewName("member");
 		return mav;
 	}
 
 	@RequestMapping("/memberEnd.do")
-	public ModelAndView memberStep3(@ModelAttribute("member") MemberModel member, BindingResult result) {
-
-		/* member.setAddr(member.getAddr()+" " + member.getAddr2()); */
-
-		memberService.insertMember(member);
-		mav.addObject("member", member);
+	public ModelAndView memberStep3(@ModelAttribute("mem") MemberModel mem, BindingResult result) {
+		memberService.insertMember(mem);
+		mav.addObject("mem", mem);
 		mav.setViewName("memberEnd");
 		return mav;
 
-		/*
-		 * new MemberValidator().validate(member, result);
-		 * 
-		 * if(result.hasErrors()){ ModelAndView mav = new ModelAndView();
-		 * mav.setViewName("member"); return mav; } try{
-		 * member.setAddr(member.getAddr()+" " + member.getAddr2());
-		 * 
-		 * memberService.insertMember(member); mav.addObject("member", member);
-		 * mav.setViewName("memberEnd"); return mav; } catch
-		 * (DuplicateKeyException e){ result.reject("invalid", null);
-		 * mav.setViewName("member"); return mav; }
-		 */
 	}
 
 	@RequestMapping("/emailAuth.do")
 	public ModelAndView emailAuth(HttpServletResponse response, HttpServletRequest request) throws Exception {
-		/* Email email = new Email(); */
-		/*
-		 * member.setPasscode((int)(Math.random() * 100000) + 100000);// create
-		 */ // passcode
+
 		boolean isEmail;
 		String reciver = request.getParameter("email");
 		MemberModel result = memberService.getMember(reciver);
 		if (result == null) {
-			System.out.println("reciver" + reciver);
-
-			/* String reciver = "rrryung83@gmail.com"; */
 			String authNum = "";
-
 			authNum = RandomNum();
 			isEmail = sendEmail(reciver.toString(), authNum);
 
 			if (isEmail == true) {
-				System.out.println("ÀÎÁõ¹øÈ£:" + authNum);
+				System.out.println("ì¸ì¦ë²ˆí˜¸:" + authNum);
 
 				ModelAndView mav = new ModelAndView();
 				mav.addObject("email", reciver);
@@ -118,7 +95,6 @@ public class MemberController {
 			}
 		} else {
 			ModelAndView mav = new ModelAndView();
-			/* reciver=null; */
 			mav.addObject("email2", reciver);
 			mav.setViewName("/member/emailAuth");
 			return mav;
@@ -136,13 +112,13 @@ public class MemberController {
 
 	private boolean sendEmail(String email, String authNum) {
 		String host = "smtp.gmail.com";
-		String subject = "ÀÎÁõ¹øÈ£ Àü¼Û";
-		String fromName = "°ü¸®ÀÚ";
+		String subject = "ì¸ì¦ë²ˆí˜¸ ì „ì†¡";
+		String fromName = "ê´€ë¦¬ìž";
 		/* String sender = "felicitas_r@naver.com"; */
 		final String sender = "rrryung9083@gmail.com";
 		String to1 = email;
 
-		String content = "ÀÎÁõ¹øÈ£[" + authNum + "]";
+		String content = "ì¸ì¦ë²ˆí˜¸[" + authNum + "]";
 
 		try {
 			Properties props = new Properties();
@@ -174,15 +150,13 @@ public class MemberController {
 
 		} catch (MessagingException e) {
 			e.printStackTrace();
-			return false;///////////// @exceptionhandler»ç¿ë!!->
+			return false;///////////// @exceptionhandlerì‚¬ìš©!!->
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
 		return true;
 	}
-	
-	
 
 	@RequestMapping(value = "/zipcodeCheckForm.do")
 	public ModelAndView zipcodeCheckForm(HttpServletRequest req) throws Exception {
@@ -191,7 +165,7 @@ public class MemberController {
 		return mv;
 	}
 
-	/* È¸¿ø°¡ÀÔ½Ã ¿ìÆí¹øÈ£ °Ë»ö ·ÎÁ÷ */
+	/* íšŒì›ê°€ìž…ì‹œ ìš°íŽ¸ë²ˆí˜¸ ê²€ìƒ‰ ë¡œì§ */
 	@RequestMapping(value = "/zipcodeCheck.do")
 	public ModelAndView zipcodeCheck(@ModelAttribute ZipcodeModel zipcodeModel, HttpServletRequest req)
 			throws Exception {
@@ -216,45 +190,40 @@ public class MemberController {
 
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public ModelAndView loginForm(HttpServletRequest request) {
-		ModelAndView mv = new ModelAndView();// QModelAndView´Â ¹Ì¸® °´Ã¼ »ý¼ºÇØ³õÀ¸¸é ¾È
-												// µÇ´ÂÁö?ex>service,controller¿Í °°ÀÌ
+		ModelAndView mv = new ModelAndView();
 		String preAddr = request.getHeader("referer");
-		System.out.println(preAddr);
 		mv.setViewName("member/login");
 		return mv;
 	}
 
-	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/login.do", method = RequestMethod.POST)////////////////////////////////////////
 	public ModelAndView login(HttpServletRequest request, MemberModel mem) throws Exception {
 		String addr = request.getParameter("parentUrl");
-		System.out.println(addr);
-
 		MemberModel result = memberService.login(mem);
 		String suc = null;
-		
 		if (result != null) {
-			System.out.println("name:" + result.getName());
+			Date del = result.getDeldate();
+			String emailCheck =result.getEmail();
+			if (del == null) {
 
-			HttpSession session = request.getSession();
+				HttpSession session = request.getSession();
 
-			session.setAttribute("session_mem", result);
-			session.setAttribute("session_email", result.getEmail());
-			session.setAttribute("session_name", result.getName());
-			session.setAttribute("session_num", result.getNum());
-
-			session.setAttribute("TOKEN_SAVE_CHECK", "TRUE");
-
-			/* mav.setViewName("redirect:"+addr); */
-			suc = "suc";
-			/*mav.addObject("suc", suc);
-			mav.setViewName("member/login");
-			return mav;*/
+				session.setAttribute("session_mem", result);
+				session.setAttribute("session_email", result.getEmail());
+				session.setAttribute("session_name", result.getName());
+				session.setAttribute("session_num", result.getNum());
+				session.setAttribute("TOKEN_SAVE_CHECK", "TRUE"); 
+				if(emailCheck.equals("admin"))
+					suc = "admin";
+				else
+					suc = "suc";
+			} else {
+				suc = "err2";
+			}
 		} else {
-
 			suc = "err";
-			// System.out.println("·Î±×ÀÎ ½ÇÆÐ");
 		}
-		
+
 		mav.addObject("suc", suc);
 		mav.setViewName("member/login");
 		return mav;
@@ -269,9 +238,6 @@ public class MemberController {
 		if (session != null) {
 			session.invalidate();
 		}
-		/* mav.addObject("member", new MemberModel()); */
-		// ModelAndView mav = new ModelAndView();
-		/* mav.setViewName("main"); */
 		mav.setViewName("member/logout");
 		return mav;
 	}
@@ -280,99 +246,61 @@ public class MemberController {
 	public ModelAndView memFindForm(HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		String preAddr = request.getHeader("Referer");
-		System.out.println(preAddr);
 		mv.setViewName("member/emailpwFind");
 		return mv;
 	}
-	
+
 	@RequestMapping(value = "/emailFind.do")
-	//@ModelAttribute("member") MemberModel member jsp¿¡¼­ MemberModel°´Ã¼ÀÇ º¯¼ö¸í¿¡ ÇØ´çÇÏ´Â °ª µéÀ» °¡Á®¿Í¼­ member°´Ã¼ »ý¼º, @ModelAttribute("member")´Â jsp¿¡¼­ member·Î »ç¿ë
 	public ModelAndView emailFind(HttpServletRequest request, @ModelAttribute("mem") MemberModel mem) throws Exception {
-		int isFind=0;
-		int isEmailFind=0;
-		/*String isFind="YN";*/
+		int isFind = 0;
+		int isEmailFind = 0;
 		mem = memberService.emailFind(mem);
-		
-		if(mem!=null){
-			/*emailOrpw=0;*/
-			isFind=1;
-			System.out.println("idÃ£±âÀÇ mem" + mem.getEmail());
-			System.out.println("idÃ£±âÀÇ mem2" + mem.getPassword());
+
+		if (mem != null) {
+			isFind = 1;
 			mav.addObject("isFind", isFind);
 			mav.addObject("mem", mem);
-		} else{
-			isFind=-1;
+		} else {
+			isFind = -1;
 			mav.addObject("isFind", isFind);
 		}
 		mav.setViewName("member/emailpwFind");
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/pwFind.do")
-	//@ModelAttribute("member") MemberModel member jsp¿¡¼­ MemberModel°´Ã¼ÀÇ º¯¼ö¸í¿¡ ÇØ´çÇÏ´Â °ª µéÀ» °¡Á®¿Í¼­ member°´Ã¼ »ý¼º, @ModelAttribute("member")´Â jsp¿¡¼­ member·Î »ç¿ë
 	public ModelAndView pwFind(HttpServletRequest request, @ModelAttribute("mem") MemberModel mem) throws Exception {
-		/*int emailOrpw;*/
-		/*int isPwFind=0;*/
-		int isFind=0;
+		int isFind = 0;
 		mem = memberService.pwFind(mem);
-		if(mem!=null){
-			/*emailOrpw=0;*/
-			isFind=2;
-			System.out.println("pwÃ£±âÀÇ mem" + mem.getPassword());
+		if (mem != null) {
+			isFind = 2;
 			mav.addObject("isFind", isFind);
 			mav.addObject("mem", mem);
-		} else{
-			isFind=-2;
-			mav.addObject("isFind", isFind);			
+		} else {
+			isFind = -2;
+			mav.addObject("isFind", isFind);
 		}
 		mav.setViewName("member/emailpwFind");
 		return mav;
 	}
-	
+
 	@RequestMapping("/emailAuth2.do")
 	public ModelAndView emailAuth2(HttpServletRequest request) throws Exception {
-		/* Email email = new Email(); */
-		/*
-		 * member.setPasscode((int)(Math.random() * 100000) + 100000);// create
-		 */ // passcode
-		/*boolean isEmail;*/
-		/*System.out.println("ÀÌ¸ÞÀÏ"+mem.getEmail());
-		System.out.println("ÀÌ¸§"+mem.getName());
-		System.out.println("ÁÖ¹Îpre"+mem.getJumin1());
-		System.out.println("ÁÖ¹Î:" +mem.getJumin1());*/
-		/*String reciver = mem.getEmail();*/
 		String reciver = request.getParameter("email");
 		MemberModel result = memberService.getMember(reciver);
-		
+
 		if (result != null) {
-			System.out.println("reciver" + reciver);
-
-			/* String reciver = "rrryung83@gmail.com"; */
 			String authNum = "";
-
 			authNum = RandomNum();
-			/*isEmail = sendEmail(reciver.toString(), authNum);*/
-			
 			sendEmail(reciver.toString(), authNum);
-			System.out.println("ÀÎÁõ¹øÈ£:" + authNum);
 
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("email", reciver);
 			mav.addObject("authNum", authNum);
 			mav.setViewName("/member/emailAuth2");
 			return mav;
-
-			/*if (isEmail == true) {
-				
-			} else {
-				ModelAndView mav = new ModelAndView();
-				mav.addObject("email3", reciver);
-				mav.setViewName("/member/emailAuth");
-				return mav;
-			}*/
 		} else {
 			ModelAndView mav = new ModelAndView();
-			/* reciver=null; */
 			mav.addObject("email2", reciver);
 			mav.setViewName("/member/emailAuth2");
 			return mav;
