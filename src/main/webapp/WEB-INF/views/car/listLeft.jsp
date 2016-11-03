@@ -14,13 +14,9 @@
 				varStatus="stat">
 				<tr>
 					<td>ºê·£µå</td>
-					<td>${rentacarLatlng.car_brand}</td>
+					<td><a href="#"
+						onClick="">${rentacarLatlng.car_brand}</a></td>
 				</tr>
-				<%-- <tr>
-						<td colspan="2"><a href="#"
-							onClick="panTo(${rentacarLatlng.car_lat},${rentacarLatlng.car_lng})">${rentacarLatlng.car_addr}
-								${rentacarLatlng.car_addr2}</a></td>
-					</tr> --%>
 			</c:forEach>
 		</table>
 	</form>
