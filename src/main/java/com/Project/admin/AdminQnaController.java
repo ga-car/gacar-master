@@ -4,9 +4,11 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.Project.qna.qnaCommModel;
@@ -27,6 +29,7 @@ public class AdminQnaController {
 	private String pagingHtml;  
 	private Paging page;
 	private int comment_count;
+	private String commenter;
 
 	//Q&A 관리자 리스트
 	@Resource
@@ -109,7 +112,7 @@ public class AdminQnaController {
 
 		return mav;
 	}
-		
+
 	//qna 관리자 삭제
 	@RequestMapping(value="/qnaAdminDelete.do")
 	public ModelAndView qnaDelete(HttpServletRequest request, qnaModel qnaModel){			   
@@ -120,4 +123,57 @@ public class AdminQnaController {
 		mav.setViewName("redirect:qnaAdmin.do");
 		return mav;
 	}
+	//qna 관리자 댓글
+	@RequestMapping(value = "/qnaCommWrite.do", method = RequestMethod.POST)
+	public ModelAndView qnaCommWrite(qnaCommModel qnaCommModel, qnaModel qnaModel, HttpServletRequest request,
+			HttpSession session) {
+
+		int no = qnaCommModel.getContent_num();
+
+		ModelAndView mav = new ModelAndView();
+		String commentt = qnaCommModel.getCommentt().replaceAll("\r\n", "<br />");
+		qnaCommModel.setCommentt(commentt);
+
+		qnaService.qnaCommWrite(qnaCommModel);
+		qnaService.qnaCommUpdate1(no);
+		commenter = qnaCommModel.getCommenter();
+		System.out.println(commenter);
+
+		if (commenter.equals("admin")) {
+			qnaService.AdminUpdateReply(no);
+		}
+		mav.setViewName("redirect:/admin/qna/qnaAdminView.do?no=" + qnaCommModel.getContent_num());
+
+		return mav;
+	}
+	@RequestMapping(value = "/qnaCommDelete.do", method = RequestMethod.GET)
+	public ModelAndView qnaCommDelete(HttpServletRequest request, qnaCommModel qnaCommModel, qnaModel qnaModel,
+			HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+
+		// System.out.println("시작할때 댓글번호 : " + qnaCommModel.getComment_num());
+		// System.out.println("댓글쓴사람 : "+
+		// session.getAttribute("session_email"));
+
+		int no = qnaModel.getNo();
+
+		qnaService.qnaCommDelete(qnaCommModel);
+		// 지우는SQL 실행
+
+		qnaService.qnaView(no);
+		qnaService.qnaCommUpdate2(no);
+		commenter = (String) session.getAttribute("session_email");
+		// System.out.println("쿼리실행후 코멘터"+commenter);
+
+		if (commenter.equals("admin")) {
+			// System.out.println("if문 진입");
+			qnaService.AdminDeleteReply(no);
+		}
+
+		mav.setViewName("redirect:/admin/qna/qnaAdminView.do?no=" + no);
+
+		return mav;
+	}
+
+
 }
