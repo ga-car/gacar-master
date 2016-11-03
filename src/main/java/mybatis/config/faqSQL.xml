@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<resultMap type="FAQModel" id="faqModelRes">
 		<result property="no" column="no" />		
-		<result property="name" column="name" />		
+		<result property="email" column="email" />		
 		<result property="subject" column="subject" />
 		<result property="content" column="content" />
 		<result property="regdate" column="regdate" />
@@ -23,9 +23,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 글쓰기 -->
 	<insert id="faqWrite" parameterType="Integer">
 			INSERT INTO faq
-			(NO, SUBJECT, CONTENT, REGDATE, NAME)
+			(NO, SUBJECT, CONTENT, REGDATE, email)
 			VALUES
-			(faq_SEQ.NEXTVAL, #{subject}, #{content}, SYSDATE, #{name})
+			(faq_SEQ.NEXTVAL, #{subject}, #{content}, SYSDATE, #{email})
 	</insert>
 
 	<!-- 조회수 1증가 -->
@@ -53,7 +53,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="faqModify" parameterType="faqModel">
 			UPDATE faq
 			SET
-				NAME = #{name},
+				email = #{email},
 				SUBJECT = #{subject},
 				CONTENT = #{content}
 			WHERE
@@ -82,7 +82,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 작성자검색 -->
 	<select id="faqSearch2" resultMap="faqModelRes" parameterType="String">
 		SELECT * FROM faq
-		WHERE name like #{search}
+		WHERE email like #{search}
 		ORDER BY no DESC
 	</select>
 </mapper>
