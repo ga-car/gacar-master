@@ -23,8 +23,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			order by car_no desc
 	</select>
 	
-	<select id="rentacarSearchList" resultMap="rentacarModelRes">
-			select * from car where car_addr like #{Search}
+	<select id="rentacarSearchList" parameterType="rentacarModel" resultMap="rentacarModelRes">
+			select * from car where car_lat = #{car_lat} and car_lng = #{car_lng}
 			order by car_no desc
 	</select>
 </mapper>
+<!-- create table car( car_no varchar2(25) NOT NULL PRIMARY KEY, car_type 
+	varchar2(30) NOT NULL, car_brand varchar2(30) NOT NULL, car_name varchar2(30) 
+	NOT NULL, car_pnum number(10) NOT NULL, car_lat varchar2(20) NOT NULL, car_lng 
+	varchar2(20) NOT NULL, car_zipcode varchar2(10) NOT NULL, car_addr varchar2(100) 
+	NOT NULL, car_addr2 varchar2(100) NOT NULL, car_image varchar2(100) NOT NULL, 
+	car_charge number(10) NOT NULL); -->

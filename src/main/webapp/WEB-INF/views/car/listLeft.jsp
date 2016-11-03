@@ -10,23 +10,18 @@
 <body>
 	<form enctype="multipart/form-data" method="post">
 		<table>
-			<tr>
-				<td><input type="text" id="Search" name="Search"></td>
-				<td><input type="submit" value="검색"></td>
-			</tr>
-			<c:if test="${Search != null}">
+			<c:forEach var="rentacarLatlng" items="${rentacarLatlng}"
+				varStatus="stat">
 				<tr>
-					<td>${Search}</td>
+					<td>브랜드</td>
+					<td>${rentacarLatlng.car_brand}</td>
 				</tr>
-				<c:forEach var="rentacarList" items="${rentacarList}"
-					varStatus="stat">
-					<tr>
-						<td>차량번호</td>
-						<td><a href="#"
-							onClick="panTo(${rentacarList.car_lat},${rentacarList.car_lng})">${rentacarList.car_no}</a></td>
-					</tr>
-				</c:forEach>
-			</c:if>
+				<%-- <tr>
+						<td colspan="2"><a href="#"
+							onClick="panTo(${rentacarLatlng.car_lat},${rentacarLatlng.car_lng})">${rentacarLatlng.car_addr}
+								${rentacarLatlng.car_addr2}</a></td>
+					</tr> --%>
+			</c:forEach>
 		</table>
 	</form>
 </body>
