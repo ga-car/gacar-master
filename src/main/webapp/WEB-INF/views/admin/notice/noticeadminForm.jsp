@@ -62,11 +62,10 @@ function reviewList() {
 							<th>사용자 ID</th>
 							<td colspan=3>
 								<strong>
-									<%-- ${session_member_name} --%>
-									<input type="text" name="name" value="${notifyModel.name }"/>
+									 ${session_name }	
 								</strong>
 							</td>
-							<%-- <input type="hidden" name="name" value="${session_member_name }"/> --%>
+							<input type="hidden" name="name" value="${session_name }"/>
 						</tr>
 						
 						<tr><!-- 글내용 -->
