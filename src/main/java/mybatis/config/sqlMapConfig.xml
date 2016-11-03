@@ -26,7 +26,8 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="carpoolModel" type="com.Project.carpool.CarpoolModel" />
 		<typeAlias alias="notifyModel" type="com.Project.notify.NotifyModel" />
 		<typeAlias alias="faqModel" type="com.Project.faq.FAQModel" />
-		<typeAlias alias="qnaModel" type="com.Project.qna.QnaModel" />
+		<typeAlias alias="qnaModel" type="com.Project.qna.qnaModel" />
+		<typeAlias alias="qnaCommModel" type="com.Project.qna.qnaCommModel" />
 		<typeAlias alias="mypageModel" type="com.Project.mypage.MypageModel" />
 		<typeAlias alias="joinModel" type="com.Project.join.JoinModel" />
 		<typeAlias alias="loginModel" type="com.Project.login.LoginModel" />
