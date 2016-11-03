@@ -54,7 +54,6 @@ public class RentacarModel {
 	public void setCar_pnum(int car_pnum) {
 		this.car_pnum = car_pnum;
 	}
-
 	public String getCar_lat() {
 		return car_lat;
 	}

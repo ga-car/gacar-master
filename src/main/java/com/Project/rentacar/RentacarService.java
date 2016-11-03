@@ -8,19 +8,19 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RentacarService implements RentacarDao{
-	
+public class RentacarService implements RentacarDao {
+
 	@Resource
 	private SqlSessionTemplate sqlSessionTemplate;
-	
+
 	@Override
 	public List<RentacarModel> rentacarList() {
-		return sqlSessionTemplate.selectList("rentacar.rentacarList"); 
-	}
-
-	public List<RentacarModel> rentacarSearchList(String Search) {
-		return sqlSessionTemplate.selectList("rentacar.rentacarSearchList", "%"+Search+"%"); 
+		return sqlSessionTemplate.selectList("rentacar.rentacarList");
 	}
 	
+	@Override
+	public List<RentacarModel> rentacarLatLng(RentacarModel rentacarModel) {
+		return sqlSessionTemplate.selectList("rentacar.rentacarSearchList", rentacarModel);
+	}
 
 }

@@ -6,4 +6,6 @@ public interface RentacarDao {
 
 	List<RentacarModel> rentacarList();
 
+	List<RentacarModel> rentacarLatLng(RentacarModel rentacarModel);
+
 }

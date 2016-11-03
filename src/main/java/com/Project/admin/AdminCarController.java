@@ -102,8 +102,6 @@ public class AdminCarController {
 			rentacarModel.setCar_image("NULL");
 		}
 
-		System.out.printf("%s \n", rentacarModel.getCar_lat());
-		System.out.printf("%s \n", rentacarModel.getCar_image());
 		/* adminService.insertRentacar(rentacarModel); */
 		adminService.insertRentacar(rentacarModel);
 
