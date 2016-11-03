@@ -6,27 +6,26 @@ import java.util.Date;
 public class ReviewModel {
 
 	private int no;
-	private String name;
 	private String content;
 	private String subject;
-	private String member_id;
+	private String email;
 	private Date regdate;
 	private int readcount;
 	private String imagefile_orgname;
 	private String imagefile_savname;
 	
-	
+
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public int getNo() {
 		return no;
 	}
 	public void setNo(int no) {
 		this.no = no;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 	public String getSubject() {
 		return subject;
@@ -40,12 +39,6 @@ public class ReviewModel {
 	}
 	public void setContent(String content) {
 		this.content = content;
-	}
-	public String getMember_id() {
-		return member_id;
-	}
-	public void setMember_id(String member_id) {
-		this.member_id = member_id;
 	}
 	public Date getRegdate() {
 		return regdate;

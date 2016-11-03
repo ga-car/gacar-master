@@ -7,10 +7,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<resultMap type="reviewModel" id="reviewModelRes">
 		<result property="no" column="no" />		
-		<result property="name" column="name" />
+		<result property="email" column="email"/>
 		<result property="subject" column="subject" />
 		<result property="content" column="content" />
-		<result property="member_id" column="member_id" />
 		<result property="regdate" column="regdate" />
 		<result property="readcount" column="readcount" />
 		<result property="imagefile_orgname" column="imagefile_orgname" />
@@ -38,9 +37,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 글쓰기 -->
 	<insert id="reviewWrite" parameterType="reviewModel">
 			INSERT INTO REVIEW
-			(NO, SUBJECT, CONTENT, NAME, REGDATE, IMAGEFILE_SAVNAME)
+			(NO, SUBJECT, CONTENT, EMAIL, REGDATE, IMAGEFILE_SAVNAME)
 			VALUES
-			(REVIEW_SEQ.NEXTVAL, #{subject}, #{content}, #{name}, SYSDATE, #{imagefile_savname})
+			(REVIEW_SEQ.NEXTVAL, #{subject}, #{content}, #{email}, SYSDATE, #{imagefile_savname})
 	</insert>
 	<!-- , #{imagefile_savname} -->
 	
@@ -102,7 +101,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 작성자검색 -->
 	<select id="reviewSearch2" resultMap="reviewModelRes" parameterType="String">
 		SELECT * FROM REVIEW
-		WHERE name like #{search}
+		WHERE email like #{search}
 		ORDER BY no DESC
 	</select>
 	

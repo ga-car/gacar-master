@@ -40,7 +40,7 @@
 	<sql id="select-all">
 		SELECT * FROM MEMBER_C
 	</sql>
-	
+	<!-- 회원가입 -->
 	<insert id="insertMember" parameterType="memberModel">
 		insert into MEMBER_C(num, email, password, name, phone, zipcode, addr, addr2, cartype, carnum, licensetype, licensenum, licensedate, joindate, jumin1, jumin2)
 					values(seq_MEMBER.nextval, #{email}, #{password}, #{name}, #{phone}, #{zipcode}, #{addr}, #{addr2}, #{cartype}, #{carnum}, #{licensetype}, #{licensenum}, #{licensedate}, sysdate, #{jumin1}, #{jumin2})
@@ -51,17 +51,18 @@
 		where email = #{email}
 	</select>
 	
+	<!-- 우편번호 찾기 -->	
 	<select id="zipcodeCheck" parameterType="zipcodeModel" resultMap="zipcodeRes"> 
 		select * from zipcode where AREA3 like '%'|| #{area3} ||'%'
 	</select>
 	
-	        <!-- 로그인 체크 -->
+	<!-- 로그인 체크 -->
 	<select id="login" parameterType="memberModel" resultMap="memberRes">
 		<include refid="select-all" />
 		where email=#{email} and password=#{password}
 	</select>
 
-	<!-- 이름으로 비밀번호 와 아이디 찾기 --> 
+	<!-- 이메일 비밀번호 찾기 --> 
 	<select id="emailFind" parameterType="memberModel" resultMap="memberRes">
 		<include refid="select-all" />
 		where name=#{name} and jumin1=#{jumin1}
@@ -71,6 +72,22 @@
 		<include refid="select-all" />
 		where name=#{name} and email=#{email}
 	</select>
+	
+	<!--회원정보수정-->
+	<update id="updateMember" parameterType="memberModel"> 
+		update MEMBER_C SET password=#{password}, name=#{name}, phone=#{phone}, zipcode=#{zipcode}, addr=#{addr}, addr2=#{addr2}, cartype=#{cartype}, carnum=#{carnum}, licensetype=#{licensetype}, licensenum=#{licensenum}, licensedate=#{licensedate}
+		where email=#{email}
+ 	</update>
+ 	
+	<!-- 회원탈퇴 -->
+	<update id="updateDelMem" parameterType="memberModel"> 
+		update MEMBER_C SET del=#{del}, deldate=sysdate
+		where email=#{email}
+ 	</update>  
+ 	<delete id="deleteMember" parameterType="String">
+ 		delete from MEMBER_C
+ 		where email=#{email}
+	</delete>
 
 
 </mapper>

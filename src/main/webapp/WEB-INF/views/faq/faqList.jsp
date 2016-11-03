@@ -60,7 +60,7 @@
 				id="dataTables-example">
 				<thead>
 					<tr class="danger">
-						<th style="width: 7%; text-align:center;">글번호</th>
+						<th style="width: 7%; text-align:center;"></th>
 						<th style="width: ; text-align:center;">제목</th>
 						<th style="width: 15%; text-align:center;">작성자</th>										
 						<th style="width: 15%; text-align:center;">작성일</th>
@@ -69,9 +69,9 @@
 				<tbody>
 					<c:forEach var="list" items="${faqList}">
 					<tr>
-						<td>${list.no}</td>
+						<td><strong><font size="4px" color="pink">Q</font></strong>&nbsp;&nbsp;</td>
 						<td style="text-align:left;"><h6>${list.subject}</h6></td>
-						<td>${list.name}</td> 
+						<td>${list.email}</td> 
 						<td><fmt:formatDate value="${list.regdate}" pattern="yyyy.MM.dd"/></td>
 					</tr>
 					<tr>

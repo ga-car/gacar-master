@@ -5,7 +5,7 @@ import java.util.Date;
 public class FAQModel {
 	
 	private int no;
-	private String name;	
+	private String email;	
 	private String subject;
 	private String content;	
 	private Date regdate;
@@ -17,11 +17,11 @@ public class FAQModel {
 	public void setNo(int no) {
 		this.no = no;
 	}
-	public String getName() {
-		return name;
+	public String getEmail() {
+		return email;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getSubject() {
 		return subject;
