@@ -4,7 +4,85 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="faq">
-	<resultMap type="faqModel" id="faqModelRes">
-	
+
+	<resultMap type="FAQModel" id="faqModelRes">
+		<result property="no" column="no" />		
+		<result property="email" column="email" />		
+		<result property="subject" column="subject" />
+		<result property="content" column="content" />
+		<result property="regdate" column="regdate" />
+		<result property="readcount" column="readcount" />
 	</resultMap>
+		
+	<!-- 글목록  -->
+	<select id="faqList" resultMap="faqModelRes">
+			SELECT * FROM faq 
+			ORDER BY no DESC
+	</select>
+	
+	<!-- 글쓰기 -->
+	<insert id="faqWrite" parameterType="Integer">
+			INSERT INTO faq
+			(NO, SUBJECT, CONTENT, REGDATE, email)
+			VALUES
+			(faq_SEQ.NEXTVAL, #{subject}, #{content}, SYSDATE, #{email})
+	</insert>
+
+	<!-- 조회수 1증가 -->
+	<update id="faqUpdateReadcount" parameterType="Integer">
+			UPDATE faq 
+			SET
+				READCOUNT = READCOUNT + 1
+			WHERE
+				NO = #{no}	
+	</update>
+	
+	<!-- 글 상세보기 -->
+	<select id="faqView" resultMap="faqModelRes" parameterType="Integer">
+			SELECT * FROM faq 
+			WHERE NO = #{no}
+	</select>
+
+	<!-- 글 하나 불러오기 -->
+	<select id="faqSelect" resultMap="faqModelRes" parameterType="Integer">
+			SELECT * FROM faq 
+			WHERE NO = #{no}
+	</select>
+	
+	<!-- 글수정 -->
+	<update id="faqModify" parameterType="faqModel">
+			UPDATE faq
+			SET
+				email = #{email},
+				SUBJECT = #{subject},
+				CONTENT = #{content}
+			WHERE
+				NO = #{no}	
+	</update>
+
+	<!-- 글삭제 -->
+	<delete id="faqDelete" parameterType="Integer">
+			DELETE FROM faq WHERE NO=#{no}
+	</delete>
+
+	<!-- 제목검색 -->
+	<select id="faqSearch0" resultMap="faqModelRes" parameterType="String">
+		SELECT * FROM faq
+		 WHERE subject like #{search}
+		 ORDER BY no DESC
+	</select>
+	
+	<!-- 내용검색 -->
+	<select id="faqSearch1" resultMap="faqModelRes" parameterType="String">
+		SELECT * FROM faq
+		WHERE content like #{search}
+		ORDER BY no DESC
+	</select>
+
+	<!-- 작성자검색 -->
+	<select id="faqSearch2" resultMap="faqModelRes" parameterType="String">
+		SELECT * FROM faq
+		WHERE email like #{search}
+		ORDER BY no DESC
+	</select>
 </mapper>

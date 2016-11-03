@@ -11,10 +11,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="car_name" column="car_name" />
 		<result property="car_pnum" column="car_pnum" />
 		<result property="car_lat" column="car_lat" />
-		<result property="car_long" column="car_long" />
-		<result property="car_local" column="car_local" />
-		<result property="car_orgname" column="car_orgname" />
-		<result property="car_savename" column="car_savename" />
+		<result property="car_lng" column="car_lng" />
+		<result property="car_addr" column="car_addr" />
+		<result property="car_addr2" column="car_addr2" />
+		<result property="car_image" column="car_image" />
 		<result property="car_charge" column="car_charge" />
 	</resultMap>
+	
+	<select id="rentacarList" resultMap="rentacarModelRes">
+			select * from car 
+			order by car_no desc
+	</select>
+	
+	<select id="rentacarSearchList" resultMap="rentacarModelRes">
+			select * from car where car_addr like #{Search}
+			order by car_no desc
+	</select>
 </mapper>
