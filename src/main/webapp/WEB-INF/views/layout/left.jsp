@@ -14,6 +14,13 @@
 				"ë¡œê·¸ì¸",
 				"toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
 	}
+	
+	window.onload = function(){
+		var invalid="${invalid}";
+		if(invalid==1){
+			alert("Àß¸øµÈ Á¢±ÙÀ¸·Î °¡Ä¡°°ÀÌÅ¸ÀÇ ¸ŞÀÎÀ¸·Î ÀÌµ¿µÇ¾ú½À´Ï´Ù.");
+		}
+	}
 </script>
 
 <script type="text/javascript">

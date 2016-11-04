@@ -37,7 +37,9 @@
 				<td height="40"></td>
 			</tr>
 			<tr>
-				<td align="center">동이름 입력: <input type="text" name="area3" size="20" maxlength="30" /> <input type="button" value="검 색" onclick="dongCheck();" /> <input type="hidden" name="check" value="n" /></td>
+				<td align="center">동이름 입력: <input type="text" name="area3" size="20" maxlength="30" />
+				<input type="button" value="검 색" onclick="dongCheck();" />
+				<input type="hidden" name="check" value="n" /></td>
 			</tr>
 			<tr>
 				<td height="30"></td>
@@ -56,7 +58,6 @@
 					<td align="center">검색결과가 나오면 맞는 부분을 클릭하시면 <br /> 자동으로 주소와 우편번호란에 채워집니다<br />
 					</td>
 					<c:forEach items="${zipcode}" var="stat">
-						<%-- <c:forEach var="i" begin="${zipcodeList.size}" end="0"> --%>
 						<tr>
 							<td><a href="javascript:sendAddress('${stat.zipcode}','${stat.area1}','${stat.area2}','${stat.area3}','${stat.area4}')"> ${stat.zipcode}&nbsp; ${stat.area1}&nbsp; ${stat.area2}&nbsp; ${stat.area3}&nbsp; ${stat.area4}&nbsp;</a> <br /></td>
 						</tr>
