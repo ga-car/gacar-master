@@ -13,7 +13,7 @@
 
 function reviewList() {
 	if(confirm("목록으로 가시겠습니까?") == true){
-		location.href='reviewList.do';
+		location.href='list.do';
 		return;
 	}
 }
@@ -46,7 +46,7 @@ function reviewList() {
    </ul>
 </div>
 <div id="wrapper">
-<form:form commandName="reviewModel" action="reviewWrite.do" enctype="multipart/form-data"	method="post">
+<form:form commandName="reviewModel" action="write.do" enctype="multipart/form-data"	method="post">
       <div id="page-wrapper">
          <div class="row">
             <div class="col-lg-12">
@@ -131,14 +131,14 @@ var oEditors = [];
 var onWrite = function(){
 	oEditors.getById["txtContent"].exec("UPDATE_CONTENTS_FIELD", []); // 에디터의 내용이 textarea에 적용됨
 	var boardWriteForm = document.getElementById("boardWriteForm");  
-	boardWriteForm.action ="/rentacar/reviewWrite.do";              
+	boardWriteForm.action ="/rentacar/review/write.do";              
 	boardWriteForm.submit();  
 };
 
 var onModify = function(){
 	oEditors.getById["txtContent"].exec("UPDATE_CONTENTS_FIELD", []); // 에디터의 내용이 textarea에 적용됨
 	var boardWriteForm = document.getElementById("boardWriteForm");  
-	boardWriteForm.action ="/rentacar/review/reviewModifySuccess.do";              
+	boardWriteForm.action ="/rentacar/review/modifySuccess.do";              
 	boardWriteForm.submit();  
 };
 
