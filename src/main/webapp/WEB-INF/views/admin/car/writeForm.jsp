@@ -12,7 +12,7 @@
 <script type="text/javascript">
 	function check() {
 
-		var f = document.infoinput; //문서.Form name="";
+		var f = document.writeFrom; //문서.Form name="";
 
 		if (f.car_no.value == "") {
 			alert("차량번호를 입력해주세요.");
@@ -59,7 +59,7 @@
 </script>
 </head>
 <body onLoad="focus()">
-	<form enctype="multipart/form-data" method="post" name="infoinput"
+	<form enctype="multipart/form-data" method="post" name="writeFrom"
 		onsubmit="return check()">
 		<table>
 			<tr>
