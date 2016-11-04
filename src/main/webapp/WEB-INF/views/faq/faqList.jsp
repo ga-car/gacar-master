@@ -131,7 +131,7 @@
 
 $('.searchOption').val($('.searchOptionVal').val());
 var onWrite = function(){
-	location.href = 'faqWrite.do'; 
+	location.href = 'faq/write.do'; 
 };
 </script>
 </html>

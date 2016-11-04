@@ -23,7 +23,7 @@
 <script type="text/javascript">
 function faqDelete() {
 	alert("삭제하겠습니까?");
-	location.href='faqDelete.do?no=${faqModel.no}';
+	location.href='faq/delete.do?no=${faqModel.no}';
 }
 </script>
 </head>
@@ -91,12 +91,12 @@ function faqDelete() {
 <script type="text/javascript">
 	var onModify = function(no){
 		var form = $('.viewForm')[0];
-		form.action = 'faqModify.do?no='+no;
+		form.action = 'faq/modify.do?no='+no;
 		form.submit();
 	};
 	
 	var onList = function(){
-		location.href='faqList.do';
+		location.href='faq/list.do';
 	};
 </script>
 </html>

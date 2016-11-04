@@ -64,7 +64,7 @@
 								
 								<tbody>
 									<c:forEach var="list" items="${reviewList}">
-										<c:url var="viewURL" value="reviewView.do" >
+										<c:url var="viewURL" value="view.do" >
 											<c:param name="no" value="${list.no }" />
 										    <c:param name="currentPage" value="${currentPage }" />
 										</c:url>
@@ -137,7 +137,7 @@
 
 $('.searchOption').val($('.searchOptionVal').val());
 var onWrite = function(){
-	location.href = 'reviewWrite.do'; 
+	location.href = 'write.do'; 
 };
 var onList = function(){
 	location.href = location.href;
@@ -154,7 +154,7 @@ var onSearch = function(){
 };
 
 var onView = function(no){
-	location.href='reviewView.do?no='+no;
+	location.href='view.do?no='+no;
 };
 </script>
 </html>

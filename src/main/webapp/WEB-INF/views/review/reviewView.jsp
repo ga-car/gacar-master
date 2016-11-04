@@ -12,7 +12,7 @@
 
 $('.searchOption').val($('.searchOptionVal').val());
 var onWrite = function(){
-	location.href = 'reviewWrite.do'; 
+	location.href = '/review/write.do'; 
 };
 var onList = function(){
 	location.href = location.href;
@@ -29,11 +29,11 @@ var onSearch = function(){
 };
 
 var onView = function(no){
-	location.href='reviewView.do?no='+no;
+	location.href='view.do?no='+no;
 };
 
 var onModify = function(no){
-	location.href='reviewModify.do?no='+no;
+	location.href='/review/modify.do?no='+no;
 };
 </script>
 
@@ -41,7 +41,7 @@ var onModify = function(no){
 
 function reviewList() {
 	if(confirm("목록으로 가시겠습니까?") == true){
-		location.href='reviewList.do';
+		location.href='list.do';
 	}else {
 		return;
 	}
@@ -49,7 +49,7 @@ function reviewList() {
 
 function reviewDelete() {
 	if(confirm("삭제 하시겠습니까?") == true){
-		location.href='reviewDelete.do?no=${reviewModel.no}';
+		location.href='delete.do?no=${reviewModel.no}';
 	}else {
 		return;
 	}
@@ -57,7 +57,7 @@ function reviewDelete() {
 
 function reviewModify() {
 	if(confirm("수정 하시겠습니까?") == true){
-	location.href='reviewModify.do?no=${reviewModel.no}';
+	location.href='modify.do?no=${reviewModel.no}';
 	}else {
 		return;
 	}

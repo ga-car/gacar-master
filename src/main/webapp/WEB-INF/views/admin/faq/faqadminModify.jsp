@@ -32,7 +32,7 @@
 	</ul>
 </div>		
 	<div id="wrapper">
-		<form:form commandName="faqModel" action="/rentacar/admin/faqModifySuccess.do" method="post"> 
+		<form:form commandName="faqModel" action="modifySuccess.do" method="post"> 
 			<div id="page-wrapper">
         		 <div class="row">
            			 <div class="col-lg-12">
