@@ -23,7 +23,7 @@
 	</definition>
 
 	<definition name="carReserveForm" extends="main">
-		<put-attribute name="body" value="/WEB-INF/views/car/reserveForm.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/car/reserve.jsp" />
 	</definition>
 
 	<!-- 차량예약 관리자 -->

@@ -7,16 +7,16 @@
 <title>Demo Page: Using Progressive Enhancement to Convert a
 	Select Box Into an Accessible jQuery UI Slider</title>
 <script type="text/javascript"
-	src="/rentacar/resources/js/jquery-1.4.4.min.js"></script>
+	src="/resources/js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript"
-	src="/rentacar/resources/js/jquery-ui-1.7.1.custom.min.js"></script>
+	src="/resources/js/jquery-ui-1.7.1.custom.min.js"></script>
 <script type="text/javascript"
-	src="/rentacar/resources/js/selectToUISlider.jQuery.js"></script>
+	src="/resources/js/selectToUISlider.jQuery.js"></script>
 <link rel="stylesheet"
-	href="/rentacar/resources/selectToUISlider/css/redmond/jquery-ui-1.7.1.custom.css"
+	href="/resources/css/selectToUISlider/redmond/jquery-ui-1.7.1.custom.css"
 	type="text/css" />
 <link rel="Stylesheet"
-	href="/rentacar/resources/selectToUISlider/css/ui.slider.extras.css"
+	href="/resources/css/selectToUISlider/ui.slider.extras.css"
 	type="text/css" />
 <style type="text/css">
 body {
