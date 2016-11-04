@@ -85,9 +85,10 @@ function reviewList() {
 						
 						<tr><!-- 글내용 -->
 							<th>글내용</th>
+							
 							<td colspan=3 height=400 style="padding: 0px !important;">
 							   <textarea name="content" value="${reviewModel.content}"
-							   		style="margin: 3px; width: 100%; height: 100%;">${reviewModel.content}</textarea> 
+							   		style=" margin: 1px; width: 100%; height: 98%;">${reviewModel.content}</textarea> 
 							   <font color="red"><form:errors path="content" /></font>
 							</td>
 							

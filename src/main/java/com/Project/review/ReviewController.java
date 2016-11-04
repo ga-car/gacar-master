@@ -222,7 +222,7 @@ public class ReviewController {
 		int no = Integer.parseInt(request.getParameter("no"));
 		reviewService.reviewDelete(no);
 	/*	reviewService.reviewallcommDelete(no);*/
-		mav.setViewName("redirect:/list.do");
+		mav.setViewName("redirect:list.do");
 		
 		return mav;	
 	}
@@ -296,7 +296,7 @@ public class ReviewController {
         reviewService.reviewModify(reviewModel);
 		
 		mav.addObject("no", reviewModel.getNo());
-		mav.setViewName("redirect:/view.do");
+		mav.setViewName("redirect:view.do");
 		return mav;	
 	}
 }
