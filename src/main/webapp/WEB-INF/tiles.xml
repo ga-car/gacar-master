@@ -17,11 +17,11 @@
 	<!-- 차량예약 -->
 	<definition name="carListForm" template="/WEB-INF/views/layout/car_layout.jsp">
 		<put-attribute name="left" value="/WEB-INF/views/layout/left.jsp" />
+		<put-attribute name="top" value="/WEB-INF/views/layout/top.jsp" />
 		<put-attribute name="bodyLeft" value="/WEB-INF/views/car/listLeft.jsp" />
-		<put-attribute name="bodyRight" value="/WEB-INF/views/car/listForm.jsp" />
+		<put-attribute name="bodyRight" value="/WEB-INF/views/car/listForm.jsp" /> 
 		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
-
 	<definition name="carReserveForm" extends="main">
 		<put-attribute name="body" value="/WEB-INF/views/car/reserve.jsp" />
 	</definition>
@@ -182,11 +182,13 @@
 		<put-attribute name="body" value="/WEB-INF/views/qna/qnaForm.jsp" />
 	</definition>
 	<definition name="memberList" extends="adminMain">
-		<put-attribute name="body" value="/WEB-INF/views/admin/member/memberList.jsp"/>
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/member/memberList.jsp" />
 	</definition>
 	<definition name="withdrawList" extends="adminMain">
-		<put-attribute name="body" value="/WEB-INF/views/admin/member/withdrawList.jsp"/>
-	</definition> 
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/member/withdrawList.jsp" />
+	</definition>
 
 	<definition name="qnaView" extends="main">
 		<put-attribute name="body" value="/WEB-INF/views/qna/qnaView.jsp" />
