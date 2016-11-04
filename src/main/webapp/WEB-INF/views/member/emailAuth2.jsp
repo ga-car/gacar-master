@@ -54,6 +54,21 @@
 	</table>
 </c:if>
 
+<c:if test="${email3!=null}">
+<br/><br/>
+	<table width=400 border=0 cellspacing=0 cellpadding=5 class="BTABLE">
+		<tr align=center>
+			<td height=30>
+				<font class="BFONT2"><b>${email3}</b>는 탈퇴한 이메일입니다.</font>			
+			</td>
+		</tr>
+		<tr align=center>
+			<td>
+				<a href="javascript:this.close();"><input type="button" value="확인" ></a>
+			</td>
+		</tr>
+	</table>
+</c:if>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
