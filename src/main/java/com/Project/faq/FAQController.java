@@ -37,7 +37,7 @@ public class FAQController {
 	private Paging page;
 
 	//����Ʈ ó��(�˻�)
-	@RequestMapping(value="/List.do", method=RequestMethod.GET)
+	@RequestMapping(value="/list.do", method=RequestMethod.GET)
 	public ModelAndView faqList(HttpServletRequest request) throws UnsupportedEncodingException{
 		
 		ModelAndView mav = new ModelAndView();
@@ -110,7 +110,7 @@ public class FAQController {
 	}
 
 	//FAQ �󼼺���
-	@RequestMapping("/View.do")
+	@RequestMapping("/view.do")
 	public ModelAndView faqView(HttpServletRequest request){
 		   
 		ModelAndView mav = new ModelAndView();
@@ -127,7 +127,7 @@ public class FAQController {
 		
 		return mav;
 	}
-	
+	/*
 	//FAQ �۾��� ��
 	@RequestMapping(value="/Write.do", method=RequestMethod.GET)
 	public ModelAndView faqForm(HttpServletRequest request) {
@@ -158,7 +158,7 @@ public class FAQController {
 		faqService.faqWrite(faqModel);
 		
 		mav.addObject("faqModel", faqModel);
-		mav.setViewName("redirect:faq/List.do");
+		mav.setViewName("redirect:faq/list.do");
 		
 		return mav;
 	}
@@ -170,13 +170,13 @@ public class FAQController {
 		ModelAndView mav = new ModelAndView();
 		int no = Integer.parseInt(request.getParameter("no"));
 		faqService.faqDelete(no);
-		mav.setViewName("redirect:faq/List.do");
+		mav.setViewName("redirect:faq/list.do");
 		
 		return mav;	
 	}
 	
 	//�������� ������
-	@RequestMapping("/Modify.do")
+	@RequestMapping("/modify.do")
 	public ModelAndView faqModifyForm(@ModelAttribute("faqModel") FAQModel faqModel, BindingResult result, HttpServletRequest request){
 		
 		ModelAndView mav = new ModelAndView();
@@ -192,10 +192,10 @@ public class FAQController {
 	}
 	
 	//�������� ����
-	@RequestMapping("/ModifySuccess.do")
+	@RequestMapping("/modifySuccess.do")
 	public ModelAndView faqModify(@ModelAttribute("faqModel") FAQModel faqModel, HttpServletRequest request){
 		
-		ModelAndView mav = new ModelAndView("redirect:faq/View.do");
+		ModelAndView mav = new ModelAndView("redirect:faq/view.do");
 		
 		String content = faqModel.getContent().replaceAll("\r\n", "<br />");
 		faqModel.setContent(content);
@@ -205,5 +205,5 @@ public class FAQController {
 		mav.addObject("no", faqModel.getNo());
 		
 		return mav;	
-	}
+	}*/
 }

@@ -107,7 +107,7 @@
 		</h4>
 		<ul>
 			<li><a href="/rentacar/notify/list.do">공지사항</a></li>
-			<li><a href="/rentacar/faq/fist.do">FAQ</a></li>
+			<li><a href="/rentacar/faq/list.do">FAQ</a></li>
 			<li><a href="#">1:1문의</a></li>
 		</ul>
 		<h4>
