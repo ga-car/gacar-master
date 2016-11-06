@@ -21,12 +21,12 @@
 	</div>
 	<!-- container -->
 	<div id="containerLeft"
-		style="background: #FFCCCC; height: 700px; width: 20%; float: left; margin: 0 0 10px 0;">
+		style="background: #FFCCCC; height: 700px; width: 60%; float: left; margin: 0 0 10px 0;">
 		<tiles:insertAttribute name="bodyLeft" />
 		<!-- // container -->
 	</div>
 	<div id="containerRight"
-		style="background: #FFDDDD; height: 700px; width: 60%; float: left; margin: 0 0 10px 0;">
+		style="background: #FFDDDD; height: 700px; width: 20%; float: left; margin: 0 0 10px 0;">
 		<tiles:insertAttribute name="bodyRight" />
 		<!-- // container -->
 	</div>

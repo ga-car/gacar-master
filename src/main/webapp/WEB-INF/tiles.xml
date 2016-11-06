@@ -18,12 +18,15 @@
 	<definition name="carListForm" template="/WEB-INF/views/layout/car_layout.jsp">
 		<put-attribute name="left" value="/WEB-INF/views/layout/left.jsp" />
 		<put-attribute name="top" value="/WEB-INF/views/layout/top.jsp" />
-		<put-attribute name="bodyLeft" value="/WEB-INF/views/car/listLeft.jsp" />
-		<put-attribute name="bodyRight" value="/WEB-INF/views/car/listForm.jsp" /> 
+		<put-attribute name="bodyLeft" value="/WEB-INF/views/car/listForm.jsp" />
+		<put-attribute name="bodyRight" value="/WEB-INF/views/car/listRight.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
-	<definition name="carReserveForm" extends="main">
-		<put-attribute name="body" value="/WEB-INF/views/car/reserve.jsp" />
+
+	<definition name="carReserveForm" extends="carListForm">
+		<put-attribute name="bodyLeft" value="/WEB-INF/views/car/reserveForm.jsp" />
+		<put-attribute name="bodyRigh"
+			value="/WEB-INF/views/car/reserveRight.jsp" />
 	</definition>
 
 	<!-- 차량예약 관리자 -->
