@@ -11,8 +11,8 @@
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
 <script
 	src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<link href="/pet/resources/admincss/bootstrap.min.css" rel="stylesheet">
-<link href="/pet/resources/admincss/sb-admin-2.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet">
 <title>Insert title here</title>
 <style type="text/css">
 thead>tr>th {
@@ -71,7 +71,7 @@ tbody>tr:HOVER {
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="page-header">
-						<img src="/pet/resources/images/SkinImg/2.jpg"> <strong><font
+						<img src="/rentacar/resources/images/SkinImg/2.jpg"> <strong><font
 							size="6px">NOTICE</font></strong>&nbsp;&nbsp; <font color="red">공지사항
 							게시판입니다.</font>
 					</div>
