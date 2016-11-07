@@ -173,6 +173,22 @@
 		<put-attribute name="body" value="/WEB-INF/views/qna/qnaModify.jsp" />
 	</definition>
 	
+	<!-- 카풀 -->
+	<definition name="carpoolList" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/carpool/carpoolList.jsp" />
+	</definition>
+	
+	<definition name="carpoolForm" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/carpool/carpoolForm.jsp" />
+	</definition>
+	
+	<definition name="carpoolView" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/carpool/carpoolView.jsp" />
+	</definition>
+	
+	<definition name="carpoolModify" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/carpool/carpoolModify.jsp" />
+	</definition>
 
 </tiles-definitions>
 	
