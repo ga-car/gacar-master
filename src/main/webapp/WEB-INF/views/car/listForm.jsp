@@ -1,25 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript"
 	src="//apis.daum.net/maps/maps3.js?apikey=079b4daabc5db4153ba00f0a15d911f0&libraries=services"></script>
 <body>
-	<div id="map" style="width: 100%; height: 500px;"></div>
+	<div id="map" style="width: 100%; height: 700px;"></div>
 
 	<script type="text/javascript">
-		var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+	
+		var mapCenter = new daum.maps.LatLng("${car_lat}", "${car_lng}")
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 		mapOption = {
-			center : new daum.maps.LatLng(37.5244402562, 127.0159327366), // 지도의 중심좌표
-			level : 8
+			center : mapCenter, // 지도의 중심좌표
+			level : 5
 		// 지도의 확대 레벨
 		};
 
@@ -37,7 +37,7 @@
 		});
 		// 마커에 표시할 인포윈도우를 생성합니다 
 		var infowindow = new daum.maps.InfoWindow({
-			content :"${rentacarList.car_no}"
+			content : "${rentacarList.car_no}"
 		// 인포윈도우에 표시할 내용
 		});
 		// 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
@@ -47,6 +47,8 @@
 				marker, infowindow));
 		daum.maps.event.addListener(marker, 'mouseout',
 				makeOutListener(infowindow));
+		daum.maps.event.addListener(marker, 'click', clickEvent(
+				"${rentacarList.car_lat}", "${rentacarList.car_lng}"));
 		</c:forEach>
 
 		// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
@@ -62,7 +64,13 @@
 				infowindow.close();
 			};
 		}
+		function clickEvent(lat, lng) {
+			return function() {
+				location.href = "/rentacar/car/list.do?car_lat=" + lat
+						+ "&car_lng=" + lng
+			};
 
+		}
 		function panTo(lan, lng) {
 			// 이동할 위도 경도 위치를 생성합니다 
 			var moveLatLon = new daum.maps.LatLng(lan, lng);

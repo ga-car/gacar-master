@@ -44,7 +44,7 @@ function delchk(){
 					class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="row" style="margin-bottom:5px;">
 						<div class="col-sm-6">
-							<a href="/rentacar/admin/adminreviewList.do?searchNum=0&isSearch="><button type="button" class="btn btn-outline btn-default">전체</button></a>													
+							<a href="/rentacar/admin/review/list.do?searchNum=0&isSearch="><button type="button" class="btn btn-outline btn-default">전체</button></a>													
 						</div>
 						<div class="col-sm-6" style="text-align:right;">
 							<div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">총 게시물수 : ${totalCount}</div>
@@ -82,7 +82,7 @@ function delchk(){
 										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${reviewList.regdate}" pattern="YY.MM.dd HH:mm" /></td>
 										<td style="text-align:center;vertical-align:middle;">${reviewList.readcount}</td>									
 										<td style="text-align:center;vertical-align:middle;">									
-										<c:url var="viewURL2" value="reviewDelete.do" >
+										<c:url var="viewURL2" value="delete.do" >
 											<c:param name="no" value="${reviewList.no }" />							
 										</c:url>	
 										 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a></td>									

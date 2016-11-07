@@ -20,6 +20,7 @@ import com.Project.util.Paging;
 import com.Project.validator.FaqValidator;
 
 @Controller
+@RequestMapping("/faq")
 public class FAQController {
 
 	@Resource
@@ -27,7 +28,7 @@ public class FAQController {
 	private int searchNum;
 	private String isSearch;
 	
-	//ÆäÀÌÂ¡À» À§ÇÑ º¯¼ö ¼³Á¤
+	//ï¿½ï¿½ï¿½ï¿½Â¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	private int currentPage = 1;	 
 	private int totalCount; 		 
 	private int blockCount = 10;	 
@@ -35,8 +36,8 @@ public class FAQController {
 	private String pagingHtml;  
 	private Paging page;
 
-	//¸®½ºÆ® Ã³¸®(°Ë»ö)
-	@RequestMapping(value="/faqList.do", method=RequestMethod.GET)
+	//ï¿½ï¿½ï¿½ï¿½Æ® Ã³ï¿½ï¿½(ï¿½Ë»ï¿½)
+	@RequestMapping(value="/list.do", method=RequestMethod.GET)
 	public ModelAndView faqList(HttpServletRequest request) throws UnsupportedEncodingException{
 		
 		ModelAndView mav = new ModelAndView();
@@ -108,8 +109,8 @@ public class FAQController {
 		return mav;
 	}
 
-	//FAQ »ó¼¼º¸±â
-	@RequestMapping("/faqView.do")
+	//FAQ ï¿½ó¼¼ºï¿½ï¿½ï¿½
+	@RequestMapping("/view.do")
 	public ModelAndView faqView(HttpServletRequest request){
 		   
 		ModelAndView mav = new ModelAndView();
@@ -126,9 +127,9 @@ public class FAQController {
 		
 		return mav;
 	}
-	
-	//FAQ ±Û¾²±â Æû
-	@RequestMapping(value="/faqWrite.do", method=RequestMethod.GET)
+	/*
+	//FAQ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½
+	@RequestMapping(value="/Write.do", method=RequestMethod.GET)
 	public ModelAndView faqForm(HttpServletRequest request) {
 		
 		ModelAndView mav = new ModelAndView();
@@ -137,8 +138,8 @@ public class FAQController {
 		return mav;
 	}
 	
-	//°øÁö»çÇ× ±Û¾²±â
-	@RequestMapping(value="/faqWrite.do", method=RequestMethod.POST)
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½
+	@RequestMapping(value="/Write.do", method=RequestMethod.POST)
 	public ModelAndView faqWrite(@ModelAttribute("faqModel") FAQModel faqModel, BindingResult result, 
 			HttpServletRequest request, HttpSession session){
 		
@@ -157,25 +158,25 @@ public class FAQController {
 		faqService.faqWrite(faqModel);
 		
 		mav.addObject("faqModel", faqModel);
-		mav.setViewName("redirect:faqList.do");
+		mav.setViewName("redirect:faq/list.do");
 		
 		return mav;
 	}
 	
-	//°øÁö»çÇ× »èÁ¦
-	@RequestMapping("/faqDelete.do")
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	@RequestMapping("/Delete.do")
 	public ModelAndView faqDelete(HttpServletRequest request){
 		
 		ModelAndView mav = new ModelAndView();
 		int no = Integer.parseInt(request.getParameter("no"));
 		faqService.faqDelete(no);
-		mav.setViewName("redirect:faqList.do");
+		mav.setViewName("redirect:faq/list.do");
 		
 		return mav;	
 	}
 	
-	//°øÁö»çÇ× ¼öÁ¤Æû
-	@RequestMapping("/faqModify.do")
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	@RequestMapping("/modify.do")
 	public ModelAndView faqModifyForm(@ModelAttribute("faqModel") FAQModel faqModel, BindingResult result, HttpServletRequest request){
 		
 		ModelAndView mav = new ModelAndView();
@@ -190,11 +191,11 @@ public class FAQController {
 		return mav;	
 	}
 	
-	//°øÁö»çÇ× ¼öÁ¤
-	@RequestMapping("/faqModifySuccess.do")
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	@RequestMapping("/modifySuccess.do")
 	public ModelAndView faqModify(@ModelAttribute("faqModel") FAQModel faqModel, HttpServletRequest request){
 		
-		ModelAndView mav = new ModelAndView("redirect:faqView.do");
+		ModelAndView mav = new ModelAndView("redirect:faq/view.do");
 		
 		String content = faqModel.getContent().replaceAll("\r\n", "<br />");
 		faqModel.setContent(content);
@@ -204,5 +205,5 @@ public class FAQController {
 		mav.addObject("no", faqModel.getNo());
 		
 		return mav;	
-	}
+	}*/
 }

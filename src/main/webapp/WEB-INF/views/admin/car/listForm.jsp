@@ -38,7 +38,7 @@
 				<td>${pagingHtml}</td>
 			</tr>
 			<tr>
-				<td><a href="/rentacar/admin/car/write.do">글쓰기</a></td>
+				<td colspan="6" align="right"><a href="/rentacar/admin/car/write.do">글쓰기</a></td>
 			</tr>
 		</table>
 	</form>

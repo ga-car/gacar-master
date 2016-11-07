@@ -15,11 +15,17 @@
 	</definition>
 
 	<!-- 차량예약 -->
-	<definition name="carListForm" extends="main">
-      <put-attribute name="body" value="/WEB-INF/views/car/listForm.jsp" />
-      <put-attribute name="left" value="/WEB-INF/views/car/listLeft.jsp" />
-    </definition>
-    
+	<definition name="carListForm" template="/WEB-INF/views/layout/car_layout.jsp">
+		<put-attribute name="left" value="/WEB-INF/views/layout/left.jsp" />
+		<put-attribute name="top" value="/WEB-INF/views/layout/top.jsp" />
+		<put-attribute name="bodyLeft" value="/WEB-INF/views/car/listLeft.jsp" />
+		<put-attribute name="bodyRight" value="/WEB-INF/views/car/listForm.jsp" /> 
+		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+	</definition>
+	<definition name="carReserveForm" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/car/reserve.jsp" />
+	</definition>
+
 	<!-- 차량예약 관리자 -->
 	<definition name="AdmincarWriteForm" extends="adminMain">
 		<put-attribute name="body"
@@ -109,50 +115,89 @@
 
 	<!-- Member -->
 	<definition name="mem_default" template="/WEB-INF/views/layout/mem_layout.jsp">
-		<put-attribute name="body" value="/WEB-INF/views/layout/container.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/layout/container.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
-	
+
 	<definition name="memberAgree" extends="mem_default">
-		<put-attribute name="body" value="/WEB-INF/views/member/memberJoinAgree.jsp"/>
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/memberJoinAgree.jsp" />
 	</definition>
-	
+
 	<definition name="member" extends="mem_default">
-		<put-attribute name="body" value="/WEB-INF/views/member/memberJoin.jsp"/>
-	</definition>	
-	
-	<definition name="memberEnd" extends="mem_default">
-		<put-attribute name="body" value="/WEB-INF/views/member/memberJoinEnd.jsp"/>
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/memberJoin.jsp" />
 	</definition>
-	
+
+	<definition name="memberEnd" extends="mem_default">
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/memberJoinEnd.jsp" />
+	</definition>
+
 	<!-- Mypage -->
 	<definition name="mypage" extends="main">
-		<put-attribute name="body" value="/WEB-INF/views/mypage/mypage.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/views/mypage/mypage.jsp" />
 	</definition>
 	<definition name="memberConfirm" extends="main">
-		<put-attribute name="body" value="/WEB-INF/views/mypage/memberConfirm.jsp"/>
+		<put-attribute name="body"
+			value="/WEB-INF/views/mypage/memberConfirm.jsp" />
 	</definition>
 	<definition name="memberModify" extends="main">
-		<put-attribute name="body" value="/WEB-INF/views/mypage/memberModify.jsp"/>
+		<put-attribute name="body"
+			value="/WEB-INF/views/mypage/memberModify.jsp" />
 	</definition>
 	<definition name="memberModifyEnd" extends="main">
-		<put-attribute name="body" value="/WEB-INF/views/mypage/memberModifyEnd.jsp"/>
+		<put-attribute name="body"
+			value="/WEB-INF/views/mypage/memberModifyEnd.jsp" />
 	</definition>
 	<definition name="memberDelPre" extends="main">
-		<put-attribute name="body" value="/WEB-INF/views/mypage/memberDelPre.jsp"/>
+		<put-attribute name="body"
+			value="/WEB-INF/views/mypage/memberDelPre.jsp" />
 	</definition>
-	
+
 	<!-- 관리자 -->
 	<definition name="adminMain" extends="main">
-		<put-attribute name="left" value="/WEB-INF/views/admin/admin_left.jsp" />
-		<put-attribute name="body" value="/WEB-INF/views/admin/main.jsp"/>
+		<put-attribute name="left"
+			value="/WEB-INF/views/admin/admin_left.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/admin/main.jsp" />
+	</definition>
+
+	<!-- 1:1문의 관리자 -->
+	<definition name="qnaAdmin" extends="main">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/qna/qnaAdmin.jsp" />
+	</definition>
+	<definition name="qnaAdminView" extends="main">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/qna/qnaAdminView.jsp" />
+	</definition>
+
+	<!-- 1:1문의 -->
+	<definition name="qnaList" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/qna/qnaList.jsp" />
+	</definition>
+
+	<definition name="qnaForm" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/qna/qnaForm.jsp" />
 	</definition>
 	<definition name="memberList" extends="adminMain">
-		<put-attribute name="body" value="/WEB-INF/views/admin/member/memberList.jsp"/>
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/member/memberList.jsp" />
 	</definition>
 	<definition name="withdrawList" extends="adminMain">
-		<put-attribute name="body" value="/WEB-INF/views/admin/member/withdrawList.jsp"/>
-	</definition> 
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/member/withdrawList.jsp" />
+	</definition>
+
+	<definition name="qnaView" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/qna/qnaView.jsp" />
+	</definition>
+
+	<definition name="qnaModify" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/qna/qnaModify.jsp" />
+	</definition>
+
 
 </tiles-definitions>
 	

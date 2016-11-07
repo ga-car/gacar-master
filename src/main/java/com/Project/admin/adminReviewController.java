@@ -31,9 +31,9 @@ import com.Project.review.ReviewService;
 
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/admin/review")
 public class adminReviewController {
-	
+	/*Ïù¥Í±∞ Í≤ΩÎ°ú Î∞îÍæ∏Í∏∞ */
 	private static final String uploadPath = "C:\\java\\GACAR\\src\\main\\webapp\\resources\\reviewUpload\\";
 	
 	@Resource
@@ -55,8 +55,8 @@ public class adminReviewController {
 		return new ReviewModel();
 	}
 	
-	/*/////////////////////////////////////±€∏Ò∑œ/////////////////////////////////////*/
-	@RequestMapping(value="/reviewList.do")
+	/*/////////////////////////////////////ÔøΩ€∏ÔøΩÔøΩ/////////////////////////////////////*/
+	@RequestMapping(value="/list.do")
 	public ModelAndView reviewList(HttpServletRequest request) throws UnsupportedEncodingException{
 		
 		ModelAndView mav = new ModelAndView();
@@ -126,31 +126,31 @@ public class adminReviewController {
 		return mav;
 	}
 	
-	/*/////////////////////////////////////±€æ≤±‚ ∆˚ ¿Ãµø/////////////////////////////////////*/
-	@RequestMapping(value="/reviewWrite.do", method=RequestMethod.GET)
+	/*/////////////////////////////////////ÔøΩ€æÔøΩÔøΩÔøΩ ÔøΩÔøΩ ÔøΩÃµÔøΩ/////////////////////////////////////*/
+	@RequestMapping(value="/write.do", method=RequestMethod.GET)
 	public ModelAndView reviewForm(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("reviewWrite");
 		return mav;
 	}
 	
-	/*/////////////////////////////±€æ≤±‚/////////////////////////////////////*/
-	@RequestMapping(value="/reviewWrite.do", method=RequestMethod.POST)
+	/*/////////////////////////////ÔøΩ€æÔøΩÔøΩÔøΩ/////////////////////////////////////*/
+	@RequestMapping(value="/write.do", method=RequestMethod.POST)
 	public String reviewWrite(ReviewModel reviewModel,  BindingResult result,
 			MultipartHttpServletRequest multipartHttpServletRequest) throws Exception, Exception{
 		ModelAndView mav = new ModelAndView();
-		/*∫ß∏Æµ•¿Ã∆Æ*/
+		/*ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ∆Æ*/
 		/*new ReviewValidator().validate(reviewModel, result);*/
 		if(result.hasErrors()) {
 			mav.setViewName("reviewWrite");
 			return "reviewWrite";
 		}
 		
-		/*¡ŸπŸ≤ﬁ*/
+		/*ÔøΩŸπŸ≤ÔøΩ*/
 		String content = reviewModel.getContent().replaceAll("\r\n", "<br />");
 		reviewModel.setContent(content);
 				
-		//æ˜∑ŒµÂ
+		//ÔøΩÔøΩÔøΩŒµÔøΩ
 		MultipartFile multipartFile = multipartHttpServletRequest.getFile("file");
     	String filename = multipartFile.getOriginalFilename();
         	if (filename != ""){ 
@@ -164,20 +164,20 @@ public class adminReviewController {
 		
 		reviewService.reviewWrite(reviewModel);
 	
-		mav.setViewName("redirect:reviewList.do");
+		mav.setViewName("redirect:list.do");
 		
-		return "redirect:reviewList.do";
+		return "redirect:list.do";
 	}
 	
-/*	/////////////////////////////////////ƒ⁄∏‡∆Æ/////////////////////////////////////
-	@RequestMapping(value="/review/reviewcommWrite.do", method=RequestMethod.POST)
+/*	/////////////////////////////////////ÔøΩ⁄∏ÔøΩ∆Æ/////////////////////////////////////
+	@RequestMapping(value="//reviewcommWrite.do", method=RequestMethod.POST)
 	public ModelAndView reviewcommWrite( ReviewcommModel reviewcommModel,
 			HttpServletRequest request, HttpSession session){
 	    
 		ModelAndView mav = new ModelAndView();
 		int no = reviewcommModel.getContent_num();
 		
-		¡ŸπŸ≤ﬁ
+		ÔøΩŸπŸ≤ÔøΩ
 		String contentt = reviewcommModel.getCommentt().replaceAll("\r\n", "<br />");
 		reviewcommModel.setCommentt(contentt);
 				
@@ -190,9 +190,9 @@ public class adminReviewController {
 		return mav;
 	}*/
 	
-	/*/////////////////////////////////////ªÛºº∫∏±‚/////////////////////////////////////*/
+	/*/////////////////////////////////////ÔøΩÛºº∫ÔøΩÔøΩÔøΩ/////////////////////////////////////*/
 	
-	@RequestMapping("/reviewView.do")
+	@RequestMapping("/view.do")
 	public ModelAndView reviewView(HttpServletRequest request){			   
 		ModelAndView mav = new ModelAndView();
 		
@@ -214,20 +214,20 @@ public class adminReviewController {
 		return mav;
 	}
 	
-	/*/////////////////////////////////////±€ªË¡¶/////////////////////////////////////*/
-	@RequestMapping("/reviewDelete.do")
+	/*/////////////////////////////////////ÔøΩ€ªÔøΩÔøΩÔøΩ/////////////////////////////////////*/
+	@RequestMapping("/delete.do")
 	public ModelAndView reviewDelete(HttpServletRequest request){
 		
 		ModelAndView mav = new ModelAndView();
 		int no = Integer.parseInt(request.getParameter("no"));
 		reviewService.reviewDelete(no);
 	/*	reviewService.reviewallcommDelete(no);*/
-		mav.setViewName("redirect:/admin/reviewList.do");
+		mav.setViewName("redirect:list.do");
 		
 		return mav;	
 	}
 	
-	/*/////////////////////////////////////ƒ⁄∏‡∆ÆªË¡¶/////////////////////////////////////
+	/*/////////////////////////////////////ÔøΩ⁄∏ÔøΩ∆ÆÔøΩÔøΩÔøΩÔøΩ/////////////////////////////////////
 	@RequestMapping(value="/review/reviewcommDelete.do")
 	public ModelAndView qnacommDelete(HttpServletRequest request, ReviewModel reviewModel, ReviewcommModel reviewcommModel){			   
 			ModelAndView mav = new ModelAndView();
@@ -243,8 +243,8 @@ public class adminReviewController {
 			
 			return mav;
 	}*/
-	/*/////////////////////////////////////±€ºˆ¡§ ¿Ãµø/////////////////////////////////////*/
-	@RequestMapping("/reviewModify.do")
+	/*/////////////////////////////////////ÔøΩ€ºÔøΩÔøΩÔøΩ ÔøΩÃµÔøΩ/////////////////////////////////////*/
+	@RequestMapping("/modify.do")
 	public ModelAndView reviewModifyForm(@ModelAttribute("reviewModel") ReviewModel reviewModel, BindingResult result, HttpServletRequest request){
 		
 		ModelAndView mav = new ModelAndView();
@@ -259,18 +259,18 @@ public class adminReviewController {
 		return mav;	
 	}
 	
-	/*/////////////////////////////////////±€ ºˆ¡§/////////////////////////////////////*/
-	@RequestMapping("/reviewModifySuccess.do")
+	/*/////////////////////////////////////ÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩ/////////////////////////////////////*/
+	@RequestMapping("/modifySuccess.do")
 	public ModelAndView reviewModify(ReviewModel reviewModel, MultipartHttpServletRequest multipartHttpServletRequest){
 		
 		ModelAndView mav = new ModelAndView();
         
-        /*¡ŸπŸ≤ﬁ*/
+        /*ÔøΩŸπŸ≤ÔøΩ*/
 		String content = reviewModel.getContent().replaceAll("\r\n", "<br />");
 		reviewModel.setContent(content);
 	    
         if (multipartHttpServletRequest.getFile("file") != null){
- 		//∏ﬁ¿Œ ªÛ«∞¿ÃπÃ¡ˆ
+ 		//ÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ«∞ÔøΩÃπÔøΩÔøΩÔøΩ
         	MultipartFile multipartFile = multipartHttpServletRequest.getFile("file");
         	String filename = multipartFile.getOriginalFilename();
 	        	if (filename != ""){ 
@@ -296,7 +296,7 @@ public class adminReviewController {
         reviewService.reviewModify(reviewModel);
 		
 		mav.addObject("no", reviewModel.getNo());
-		mav.setViewName("redirect:/admin/reviewView.do");
+		mav.setViewName("redirect:view.do");
 		return mav;	
 	}
 }
