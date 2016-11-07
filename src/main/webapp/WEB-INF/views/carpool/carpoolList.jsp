@@ -63,6 +63,7 @@ tbody>tr:HOVER {
 			<li class="post1">CarPool</li>
 			<li>></li>
 			<li class="post2">타세요</li>
+
 		</ul>
 	</div>
 	<div id="wrapper">
@@ -108,6 +109,7 @@ tbody>tr:HOVER {
 										<th width="10%">조회수</th>
 									</tr>
 								</thead>
+
 								<tbody>
 									<c:forEach var="list" items="${carpoolList}">
 										<c:url var="viewURL" value="detail.do">
@@ -145,7 +147,6 @@ tbody>tr:HOVER {
 				<br />
 			</c:if>
 			<div class="paging" align="center">${pagingHtml}</div>
-
 		</div>
 	</div>
 </body>

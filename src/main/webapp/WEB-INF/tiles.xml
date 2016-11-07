@@ -200,7 +200,6 @@
 	<definition name="qnaModify" extends="main">
 		<put-attribute name="body" value="/WEB-INF/views/qna/qnaModify.jsp" />
 	</definition>
-<<<<<<< HEAD
 	
 	<!-- 카풀 -->
 	<definition name="carpoolList" extends="main">
@@ -218,9 +217,6 @@
 	<definition name="carpoolModify" extends="main">
 		<put-attribute name="body" value="/WEB-INF/views/carpool/carpoolModify.jsp" />
 	</definition>
-=======
-
->>>>>>> 0458392434bc250f8e58ccb8992f8a05c60df69b
 
 </tiles-definitions>
 	

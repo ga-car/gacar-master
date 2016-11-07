@@ -90,6 +90,7 @@
 						<td><input type="button" onclick="addrSearch()" value="출발지"><br></td>
 						<th><input type="text" name="eaddr" id="eaddr" value="${carpoolModel.eaddr}" placeholder="주소"></th>
 						<td><input type="button" name="ezipcode" onclick="addrSearch1()" value="도착지"><br></td>
+						</td>
 						</tr>
 					</tbody>	
 				</table>
@@ -125,7 +126,7 @@ var map = new daum.maps.Map(mapContainer, mapOption);
 //주소-좌표 변환 객체를 생성
 var geocoder = new daum.maps.services.Geocoder();
 var geocoder1 = new daum.maps.services.Geocoder();
-    
+
 var startSrc = 'http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/red_b.png', // 출발 마커이미지의 주소입니다    
 startSize = new daum.maps.Size(50, 45), // 출발 마커이미지의 크기입니다 
 startOption = { 

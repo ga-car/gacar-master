@@ -185,6 +185,7 @@ function addrSearch() {
                 var fullAddr = data.address; // 최종 주소 변수
                 var extraAddr = ''; // 조합형 주소 변수
 
+
                 // 주소 정보를 해당 필드에 넣는다.
                 document.getElementById("saddr").value = fullAddr;
             
@@ -219,6 +220,7 @@ function addrSearch() {
                 // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
                 var fullAddr1 = data1.address; // 최종 주소 변수
                 var extraAddr1 = ''; // 조합형 주소 변수
+
 
                 // 주소 정보를 해당 필드에 넣는다.
                 document.getElementById("eaddr").value = fullAddr1;

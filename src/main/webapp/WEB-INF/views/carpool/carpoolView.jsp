@@ -284,7 +284,6 @@ var slng = document.getElementById('elng').value; */
 	  			strokeOpacity: 0.9, // 선 투명도
 	  			strokeStyle: 'solid' // 선 스타일
 	  		});	
-
 	  </script>   
 </body>
 </html>
