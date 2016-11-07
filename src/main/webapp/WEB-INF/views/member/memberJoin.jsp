@@ -5,128 +5,134 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
-	function openAuth(){
+	function openAuth() {
 		if (document.getElementById("email").value == "") {
-	    	  alert("이메일을 입력하세요");
-	    	  return false;
-	      }
-		if(document.getElementById("mailauth").value == "email변경"){
-			document.joinform.email.value="";
-			document.joinform.email.readOnly=false;
-			document.getElementById("mailauth").value="이메일인증";
-			document.getElementById("mailcheck").value="인증전";
-		}else{
-			var email=document.getElementById("email").value
-			var url="emailAuth.do?email=" + email;
-		
-			open(url, "이메일인증","toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
+			alert("이메일을 입력하세요");
+			return false;
+		}
+		if (document.getElementById("mailauth").value == "email변경") {
+			document.joinform.email.value = "";
+			document.joinform.email.readOnly = false;
+			document.getElementById("mailauth").value = "이메일인증";
+			document.getElementById("mailcheck").value = "인증전";
+		} else {
+			var email = document.getElementById("email").value
+			var url = "emailAuth.do?email=" + email;
+
+			open(
+					url,
+					"이메일인증",
+					"toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
 		}
 	}
-	
-	function authCheck(){
+
+	function authCheck() {
 		if (document.getElementById("name").value == "") {
-	    	  alert("이름을 입력하세요.");
-	    	  return false;
-	      }
-		if(document.getElementById("mailcheck").value=="인증전"){
+			alert("이름을 입력하세요.");
+			return false;
+		}
+		if (document.getElementById("mailcheck").value == "인증전") {
 			alert("이메일 인증을 받으세요.");
 			return false;
-		}		
+		}
 		if (document.getElementById("password").value == "") {
-	    	  alert("비밀번호를 입력하세요.");
-	    	  return false;
-	      }		
+			alert("비밀번호를 입력하세요.");
+			return false;
+		}
 		if (document.getElementById("password2").value == "") {
-	    	  alert("비밀번호 확인을 입력하세요.");
-	    	  return false;
-	      }
-		if (document.getElementById("password2").value != document.getElementById("password").value) {
-	    	  alert("비밀번호와 비밀번호 확인 값이 다릅니다.");
-	    	  return false;
-	      }
-		if (document.getElementById("zipcode").value =="" || document.getElementById("addr").value=="") {
-	    	  alert("주소를 입력하세요");
-	    	  return false;
-	      }
-		if (document.getElementById("phone").value =="") {
-	    	  alert("전화번호를 입력하세요");
-	    	  return false;
-	      }
-		if (document.getElementById("jumin1").value =="" || document.getElementById("jumin2").value =="") {
-	    	  alert("주민번호를 입력하세요");
-	    	  return false;
-	      }		
-	}
-	
-	function numCheck() {
-		if (isNaN(document.getElementById("phone").value)) {
-			document.getElementById("phone").value = document.getElementById("phone").value.slice(0, -1);
+			alert("비밀번호 확인을 입력하세요.");
+			return false;
+		}
+		if (document.getElementById("password2").value != document
+				.getElementById("password").value) {
+			alert("비밀번호와 비밀번호 확인 값이 다릅니다.");
+			return false;
+		}
+		if (document.getElementById("zipcode").value == ""
+				|| document.getElementById("addr").value == "") {
+			alert("주소를 입력하세요");
+			return false;
+		}
+		if (document.getElementById("phone").value == "") {
+			alert("전화번호를 입력하세요");
+			return false;
+		}
+		if (document.getElementById("jumin1").value == ""
+				|| document.getElementById("jumin2").value == "") {
+			alert("주민번호를 입력하세요");
+			return false;
 		}
 	}
-	
-	function zipOpen(){
-		var url="zipcodeCheckForm.do";
-		open(url, "우편번호검색","toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
+
+	function numCheck() {
+		if (isNaN(document.getElementById("phone").value)) {
+			document.getElementById("phone").value = document
+					.getElementById("phone").value.slice(0, -1);
+		}
+	}
+
+	function zipOpen() {
+		var url = "zipcodeCheckForm.do";
+		open(
+				url,
+				"우편번호검색",
+				"toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
 	}
 </script>
 <title>Insert title here</title>
 </head>
 <body>
 	<div id="header">
-
-
 		<div id="container">
 			<div class="contents1">
-
-
-
-				<div class="titleArea">
-					<h2>
-						<!-- <img src="/pet/resources/images/SkinImg/join.gif" alt="회원가입"> -->
-					</h2>
-				</div>
-
 				<form:form commandName="mem" action="memberEnd.do" method="post" name="joinform" onSubmit="return authCheck();">
-					<!-- <div class="xans-element- xans-member xans-member-join"> -->
-
-
-
-
 					<div class="boardWrite ">
 						<h2>기본정보</h2>
 						<p class="required">회원가입을 위한 필수입력 항목입니다.</p>
 						<div class="boardWrite "></div>
-
 						<table border="1" summary="">
 							<tbody>
 								<tr>
 									<th scope="row" id="nameTitle">이름</th>
-									<td><form:input type="text" class="txt w200" path="name" id="name" /> <font color="red"><form:errors path="name" /></font></td>
+									<td><form:input type="text" class="txt w200" path="name" id="name" />
+										<font color="red"><form:errors path="name" /></font>
+									</td>
 								</tr>
 
 								<tr>
 									<th scope="row">이메일</th>
-									<td><form:input type="text" class="txt w200" path="email" id="email" name="email" /> <font color="red"><form:errors path="email" /></font>&nbsp; <input type="button" value="이메일인증" id="mailauth" onclick="openAuth()" />&nbsp;&nbsp; <input type="text" name="mailcheck" id="mailcheck" value="인증전" readonly style="background-color: transparent; border: 0 solid black;" /> <!-- <font color="red" size="2" id="mailcheck" >인증전</font> --></td>
+									<td><form:input type="text" class="txt w200" path="email" id="email" name="email" />
+										<font color="red"><form:errors path="email" /></font>&nbsp; <input type="button" value="이메일인증" id="mailauth" onclick="openAuth()" />&nbsp;&nbsp; 
+										<input type="text" name="mailcheck" id="mailcheck" value="인증전" readonly style="background-color: transparent; border: 0 solid black;" /></td>
 								</tr>
 
 								<tr>
 									<th scope="row">비밀번호</th>
-									<td><form:input type="password" class="txt w200" path="password" id="password" /> <font color="red"><form:errors path="password" /></font></td>
+									<td><form:input type="password" class="txt w200" path="password" id="password" /> 
+										<font color="red"><form:errors path="password" /></font>
+									</td>
 								</tr>
 								<tr>
 									<th scope="row">비밀번호 확인</th>
-									<td><form:input type="password" class="txt w200" path="password2" id="password2" /> <font color="red"><form:errors path="password2" /></font></td>
+									<td><form:input type="password" class="txt w200" path="password2" id="password2" />
+										<font color="red"><form:errors path="password2" /></font>
+									</td>
 								</tr>
 
 								<tr>
 									<th scope="row">주소</th>
 
-									<td><form:input type="text" class="txt w200" path="zipcode" id="zipcode" readOnly="true" /> <input type="button" value="우편번호 검색" onclick="zipOpen()" /> <%-- <form:input type="button" value="우편번호 검색" onClick="zipOpen()"/> --%> <%-- <form:input type="button" value="우편번호 검색" path="zipcodebt" onClick="zipCode()"/> --%> <%--<form:input type="button" value="우편번호 검색" onClick="javascript:location.href='zipcodeCheckForm.do'"/> --%> <br /> <form:input type="text" class="inputTypeText" path="addr" id="addr" readOnly="true" size="60" /> <br /> <form:input type="text" class="inputTypeText" path="addr2" id="addr2" placeholder="상세주소" size="60" /></td>
+									<td><form:input type="text" class="txt w200" path="zipcode" id="zipcode" readOnly="true" />
+										<input type="button" value="우편번호 검색" onclick="zipOpen()" /><br />
+										<form:input type="text" class="inputTypeText" path="addr" id="addr" readOnly="true" size="60" /><br />
+										<form:input type="text" class="inputTypeText" path="addr2" id="addr2" placeholder="상세주소" size="60" />
+									</td>
 								</tr>
 
 								<tr>
 									<th scope="row">휴대전화</th>
-									<td><form:input type="text" class="txt w200" path="phone" onkeyup="numCheck()" maxlength="11" /> <span class="ibk">" - " 없이 숫자만 입력하세요.</span></td>
+									<td><form:input type="text" class="txt w200" path="phone" onkeyup="numCheck()" maxlength="11" /> <span class="ibk">" - " 없이 숫자만 입력하세요.</span>
+									</td>
 								</tr>
 
 								<tr>

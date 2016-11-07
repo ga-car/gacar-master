@@ -11,7 +11,7 @@
 
 function reviewList() {
 	if(confirm("목록으로 가시겠습니까?") == true){
-		location.href='reviewList.do';
+		location.href='list.do';
 	}else {
 		return;
 	}
@@ -47,7 +47,7 @@ function reviewList() {
 </div>
 
 <div id="wrapper">
-<form:form commandName="reviewModel" action="/rentacar/reviewModifySuccess.do" enctype="multipart/form-data" method="post">
+<form:form commandName="reviewModel" action="/rentacar/review/modifySuccess.do" enctype="multipart/form-data" method="post">
       <input type="hidden" name="no" value="${reviewModel.no}" />
       <div id="page-wrapper">
          <div class="row">
@@ -85,9 +85,10 @@ function reviewList() {
 						
 						<tr><!-- 글내용 -->
 							<th>글내용</th>
+							
 							<td colspan=3 height=400 style="padding: 0px !important;">
 							   <textarea name="content" value="${reviewModel.content}"
-							   		style="margin: 3px; width: 100%; height: 100%;">${reviewModel.content}</textarea> 
+							   		style=" margin: 1px; width: 100%; height: 98%;">${reviewModel.content}</textarea> 
 							   <font color="red"><form:errors path="content" /></font>
 							</td>
 							
