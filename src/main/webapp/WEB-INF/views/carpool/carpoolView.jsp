@@ -47,15 +47,15 @@ function noticeDelete() {
 	<div id="wrapper">
 		<div class="category_top">
 			<ul>
-				<li class="post1">커뮤니티</li>
+				<li class="post1">CarPool</li>
 				<li>></li>
-				<li class="post2">공지사항</li>
+				<li class="post2">타세요</li>
 			</ul>
 		</div>
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1 class="page-header">NOTICE</h1>
+					<h1 class="page-header">CarPool</h1>
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>
@@ -115,12 +115,12 @@ function noticeDelete() {
 									</tr>
 								</tbody>
 							</table>
-							<div id="map" style="width:100%;height:350px;"></div>
+							<div id="map" style="width:100%;height:300px;"></div>
 						</div>
 						<form class="viewForm" method="post">
 							<input type="hidden" name="${carpoolModel.no }" />
 							<%-- <input type="hidden" name="seq" value="${item.seq }" /> --%>
-							<%-- <c:if test="${session_member_id == 'admin' }"> --%>
+							<%-- <c:if test="${session_name == carpoolModel.name }"> --%>
 								<button type="button" onclick="onModify(${carpoolModel.no })"
 									class="btn btn-primary">수정</button>
 							<%-- </c:if> --%>
@@ -284,118 +284,7 @@ var slng = document.getElementById('elng').value; */
 	  			strokeOpacity: 0.9, // 선 투명도
 	  			strokeStyle: 'solid' // 선 스타일
 	  		});	
-
-
-	/*     function sample5_execDaumPostcode() {
-	        new daum.Postcode({
-	            oncomplete: function(data) {
-	                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
-	                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-	                var fullAddr = data.address; // 최종 주소 변수
-	                var extraAddr = ''; // 조합형 주소 변수
-
-	                // 기본 주소가 도로명 타입일때 조합한다.
-	                if(data.addressType === 'R'){
-	                    //법정동명이 있을 경우 추가한다.
-	                    if(data.bname !== ''){
-	                        extraAddr += data.bname;
-	                    }
-	                    // 건물명이 있을 경우 추가한다.
-	                    if(data.buildingName !== ''){
-	                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-	                    }
-	                    // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
-	                    fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
-	                }
-
-	                // 주소 정보를 해당 필드에 넣는다.
-	                document.getElementById("sample5_address").value = fullAddr;
-	                
-	                // 주소로 좌표를 검색
-	                geocoder1.addr2coord(data.address, function(status, result) {
-	                    // 정상적으로 검색이 완료됐으면
-	                    if (status === daum.maps.services.Status.OK) {
-	                        // 해당 주소에 대한 좌표를 받아서
-	                        var coords = new daum.maps.LatLng(result.addr[0].lat, result.addr[0].lng);
-	                        
-	                        document.getElementById("slat").value = coords.getLat();
-	                        document.getElementById("slng").value = coords.getLng(); 
-	                        
-	                        // 지도를 보여준다.
-	                        mapContainer.style.display = "block";
-	                        map.relayout();
-	                        // 지도 중심을 변경한다.
-	                        map.setCenter(coords);
-	                        // 마커를 결과값으로 받은 위치로 옮긴다.
-	                        startMarker.setPosition(coords)
-	                    }
-	                });
-	            }
-	        }).open();
-	    }
-	    
-	    function sample6_execDaumPostcode() {
-	        new daum.Postcode({
-	            oncomplete: function(data1) {
-	                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
-	                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-	                var fullAddr1 = data1.address; // 최종 주소 변수
-	                var extraAddr1 = ''; // 조합형 주소 변수
-
-	                // 기본 주소가 도로명 타입일때 조합한다.
-	                if(data1.addressType === 'R'){
-	                    //법정동명이 있을 경우 추가한다.
-	                    if(data1.bname !== ''){
-	                        extraAddr1 += data1.bname;
-	                    }
-	                    // 건물명이 있을 경우 추가한다.
-	                    if(data1.buildingName !== ''){
-	                        extraAddr1 += (extraAddr1 !== '' ? ', ' + data1.buildingName : data1.buildingName);
-	                    }
-	                    // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
-	                    fullAddr1 += (extraAddr1 !== '' ? ' ('+ extraAddr1 +')' : '');
-	                }
-
-	                // 주소 정보를 해당 필드에 넣는다.
-	                document.getElementById("sample6_address").value = fullAddr1;
-	                // 주소로 좌표를 검색
-	                geocoder1.addr2coord(data1.address, function(status1, result1) {
-	                    // 정상적으로 검색이 완료됐으면
-	                    if (status1 === daum.maps.services.Status.OK) {
-	                        // 해당 주소에 대한 좌표를 받아서
-	                        var coords1 = new daum.maps.LatLng(result1.addr[0].lat, result1.addr[0].lng);
-	                        
-	                     document.getElementById("elat").value = coords1.getLat();
-	                     document.getElementById("elng").value = coords1.getLng(); 
-	                       
-	                        // 지도를 보여준다.
-	                        mapContainer.style.display = "block";
-	                        map.relayout();
-	                        // 지도 중심을 변경한다.
-	                        map.setCenter(coords1);
-	                        // 마커를 결과값으로 받은 위치로 옮긴다.
-	                        arriveMarker.setPosition(coords1)
-	                    }
-	                });
-	            }
-	        }).open();
-	    }
-	    
-	    function getDistanceFromLatLonInKm(slat,slng,elat,elng) {
-	        function deg2rad(deg) {
-	            return deg * (Math.PI/180)
-	        }
-
-	        var R = 6371; // Radius of the earth in km
-	        var dLat = deg2rad(elat-slat);  // deg2rad below
-	        var dLon = deg2rad(elng-slng);
-	        var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(deg2rad(slat)) * Math.cos(deg2rad(elat)) * Math.sin(dLon/2) * Math.sin(dLon/2);
-	        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-	        var d = R * c; // Distance in km
-	        return d;
-	    } */
-	    </script>
-	    
+	  </script>   
 </body>
 </html>
 

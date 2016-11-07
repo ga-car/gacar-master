@@ -62,7 +62,8 @@ tbody>tr:HOVER {
 		<ul>
 			<li class="post1">CarPool</li>
 			<li>></li>
-			<li class="post2"></li>
+			<li class="post2">타세요</li>
+
 		</ul>
 	</div>
 	<div id="wrapper">
@@ -108,20 +109,6 @@ tbody>tr:HOVER {
 										<th width="10%">조회수</th>
 									</tr>
 								</thead>
-								<%-- <tbody>
-
-									<c:forEach items="${list }" var="list">
-										<tr class="odd gradeX" onclick="onView('${list.no}');">
-											<td>${list.no }</td>
-											<td>${list.subject }</td>
-											<td>${list.name }</td>
-											<td class="center"><fmt:formatDate
-													value="${list.regdate }" pattern="YYYY-MM-dd" /></td>
-											<td class="center">${list.readcount }</td>
-										</tr>
-									</c:forEach>
-
-								</tbody> --%>
 
 								<tbody>
 									<c:forEach var="list" items="${carpoolList}">
@@ -154,33 +141,12 @@ tbody>tr:HOVER {
 					</div>
 				</div>
 			</div>
-
-
 			<c:if test="${fn:length(carpoolList) le 0}">
 				<br />
 				<center>등록된 게시물이 없습니다</center>
 				<br />
 			</c:if>
 			<div class="paging" align="center">${pagingHtml}</div>
-		<!-- 	<div class="row">
-				<div style="text-align: center;">
-					<div id="dataTables-example_filter" class="dataTables_filter">
-						<form action="">
-						<input type="hidden" name="searchNum" id="searchNum" value="0">
-							<select class="slcte" name="searchNum" id="searchNum">
-								<option value="0">제목</option>
-								<option value="1">내용</option>
-								<option value="2">글쓴이</option>
-							</select> <input class="txte" type="text" name="isSearch" id="isSearch" placeholder="출발지"  />
-							<input class="txte" type="text" name="isSearch" id="isSearch" placeholder="도착지" />
-							<span class="btn btnC_03 btnP_04 mr10"> <input
-								type="submit" value="검색"
-								style="font-size: 11px; padding-bottom: 20; vertical-align: middle;" />
-							</span>
-						</form>
-					</div>
-				</div>
-			</div> -->
 		</div>
 	</div>
 </body>

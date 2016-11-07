@@ -217,8 +217,6 @@
 	<definition name="carpoolModify" extends="main">
 		<put-attribute name="body" value="/WEB-INF/views/carpool/carpoolModify.jsp" />
 	</definition>
-	
-
 
 </tiles-definitions>
 	

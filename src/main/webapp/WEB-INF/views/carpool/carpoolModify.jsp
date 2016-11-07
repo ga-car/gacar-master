@@ -17,12 +17,6 @@
 }
 </style>
 <body>
-<!-- <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
- <script src="//apis.daum.net/maps/maps3.js?apikey=079b4daabc5db4153ba00f0a15d911f0&libraries=services"></script> -->
-<!-- <input type="text" id="sample5_address" placeholder="주소">
-<input type="button" onclick="sample5_execDaumPostcode()" value="출발지"><br>
-<input type="text" id="sample6_address" placeholder="주소">
-<input type="button" onclick="sample6_execDaumPostcode()" value="도착지"><br> -->
 <form:form commandName="carpoolModel" action="write.do" method="post">
       <div id="page-wrapper">
          <div class="row">
@@ -76,19 +70,22 @@
 						</tr>		
 						<tr><!-- 글내용 -->
 							<th>추가내용</th>
-							<td colspan=3 height=200 style="padding: 0px !important;">
+							<td colspan=3 height=150 style="padding: 0px !important;">
 							   <textarea  name="content" style=" padding:3px; margin: 1px; width: 100%; height: 98%;"></textarea>
 							   <font color="red"><form:errors path="content" /></font>
 							</td>
 						</tr>
+					</tbody>	
+				</table>
+				<table class="table table-striped table-bordered table-hover"  id="dataTables-example">
+					<tbody>
 						<tr>
-						<td>
+						<td width="100">
 						<input type="hidden" name="slat" value="${carpoolModel.slat}" id="slat" />
 						<input type="hidden" name="slng" value="${carpoolModel.slng}" id="slng" />
 						<input type="hidden" name="elat" value="${carpoolModel.elat}" id="elat" />
 						<input type="hidden" name="elng" value="${carpoolModel.elng}" id="elng" />
-<%-- 					<input type="hidden" name="szipcode" value="${carpoolModel.szipcode}" id="szipcode" />
-						<input type="hidden" name="ezipcode" value="${carpoolModel.ezipcode}" id="ezipcode" /> --%>
+						</td>
 						<th><input type="text" name="saddr" id="saddr" value="${carpoolModel.saddr}" placeholder="주소"></th>
 						<td><input type="button" onclick="addrSearch()" value="출발지"><br></td>
 						<th><input type="text" name="eaddr" id="eaddr" value="${carpoolModel.eaddr}" placeholder="주소"></th>
@@ -100,7 +97,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="map" style="width:100%;height:350px;"></div>
+	<div id="map" style="width:65%;height:300px;"></div>
 	<!-- 취소 작성완료 버튼 -->
 	<div class="menu-wrap">
 		<button type="button" onclick="this.form.submit();" class="btn btn-primary">작성완료</button>
@@ -119,10 +116,6 @@
 var onList = function(){
 	location.href='list.do'
 };
-/* var lat1 = '${carpoolModel.slat}'; 
-var lng1 = '${carpoolModel.slng}'; 
-var lat2 = '${carpoolModel.elat}';  
-var lng2 = '${carpoolModel.elng}';  */
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div
    mapOption = {
      center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
@@ -133,13 +126,7 @@ var map = new daum.maps.Map(mapContainer, mapOption);
 //주소-좌표 변환 객체를 생성
 var geocoder = new daum.maps.services.Geocoder();
 var geocoder1 = new daum.maps.services.Geocoder();
-    //마커를 미리 생성
-/*     var marker = new daum.maps.Marker({
-        position: new daum.maps.LatLng(37.537187, 127.005476),
-        map: map
-        
-    }); */
-    
+
 var startSrc = 'http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/red_b.png', // 출발 마커이미지의 주소입니다    
 startSize = new daum.maps.Size(50, 45), // 출발 마커이미지의 크기입니다 
 startOption = { 
@@ -199,20 +186,6 @@ function addrSearch() {
                 var fullAddr = data.address; // 최종 주소 변수
                 var extraAddr = ''; // 조합형 주소 변수
 
-                // 기본 주소가 도로명 타입일때 조합한다.
-            /*     if(data.addressType === 'R'){
-                    //법정동명이 있을 경우 추가한다.
-                    if(data.bname !== ''){
-                        extraAddr += data.bname;
-                    }
-                    // 건물명이 있을 경우 추가한다.
-                    if(data.buildingName !== ''){
-                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                    }
-                    // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
-                    fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
-                } */
-
                 // 주소 정보를 해당 필드에 넣는다.
                 document.getElementById("saddr").value = fullAddr;
             
@@ -247,20 +220,6 @@ function addrSearch() {
                 // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
                 var fullAddr1 = data1.address; // 최종 주소 변수
                 var extraAddr1 = ''; // 조합형 주소 변수
-
-                // 기본 주소가 도로명 타입일때 조합한다.
-               /*  if(data1.addressType === 'R'){
-                    //법정동명이 있을 경우 추가한다.
-                    if(data1.bname !== ''){
-                        extraAddr1 += data1.bname;
-                    }
-                    // 건물명이 있을 경우 추가한다.
-                    if(data1.buildingName !== ''){
-                        extraAddr1 += (extraAddr1 !== '' ? ', ' + data1.buildingName : data1.buildingName);
-                    }
-                    // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
-                    fullAddr1 += (extraAddr1 !== '' ? ' ('+ extraAddr1 +')' : '');
-                } */
 
                 // 주소 정보를 해당 필드에 넣는다.
                 document.getElementById("eaddr").value = fullAddr1;
