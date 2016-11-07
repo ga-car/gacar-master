@@ -67,7 +67,7 @@ public class AdminNotifyController {
 				noticeList = notifyService.noticeSearch2(isSearch);
 		
 			totalCount = noticeList.size();
-			page = new Paging(currentPage, totalCount, blockCount, blockPage, "noticeList", searchNum, isSearch);
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "list", searchNum, isSearch);
 			pagingHtml = page.getPagingHtml().toString();
 		
 			int lastCount = totalCount;
@@ -91,7 +91,7 @@ public class AdminNotifyController {
 		
 		totalCount = noticeList.size();
 		
-		page = new Paging(currentPage, totalCount, blockCount, blockPage, "noticeList");
+		page = new Paging(currentPage, totalCount, blockCount, blockPage, "list");
 		pagingHtml=page.getPagingHtml().toString();  
 		
 		int lastCount = totalCount;
@@ -109,7 +109,7 @@ public class AdminNotifyController {
 		return mav;
 	}
 
-	//°øÁö»çÇ× »ó¼¼º¸±â
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ó¼¼ºï¿½ï¿½ï¿½
 	@RequestMapping("/detail.do")
 	public ModelAndView noticeView(HttpServletRequest request){
 		   
@@ -128,7 +128,7 @@ public class AdminNotifyController {
 		return mav;
 	}
 	
-	//°øÁö»çÇ× ±Û¾²±â Æû
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½
 		@RequestMapping(value="/write.do", method=RequestMethod.GET)
 		public ModelAndView noticeForm(HttpServletRequest request) {
 			
@@ -138,7 +138,7 @@ public class AdminNotifyController {
 			return mav;
 		}
 		
-		//°øÁö»çÇ× ±Û¾²±â
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½
 		@RequestMapping(value="/write.do", method=RequestMethod.POST)
 		public ModelAndView noticeWrite(@ModelAttribute("notifyModel") NotifyModel notifyModel, BindingResult result, 
 				HttpServletRequest request, HttpSession session){
@@ -163,7 +163,7 @@ public class AdminNotifyController {
 			return mav;
 		}
 		
-		//°øÁö»çÇ× »èÁ¦
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		@RequestMapping("/delete.do")
 		public ModelAndView noticeDelete(HttpServletRequest request){
 			
@@ -175,7 +175,7 @@ public class AdminNotifyController {
 			return mav;	
 		}
 		
-		//°øÁö»çÇ× ¼öÁ¤Æû
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		@RequestMapping("/modify.do")
 		public ModelAndView noticeModifyForm(@ModelAttribute("notifyModel") NotifyModel notifyModel, BindingResult result, HttpServletRequest request){
 			
@@ -191,7 +191,7 @@ public class AdminNotifyController {
 			return mav;	
 		}
 		
-		//°øÁö»çÇ× ¼öÁ¤
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		@RequestMapping("/modifySuccess.do")
 		public ModelAndView noticeModify(@ModelAttribute("notifyModel") NotifyModel notifyModel, HttpServletRequest request){
 			

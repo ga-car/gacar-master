@@ -18,7 +18,7 @@
 	window.onload = function(){
 		var invalid="${invalid}";
 		if(invalid==1){
-			alert("юъ╦Ь╣х а╒╠ыю╦╥н ╟║д║╟╟юле╦юг ╦чюню╦╥н юл╣©╣г╬З╫ю╢о╢ы.");
+			alert("О©╫ъ╦О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫д║О©╫О©╫О©╫О©╫е╦О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ О©╫л╣О©╫О©╫г╬О©╫О©╫О©╫О©╫о╢О©╫.");
 		}
 	}
 </script>
@@ -104,7 +104,7 @@
 			<a href="/Rentacar/car/list.do">Й╟─Л╧╢Л≤┬Л∙╫</a>
 		</h4>
 		<h4>
-			<a href="#">Л╧╢М▓─К╙╗Л·└</a>
+			<a href="/rentacar/carpool/list.do">Л╧╢М▓─К╙╗Л·└</a>
 		</h4>
 		<h4>
 			<a href="/rentacar/reviewList.do">Л²╢Л ╘М⌡└Й╦╟</a>

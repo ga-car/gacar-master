@@ -60,9 +60,9 @@ tbody>tr:HOVER {
 <body>
 	<div class="category_top">
 		<ul>
-			<li class="post1">커뮤니티</li>
+			<li class="post1">CarPool</li>
 			<li>></li>
-			<li class="post2">공지사항</li>
+			<li class="post2"></li>
 		</ul>
 	</div>
 	<div id="wrapper">
@@ -72,11 +72,22 @@ tbody>tr:HOVER {
 				<div class="col-lg-12">
 					<div class="page-header">
 						<img src="/rentacar/resources/images/SkinImg/2.jpg"> <strong><font
-							size="6px">NOTICE</font></strong>&nbsp;&nbsp; <font color="red">공지사항
-							게시판입니다.</font>
+							size="6px">CarPool</font></strong>&nbsp;&nbsp; <font color="red">같이 가요</font>
 					</div>
 				</div>
 				<!-- /.col-lg-12 -->
+			</div>
+				<div class="row">
+				<div style="text-align: center;">
+					<div id="dataTables-example_filter" class="dataTables_filter">
+						<form action="">
+						<input type="hidden" name="searchNum" id="searchNum" value="0">
+						<input class="txte" type="text" name="isSearch" id="isSearch" placeholder="출발지"  />
+						<input class="txte" type="text" name="isSearch" id="isSearch" placeholder="도착지" />
+						<input type="submit" value="검색"/> 
+						</form>
+					</div>
+				</div>
 			</div>
 			<!-- /.row -->
 			<div class="row">
@@ -113,7 +124,7 @@ tbody>tr:HOVER {
 								</tbody> --%>
 
 								<tbody>
-									<c:forEach var="list" items="${noticeList}">
+									<c:forEach var="list" items="${carpoolList}">
 										<c:url var="viewURL" value="detail.do">
 											<c:param name="no" value="${list.no }" />
 											<c:param name="currentPage" value="${currentPage }" />
@@ -121,6 +132,7 @@ tbody>tr:HOVER {
 										<tr>
 											<td>${list.no}</td>
 											<td style="text-align: left;"><a href="${viewURL}">${list.subject}</a>
+											${list.saddr} -> ${list.eaddr}
 											</td>
 											<td>${list.name}</td>
 											<td><fmt:formatDate value="${list.regdate}"
@@ -128,42 +140,39 @@ tbody>tr:HOVER {
 											<td>${list.readcount}</td>
 										</tr>
 									</c:forEach>
-
 								</tbody>
 							</table>
 						</div>
-
 					</div>
 					<div class="menu-wrap">
+					<%-- 	<c:if test="${session_member_name == 'admin' }">
+							<button type="button" onclick="onWrite()" class="btn btn-primary">쓰기</button>
+						</c:if> --%>
+						<button type="button" onclick="onWrite()" class="btn btn-primary">쓰기</button>
+
 						<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
 					</div>
 				</div>
-
 			</div>
 
 
-			<c:if test="${fn:length(noticeList) le 0}">
+			<c:if test="${fn:length(carpoolList) le 0}">
 				<br />
 				<center>등록된 게시물이 없습니다</center>
 				<br />
 			</c:if>
-
-
-
-
-			<div class="row">
+			<div class="paging" align="center">${pagingHtml}</div>
+		<!-- 	<div class="row">
 				<div style="text-align: center;">
 					<div id="dataTables-example_filter" class="dataTables_filter">
-
-
-
 						<form action="">
+						<input type="hidden" name="searchNum" id="searchNum" value="0">
 							<select class="slcte" name="searchNum" id="searchNum">
-
 								<option value="0">제목</option>
 								<option value="1">내용</option>
 								<option value="2">글쓴이</option>
-							</select> <input class="txte" type="text" name="isSearch" id="isSearch" />
+							</select> <input class="txte" type="text" name="isSearch" id="isSearch" placeholder="출발지"  />
+							<input class="txte" type="text" name="isSearch" id="isSearch" placeholder="도착지" />
 							<span class="btn btnC_03 btnP_04 mr10"> <input
 								type="submit" value="검색"
 								style="font-size: 11px; padding-bottom: 20; vertical-align: middle;" />
@@ -171,13 +180,17 @@ tbody>tr:HOVER {
 						</form>
 					</div>
 				</div>
-
-			</div>
-			<div class="paging">${pagingHtml}</div>
+			</div> -->
 		</div>
 	</div>
-
-
-
 </body>
+ <script type="text/javascript">
+	$('.searchOption').val($('.searchOptionVal').val());
+	var onWrite = function() {
+		location.href = 'write.do';
+	};
+	var onList = function(){
+		location.href='list.do'
+	};
+</script> 
 </html>

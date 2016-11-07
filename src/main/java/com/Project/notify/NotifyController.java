@@ -66,7 +66,7 @@ public class NotifyController {
 				noticeList = notifyService.noticeSearch2(isSearch);
 		
 			totalCount = noticeList.size();
-			page = new Paging(currentPage, totalCount, blockCount, blockPage, "noticeList", searchNum, isSearch);
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "list", searchNum, isSearch);
 			pagingHtml = page.getPagingHtml().toString();
 		
 			int lastCount = totalCount;
@@ -90,7 +90,7 @@ public class NotifyController {
 		
 		totalCount = noticeList.size();
 		
-		page = new Paging(currentPage, totalCount, blockCount, blockPage, "noticeList");
+		page = new Paging(currentPage, totalCount, blockCount, blockPage, "list");
 		pagingHtml=page.getPagingHtml().toString();  
 		
 		int lastCount = totalCount;
@@ -108,7 +108,7 @@ public class NotifyController {
 		return mav;
 	}
 
-	//°øÁö»çÇ× »ó¼¼º¸±â
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ó¼¼ºï¿½ï¿½ï¿½
 	@RequestMapping("/detail.do")
 	public ModelAndView noticeView(HttpServletRequest request){
 		   
