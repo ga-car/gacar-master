@@ -60,7 +60,7 @@
 	</div>
 	<div id="wrapper">
 		<form:form commandName="qnaModel"
-			action="/rentacar/qna/qnaModifySuccess.do" method="post">
+			action="/rentacar/qna/modifySuccess.do" method="post">
 			<div id="page-wrapper">
 				<div class="row">
 					<div class="col-lg-12">
