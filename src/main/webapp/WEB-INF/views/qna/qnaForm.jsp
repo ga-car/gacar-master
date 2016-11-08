@@ -61,7 +61,7 @@
 		</ul>
 	</div>
 	<div id="wrapper">
-		<form:form commandName="qnaModel" action="/rentacar/qna/qnaWrite.do"
+		<form:form commandName="qnaModel" action="/rentacar/qna/write.do"
 			method="post">
 			<div id="page-wrapper">
 				<div class="row">

@@ -82,8 +82,8 @@
 		</h4>
 		<ul>
 			<li><a href="/rentacar/notify/list.do">공지사항</a></li>
-			<li><a href="/rentacar/faqList.do">FAQ</a></li>
-			<li><a href="#">1:1문의</a></li>
+			<li><a href="/rentacar/faq/list.do">FAQ</a></li>
+			<li><a href="/rentacar/qna/list.do">1:1문의</a></li>
 		</ul>
 	</c:if>
 
@@ -107,15 +107,15 @@
 			<a href="/rentacar/carpool/list.do">카풀모임</a>
 		</h4>
 		<h4>
-			<a href="/rentacar/reviewList.do">이용후기</a>
+			<a href="/rentacar/review/list.do">이용후기</a>
 		</h4>
 		<h4>
 			<a href="/rentacar/notify/list.do">고객센터</a>
 		</h4>
 		<ul>
 			<li><a href="/rentacar/notify/list.do">공지사항</a></li>
-			<li><a href="/rentacar/faq/List.do">FAQ</a></li>
-			<li><a href="#">1:1문의</a></li>
+			<li><a href="/rentacar/faq/list.do">FAQ</a></li>
+			<li><a href="/rentacar/qna/list.do">1:1문의</a></li>
 
 		</ul>
 		<h4>
