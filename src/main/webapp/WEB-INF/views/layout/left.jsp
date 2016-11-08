@@ -18,7 +18,7 @@
 	window.onload = function(){
 		var invalid="${invalid}";
 		if(invalid==1){
-			alert("�߸��� �������� ��ġ����Ÿ�� �������� �̵��Ǿ����ϴ�.");
+			alert("�߸��� �������� ��ġ����Ÿ�� �������� �̵��Ǿ����ϴ�.");
 		}
 	}
 </script>
@@ -69,7 +69,7 @@
 			<li><a href="#">이용규칙</a></li>
 		</ul>
 		<h4>
-			<a href="/Rentacar/car/list.do">가카예약</a>
+			<a href="/rentacar/car/list.do">가카예약</a>
 		</h4>
 		<h4>
 			<a href="#">카풀모임</a>
@@ -101,7 +101,7 @@
 			<li><a href="#">이용규칙</a></li>
 		</ul>
 		<h4>
-			<a href="/Rentacar/car/list.do">가카예약</a>
+			<a href="/rentacar/car/list.do">가카예약</a>
 		</h4>
 		<h4>
 			<a href="#">카풀모임</a>
