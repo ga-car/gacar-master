@@ -17,7 +17,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="car_image" column="car_image" />
 		<result property="car_charge" column="car_charge" />
 	</resultMap>
-	
+	<!-- admin -->
+	<select id="rentacarAdminList" resultMap="rentacarModelRes">
+			select * from car 
+			order by car_no desc
+	</select>
+	<insert id="insertRentacar" parameterType="rentacarModel">
+		insert into car
+		(car_no, car_type, car_brand, car_name, car_pnum, car_lat, car_lng,
+		car_zipcode, car_addr, car_addr2, car_image, car_charge)
+		values(#{car_no}, #{car_type}, #{car_brand}, #{car_name}, #{car_pnum},
+		#{car_lat}, #{car_lng}, #{car_zipcode}, #{car_addr}, #{car_addr2},
+		#{car_image}, #{car_charge})
+	</insert>
+	<!-- admin -->
 	<select id="rentacarList" resultMap="rentacarModelRes">
 			select * from car 
 			order by car_no desc

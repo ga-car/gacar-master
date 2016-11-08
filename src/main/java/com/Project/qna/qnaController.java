@@ -44,7 +44,7 @@ public class qnaController {
 		return new qnaModel(); // 객체 생성후 반환
 	}
 
-	@RequestMapping(value = "/qnaList.do")
+	@RequestMapping(value = "/list.do")
 	public ModelAndView qnaList(HttpServletRequest request, qnaModel qnaModel) throws UnsupportedEncodingException {
 		ModelAndView mav = new ModelAndView();
 
@@ -122,14 +122,14 @@ public class qnaController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/qnaWrite.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/write.do", method = RequestMethod.GET)
 	public ModelAndView qnaForm(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("qnaForm");
 		return mav;
 	}
 
-	@RequestMapping(value = "/qnaWrite.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/write.do", method = RequestMethod.POST)
 	public ModelAndView qnaWrite(@ModelAttribute("qnaModel") qnaModel qnaModel, HttpServletRequest request,
 			HttpSession session, BindingResult result) {
 
@@ -158,12 +158,12 @@ public class qnaController {
 		qnaService.qnaCommUpdate1(no);
 
 		mav.addObject("qnaModel", qnaModel);
-		mav.setViewName("redirect:/qna/qnaList.do");
+		mav.setViewName("redirect:/qna/list.do");
 
 		return mav;
 	}
 
-	@RequestMapping(value = "/qnaModify.do")
+	@RequestMapping(value = "/modify.do")
 	public ModelAndView qnaModifyForm(HttpServletRequest request, qnaModel qnaModel) {
 		ModelAndView mav = new ModelAndView();
 		qnaModel = qnaService.qnaView(qnaModel.getNo());
@@ -182,7 +182,7 @@ public class qnaController {
 		return mav;
 	}
 
-	@RequestMapping("/qnaModifySuccess.do")
+	@RequestMapping("/modifySuccess.do")
 	public ModelAndView qnaModify(@ModelAttribute("qnaModel") qnaModel qnaModel, HttpServletRequest request) {
 
 		ModelAndView mav = new ModelAndView();
@@ -197,11 +197,11 @@ public class qnaController {
 
 		qnaService.qnaModify(qnaModel);
 
-		mav.setViewName("redirect:/qna/qnaView.do?no=" + qnaModel.getNo());
+		mav.setViewName("redirect:/qna/view.do?no=" + qnaModel.getNo());
 		return mav;
 	}
 
-	@RequestMapping(value = "/qnaView.do")
+	@RequestMapping(value = "/view.do")
 	public ModelAndView qnaView(HttpServletRequest request, qnaModel qnaModel) {
 		ModelAndView mav = new ModelAndView();
 
@@ -225,7 +225,7 @@ public class qnaController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/qnaCommWrite.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/commWrite.do", method = RequestMethod.POST)
 	public ModelAndView qnaCommWrite(qnaCommModel qnaCommModel, qnaModel qnaModel, HttpServletRequest request,
 			HttpSession session) {
 
@@ -243,23 +243,23 @@ public class qnaController {
 		if (commenter.equals("admin")) {
 			qnaService.AdminUpdateReply(no);
 		}
-		mav.setViewName("redirect:/qna/qnaView.do?no=" + qnaCommModel.getContent_num());
+		mav.setViewName("redirect:/qna/view.do?no=" + qnaCommModel.getContent_num());
 
 		return mav;
 	}
 
-	@RequestMapping(value = "/qnaDelete.do")
+	@RequestMapping(value = "/delete.do")
 	public ModelAndView qnaDelete(HttpServletRequest request, qnaModel qnaModel) {
 		ModelAndView mav = new ModelAndView();
 
 		qnaService.qnaDelete(qnaModel.getNo());
 		qnaService.qnaAllCommDelete(qnaModel.getNo());
-		mav.setViewName("redirect:/qna/qnaList.do");
+		mav.setViewName("redirect:/qna/list.do");
 
 		return mav;
 	}
 
-	@RequestMapping(value = "/qnaCommDelete.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/commDelete.do", method = RequestMethod.GET)
 	public ModelAndView qnaCommDelete(HttpServletRequest request, qnaCommModel qnaCommModel, qnaModel qnaModel,
 			HttpSession session) {
 		ModelAndView mav = new ModelAndView();
@@ -283,7 +283,7 @@ public class qnaController {
 			qnaService.AdminDeleteReply(no);
 		}
 
-		mav.setViewName("redirect:/qna/qnaView.do?no=" + no);
+		mav.setViewName("redirect:/qna/view.do?no=" + no);
 
 		return mav;
 	}

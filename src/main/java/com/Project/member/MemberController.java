@@ -61,21 +61,43 @@ public class MemberController {
 
 	@RequestMapping("/memberEnd.do")
 	public ModelAndView memberStep3(@ModelAttribute("mem") MemberModel mem, BindingResult result) {
+
+		/* member.setAddr(member.getAddr()+" " + member.getAddr2()); */
+
 		memberService.insertMember(mem);
 		mav.addObject("mem", mem);
 		mav.setViewName("memberEnd");
 		return mav;
 
+		/*
+		 * new MemberValidator().validate(member, result);
+		 * 
+		 * if(result.hasErrors()){ ModelAndView mav = new ModelAndView();
+		 * mav.setViewName("member"); return mav; } try{
+		 * member.setAddr(member.getAddr()+" " + member.getAddr2());
+		 * 
+		 * memberService.insertMember(member); mav.addObject("member", member);
+		 * mav.setViewName("memberEnd"); return mav; } catch
+		 * (DuplicateKeyException e){ result.reject("invalid", null);
+		 * mav.setViewName("member"); return mav; }
+		 */
 	}
 
 	@RequestMapping("/emailAuth.do")
 	public ModelAndView emailAuth(HttpServletResponse response, HttpServletRequest request) throws Exception {
-
+		/* Email email = new Email(); */
+		/*
+		 * member.setPasscode((int)(Math.random() * 100000) + 100000);// create
+		 */ // passcode
 		boolean isEmail;
 		String reciver = request.getParameter("email");
 		MemberModel result = memberService.getMember(reciver);
 		if (result == null) {
+			System.out.println("reciver" + reciver);
+
+			/* String reciver = "rrryung83@gmail.com"; */
 			String authNum = "";
+
 			authNum = RandomNum();
 			isEmail = sendEmail(reciver.toString(), authNum);
 
@@ -95,6 +117,7 @@ public class MemberController {
 			}
 		} else {
 			ModelAndView mav = new ModelAndView();
+			/* reciver=null; */
 			mav.addObject("email2", reciver);
 			mav.setViewName("/member/emailAuth");
 			return mav;
@@ -190,38 +213,57 @@ public class MemberController {
 
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public ModelAndView loginForm(HttpServletRequest request) {
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv = new ModelAndView();// QModelAndView는 미리 객체 생성해놓으면 안
+												// 되는지?ex>service,controller와 같이
 		String preAddr = request.getHeader("referer");
+		System.out.println(preAddr);
 		mv.setViewName("member/login");
 		return mv;
 	}
 
-	@RequestMapping(value = "/login.do", method = RequestMethod.POST) ////////////////////////////////////////
+	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	public ModelAndView login(HttpServletRequest request, MemberModel mem) throws Exception {
 		String addr = request.getParameter("parentUrl");
+		System.out.println(addr);
+
 		MemberModel result = memberService.login(mem);
 		String suc = null;
 		if (result != null) {
-			Date del = result.getDeldate();
+			Date del = result.getDeldate(); // Q1.getDel()로 해서 del!="Y"안되는 이유?
 			String emailCheck = result.getEmail();
+			System.out.println("삭제여부" + del);
 			if (del == null) {
+				System.out.println("name:" + result.getName());
 
 				HttpSession session = request.getSession();
 
 				session.setAttribute("session_mem", result);
 				session.setAttribute("session_email", result.getEmail());
+				// session.setAttribute("session_password",
+				// result.getPassword());
 				session.setAttribute("session_name", result.getName());
 				session.setAttribute("session_num", result.getNum());
+
 				session.setAttribute("TOKEN_SAVE_CHECK", "TRUE");
-				if (emailCheck.equals("admin"))
+				memberService.updateAccess(emailCheck);
+
+				if (emailCheck.equals("admin")) {/* emailCheck!="admin" 문자열 비교는 함수사용!! */
+					System.out.println("admin");
 					suc = "admin";
-				else
+				} else
 					suc = "suc";
+				/* mav.setViewName("redirect:"+addr); */
+				/*
+				 * mav.addObject("suc", suc); mav.setViewName("member/login");
+				 * return mav;
+				 */
 			} else {
 				suc = "err2";
 			}
 		} else {
+
 			suc = "err";
+			// System.out.println("로그인 실패");
 		}
 
 		mav.addObject("suc", suc);
@@ -238,6 +280,9 @@ public class MemberController {
 		if (session != null) {
 			session.invalidate();
 		}
+		/* mav.addObject("member", new MemberModel()); */
+		// ModelAndView mav = new ModelAndView();
+		/* mav.setViewName("main"); */
 		mav.setViewName("member/logout");
 		return mav;
 	}
@@ -246,27 +291,32 @@ public class MemberController {
 	public ModelAndView memFindForm(HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		String preAddr = request.getHeader("Referer");
+		System.out.println(preAddr);
 		mv.setViewName("member/emailpwFind");
 		return mv;
 	}
 
 	@RequestMapping(value = "/emailFind.do")
+	// @ModelAttribute("member") MemberModel member jsp에서 MemberModel객체의 변수명에
+	// 해당하는 값 들을 가져와서 member객체 생성, @ModelAttribute("member")는 jsp에서 member로 사용
 	public ModelAndView emailFind(HttpServletRequest request, @ModelAttribute("mem") MemberModel mem) throws Exception {
 		int isFind = 0;
 		int isEmailFind = 0;
+		/* String isFind="YN"; */
 		mem = memberService.emailFind(mem);
 
 		if (mem != null) {
+			/* emailOrpw=0; */
 			if (mem.getDeldate() == null) {
 				isFind = 1;
+				System.out.println("id찾기의 mem" + mem.getEmail());
+				System.out.println("id찾기의 mem2" + mem.getPassword());
 				mav.addObject("mem", mem);
 			} else {
 				isFind = 3;
 			}
-
 		} else {
 			isFind = -1;
-
 		}
 		mav.addObject("isFind", isFind);
 		mav.setViewName("member/emailpwFind");
@@ -274,19 +324,26 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/pwFind.do")
+	// @ModelAttribute("member") MemberModel member jsp에서 MemberModel객체의 변수명에
+	// 해당하는 값 들을 가져와서 member객체 생성, @ModelAttribute("member")는 jsp에서 member로 사용
 	public ModelAndView pwFind(HttpServletRequest request, @ModelAttribute("mem") MemberModel mem) throws Exception {
+		/* int emailOrpw; */
+		/* int isPwFind=0; */
 		int isFind = 0;
 		mem = memberService.pwFind(mem);
 		if (mem != null) {
+			/* emailOrpw=0; */
 			if (mem.getDeldate() == null) {
 				isFind = 2;
 				mav.addObject("mem", mem);
+				System.out.println("pw찾기의 mem" + mem.getPassword());
 			} else {
 				isFind = -3;
 			}
 
 		} else {
 			isFind = -2;
+
 		}
 		mav.addObject("isFind", isFind);
 		mav.setViewName("member/emailpwFind");
@@ -295,20 +352,47 @@ public class MemberController {
 
 	@RequestMapping("/emailAuth2.do")
 	public ModelAndView emailAuth2(HttpServletRequest request) throws Exception {
+		/* Email email = new Email(); */
+		/*
+		 * member.setPasscode((int)(Math.random() * 100000) + 100000);// create
+		 */ // passcode
+		/* boolean isEmail; */
+		/*
+		 * System.out.println("이메일"+mem.getEmail());
+		 * System.out.println("이름"+mem.getName());
+		 * System.out.println("주민pre"+mem.getJumin1()); System.out.println("주민:"
+		 * +mem.getJumin1());
+		 */
+		/* String reciver = mem.getEmail(); */
 		String reciver = request.getParameter("email");
 		MemberModel result = memberService.getMember(reciver);
 
 		if (result != null) {
-			if (result.getDeldate() == null) {
-				String authNum = "";
-				authNum = RandomNum();
-				sendEmail(reciver.toString(), authNum);
-				mav.addObject("email", reciver);
-				mav.addObject("authNum", authNum);
+			System.out.println("reciver" + reciver);
+			if(result.getDel()==null){
+			/* String reciver = "rrryung83@gmail.com"; */
+			String authNum = "";
+
+			authNum = RandomNum();
+			/* isEmail = sendEmail(reciver.toString(), authNum); */
+
+			sendEmail(reciver.toString(), authNum);
+			System.out.println("인증번호:" + authNum);
+			mav.addObject("authNum", authNum);
+			mav.addObject("email", reciver);
+			
 			} else {
 				mav.addObject("email3", reciver);
 			}
+			/*
+			 * if (isEmail == true) {
+			 * 
+			 * } else { ModelAndView mav = new ModelAndView();
+			 * mav.addObject("email3", reciver);
+			 * mav.setViewName("/member/emailAuth"); return mav; }
+			 */
 		} else {
+			/* reciver=null; */
 			mav.addObject("email2", reciver);
 		}
 		mav.setViewName("/member/emailAuth2");

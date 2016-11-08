@@ -35,7 +35,7 @@ public class AdminQnaController {
 	@Resource
 	private qnaService qnaService;
 
-	@RequestMapping(value="/qnaAdmin.do")
+	@RequestMapping(value="/list.do")
 	public ModelAndView qnaList(HttpServletRequest request, qnaModel qnaModel){
 		ModelAndView mav = new ModelAndView();
 		if(request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty() || request.getParameter("currentPage").equals("0")) {
@@ -89,7 +89,7 @@ public class AdminQnaController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/qnaAdminView.do")
+	@RequestMapping(value = "/view.do")
 	public ModelAndView qnaView(HttpServletRequest request, qnaModel qnaModel) {
 		ModelAndView mav = new ModelAndView();
 
@@ -114,17 +114,17 @@ public class AdminQnaController {
 	}
 
 	//qna 관리자 삭제
-	@RequestMapping(value="/qnaAdminDelete.do")
+	@RequestMapping(value="/delete.do")
 	public ModelAndView qnaDelete(HttpServletRequest request, qnaModel qnaModel){			   
 		ModelAndView mav = new ModelAndView();
 
 		qnaService.qnaDelete(qnaModel.getNo());
 		qnaService.qnaAllCommDelete(qnaModel.getNo());
-		mav.setViewName("redirect:qnaAdmin.do");
+		mav.setViewName("redirect:list.do");
 		return mav;
 	}
 	//qna 관리자 댓글
-	@RequestMapping(value = "/qnaCommWrite.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/commWrite.do", method = RequestMethod.POST)
 	public ModelAndView qnaCommWrite(qnaCommModel qnaCommModel, qnaModel qnaModel, HttpServletRequest request,
 			HttpSession session) {
 
@@ -142,11 +142,11 @@ public class AdminQnaController {
 		if (commenter.equals("admin")) {
 			qnaService.AdminUpdateReply(no);
 		}
-		mav.setViewName("redirect:/admin/qna/qnaAdminView.do?no=" + qnaCommModel.getContent_num());
+		mav.setViewName("redirect:/admin/qna/view.do?no=" + qnaCommModel.getContent_num());
 
 		return mav;
 	}
-	@RequestMapping(value = "/qnaCommDelete.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/commDelete.do", method = RequestMethod.GET)
 	public ModelAndView qnaCommDelete(HttpServletRequest request, qnaCommModel qnaCommModel, qnaModel qnaModel,
 			HttpSession session) {
 		ModelAndView mav = new ModelAndView();
@@ -170,7 +170,7 @@ public class AdminQnaController {
 			qnaService.AdminDeleteReply(no);
 		}
 
-		mav.setViewName("redirect:/admin/qna/qnaAdminView.do?no=" + no);
+		mav.setViewName("redirect:/admin/qna/view.do?no=" + no);
 
 		return mav;
 	}
