@@ -5,7 +5,7 @@
 <head>
 <script type="text/javascript">
 function delchk(){
-    return confirm("삭제하시겠습니까?");
+		return confirm("탈퇴시키겠습니까?");
 }
 </script>
 <style type="text/css">
@@ -31,7 +31,7 @@ function delchk(){
 <div class="row">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-                         회원목록페이지 검색, 수정, 삭제 기능하는 페이지입니다.
+                         검색, 수정, 탈퇴 기능하는 페이지입니다.
         </div>
         <div class="panel-body">
 			<div class="dataTable_wrapper">
@@ -67,28 +67,36 @@ function delchk(){
 								</thead>
 								<tbody>
 								<c:forEach var="memList"  items="${memList}" varStatus="stat">
-								<c:url var="viewURL" value="admin/memberModify.do" >
-									<c:param name="email" value="${memList.email }" />
-								</c:url>									
+								<c:url var="viewURL" value="adminMemModify.do" >
+									<c:param name="email" value="${memList.email}" />
+									<c:param name="currentPage" value="${currentPage}" />
+								</c:url>
+								<c:url var="viewURL3" value="adminMemDetail.do" >
+									<c:param name="email" value="${memList.email}" />
+									<c:param name="currentPage" value="${currentPage}" />
+								</c:url>								
 									<tr class="gradeA even" role="row">
-										<td style="text-align:center;vertical-align:middle;">${memList.num}</td>
+										<td style="text-align:center;vertical-align:middle;"><a href="${viewURL3}">${memList.num}</a></td>
 										<td style="text-align:center;vertical-align:middle;">${memList.email}</td>
 										<td style="text-align:center;vertical-align:middle;">${memList.name}</td>
 										<td style="text-align:center;vertical-align:middle;">${memList.phone}</td>
 										<td style="text-align:center;vertical-align:middle;">${memList.jumin1}</td>						
 										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${memList.joindate}" pattern="YY.MM.dd HH:mm" /></td>
 										<td style="text-align:center;vertical-align:middle;">
-											<a href="${viewURL}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;
-										<c:url var="viewURL2" value="adminMemberDelete.dog" >
-											<c:param name="id" value="${memList.email }" />							
-										</c:url>	
-										 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a></td>									
+											<a href="${viewURL}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;								
+											<c:url var="viewURL2" value="adminMemDel.do" >
+												<c:param name="email" value="${memList.email}" />							
+											</c:url>
+											<c:if test="${memList.email ne 'admin'}">
+										 		<a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a>
+											 </c:if>
+										</td> 									
 									</tr>
 								</c:forEach>
 								<!--  등록된 회원이 없을때 -->
 									<c:if test="${fn:length(memList) le 0}">
 										<tr><td colspan="9" style="text-align:center;">등록된 회원이 없습니다</td></tr>
-									</c:if> 
+									</c:if>
 								</tbody>
 							</table>
 						</div>
@@ -101,10 +109,8 @@ function delchk(){
 								<div id="dataTables-example_filter" class="dataTables_filter">
 									<form action="">
 									<select class="form-control" name="searchNum" id="searchNum">
-										<option value="0">전체</option>
 										<option value="1">이름</option>
 										<option value="2">이메일</option>
-										<option value="3">전화번호</option>
 									</select>
 										<input class="form-control" type="text" name="isSearch" id="isSearch"/>
 										<span>

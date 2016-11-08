@@ -31,7 +31,7 @@ function delchk(){
 <div class="row">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-                         탈퇴목록페이지 검색, 복구, 삭제 기능하는 페이지입니다.
+                         검색, 복구, 삭제 기능하는 페이지입니다.
         </div>
         <div class="panel-body">
 			<div class="dataTable_wrapper">
@@ -50,8 +50,7 @@ function delchk(){
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							<table
-								class="table table-striped table-bordered table-hover dataTable no-footer"
+							<table class="table table-striped table-bordered table-hover dataTable no-footer"
 								id="dataTables-example" role="grid"
 								aria-describedby="dataTables-example_info">
 								<thead>
@@ -68,11 +67,16 @@ function delchk(){
 								</thead>
 								<tbody>
 								<c:forEach var="memList"  items="${memList}" varStatus="stat">
-								<c:url var="viewURL" value="admin/memberModify.do" >
+								<c:url var="viewURL" value="adminMemRestore.do" >
 									<c:param name="email" value="${memList.email}" />
-								</c:url>									
+									<c:param name="currentPage" value="${currentPage}" />
+								</c:url>
+								<c:url var="viewURL3" value="adminMemDetail.do" >
+									<c:param name="email" value="${memList.email}" />
+									<c:param name="currentPage" value="${currentPage}" />
+								</c:url>										
 									<tr class="gradeA even" role="row">
-										<td style="text-align:center;vertical-align:middle;">${memList.num}</td>
+										<td style="text-align:center;vertical-align:middle;"><a href="${viewURL3}">${memList.num}</a></td>
 										<td style="text-align:center;vertical-align:middle;">${memList.email}</td>
 										<td style="text-align:center;vertical-align:middle;">${memList.name}</td>
 										<td style="text-align:center;vertical-align:middle;">${memList.phone}</td>
@@ -81,8 +85,8 @@ function delchk(){
 										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${memList.deldate}" pattern="YY.MM.dd HH:mm" /></td>
 										<td style="text-align:center;vertical-align:middle;">
 											<a href="${viewURL}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Cog_font_awesome.svg/32px-Cog_font_awesome.svg.png"></a>&nbsp;&nbsp;
-										<c:url var="viewURL2" value="adminMemberDelete.dog" >
-											<c:param name="id" value="${memList.email }" />							
+										<c:url var="viewURL2" value="adminMemDel2.do" >
+											<c:param name="email" value="${memList.email}" />					
 										</c:url>	
 										 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a></td>									
 									</tr>
@@ -103,10 +107,8 @@ function delchk(){
 								<div id="dataTables-example_filter" class="dataTables_filter">
 									<form action="">
 									<select class="form-control" name="searchNum" id="searchNum">
-										<option value="0">전체</option>
 										<option value="1">이름</option>
 										<option value="2">이메일</option>
-										<option value="3">전화번호</option>
 									</select>
 										<input class="form-control" type="text" name="isSearch" id="isSearch"/>
 										<span>
