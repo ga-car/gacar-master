@@ -1,33 +1,49 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+	function Cancel() {
+		var car_lat = "${rentacarOne.car_lat}";
+		var car_lng = "${rentacarOne.car_lng}";
+		javascript: location.href = "/rentacar/car/list.do?car_lat=" + car_lat
+				+ "&car_lng=" + car_lng;
+	}
+</script>
 </head>
 <body>
 	<form action="#" enctype="multipart/form-data" method="post">
 		<table>
 			<tr>
-				<td>°áÀç±İ¾×</td>
-				<td></td>
+				<td>ê²°ì¬ê¸ˆì•¡</td>
+				<c:choose>
+					<c:when test="${Price == null }">
+						<td>ì¼ì •ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.</td>
+					</c:when>
+					<c:otherwise>
+						<td>${Price}ì›</td>
+					</c:otherwise>
+				</c:choose>
 			</tr>
 			<tr>
-				<td>ÀÚµ¿Â÷ ´ë¿©Ç¥ÁØ¾à°ü</td>
-				<td><input type="button" value="ÀüÃ¼º¸±â"></td>
+				<td>ìë™ì°¨ ëŒ€ì—¬í‘œì¤€ì•½ê´€</td>
+				<td><input type="button" value="ì „ì²´ë³´ê¸°"></td>
 			</tr>
 			<tr>
-				<td colspan="2"><textarea rows="4" cols="4"></textarea></td>
+				<td colspan="2"><textarea rows="16" cols="26"></textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2"></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="¿¹¾à/°áÁ¦"></td>
+				<td colspan="2"><input type="submit" value="ì˜ˆì•½/ê²°ì œ"></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="button" value="Ãë¼Ò"></td>
+				<td colspan="2"><input type="button" value="ì·¨ì†Œ"
+					onclick="Cancel()"></td>
 			</tr>
 		</table>
 	</form>
