@@ -18,19 +18,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="reserve_insure" column="reserve_insure" />
 		<result property="reserve_cancel" column="reserve_cancel" />
 	</resultMap>
+	<insert id="insertReserve" parameterType="reserveModel">
+		insert into car
+		(reserve_no, reserve_car_no, reserve_mem_no, reserve_sdate, reserve_edate, reserve_rdate, reserve_slat,
+		reserve_slng, reserve_price, reserve_conf, reserve_insure, reserve_cancel)
+		values(reserve_no_SEQ.NEXTVAL, #{reserve_car_no}, #{reserve_mem_no}, #{reserve_sdate}, #{reserve_edate},
+		SYSDATE, #{reserve_slat}, #{reserve_slng}, #{reserve_price}, #{reserve_conf},
+		#{reserve_insure}, #{reserve_cancel})
+	</insert>
 </mapper>
-<!-- create table reserve( 
- reserve_no number NOT NULL PRIMARY KEY,
- reserve_car_no varchar2(25) NOT NULL,
- reserve_mem_no number NOT NULL,
- reserve_sdate varchar2(20) NOT NULL,
- reserve_edate varchar2(20) NOT NULL,
- reserve_rdate date NOT NULL,
- reserve_slat varchar2(20) NOT NULL,
- reserve_slng varchar2(20) NOT NULL,
- reserve_price number NOT NULL,
- reserve_conf varchar2(10) NOT NULL,
- reserve_insure varchar2(10) NOT NULL,
- reserve_cancel varchar2(10) NOT NULL);
- create sequence reserve_no_SEQ; -->
+<!-- create table reserve( reserve_no number NOT NULL PRIMARY KEY, reserve_car_no 
+	varchar2(25) NOT NULL, reserve_mem_no number NOT NULL, reserve_sdate varchar2(20) 
+	NOT NULL, reserve_edate varchar2(20) NOT NULL, reserve_rdate date NOT NULL, 
+	reserve_slat varchar2(20) NOT NULL, reserve_slng varchar2(20) NOT NULL, reserve_price 
+	number NOT NULL, reserve_conf varchar2(10) NOT NULL, reserve_insure varchar2(10) 
+	NOT NULL, reserve_cancel varchar2(10) NOT NULL); create sequence reserve_no_SEQ; -->
 	

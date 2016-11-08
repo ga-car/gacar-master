@@ -21,6 +21,8 @@ public class ReserveController {
 	public ModelAndView reserveChange(ReserveModel reserveModel, HttpServletRequest request) throws UnsupportedEncodingException {
 		ModelAndView mav = new ModelAndView();
 		
+		reserveService.insertReserve(reserveModel);
+		
 		mav.setViewName("car/reserveChangeForm");
 		return mav;
 	}

@@ -22,6 +22,7 @@
 	<input type="hidden" name="reserve_edate" id="reserve_edate" value="${car_dt2}">
 	<input type="hidden" name="reserve_slat" id="reserve_slat" value="${rentacarOne.car_lat}">
 	<input type="hidden" name="reserve_slng" id="reserve_slng" value="${rentacarOne.car_lng}">
+	<input type="hidden" name="reserve_price" id="reserve_price" value="${Price}">
 		<table>
 			<tr>
 				<td>결재금액</td>

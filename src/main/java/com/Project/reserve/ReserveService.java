@@ -11,4 +11,9 @@ public class ReserveService implements ReserveDao {
 	@Resource
 	private SqlSessionTemplate sqlSessionTemplate;
 
+	@Override
+	public int insertReserve(ReserveModel reserveModel) {
+		return sqlSessionTemplate.insert("reserve.insertReserve", reserveModel);
+	}
+
 }
