@@ -20,8 +20,6 @@
 	function bookmarksite(url, title) {
 		// Internet Explorer
 		if (document.all || window.external) {
-			/* alert(url); */
-			/*  alert(title);  */
 			window.external.AddFavorite(url, title);
 		}
 		// Google Chrome
@@ -47,49 +45,19 @@
 </head>
 <body>
 adminleft<br/>
-<%-- 	<c:if test="${session_email==null}">
-		<a href="/rentacar/member/memberAgree.do" class="log">회원가입</a>
-		<!-- 팝업용 로그인 -->
-		<a href="#" onclick="loginForm()">로그인</a>
-		<br />
-		<a href="javascript:bookmarksite('http://localhost:8080/rentacar/main.do', '가치같이타')">즐겨찾기 추가</a>
-		<h4>
-			<a href="#">이용안내</a>
-		</h4>
-		<ul>
-			<li><a href="#">이용방법</a></li>
-			<li><a href="#">이용요금</a></li>
-			<li><a href="#">이용규칙</a></li>
-		</ul>
-		<h4>
-			<a href="/Rentacar/car/list.do">가카예약</a>
-		</h4>
-		<h4>
-			<a href="#">카풀모임</a>
-		</h4>
-		<h4>
-			<a href="/rentacar/reviewList.do">이용후기</a>
-		</h4>
-		<h4>
-			<a href="/rentacar/notify/list.do">고객센터</a>
-		</h4>
-		<ul>
-			<li><a href="/rentacar/notify/list.do">공지사항</a></li>
-			<li><a href="/rentacar/faqList.do">FAQ</a></li>
-			<li><a href="#">1:1문의</a></li>
-		</ul>
-	</c:if>
- --%>
 <c:if test='${session_email!=null && session_email=="admin"}'>
-		<strong>관리자님</strong>
-		<a href="/rentacar/member/logout.do">로그아웃</a>
+		<strong>관리자님</strong><br/>	
+		<a href="/rentacar/member/logout.do">로그아웃</a> 								
+		<a href="/rentacar/admin/adminInfoDetail.do">관리자정보</a>
 		<br />
+		-----------------------------------
 		<h4>
 			<a href="/rentacar/admin/memberList.do">회원관리</a> <!-- //1104수정 -->
 		</h4>
 		<ul>
 			<li><a href="/rentacar/admin/memberList.do">회원목록</a></li>
 			<li><a href="/rentacar/admin/withdrawList.do">탈퇴목록</a></li>
+			<!-- <li><a href="/rentacar/admin/stats.do">통계</a></li> -->
 		</ul>
 
 		<h4>
@@ -114,7 +82,7 @@ adminleft<br/>
 		</h4>
 
 		<h4>
-			<a href="/rentacar/admin/review/list.do">이용후기관리</a>
+			<a href="/rentacar/admin/reviewList.do">이용후기관리</a>
 		</h4>
 
 		<h4>
@@ -122,8 +90,8 @@ adminleft<br/>
 		</h4>
 		<ul>
 			<li><a href="/rentacar/admin/notify/list.do">공지사항</a></li>
-			<li><a href="/rentacar/admin/faq/list.do">FAQ</a></li>
-			<li><a href="/rentacar/admin/qna/list.do">1:1문의</a></li>
+			<li><a href="/rentacar/admin/faqList.do">FAQ</a></li>
+			<li><a href="#">1:1문의</a></li>
 		</ul>
 </c:if>
 

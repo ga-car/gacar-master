@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,7 @@ import com.Project.member.MemberModel;
 import com.Project.admin.AdminService;
 import com.Project.member.MemberService;
 import com.Project.util.Paging;
+
 
 @Controller
 @RequestMapping(value = "/admin")
@@ -67,7 +69,8 @@ public class AdminController {
 
 	 //회원목록
 		@RequestMapping("memberList.do")
-		public ModelAndView memberList(HttpServletRequest request) throws Exception{
+		public ModelAndView memList(HttpServletRequest request) throws Exception{
+			
 			
 			if(request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty() || request.getParameter("currentPage").equals("0")) {
 	            currentPage = 1;
@@ -78,14 +81,16 @@ public class AdminController {
 			List<MemberModel> memList=adminService.memberList();
 			
 			//멤버검색
-			/*isSearch = request.getParameter("isSearch");
+			isSearch = request.getParameter("isSearch");
 			if(isSearch != null){
 				searchNum = Integer.parseInt(request.getParameter("searchNum"));
 
-				if(searchNum==0)
-					memberlist = adminService.memberSearch0(isSearch);
+				if(searchNum==1)
+					memList = adminService.memberSearch1(isSearch);
+				if(searchNum==2)
+					memList = adminService.memberSearch2(isSearch);
 			
-				totalCount = memberlist.size();
+				totalCount = memList.size();
 				page = new Paging(currentPage, totalCount, blockCount, blockPage, "memberadminList", searchNum, isSearch);
 				pagingHtml = page.getPagingHtml().toString();
 			
@@ -94,21 +99,21 @@ public class AdminController {
 				if(page.getEndCount() < totalCount)
 					lastCount = page.getEndCount() + 1;
 				
-				memberlist = memberlist.subList(page.getStartCount(), lastCount);
+				memList = memList.subList(page.getStartCount(), lastCount);
 			
 				mav.addObject("isSearch", isSearch);
 				mav.addObject("searchNum", searchNum);
 				mav.addObject("totalCount", totalCount);
 				mav.addObject("pagingHtml", pagingHtml);
 				mav.addObject("currentPage", currentPage);
-				mav.addObject("memberlist", memberlist);
-				mav.setViewName("memberadminList");
+				mav.addObject("memList", memList);
+				mav.setViewName("memberList");
 				return mav;
-			}*/
+			}
 			
 			totalCount = memList.size();
 			
-			page = new Paging(currentPage, totalCount, blockCount, blockPage, "memberList");
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "memList");
 			pagingHtml=page.getPagingHtml().toString(); 
 			
 
@@ -141,14 +146,16 @@ public class AdminController {
 			List<MemberModel> memList=adminService.withdrawList();
 			
 			//멤버검색
-			/*isSearch = request.getParameter("isSearch");
+			isSearch = request.getParameter("isSearch");
 			if(isSearch != null){
 				searchNum = Integer.parseInt(request.getParameter("searchNum"));
 
-				if(searchNum==0)
-					memberlist = adminService.memberSearch0(isSearch);
+				if(searchNum==1)
+					memList = adminService.memberSearch1(isSearch);
+				if(searchNum==2)
+					memList = adminService.memberSearch2(isSearch);
 			
-				totalCount = memberlist.size();
+				totalCount = memList.size();
 				page = new Paging(currentPage, totalCount, blockCount, blockPage, "memberadminList", searchNum, isSearch);
 				pagingHtml = page.getPagingHtml().toString();
 			
@@ -157,21 +164,21 @@ public class AdminController {
 				if(page.getEndCount() < totalCount)
 					lastCount = page.getEndCount() + 1;
 				
-				memberlist = memberlist.subList(page.getStartCount(), lastCount);
+				memList = memList.subList(page.getStartCount(), lastCount);
 			
 				mav.addObject("isSearch", isSearch);
 				mav.addObject("searchNum", searchNum);
 				mav.addObject("totalCount", totalCount);
 				mav.addObject("pagingHtml", pagingHtml);
 				mav.addObject("currentPage", currentPage);
-				mav.addObject("memberlist", memberlist);
-				mav.setViewName("memberadminList");
+				mav.addObject("memList", memList);
+				mav.setViewName("withdrawList");
 				return mav;
-			}*/
+			}
 			
 			totalCount = memList.size();
 			
-			page = new Paging(currentPage, totalCount, blockCount, blockPage, "memberList");
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "memList");
 			pagingHtml=page.getPagingHtml().toString(); 
 			
 
@@ -192,36 +199,115 @@ public class AdminController {
 			return mav;
 		}
 
-		/*//회원삭제하기
-		 @RequestMapping("adminMemberDelete.dog")
-			public ModelAndView memberDelete(HttpServletRequest request){		
-			 String id = request.getParameter("id");
-			 adminService.memberDelete(id);
-			 mav.setViewName("redirect:memberadminList.dog");
+		//회원삭제하기
+		 @RequestMapping("adminMemDel.do")
+			public ModelAndView memberDel(HttpServletRequest request){
+			 Date deldate = new Date();
+			 String email = request.getParameter("email");
+	 
+			 memberService.updateDelMem(email);
+			 mav.setViewName("redirect:memberList.do");
+				
+			 return mav;	
+		}
+		 @RequestMapping("adminMemDel2.do")
+			public ModelAndView memberDel2(HttpServletRequest request){		
+			 String email = request.getParameter("email");
+			 
+			 adminService.deleteMem(email);
+			 mav.setViewName("redirect:withdrawList.do");
 				
 			 return mav;	
 		}
 		 
-		//회원 1명 View 상세보기
-		// 회원정보수정
-	  	@RequestMapping("adminmemberModify.dog")
-	  	public ModelAndView memberModify(MemberModel member, HttpServletRequest request) {		  		 		
-	  		
-  			member =  memberService.getMember(member.getId());
-  	
-  			mav.addObject("member", member);
-  			mav.setViewName("memberadminModify");
-  			return mav;
-	  	}
-	  	
-	  	//회원수정 등록
-	    @RequestMapping("adminmemberModifyEnd.dog")
-  		public ModelAndView adminmemberModifyEnd(MemberModel member) {
-  		
-		System.out.println("수정시작");
-		
-  			adminService.adminmemberModify(member);
-  			mav.setViewName("redirect:memberadminList.dog");
-  			return mav;
-	    }*/
+		 @RequestMapping("adminMemRestore.do")
+			public ModelAndView memberRestore(HttpServletRequest request){
+			 String email = request.getParameter("email");
+			 
+			 adminService.updateRestoreMem(email);
+			 mav.setViewName("redirect:withdrawList.do");
+				
+			 return mav;	
+		}
+		 
+		 @RequestMapping("adminMemDetail.do")
+			public ModelAndView memberDetail(HttpServletRequest request){
+			 String email = request.getParameter("email");
+			 String currentPage = request.getParameter("currentPage");
+			 MemberModel mem = memberService.getMember(email);
+			 mav.addObject("currentPage", currentPage);
+			 mav.addObject("mem", mem);
+			 mav.setViewName("adminMemDetail");
+				
+			 return mav;	
+		}
+		 
+		 @RequestMapping("adminMemModify.do")
+			public ModelAndView memberModify(HttpServletRequest request){
+			 String email = request.getParameter("email");
+			 String currentPage = request.getParameter("currentPage");
+			 MemberModel mem = memberService.getMember(email);
+			 mav.addObject("currentPage", currentPage);
+			 mav.addObject("mem", mem);
+			 mav.setViewName("adminMemModify");
+				
+			 return mav;	
+		}
+		 
+		 @RequestMapping(value="adminMemModify.do", method=RequestMethod.POST)
+			public ModelAndView memberModify(@ModelAttribute("mem") MemberModel mem, HttpServletRequest request){
+			 String email = request.getParameter("email");
+			 String currentPage = request.getParameter("currentPage");
+			 adminService.adminUpdateMem(mem);
+			 mav.addObject("currentPage", currentPage);
+			 mav.setViewName("redirect:adminMemDetail.do?email="+email);
+				
+			 return mav;	
+		}
+		 
+		 @RequestMapping("adminInfoDetail.do")
+			public ModelAndView adminDetail(HttpSession session){
+			 /*String admin = request.getParameter("email");*/
+			 String admin = (String)session.getAttribute("session_email");
+			 MemberModel mem = memberService.getMember(admin);
+			 mav.addObject("mem", mem);
+			 mav.setViewName("adminInfoDetail");
+				
+			 return mav;	
+		}
+		 @RequestMapping(value = "/adminInfoModify.do")
+			public ModelAndView adminInfoModify(@ModelAttribute("mem") MemberModel mem, BindingResult result,
+		  			HttpSession session, HttpServletRequest request) {
+				/*String admin = (String)session.getAttribute("session_email");*/
+				int pwchange=0;
+				 String admin = request.getParameter("email");
+					mem = memberService.getMember(admin);
+					mav.addObject("mem", mem);
+					mav.addObject("pwchange", pwchange);
+					mav.setViewName("adminInfoModify");
+					
+					return mav;		
+			}
+			
+			@RequestMapping(value = "/adminInfoModify.do", method=RequestMethod.POST)
+			public ModelAndView adminInfoModify(@ModelAttribute("mem") MemberModel mem, BindingResult result,
+		  			HttpSession session) {
+				String admin = (String)session.getAttribute("session_email");
+				MemberModel memPre = memberService.getMember(admin);
+				String pwPre = memPre.getPassword();
+				mem.setEmail(admin);
+				String pw = mem.getPassword();
+				int pwchange=0;
+				if ( pw.equals(pwPre)) {			
+					pwchange=-1;
+		  		} else {
+		  			pwchange=1;
+		  			adminService.adminUpdate(mem);
+		  			session.invalidate();
+		  		}
+				mav.addObject("pwchange", pwchange);
+				mav.setViewName("adminInfoModify");
+				return mav;				
+			}
+		 	 
 }

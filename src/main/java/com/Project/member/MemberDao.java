@@ -19,11 +19,9 @@ public interface MemberDao {
 
 	public MemberModel pwFind(MemberModel mem);
 
-	public Object insertDelMem(MemberModel mem);
-
-	public Object memberDel(String email);
-
-	public Object updateDelMem(MemberModel mem);
+	public Object updateDelMem(String email);
 
 	public Object updateMember(MemberModel mem);
+	
+	public Object updateAccess(String email);
 }
