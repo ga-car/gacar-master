@@ -8,17 +8,10 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 
-/* $(document).ready(function(){
-	alert("비밀번호 입력하시오.");
-	
-}); */
 window.onload = function () {
-	/*  alert("로딩 완료"); */
 	 var fail=${pwCheck};
 		if(fail==-1){
-			alert(fail);
-			/* alert("비밀번호가 틀렸습니다."); */
-			
+			alert(fail);	
 		}
 		if(fail==1){
 			alert("탈퇴 되었습니다.");
@@ -26,16 +19,13 @@ window.onload = function () {
 			
 		}
 	}
-
-/* 	$(document).ready(function() {
-		alert("비밀번호가 틀렸습니다.");
-		
-	}); */
-			
+	
 </script>
 </head>
 <body>
-비밀번호를 입력하세요.
+탈퇴 시 포인트와 등급이 초기화 됩니다.
+<br/><br/>
+탈퇴하시려면 비밀번호를 입력하세요.
 <br/>
 <form action="memberDel.do" method="post">
 	비밀번호 : <input type="password" name="password" id="password">
