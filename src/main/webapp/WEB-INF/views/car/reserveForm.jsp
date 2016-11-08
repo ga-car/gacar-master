@@ -19,7 +19,7 @@
 
 <body>
 
-	<form action="#" enctype="multipart/form-data" method="post">
+	<form enctype="multipart/form-data" >
 		<table>
 			<tr>
 				<td colspan="2" align="right">예약내역</td>

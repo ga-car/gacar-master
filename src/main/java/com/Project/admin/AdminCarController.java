@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
