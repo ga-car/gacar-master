@@ -75,7 +75,7 @@
 			<a href="/rentacar/carpool/list.do">카풀모임</a>
 		</h4>
 		<h4>
-			<a href="/rentacar/reviewList.do">이용후기</a>
+			<a href="/rentacar/review/list.do">이용후기</a>
 		</h4>
 		<h4>
 			<a href="/rentacar/notify/list.do">고객센터</a>
