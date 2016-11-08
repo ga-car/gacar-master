@@ -21,7 +21,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.Project.member.MemberModel;
 import com.Project.rentacar.RentacarModel;
 import com.Project.util.Paging;
 
@@ -110,12 +109,5 @@ public class AdminCarController {
 
 		mav.setViewName("redirect:list.do");
 		return mav;
-	}
-	
-	@RequestMapping(value = "/main.do")
-	public ModelAndView adminLogin() throws Exception {
-		mav.setViewName("adminMain");
-		return mav;
-
 	}
 }

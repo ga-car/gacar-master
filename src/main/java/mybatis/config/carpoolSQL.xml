@@ -5,6 +5,100 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="carpool">
 	<resultMap type="carpoolModel" id="carpoolModelRes">
-	
+		<result property="no" column="no" />		
+		<result property="name" column="name" />		
+		<result property="subject" column="subject" />
+		<result property="content" column="content" />
+		<result property="regdate" column="regdate" />
+		<result property="readcount" column="readcount" />
+		<result property="slat" column="slat" />		
+		<result property="slng" column="slng" />		
+		<result property="elat" column="elat" />
+		<result property="elng" column="elng" />
+		<result property="saddr" column="saddr" />			
+		<result property="eaddr" column="eaddr" />
+		<result property="startdate" column="startdate" />
+		<result property="goal" column="goal" />
+		<result property="term" column="term" />
+		<result property="charge" column="charge" />
+		<result property="smoke" column="smoke" />
+		<result property="insure" column="insure" />
+		<result property="pnum1" column="pnum1" />
+		<result property="pnum2" column="pnum2" />
 	</resultMap>
+	
+	<!-- 글목록 -->
+	<select id="carpoolList" resultMap="carpoolModelRes">
+			SELECT * FROM TEST 
+			ORDER BY no DESC
+	</select>
+	
+	<insert id="carpoolWrite" parameterType="Integer">
+			INSERT INTO TEST
+			(NO, SUBJECT, CONTENT, REGDATE, NAME, SLAT, SLNG, ELAT, ELNG, SADDR, EADDR, STARTDATE, GOAL
+			 , SMOKE, INSURE, PNUM1, PNUM2 )
+			VALUES
+			(TEST_SEQ.NEXTVAL, #{subject}, #{content}, SYSDATE, #{name}, #{slat}, #{slng}, #{elat}, #{elng}, #{saddr}, #{eaddr}, #{startdate}, #{goal}
+			, #{smoke}, #{insure}, '0', #{pnum2} )
+	</insert>
+	
+	<select id="carpoolView" resultMap="carpoolModelRes" parameterType="Integer">
+			SELECT * FROM TEST 
+			WHERE NO = #{no}
+	</select>
+	
+	<!-- 조회수 -->
+	<update id="carpoolUpdateReadcount" parameterType="Integer">
+			UPDATE TEST
+			SET
+				READCOUNT = READCOUNT + 1
+			WHERE
+				NO = #{no}	
+	</update>
+	<!-- 수정 -->
+	<update id="carpoolModify" parameterType="carpoolModel">
+			UPDATE TEST
+			SET
+				<!-- NAME = #{name}, -->
+				SUBJECT = #{subject},
+				CONTENT = #{content}
+			WHERE
+				NO = #{no}	
+	</update>
+
+	<!-- 글삭제 -->
+	<delete id="carpoolDelete" parameterType="Integer">
+			DELETE FROM TEST WHERE NO=#{no}
+	</delete>
+
+	<!-- 제목검색 -->
+	<select id="carpoolSearch0" resultMap="carpoolModelRes" parameterType="String">
+		SELECT * FROM TEST
+		 WHERE saddr like #{search} or eaddr like #{search}
+		 ORDER BY no DESC
+	</select>
+	
+	<!-- 내용검색 -->
+	<select id="carpoolSearch1" resultMap="carpoolModelRes" parameterType="String">
+		SELECT * FROM TEST
+		WHERE content like #{search}
+		ORDER BY no DESC
+	</select>
+
+	<!-- 작성자검색 -->
+	<select id="carpoolSearch2" resultMap="carpoolModelRes" parameterType="String">
+		SELECT * FROM TEST
+		WHERE name like #{search}
+		ORDER BY no DESC
+	</select>
+	
+	<!-- 참가 -->
+	<update id="carpoolUpdateAttend" parameterType="Integer">
+			UPDATE TEST
+			SET
+				PNUM1 = PNUM1 + 1
+			WHERE
+				NO = #{no}	
+	</update>
+	
 </mapper>

@@ -88,6 +88,16 @@
  		delete from MEMBER_C
  		where email=#{email}
 	</delete>
+	
+	<!-- 관리자/회원리스트 -->
+	<select id="memberList" resultMap="memberRes">
+		<include refid="select-all"/>
+		where del='N' order by num desc 
+	</select>
+	<select id="withdrawList" resultMap="memberRes">
+		<include refid="select-all"/>
+		where del='Y' order by num desc 
+	</select>
 
 
 </mapper>

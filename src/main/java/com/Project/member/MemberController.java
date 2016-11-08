@@ -196,14 +196,14 @@ public class MemberController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/login.do", method = RequestMethod.POST)////////////////////////////////////////
+	@RequestMapping(value = "/login.do", method = RequestMethod.POST) ////////////////////////////////////////
 	public ModelAndView login(HttpServletRequest request, MemberModel mem) throws Exception {
 		String addr = request.getParameter("parentUrl");
 		MemberModel result = memberService.login(mem);
 		String suc = null;
 		if (result != null) {
 			Date del = result.getDeldate();
-			String emailCheck =result.getEmail();
+			String emailCheck = result.getEmail();
 			if (del == null) {
 
 				HttpSession session = request.getSession();
@@ -212,8 +212,8 @@ public class MemberController {
 				session.setAttribute("session_email", result.getEmail());
 				session.setAttribute("session_name", result.getName());
 				session.setAttribute("session_num", result.getNum());
-				session.setAttribute("TOKEN_SAVE_CHECK", "TRUE"); 
-				if(emailCheck.equals("admin"))
+				session.setAttribute("TOKEN_SAVE_CHECK", "TRUE");
+				if (emailCheck.equals("admin"))
 					suc = "admin";
 				else
 					suc = "suc";
@@ -257,13 +257,18 @@ public class MemberController {
 		mem = memberService.emailFind(mem);
 
 		if (mem != null) {
-			isFind = 1;
-			mav.addObject("isFind", isFind);
-			mav.addObject("mem", mem);
+			if (mem.getDeldate() == null) {
+				isFind = 1;
+				mav.addObject("mem", mem);
+			} else {
+				isFind = 3;
+			}
+
 		} else {
 			isFind = -1;
-			mav.addObject("isFind", isFind);
+
 		}
+		mav.addObject("isFind", isFind);
 		mav.setViewName("member/emailpwFind");
 		return mav;
 	}
@@ -273,13 +278,17 @@ public class MemberController {
 		int isFind = 0;
 		mem = memberService.pwFind(mem);
 		if (mem != null) {
-			isFind = 2;
-			mav.addObject("isFind", isFind);
-			mav.addObject("mem", mem);
+			if (mem.getDeldate() == null) {
+				isFind = 2;
+				mav.addObject("mem", mem);
+			} else {
+				isFind = -3;
+			}
+
 		} else {
 			isFind = -2;
-			mav.addObject("isFind", isFind);
 		}
+		mav.addObject("isFind", isFind);
 		mav.setViewName("member/emailpwFind");
 		return mav;
 	}
@@ -290,20 +299,19 @@ public class MemberController {
 		MemberModel result = memberService.getMember(reciver);
 
 		if (result != null) {
-			String authNum = "";
-			authNum = RandomNum();
-			sendEmail(reciver.toString(), authNum);
-
-			ModelAndView mav = new ModelAndView();
-			mav.addObject("email", reciver);
-			mav.addObject("authNum", authNum);
-			mav.setViewName("/member/emailAuth2");
-			return mav;
+			if (result.getDeldate() == null) {
+				String authNum = "";
+				authNum = RandomNum();
+				sendEmail(reciver.toString(), authNum);
+				mav.addObject("email", reciver);
+				mav.addObject("authNum", authNum);
+			} else {
+				mav.addObject("email3", reciver);
+			}
 		} else {
-			ModelAndView mav = new ModelAndView();
 			mav.addObject("email2", reciver);
-			mav.setViewName("/member/emailAuth2");
-			return mav;
 		}
+		mav.setViewName("/member/emailAuth2");
+		return mav;
 	}
 }

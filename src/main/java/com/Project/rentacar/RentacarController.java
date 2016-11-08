@@ -14,16 +14,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping(value = "/Rentacar")
+@RequestMapping(value = "/car")
 public class RentacarController {
 
 	@Resource
 	private RentacarService rentacarService;
 
-	private String lat = String.valueOf(37.4849649737);
-	private String lng = String.valueOf(127.0347567814);
+	private String car_lat = String.valueOf(37.4849649737);
+	private String car_lng = String.valueOf(127.0347567814);
+	private String car_no;
 
-	@RequestMapping(value = "/car/list.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/list.do")
 	public ModelAndView listRentacarform(RentacarModel rentacarModel, HttpServletRequest request)
 			throws UnsupportedEncodingException {
 
@@ -31,12 +32,12 @@ public class RentacarController {
 
 		List<RentacarModel> rentacarList;
 		List<RentacarModel> rentacarLatLng;
-		
+
 		if (request.getParameter("car_lat") != null || request.getParameter("car_lng") != null) {
-			lat = request.getParameter("car_lat");
-			lng = request.getParameter("car_lng");
-			rentacarModel.setCar_lat(lat);
-			rentacarModel.setCar_lng(lng);
+			car_lat = request.getParameter("car_lat");
+			car_lng = request.getParameter("car_lng");
+			rentacarModel.setCar_lat(car_lat);
+			rentacarModel.setCar_lng(car_lng);
 
 			rentacarLatLng = rentacarService.rentacarLatLng(rentacarModel);
 
@@ -44,11 +45,26 @@ public class RentacarController {
 		}
 
 		rentacarList = rentacarService.rentacarList();
-		
-		mav.addObject("car_lat", lat);
-		mav.addObject("car_lng", lng);
+
+		mav.addObject("car_lat", car_lat);
+		mav.addObject("car_lng", car_lng);
 		mav.addObject("rentacarList", rentacarList);
 		mav.setViewName("carListForm");
+		return mav;
+	}
+
+	@RequestMapping(value = "/reserve.do", method = RequestMethod.GET)
+	public ModelAndView listReserveform(HttpServletRequest request) throws UnsupportedEncodingException {
+		ModelAndView mav = new ModelAndView();
+
+		car_no = request.getParameter("car_no");
+
+		List<RentacarModel> rentacarList;
+		
+		rentacarList = rentacarService.rentacarOneView(car_no);
+		
+		mav.addObject("rentacarList", rentacarList);
+		mav.setViewName("carReserveForm");
 		return mav;
 	}
 	/*
