@@ -15,7 +15,7 @@
 			alert("로그인 해주세요.");
 			return false;
 		}
-		if (f.reserve_sdate.value == ""|| f.reserve_edate.value == "") {
+		if (f.reserve_sdate.value == "" || f.reserve_edate.value == "") {
 			alert("일정을 입력해주세요.");
 			return false;
 		}
@@ -30,8 +30,7 @@
 </head>
 <body>
 	<form name="reserveRight" id="reserveRight"
-		action="/rentacar/reserve/complete.do" enctype="multipart/form-data"
-		method="post" onsubmit="return check()">
+		enctype="multipart/form-data" method="post" onsubmit="return check()">
 		<input type="hidden" name="reserve_car_no" id="reserve_car_no"
 			value="${rentacarOne.car_brand}"> <input type="hidden"
 			name="reserve_mem_no" id="reserve_mem_no" value="${session_num}">
@@ -41,7 +40,9 @@
 			name="reserve_slat" id="reserve_slat" value="${rentacarOne.car_lat}">
 		<input type="hidden" name="reserve_slng" id="reserve_slng"
 			value="${rentacarOne.car_lng}"> <input type="hidden"
-			name="reserve_price" id="reserve_price" value="${Price}">
+			name="reserve_price" id="reserve_price" value="${Price}"> <input
+			type="hidden" name="reserve_insure" id="reserve_insure"
+			value="true"> 
 		<table>
 			<tr>
 				<td align="left">결재금액</td>

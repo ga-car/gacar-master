@@ -31,7 +31,7 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="adminModel" type="com.Project.admin.AdminModel" />	
 		<typeAlias alias="memberModel" type="com.Project.member.MemberModel"/>
 		<typeAlias alias="zipcodeModel" type="com.Project.member.ZipcodeModel"  />
-		<typeAlias alias="ReserveModel" type="com.Project.reserve.ReserveModel"  />
+		<typeAlias alias="ReserveModel" type="com.Project.rentacar.ReserveModel"  />
 	</typeAliases>
 	<!-- SQL 정의한 xml문서 Mapping -->
 	<mappers>

@@ -26,5 +26,10 @@ public class RentacarService implements RentacarDao {
 	public RentacarModel rentacarOneView(String car_no) {
 		return sqlSessionTemplate.selectOne("rentacar.rentacarSearchOne", car_no);
 	}
+	@Override
+	public int insertReserve(ReserveModel reserveModel) {
+		return sqlSessionTemplate.insert("reserve.insertReserve", reserveModel);
+	}
+
 
 }

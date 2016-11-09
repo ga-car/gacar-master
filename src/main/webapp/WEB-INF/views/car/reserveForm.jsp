@@ -18,9 +18,11 @@
 	function Rradio_OnOff(id) {
 		//  <tr> id로 값을 비교한다!
 		if (id == "Radio_On") {
-			document.all["Radio_On"].style.display = ''; // 보이게
+			document.all["Radio_On"].style.display = '';
+			document.reserveRight.reserve_insure.value = "true";
 		} else {
-			document.all["Radio_On"].style.display = 'none'; // 안보이게
+			document.all["Radio_On"].style.display = 'none';
+			document.reserveRight.reserve_insure.value = "false";
 		}
 	}
 </script>
