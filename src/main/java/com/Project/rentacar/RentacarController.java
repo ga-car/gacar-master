@@ -5,7 +5,6 @@ import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -76,9 +75,9 @@ public class RentacarController {
 
 			Date nowDate = format.parse(car_dt1, new ParsePosition(0));
 			Date expiryDate = format.parse(car_dt2, new ParsePosition(0));
-			
-			Day = (expiryDate.getTime() - nowDate.getTime())/1000/60/60/24;
-			Hours = (expiryDate.getTime() - nowDate.getTime())/1000/60/60%24;
+
+			Day = (expiryDate.getTime() - nowDate.getTime()) / 1000 / 60 / 60 / 24;
+			Hours = (expiryDate.getTime() - nowDate.getTime()) / 1000 / 60 / 60 % 24;
 			Price = (Day * 24 + Hours) * Integer.valueOf(rentacarOne.getCar_charge());
 			mav.addObject("Day", Day);
 			mav.addObject("Hours", Hours);
@@ -111,5 +110,6 @@ public class RentacarController {
 		mav.setViewName("car/reserveChangeForm");
 		return mav;
 	}
+
 
 }
