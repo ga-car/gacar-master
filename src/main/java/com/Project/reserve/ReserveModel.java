@@ -13,9 +13,9 @@ public class ReserveModel {
 	private String reserve_slat;
 	private String reserve_slng;
 	private String reserve_price;
-	private boolean reserve_conf;
-	private boolean reserve_insure;
-	private boolean reserve_cancel;
+	private String reserve_conf;
+	private String reserve_insure;
+	private String reserve_cancel;
 
 	public int getReserve_no() {
 		return reserve_no;
@@ -89,27 +89,27 @@ public class ReserveModel {
 		this.reserve_price = reserve_price;
 	}
 
-	public boolean isReserve_conf() {
+	public String getReserve_conf() {
 		return reserve_conf;
 	}
 
-	public void setReserve_conf(boolean reserve_conf) {
+	public void setReserve_conf(String reserve_conf) {
 		this.reserve_conf = reserve_conf;
 	}
 
-	public boolean isReserve_insure() {
+	public String getReserve_insure() {
 		return reserve_insure;
 	}
 
-	public void setReserve_insure(boolean reserve_insure) {
+	public void setReserve_insure(String reserve_insure) {
 		this.reserve_insure = reserve_insure;
 	}
 
-	public boolean isReserve_cancel() {
+	public String getReserve_cancel() {
 		return reserve_cancel;
 	}
 
-	public void setReserve_cancel(boolean reserve_cancel) {
+	public void setReserve_cancel(String reserve_cancel) {
 		this.reserve_cancel = reserve_cancel;
 	}
 
