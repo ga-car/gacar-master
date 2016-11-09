@@ -12,7 +12,7 @@
 
 var onComment = function(){
 	var form = $('.commentForm')[0];
-	form.action = 'qnaCommWrite.do';
+	form.action = 'commWrite.do';
 	if(form.commentt.value == ""){
 		alert("내용을 입력해주세요");
 	}else{
@@ -23,7 +23,7 @@ var onComment = function(){
 	}
 function qnaDelete() {
 	if(confirm("삭제 하시겠습니까?") == true){
-		location.href='qnaDelete.do?no=${qnaModel.no}';
+		location.href='delete.do?no=${qnaModel.no}';
 	}else {
 		return;
 	}
@@ -31,14 +31,14 @@ function qnaDelete() {
 
 function qnaModify() {
 	if(confirm("수정 하시겠습니까?") == true){
-	location.href='qnaModify.do?no=${qnaModel.no}';
+	location.href='modify.do?no=${qnaModel.no}';
 	}else {
 		return;
 	}
 }
 function qnaCommDelete(num) {
 	if(confirm("댓글을 삭제 하시겠습니까?") == true){
-		location.href='qnaCommDelete.do?comment_num='+ num+'&no=${qnaModel.no}';
+		location.href='commDelete.do?comment_num='+ num+'&no=${qnaModel.no}';
 	}else {
 		return;
 	}
@@ -155,7 +155,7 @@ function fnChkByte(obj, maxByte){
 					</div>
 				</div>
 				&nbsp;&nbsp;<input type="button"
-					onclick="location.href='qnaList.do'" value="목록"
+					onclick="location.href='list.do'" value="목록"
 					class="btn btn-primary" />
 				<!-- 작성자 아이디와 로그인한 아이디가 같거나 로그인한 아이디가 admin일때만 수정과 삭제 버튼을 보여줌-->
 				<c:if
@@ -218,7 +218,7 @@ function fnChkByte(obj, maxByte){
 												<td align="left">
 													<%-- <input type="button" onclick="qnaCommDelete(${list.comment_num},${session_email})&qnaCommUpdate2(${list.content_num})"  value="삭제" class="btn btnC_01 btnP_02"/> --%>
 													<a
-													href="qnaCommDelete.do?comment_num=${list.comment_num}&no=${qnaModel.no}&commenter=${list.commenter}">
+													href="commDelete.do?comment_num=${list.comment_num}&no=${qnaModel.no}&commenter=${list.commenter}">
 														<input type="button"
 														onclick="qnaCommDelete(${list.comment_num})" value="삭제"
 														class="btn btnC_01 btnP_02" />

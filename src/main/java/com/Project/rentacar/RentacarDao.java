@@ -8,4 +8,6 @@ public interface RentacarDao {
 
 	List<RentacarModel> rentacarLatLng(RentacarModel rentacarModel);
 
+	RentacarModel rentacarOneView(String car_no);
+
 }

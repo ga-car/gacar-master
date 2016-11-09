@@ -11,7 +11,7 @@
 
 function reviewList() {
 	if(confirm("목록으로 가시겠습니까?") == true){
-		location.href='faqList.do';
+		location.href='list.do';
 	}else {
 		return;
 	}
@@ -39,7 +39,7 @@ function reviewList() {
 <body>
 
 <div id="wrapper">
-<form:form commandName="faqModel" action="faqWrite.do" enctype="multipart/form-data"	method="post">
+<form:form commandName="faqModel" action="write.do" enctype="multipart/form-data"	method="post">
       <div id="page-wrapper">
          <div class="row">
             <div class="col-lg-12">

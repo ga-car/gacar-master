@@ -92,10 +92,6 @@ a {
 <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 <script type="text/javascript">
 	function valueCheck() {
-		/* if(document.emailFindForm.name.value==""){
-			alert("이름을 입력해주세요");
-			return false;
-		} */
 		if ($("#name").val() == "") {
 			alert("이름을 입력해주세요.");
 			return false;
@@ -119,7 +115,6 @@ a {
 
 	function numCheck() {
 		if (isNaN(document.getElementById("jumin1").value)) {
-			//	alert("숫자만 입력 가능합니다.");
 			document.getElementById("jumin1").value = document
 					.getElementById("jumin1").value.slice(0, -1);
 		}
@@ -130,12 +125,7 @@ a {
 			alert("이메일을 입력하세요");
 			return false;
 		}
-		/* if(document.getElementById("mailcheck").value == "인증완료"){
-			document.joinform.email.value="";
-			document.joinform.email.readOnly=false;
-			document.getElementById("mailauth").value="이메일인증";
-			document.getElementById("mailcheck").value="인증전";
-		}*/else {
+		else {
 			var email = document.getElementById("email").value
 			var url = "emailAuth2.do?email=" + email;
 
@@ -148,6 +138,7 @@ a {
 	$(document).ready(function() {
 
 		var i = 0;
+		var find = '${isFind}';
 
 		if ($("#eValue").val() != "" && $("#find").val() == 1) {
 			i = 0;
@@ -158,6 +149,10 @@ a {
 		if ($("#find").val() == -1) {
 			i = 0;
 			alert("일치하는 정보가 없습니다.");
+		}
+		if (find == 3) {
+			i = 0;
+			alert("탈퇴한 회원입니다.");
 		}
 
 		if ($("#pValue").val() != "" && $("#find").val() == 2) {
@@ -170,7 +165,10 @@ a {
 			alert("일치하는 정보가 없습니다.");
 			i = 1;
 		}
-
+		if (find == -3) {
+			i = 1;
+			alert("탈퇴한 회원입니다.");
+		}
 		tab('#tab', i);
 	});
 
@@ -231,7 +229,7 @@ a {
 						</tbody>
 					</table>
 					<div class="btn_type_04" align="center">
-						<span class="btn btnC_04 btnF_02"> <input type="submit" value="이메일 찾기" />
+						<span class="btn btnC_04 btnF_02"> <input type="submit" value="이메일 찾기" /> <a href="javascript:this.close();"><input type="button" value="닫기" ></a>
 						</span>
 					</div>
 					<div class="Found" id="emailFound">
@@ -267,7 +265,7 @@ a {
 						</tbody>
 					</table>
 					<div class="btn_type_04" align="center">
-						<span class="btn btnC_04 btnF_02"> <input type="submit" value="비밀번호 찾기" />
+						<span class="btn btnC_04 btnF_02"> <input type="submit" value="비밀번호 찾기" /> <a href="javascript:this.close();"><input type="button" value="닫기" ></a>
 						</span>
 					</div>
 

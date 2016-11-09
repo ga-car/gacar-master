@@ -9,7 +9,7 @@ function delchk(){
 }
 
 function onWrite (){
-	location.href = 'faqWrite.do';
+	location.href = 'write.do';
 }
 
 </script>
@@ -50,7 +50,7 @@ function onWrite (){
 					class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="row" style="margin-bottom:5px;">
 						<div class="col-sm-6">
-							<a href="/rentacar/admin/faqList.do?searchNum=0&isSearch="><button type="button" class="btn btn-outline btn-default">전체</button></a>													
+							<a href="/rentacar/admin/faq/list.do?searchNum=0&isSearch="><button type="button" class="btn btn-outline btn-default">전체</button></a>													
 						</div>
 						<div class="col-sm-6" style="text-align:right;">
 							<div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">총 게시물수 : ${totalCount}</div>
@@ -76,15 +76,15 @@ function onWrite (){
 								<c:forEach var="faqList"  items="${faqList}" varStatus="stat">															
 									<tr class="gradeA even" role="row">
 									
-									<c:url var="viewURL" value="faqView.do" >
+									<c:url var="viewURL" value="view.do" >
 										<c:param name="no" value="${faqList.no }" />
 									    <c:param name="currentPage" value="${currentPage }" />
 									</c:url>
 									
-									<c:url var="viewURL2" value="faqModify.do" >
+									<c:url var="viewURL2" value="modify.do" >
 										<c:param name="no" value="${faqList.no }" />							
 									</c:url>	
-									<c:url var="viewURL3" value="faqDelete.do" >
+									<c:url var="viewURL3" value="delete.do" >
 										<c:param name="no" value="${faqList.no }" />							
 									</c:url>
 									

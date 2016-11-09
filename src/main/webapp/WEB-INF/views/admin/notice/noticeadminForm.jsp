@@ -21,9 +21,9 @@ function reviewList() {
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <!-- <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script> -->
-<link href="/pet/resources/admincss/bootstrap.min.css" rel="stylesheet">
-<link href="/pet/resources/css/reset.css" rel="stylesheet">
-<link href="/pet/resources/admincss/sb-admin-2.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
+<link href="/rentacar/resources/css/reset.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css"> 
 
@@ -62,11 +62,10 @@ function reviewList() {
 							<th>사용자 ID</th>
 							<td colspan=3>
 								<strong>
-									<%-- ${session_member_name} --%>
-									<input type="text" name="name" value="${notifyModel.name }"/>
+									 ${session_name }	
 								</strong>
 							</td>
-							<%-- <input type="hidden" name="name" value="${session_member_name }"/> --%>
+							<input type="hidden" name="name" value="${session_name }"/>
 						</tr>
 						
 						<tr><!-- 글내용 -->

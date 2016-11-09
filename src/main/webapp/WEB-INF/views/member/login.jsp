@@ -1,11 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
 <script type="text/javascript">
 	function emailFind(){
 		var url = "emailFind.do";
@@ -19,6 +20,7 @@
 		
 	}
 	function valueCheck(){
+
 		 if($("#email").val()==""){
 			alert("이메일을 입력해주세요.");
 			return false;
@@ -45,6 +47,7 @@
 				opener.document.location.href = "/rentacar/admin/main.do";
 				window.close();				
 			} 
+
 		});
 
 </script>
@@ -52,24 +55,39 @@
 <body>
 
 	<form:form commandName="member" action="login.do" method="post" name="loginform" onsubmit="return valueCheck()">
-		<input type="hidden" id="suc" value="${suc}" />
-		<div class="xans-element- xans-member xans-member-login">
-			<div class="login">
-				<h3>회원로그인</h3>
-				<fieldset>
-					<legend> </legend>
-					<label class="email"> *이메일 &nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="email" name="email" class="inputTypeText" />
-					</label> <br /> <label class="password"> *비밀번호 <input type="password" id="password" name="password" />
-					</label>
-					<div class="login_btn">
-						<input type="submit" value="로그인" />
-					</div>
-
-					<p class="security"></p>
-					<a href="/rentacar/member/emailpwFind.do" title="이메일/비밀번호 찾기" id="postBtn"> 아이디/비밀번호찾기</a>
-				</fieldset>
-			</div>
+	<!-- <input type="hidden" name="parentUrl" id="parentUrl"/> -->
+	<input type="hidden" id="suc" value="${suc}"/>
+	<%-- <input type="text" id="err" value="${err}"/> --%>
+	<div class="xans-element- xans-member xans-member-login" >
+		<div class="login">
+        <h3>회원로그인</h3>
+        <fieldset>
+			<legend> </legend>
+            <label class="email">  
+            	*이메일 &nbsp;&nbsp;&nbsp;&nbsp; <input type="text" id="email" name="email" class="inputTypeText" />
+           	</label>
+            <br/>
+            <label class="password">       
+         	   *비밀번호 <input type="password"  id="password" name="password" />           
+            </label>
+           <div class="login_btn">
+				<input type="submit" value="로그인"/>
+           </div>
+           
+            <p class="security">
+            </p>
+            
+			<a href="/rentacar/member/emailpwFind.do" title="이메일/비밀번호 찾기" id="postBtn"> 아이디/비밀번호찾기</a>
+			
+		</fieldset>
 		</div>
-	</form:form>
+		
+	</div>
+
+</form:form>
+
+<!-- <script type="text/javascript">
+
+</script> -->
 </body>
 </html>
