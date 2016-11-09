@@ -23,8 +23,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		(reserve_no, reserve_car_no, reserve_mem_no, reserve_sdate, reserve_edate, reserve_rdate, reserve_slat,
 		reserve_slng, reserve_price, reserve_conf, reserve_insure, reserve_cancel)
 		values(reserve_no_SEQ.NEXTVAL, #{reserve_car_no}, #{reserve_mem_no}, #{reserve_sdate}, #{reserve_edate},
-		SYSDATE, #{reserve_slat}, #{reserve_slng}, #{reserve_price}, #{reserve_conf},
-		#{reserve_insure}, #{reserve_cancel})
+		SYSDATE, #{reserve_slat}, #{reserve_slng}, #{reserve_price}, false,
+		#{reserve_insure}, false)
 	</insert>
 </mapper>
 <!-- create table reserve( reserve_no number NOT NULL PRIMARY KEY, reserve_car_no 
