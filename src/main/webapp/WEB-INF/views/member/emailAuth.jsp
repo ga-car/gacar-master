@@ -28,11 +28,13 @@
 </script>
 <c:if test="${email!=null}">
 	<center>
-		<br /> <br />
+		<br />
+		<br />
 		<h5>인증 번호 7자리를 입력하세요!</h5>
 		<div class="container">
 			<form method="post" name="authenform">
-				<input type="text" name="authnum"><br /> <br /> <input type="button" value="인증번호 확인" onClick="check()">
+				<input type="text" name="authnum"><br />
+				<br /> <input type="button" value="인증번호 확인" onClick="check()">
 				<!-- <input type="submit" class="btn btn-info" value="Submit"> -->
 			</form>
 		</div>
@@ -50,11 +52,13 @@
 			<td><a href="javascript:this.close();"><input type="button" value="확인"></a></td>
 		</tr>
 	</table>
+
 </c:if>
 
 <c:if test="${email3!=null}">
 	<center>
-		<br /> <br />
+		<br />
+		<br />
 		<table width=400 border=0 cellspacing=0 cellpadding=5 class="BTABLE">
 			<tr align=center>
 				<td height=30><font class="BFONT2"><b>${email3}</b> 은(는) 유효하지 않은 E-mail입니다!<br /> 다른 E-mail 계정을 입력하세요.</font></td>

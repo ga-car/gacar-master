@@ -13,4 +13,14 @@ public interface AdminDAO {
 	//회원목록
 		public List<MemberModel> memberList();
 		public List<MemberModel> withdrawList();
+		
+		//회원삭제
+		public int deleteMem(String email);
+		public int updateRestoreMem(String email);
+		public Object adminUpdateMem(MemberModel mem);
+		public Object adminUpdate(MemberModel mem);
+		
+		//회원검색
+		List<MemberModel> memberSearch1(String search);
+		List<MemberModel> memberSearch2(String search);
 }
