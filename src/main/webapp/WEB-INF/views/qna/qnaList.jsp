@@ -150,7 +150,8 @@ tbody>tr:HOVER {
 								<!-- #@#@#@#@#@#@#@#글쓰기폼 끝@#@#@#@#@#@#@#@#@#@# -->
 								<!-- 답변상태 -->
 
-								<select class="form-control" name="replyNum" onchange="window.open(value,'_self');"
+								<select class="form-control" name="replyNum"
+									onchange="window.open(value,'_self');"
 									style="width: 120px; display: inline-block;">
 									<option value="/rentacar/qna/list.do?replyNum=null">-답변분류-</option>
 									<option value="/rentacar/qna/list.do?replyNum=1">답변 완료</option>
@@ -172,12 +173,13 @@ tbody>tr:HOVER {
 							</thead>
 							<tbody>
 
-								<!-- 본인 -->
 								<c:forEach var="list" items="${list}">
 									<c:url var="viewURL" value="view.do">
 										<c:param name="no" value="${list.no}" />
 									</c:url>
-									<c:if test="${session_email == list.email}">
+									<!-- 관리자 -->
+									<c:if test="${session_email == 'admin'}">
+
 
 										<tr>
 											<!-- 글번호 -->
@@ -205,67 +207,52 @@ tbody>tr:HOVER {
 													pattern="YYYY-MM-dd, hh:mm" /></td>
 											<!-- 조회수 -->
 											<td align="center">${list.readcount}</td>
+
 										</tr>
 
 									</c:if>
-								</c:forEach>
+
+									<!-- 본인 -->
+									
+										<c:if test="${session_email == list.email && lise.email != admin}">
+
+											<tr>
+												<!-- 글번호 -->
+												<td align="center">${list.no}</td>
+
+												<!-- 제목[댓글수] -->
+												<td style="text-align: left; padding-left: 20px;">
+													<!-- 제목 옆에 있는 코맨트수가 0이 아니면 댓글 개수가 출력이 된다. --> <c:if
+														test="${list.commcount != 0 }">
+														<a href="${viewURL}">${list.subject}
+															[${list.commcount}]</a>
+													</c:if> <!-- 코맨트수가 0이면 갯수가 출력이 안된다. --> <c:if
+														test="${list.commcount == 0 }">
+														<a href="${viewURL}">${list.subject} </a>
+													</c:if> <!-- 관리자가 1개 이상의 댓글을 달면 답변완료라는 이미지가 뜬다 --> <c:if
+														test="${list.admin>=1}">
+														<img src="/rentacar/resources/images/consult_end.gif">
+													</c:if>
+												</td>
+
+												<!-- 작성자 -->
+												<td align="center">${list.email}</td>
+												<!-- 작성일 -->
+												<td><fmt:formatDate value="${list.regdate}"
+														pattern="YYYY-MM-dd, hh:mm" /></td>
+												<!-- 조회수 -->
+												<td align="center">${list.readcount}</td>
+											</tr>
+
+										</c:if>
+
+									</c:forEach>
 							</tbody>
 						</table>
 					</div>
-
-					<div class="paging">${pagingHtml}</div>
-
 				</div>
 			</div>
 		</div>
-	</div>
-</body>
-
-</html>
-
-<!-- 본인 -->
-<c:forEach var="list" items="${list}">
-	<c:url var="viewURL" value="view.do">
-		<c:param name="no" value="${list.no}" />
-	</c:url>
-	<c:if test="${session_email == list.email}">
-
-		<tr>
-			<!-- 글번호 -->
-			<td align="center">${list.no}</td>
-
-			<!-- 제목[댓글수] -->
-			<td style="text-align: left; padding-left: 20px;">
-				<!-- 제목 옆에 있는 코맨트수가 0이 아니면 댓글 개수가 출력이 된다. --> <c:if
-					test="${list.commcount != 0 }">
-					<a href="${viewURL}">${list.subject} [${list.commcount}]</a>
-				</c:if> <!-- 코맨트수가 0이면 갯수가 출력이 안된다. --> <c:if
-					test="${list.commcount == 0 }">
-					<a href="${viewURL}">${list.subject} </a>
-				</c:if> <!-- 관리자가 1개 이상의 댓글을 달면 답변완료라는 이미지가 뜬다 --> <c:if
-					test="${list.admin>=1}">
-					<img src="/rentacar/resources/images/consult_end.gif">
-				</c:if>
-			</td>
-
-			<!-- 작성자 -->
-			<td align="center">${list.email}</td>
-			<!-- 작성일 -->
-			<td><fmt:formatDate value="${list.regdate}"
-					pattern="YYYY-MM-dd, hh:mm" /></td>
-			<!-- 조회수 -->
-			<td align="center">${list.readcount}</td>
-		</tr>
-
-	</c:if>
-
-</c:forEach>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
 </body>
 
 </html>
