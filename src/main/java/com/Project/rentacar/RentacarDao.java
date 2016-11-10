@@ -10,4 +10,6 @@ public interface RentacarDao {
 
 	RentacarModel rentacarOneView(String car_no);
 
+	int insertReserve(ReserveModel reserveModel);
+
 }

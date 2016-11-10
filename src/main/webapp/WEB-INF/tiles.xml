@@ -136,7 +136,7 @@
 	
 	<!-- Mypage -->
 	<definition name="mypage" extends="main">
-		<put-attribute name="body" value="/WEB-INF/views/mypage/member/mypage.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/views/mypage/mypage.jsp"/>
 	</definition>
 	<definition name="memberConfirm" extends="main">
 		<put-attribute name="body" value="/WEB-INF/views/mypage/member/memberConfirm.jsp"/>

@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -87,20 +88,25 @@ public class RentacarController {
 		mav.setViewName("carReserveForm");
 		return mav;
 	}
+	
+	@RequestMapping(value = "/reserve.do", method = RequestMethod.POST)
+	public ModelAndView reserveChange(HttpServletRequest request, @ModelAttribute("reserveModel") ReserveModel reserveModel)
+			throws UnsupportedEncodingException {
+		ModelAndView mav = new ModelAndView();
+		System.out.printf("%s", reserveModel.getReserve_car_no());
+		System.out.printf("%s", reserveModel.getReserve_mem_no());
+		System.out.printf("%s", reserveModel.getReserve_sdate());
+		System.out.printf("%s", reserveModel.getReserve_edate());
+		System.out.printf("%s", reserveModel.getReserve_slat());
+		System.out.printf("%s", reserveModel.getReserve_slng());
+		System.out.printf("%s", reserveModel.getReserve_price());
+		System.out.printf("%s", reserveModel.getReserve_insure());
+		
+		/*rentacarService.insertReserve(reserveModel);*/
+		mav.setViewName("redirect:../main.do");
+		return mav;
+	}
 
-	/*
-	 * @RequestMapping(value = "/car/list.do", method = RequestMethod.POST)
-	 * public ModelAndView RentacarSearch(HttpServletRequest request) throws
-	 * UnsupportedEncodingException{
-	 * 
-	 * ModelAndView mav = new ModelAndView();
-	 * 
-	 * List<RentacarModel> rentacarList; Search =
-	 * request.getParameter("Search"); rentacarList =
-	 * rentacarService.rentacarSearchList(Search); mav.addObject("Search",
-	 * Search); mav.addObject("rentacarList", rentacarList);
-	 * mav.setViewName("carListForm"); return mav; }
-	 */
 	@RequestMapping(value = "/reserveChangeForm.do", method = RequestMethod.GET)
 	public ModelAndView reserveChangeform(HttpServletRequest request) throws UnsupportedEncodingException {
 		ModelAndView mav = new ModelAndView();
@@ -110,6 +116,4 @@ public class RentacarController {
 		mav.setViewName("car/reserveChangeForm");
 		return mav;
 	}
-
-
 }
