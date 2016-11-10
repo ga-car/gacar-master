@@ -20,9 +20,11 @@
 		if (id == "Radio_On") {
 			document.all["Radio_On"].style.display = '';
 			document.reserveRight.reserve_insure.value = "true";
+			document.reserveRight.reserve_price.value = "${Price2}";
 		} else {
 			document.all["Radio_On"].style.display = 'none';
 			document.reserveRight.reserve_insure.value = "false";
+			document.reserveRight.reserve_price.value = "${Price1}";
 		}
 	}
 </script>
@@ -78,7 +80,7 @@
 		</c:choose>
 		<tr>
 			<td>차량위치</td>
-			<td>${rentacarOne.car_addr}</td>
+			<td>${rentacarOne.car_addr}&nbsp;${rentacarOne.car_addr2}</td>
 		</tr>
 		<tr>
 			<td>보험가입 확인</td>

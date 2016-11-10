@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -6,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <script type="text/javascript">
- 	function loginForm() {
+	function loginForm() {
 		/* $.simpleBlock('hide'); */
 		var url = "/rentacar/member/login.do";
 		open(
@@ -44,15 +45,18 @@
 
 </head>
 <body>
-adminleft<br/>
-<c:if test='${session_email!=null && session_email=="admin"}'>
-		<strong>관리자님</strong><br/>	
-		<a href="/rentacar/member/logout.do">로그아웃</a> 								
+	adminleft
+	<br />
+	<c:if test='${session_email!=null && session_email=="admin"}'>
+		<strong>관리자님</strong>
+		<br />
+		<a href="/rentacar/member/logout.do">로그아웃</a>
 		<a href="/rentacar/admin/adminInfoDetail.do">관리자정보</a>
 		<br />
 		-----------------------------------
 		<h4>
-			<a href="/rentacar/admin/memberList.do">회원관리</a> <!-- //1104수정 -->
+			<a href="/rentacar/admin/memberList.do">회원관리</a>
+			<!-- //1104수정 -->
 		</h4>
 		<ul>
 			<li><a href="/rentacar/admin/memberList.do">회원목록</a></li>
@@ -75,6 +79,7 @@ adminleft<br/>
 		<ul>
 			<li><a href="/rentacar/admin/car/list.do">가카목록</a></li>
 			<li><a href="/rentacar/admin/car/write.do">가카등록</a></li>
+			<li><a href="/rentacar/admin/car/reserveList.do">예약목록</a></li>
 		</ul>
 
 		<h4>
@@ -93,7 +98,7 @@ adminleft<br/>
 			<li><a href="/rentacar/admin/faqList.do">FAQ</a></li>
 			<li><a href="#">1:1문의</a></li>
 		</ul>
-</c:if>
+	</c:if>
 
 </body>
 </html>

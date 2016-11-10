@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.Project.member.MemberModel;
 import com.Project.rentacar.RentacarModel;
+import com.Project.rentacar.ReserveModel;
 
 @Service
 public class AdminService implements AdminDAO {
@@ -24,6 +25,11 @@ public class AdminService implements AdminDAO {
 	@Override
 	public int insertRentacar(RentacarModel reatacarModel) {
 		return sqlSessionTemplate.insert("rentacar.insertRentacar", reatacarModel);
+	}
+
+	@Override
+	public List<ReserveModel> reserveAdminList() {
+		return sqlSessionTemplate.selectList("reserve.reserveAdminList");
 	}
 
 	// 회원목록 출력
@@ -71,4 +77,5 @@ public class AdminService implements AdminDAO {
 	public List<MemberModel> memberSearch2(String search) {
 		return sqlSessionTemplate.selectList("member.memberSearch2", "%" + search + "%");
 	}
+
 }
