@@ -69,13 +69,13 @@
 			<li><a href="#">이용규칙</a></li>
 		</ul>
 		<h4>
-			<a href="/Rentacar/car/list.do">가카예약</a>
+			<a href="/rentacar/car/list.do">가카예약</a>
 		</h4>
 		<h4>
 			<a href="/rentacar/carpool/list.do">카풀모임</a>
 		</h4>
 		<h4>
-			<a href="/rentacar/reviewList.do">이용후기</a>
+			<a href="/rentacar/review/list.do">이용후기</a>
 		</h4>
 		<h4>
 			<a href="/rentacar/notify/list.do">고객센터</a>
@@ -101,7 +101,7 @@
 			<li><a href="#">이용규칙</a></li>
 		</ul>
 		<h4>
-			<a href="/Rentacar/car/list.do">가카예약</a>
+			<a href="/rentacar/car/list.do">가카예약</a>
 		</h4>
 		<h4>
 			<a href="/rentacar/carpool/list.do">카풀모임</a>
@@ -125,7 +125,7 @@
 			<li><a href="/rentacar/mypage/memberConfirm.do">개인정보</a></li>
 			<li><a href="#">렌트카 이용현황</a></li>
 			<li><a href="#">카풀 이용현황</a></li>
-			<li><a href="#">내가쓴글보기</a></li>
+			<li><a href="/rentacar/mypage/mypage.do">내가쓴글보기</a></li>
 			<li><a href="/rentacar/mypage/memberDelPre.do">회원탈퇴</a></li>
 		</ul>
 	</c:if>

@@ -1,106 +1,96 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="EUC-KR"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Demo Page: Using Progressive Enhancement to Convert a
-	Select Box Into an Accessible jQuery UI Slider</title>
-<script type="text/javascript" src="../resources/js/jquery-1.4.4.min.js"></script>
-<script type="text/javascript"
-	src="../resources/js/jquery-ui-1.7.1.custom.min.js"></script>
-<script type="text/javascript"
-	src="../resources/js/selectToUISlider.jQuery.js"></script>
-<link rel="stylesheet"
-	href="../resources/css/selectToUISlider/redmond/jquery-ui-1.7.1.custom.css"
-	type="text/css" />
-<link rel="Stylesheet"
-	href="../resources/css/selectToUISlider/ui.slider.extras.css"
-	type="text/css" />
-<style type="text/css">
-body {
-	font-size: 62.5%;
-	font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-fieldset {
-	border: 0;
-	margin: 0.6em;
-	height: 0.12em;
-}
-
-label {
-	font-weight: normal;
-	float: left;
-	margin-right: 0.05em;
-	font-size: 0.11em;
-}
-
-select {
-	margin-right: 0.1em;
-	float: left;
-}
-
-.ui-slider {
-	clear: both;
-	top: 0.5em;
-}
-</style>
 <script type="text/javascript">
-	$(function() {
-		$('select#valueAA, select#valueBB').selectToUISlider({
-			labels : 1
-		});
-
-		//fix color 
-		fixToolTipColor();
-	});
-	//purely for theme-switching demo... ignore this unless you're using a theme switcher
-	//quick function for tooltip color match
-	function fixToolTipColor() {
-		//grab the bg color from the tooltip content - set top border of pointer to same
-		$('.ui-tooltip-pointer-down-inner').each(
-				function() {
-					var bWidth = $('.ui-tooltip-pointer-down-inner').css(
-							'borderTopWidth');
-					var bColor = $(this).parents('.ui-slider-tooltip').css(
-							'backgroundColor')
-					$(this).css('border-top', bWidth + ' solid ' + bColor);
-				});
-	}
 	function reserveChange() {
-		var url = "reserveChangeForm.do";
+		var no = "${rentacarOne.car_no}"
+		var url = "reserveChangeForm.do?car_no=" + no;
 		open(
 				url,
-				"¿¹¾àÀÏÁ¤º¯°æ",
+				"ì˜ˆì•½ì¼ì •ë³€ê²½",
 				"toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
+	}
+	function Rradio_OnOff(id) {
+		//  <tr> idë¡œ ê°’ì„ ë¹„êµí•œë‹¤!
+		if (id == "Radio_On") {
+			document.all["Radio_On"].style.display = '';
+			document.reserveRight.reserve_insure.value = "true";
+		} else {
+			document.all["Radio_On"].style.display = 'none';
+			document.reserveRight.reserve_insure.value = "false";
+		}
 	}
 </script>
 </head>
 
 <body>
+	<table>
+		<tr>
+			<td colspan="2" align="right">ì˜ˆì•½ë‚´ì—­</td>
+		</tr>
+		<tr>
+			<td>ì°¨ëŸ‰</td>
+			<td>${rentacarOne.car_brand}&nbsp;${rentacarOne.car_type}&nbsp;${rentacarOne.car_name}(${rentacarOne.car_no})</td>
+		</tr>
 
-	<form action="#" enctype="multipart/form-data" method="post">
-		<table>
-			<tr>
-				<td colspan="2" align="right">¿¹¾à³»¿ª</td>
-			</tr>
-			<tr>
-				<td>Â÷·®</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>¿¹¾àÀÏÁ¤</td>
-				<td>ÀÏÁ¤À» ÀÔ·ÂÇØÁÖ¼¼¿ä.<input type="button" value="¿¹¾àÀÏÁ¤º¯°æ" onclick="reserveChange" /></td>
-			</tr>
-			<tr>
-				<td>ÀÌ¿ë½Ã°£</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>À§Ä¡</td>
-			</tr>
-		</table>
-	</form>
+		<tr>
+			<td>ì¼ì •</td>
+			<c:choose>
+				<c:when test="${car_dt1 == null && car_dt2 == null }">
+					<td>ì¼ì •ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.<input type="button" value="ì˜ˆì•½ì¼ì •ì…ë ¥"
+						onclick="reserveChange()" /></td>
+				</c:when>
+				<c:otherwise>
+					<td>${car_dt1}&nbsp;~&nbsp;${car_dt2}<input type="button"
+						value="ì˜ˆì•½ì¼ì •ë³€ê²½" onclick="reserveChange()" /></td>
+
+				</c:otherwise>
+			</c:choose>
+
+
+		</tr>
+		<c:choose>
+			<c:when test="${Day == null && Hours == null }">
+			</c:when>
+			<c:when test="${Day == 0 && Hours != 0 }">
+				<tr>
+					<td>ì´ìš©ì‹œê°„</td>
+					<td>${Hours}ì‹œê°„</td>
+				</tr>
+			</c:when>
+			<c:when test="${Day != 0 && Hours == 0 }">
+				<tr>
+					<td>ì´ìš©ì‹œê°„</td>
+					<td>${Day}ì¼ê°„</td>
+				</tr>
+			</c:when>
+			<c:when test="${Day != 0 && Hours != 0 }">
+				<tr>
+					<td>ì´ìš©ì‹œê°„</td>
+					<td>${Day}ì¼${Hours}ì‹œê°„</td>
+				</tr>
+			</c:when>
+		</c:choose>
+		<tr>
+			<td>ì°¨ëŸ‰ìœ„ì¹˜</td>
+			<td>${rentacarOne.car_addr}</td>
+		</tr>
+		<tr>
+			<td>ë³´í—˜ê°€ì… í™•ì¸</td>
+			<td><input type="radio" name="reserve_insure"
+				id="reserve_insure" value="true" checked="checked"
+				onclick="Rradio_OnOff('Radio_On');" /> ê°€ì…<input type="radio"
+				name="reserve_insure" id="reserve_insure" value="false"
+				onclick="Rradio_OnOff('Radio_Off');" /> ë¹„ê°€ì… (ë³´í—˜ê°€ì…ì‹œ ë³„ë„ì˜ ë¹„ìš©ì´ ë°œìƒí• ìˆ˜
+				ìˆìŠµë‹ˆë‹¤.)</td>
+
+		</tr>
+	</table>
+
 </body>
 </html>

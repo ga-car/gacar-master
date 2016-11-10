@@ -15,14 +15,15 @@ public class AdminService implements AdminDAO {
 	@Resource
 	private SqlSessionTemplate sqlSessionTemplate;
 
+	// 차등록
 	@Override
 	public List<RentacarModel> rentacarAdminList() {
-		return sqlSessionTemplate.selectList("admin.rentacarAdminList");
+		return sqlSessionTemplate.selectList("rentacar.rentacarAdminList");
 	}
 
 	@Override
 	public int insertRentacar(RentacarModel reatacarModel) {
-		return sqlSessionTemplate.insert("admin.insertRentacar", reatacarModel);
+		return sqlSessionTemplate.insert("rentacar.insertRentacar", reatacarModel);
 	}
 
 	// 회원목록 출력

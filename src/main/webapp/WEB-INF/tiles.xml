@@ -25,7 +25,7 @@
 
 	<definition name="carReserveForm" extends="carListForm">
 		<put-attribute name="bodyLeft" value="/WEB-INF/views/car/reserveForm.jsp" />
-		<put-attribute name="bodyRigh"
+		<put-attribute name="bodyRight"
 			value="/WEB-INF/views/car/reserveRight.jsp" />
 	</definition>
 
@@ -136,7 +136,7 @@
 	
 	<!-- Mypage -->
 	<definition name="mypage" extends="main">
-		<put-attribute name="body" value="/WEB-INF/views/mypage/member/mypage.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/views/mypage/mypage.jsp"/>
 	</definition>
 	<definition name="memberConfirm" extends="main">
 		<put-attribute name="body" value="/WEB-INF/views/mypage/member/memberConfirm.jsp"/>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="reserve">
+	<resultMap type="reserveModel" id="reserveModelRes">
+		<result property="reserve_no" column="reserve_no" />
+		<result property="reserve_car_no" column="reserve_car_no" />
+		<result property="reserve_mem_no" column="reserve_mem_no" />
+		<result property="reserve_sdate" column="reserve_sdate" />
+		<result property="reserve_edate" column="reserve_edate" />
+		<result property="reserve_rdate" column="reserve_rdate" />
+		<result property="reserve_slat" column="reserve_slat" />
+		<result property="reserve_slng" column="reserve_slng" />
+		<result property="reserve_price" column="reserve_price" />
+		<result property="reserve_conf" column="reserve_conf" />
+		<result property="reserve_insure" column="reserve_insure" />
+		<result property="reserve_cancel" column="reserve_cancel" />
+	</resultMap>
+	<insert id="insertReserve" parameterType="reserveModel">
+		insert into reserve
+		(reserve_no, reserve_car_no, reserve_mem_no, reserve_sdate, reserve_edate, reserve_rdate, reserve_slat,
+		reserve_slng, reserve_price, reserve_conf, reserve_insure, reserve_cancel)
+		values(reserve_no_SEQ.NEXTVAL, #{reserve_car_no}, #{reserve_mem_no}, #{reserve_sdate}, #{reserve_edate},
+		SYSDATE, #{reserve_slat}, #{reserve_slng}, #{reserve_price}, 'false',
+		#{reserve_insure}, 'false')
+	</insert>
+</mapper>
+<!-- create table reserve( reserve_no number NOT NULL PRIMARY KEY, reserve_car_no 
+	varchar2(25) NOT NULL, reserve_mem_no number NOT NULL, reserve_sdate varchar2(20) 
+	NOT NULL, reserve_edate varchar2(20) NOT NULL, reserve_rdate date NOT NULL, 
+	reserve_slat varchar2(20) NOT NULL, reserve_slng varchar2(20) NOT NULL, reserve_price 
+	number NOT NULL, reserve_conf varchar2(10) NOT NULL, reserve_insure varchar2(10) 
+	NOT NULL, reserve_cancel varchar2(10) NOT NULL); create sequence reserve_no_SEQ; -->
+	
