@@ -26,6 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="pnum1" column="pnum1" />
 		<result property="pnum2" column="pnum2" />
 		<result property="phone" column="phone" />
+		<result property="email" column="email" />
 	</resultMap>
 	
 	<resultMap type="attendModel" id="attendModelRes">
@@ -49,10 +50,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="carpoolWrite" parameterType="Integer">
 			INSERT INTO CARPOOL
 			(NO, SUBJECT, CONTENT, REGDATE, NAME, SLAT, SLNG, ELAT, ELNG, SADDR, EADDR, STARTDATE, GOAL
-			 , TERM, CHARGE, SMOKE, INSURE, PNUM1, PNUM2, PHONE )
+			 , TERM, CHARGE, SMOKE, INSURE, PNUM1, PNUM2, PHONE, EMAIL )
 			VALUES
 			(CARPOOL_SEQ.NEXTVAL, #{subject}, #{content}, SYSDATE, #{name}, #{slat}, #{slng}, #{elat}, #{elng}, #{saddr}, #{eaddr}, #{startdate}, #{goal}
-			, #{term}, #{charge}, #{smoke}, #{insure}, '0', #{pnum2}, #{phone} )
+			, #{term}, #{charge}, #{smoke}, #{insure}, '0', #{pnum2}, #{phone}, #{email} )
 	</insert>
 	
 	<select id="carpoolView" resultMap="carpoolModelRes" parameterType="Integer">
