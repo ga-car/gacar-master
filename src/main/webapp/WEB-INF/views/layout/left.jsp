@@ -15,12 +15,12 @@
 				"toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
 	}
 	
-	window.onload = function(){
+	 window.onload = function(){
 		var invalid="${invalid}";
 		if(invalid==1){
-			alert("�߸��� �������� ��ġ����Ÿ�� �������� �̵��Ǿ����ϴ�.");
+			alert("잘못된 접근으로 가치같이타의 메인으로 이동되었습니다.");
 		}
-	}
+	} 
 </script>
 
 <script type="text/javascript">

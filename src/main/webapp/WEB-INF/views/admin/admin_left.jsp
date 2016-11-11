@@ -15,6 +15,14 @@
 				"로그인",
 				"toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
 	}
+
+	window.onload = function() {
+
+		if ('${session_email}' != "admin") {
+			alert("잘못된 접근으로 가치같이타의 메인으로 이동합니다.");
+			location.replace("/rentacar/main.do");
+		}
+	}
 </script>
 
 <script type="text/javascript">
@@ -45,12 +53,14 @@
 
 </head>
 <body>
-	adminleft
+
+	adminleft(project)
 	<br />
 	<c:if test='${session_email!=null && session_email=="admin"}'>
 		<strong>관리자님</strong>
 		<br />
 		<a href="/rentacar/member/logout.do">로그아웃</a>
+
 		<a href="/rentacar/admin/adminInfoDetail.do">관리자정보</a>
 		<br />
 		-----------------------------------
@@ -61,7 +71,7 @@
 		<ul>
 			<li><a href="/rentacar/admin/memberList.do">회원목록</a></li>
 			<li><a href="/rentacar/admin/withdrawList.do">탈퇴목록</a></li>
-			<!-- <li><a href="/rentacar/admin/stats.do">통계</a></li> -->
+			<li><a href="/rentacar/admin/stats.do">통계</a></li>
 		</ul>
 
 		<h4>

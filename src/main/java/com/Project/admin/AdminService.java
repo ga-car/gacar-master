@@ -27,11 +27,6 @@ public class AdminService implements AdminDAO {
 		return sqlSessionTemplate.insert("rentacar.insertRentacar", reatacarModel);
 	}
 
-	@Override
-	public List<ReserveModel> reserveAdminList() {
-		return sqlSessionTemplate.selectList("reserve.reserveAdminList");
-	}
-
 	// 회원목록 출력
 	@Override
 	public List<MemberModel> memberList() {
@@ -78,4 +73,48 @@ public class AdminService implements AdminDAO {
 		return sqlSessionTemplate.selectList("member.memberSearch2", "%" + search + "%");
 	}
 
+	/* 1110수정 */
+	@Override
+	public List<MemberModel> withdrawSearch1(String search) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("member.withdrawSearch1", "%" + search + "%");
+	}
+
+	@Override
+	public List<MemberModel> withdrawSearch2(String search) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("member.withdrawSearch2", "%" + search + "%");
+	}
+
+	@Override
+	public List<MemberModel> totalList() {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("member.totalList");
+	}
+
+	public List<MemberModel> memberSort0() {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("member.memberSort0");
+	}
+
+	public List<MemberModel> memberSort1() {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("member.memberSort1");
+	}
+
+	public List<MemberModel> memberSort0(int searchNum, String search) {
+		// TODO Auto-generated method stub
+		if (searchNum == 1)
+			return sqlSessionTemplate.selectList("member.memberSearch3", "%" + search + "%");
+		else
+			return sqlSessionTemplate.selectList("member.memberSearch4", "%" + search + "%");
+	}
+
+	public List<MemberModel> memberSort1(int searchNum, String search) {
+		// TODO Auto-generated method stub
+		if (searchNum == 1)
+			return sqlSessionTemplate.selectList("member.memberSearch5", "%" + search + "%");
+		else
+			return sqlSessionTemplate.selectList("member.memberSearch6", "%" + search + "%");
+	}
 }
