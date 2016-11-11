@@ -26,49 +26,92 @@ public class AdminService implements AdminDAO {
 		return sqlSessionTemplate.insert("rentacar.insertRentacar", reatacarModel);
 	}
 
-	// 회원목록 출력
-	@Override
-	public List<MemberModel> memberList() {
-		return sqlSessionTemplate.selectList("member.memberList");
-	}
+	//회원목록 출력
+		@Override
+		public List<MemberModel> memberList() {
+			return sqlSessionTemplate.selectList("member.memberList");
+		}
 
-	public List<MemberModel> withdrawList() {
-		// TODO Auto-generated method stub
-		return sqlSessionTemplate.selectList("member.withdrawList");
-	}
+		public List<MemberModel> withdrawList() {
+			// TODO Auto-generated method stub
+			return sqlSessionTemplate.selectList("member.withdrawList");
+		}
 
-	// 회원 삭제
-	public int deleteMem(String email) {
-		// TODO Auto-generated method stub
-		return sqlSessionTemplate.delete("member.deleteMember", email);
+		//회원 삭제
+		public int deleteMem(String email) {
+			// TODO Auto-generated method stub
+			return sqlSessionTemplate.delete("member.deleteMember", email);
+			
+		}
+		public int updateRestoreMem(String email) { 
+			// TODO Auto-generated method stub
+			return sqlSessionTemplate.delete("member.updateRestoreMem", email);
+			
+		}
+		
+		//회원수정
+		@Override
+		public Object adminUpdateMem(MemberModel mem) {
+			return sqlSessionTemplate.update("member.adminUpdateMem", mem);
+		}
+		
+		@Override
+		public Object adminUpdate(MemberModel mem) {
+			return sqlSessionTemplate.update("member.adminUpdate", mem);
+		}
+		
+		//회원이름으로 검색
+		@Override
+		public List<MemberModel> memberSearch1(String search) {
+			return sqlSessionTemplate.selectList("member.memberSearch1", "%"+search+"%"); 
+		}
+		
+		@Override
+		public List<MemberModel> memberSearch2(String search) {
+			return sqlSessionTemplate.selectList("member.memberSearch2", "%"+search+"%"); 
+		}
+		/*1110수정*/
+		@Override
+		public List<MemberModel> withdrawSearch1(String search) {
+			// TODO Auto-generated method stub
+			return sqlSessionTemplate.selectList("member.withdrawSearch1", "%"+search+"%"); 
+		}
 
-	}
+		@Override
+		public List<MemberModel> withdrawSearch2(String search) {
+			// TODO Auto-generated method stub
+			return sqlSessionTemplate.selectList("member.withdrawSearch2", "%"+search+"%"); 
+		}
+		
+		@Override
+		public List<MemberModel> totalList() {
+			// TODO Auto-generated method stub
+			return sqlSessionTemplate.selectList("member.totalList");
+		}
 
-	public int updateRestoreMem(String email) {
-		// TODO Auto-generated method stub
-		return sqlSessionTemplate.delete("member.updateRestoreMem", email);
+		public List<MemberModel> memberSort0() {
+			// TODO Auto-generated method stub
+			return sqlSessionTemplate.selectList("member.memberSort0");
+		}
+		
+		public List<MemberModel> memberSort1() {
+			// TODO Auto-generated method stub
+			return sqlSessionTemplate.selectList("member.memberSort1");
+		}
 
-	}
-
-	// 회원수정
-	@Override
-	public Object adminUpdateMem(MemberModel mem) {
-		return sqlSessionTemplate.update("member.adminUpdateMem", mem);
-	}
-
-	@Override
-	public Object adminUpdate(MemberModel mem) {
-		return sqlSessionTemplate.update("member.adminUpdate", mem);
-	}
-
-	// 회원이름으로 검색
-	@Override
-	public List<MemberModel> memberSearch1(String search) {
-		return sqlSessionTemplate.selectList("member.memberSearch1", "%" + search + "%");
-	}
-
-	@Override
-	public List<MemberModel> memberSearch2(String search) {
-		return sqlSessionTemplate.selectList("member.memberSearch2", "%" + search + "%");
-	}
+		public List<MemberModel> memberSort0(int searchNum, String search) {
+			// TODO Auto-generated method stub
+			if(searchNum==1)
+				return sqlSessionTemplate.selectList("member.memberSearch3", "%"+search+"%"); 
+			else
+				return sqlSessionTemplate.selectList("member.memberSearch4", "%"+search+"%"); 
+		}
+		
+		public List<MemberModel> memberSort1(int searchNum, String search) {
+			// TODO Auto-generated method stub
+			if(searchNum==1)
+				return sqlSessionTemplate.selectList("member.memberSearch5", "%"+search+"%"); 
+			else
+				return sqlSessionTemplate.selectList("member.memberSearch6", "%"+search+"%"); 
+		}
 }

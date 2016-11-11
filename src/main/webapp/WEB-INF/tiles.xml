@@ -178,9 +178,6 @@
 	<definition name="stats" extends="adminMain">
 		<put-attribute name="body" value="/WEB-INF/views/admin/member/stats.jsp"/>
 	</definition>
-	<definition name="stats2" extends="adminMain">
-		<put-attribute name="body" value="/WEB-INF/views/admin/member/stats2.jsp"/>
-	</definition>  
 
 	<!-- 1:1문의 관리자 -->
 	<definition name="qnaAdmin" extends="main">
