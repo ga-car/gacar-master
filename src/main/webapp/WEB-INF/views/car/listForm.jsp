@@ -11,10 +11,9 @@
 <script type="text/javascript"
 	src="//apis.daum.net/maps/maps3.js?apikey=079b4daabc5db4153ba00f0a15d911f0&libraries=services"></script>
 <body>
-	<div id="map" style="width: 100%; height: 700px;"></div>
+	<div id="map" style="width: 100%; height: 750px;"></div>
 
 	<script type="text/javascript">
-	
 		var mapCenter = new daum.maps.LatLng("${car_lat}", "${car_lng}")
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 		mapOption = {
@@ -67,7 +66,7 @@
 		function clickEvent(lat, lng) {
 			return function() {
 				location.href = "/rentacar/car/list.do?car_lat=" + lat
-						+ "&car_lng=" + lng
+						+ "&car_lng=" + lng + "&car_addr=" + ${car_addr}
 			};
 
 		}

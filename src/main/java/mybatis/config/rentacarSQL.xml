@@ -36,8 +36,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			order by car_no desc
 	</select>
 	
-	<select id="rentacarSearchList" parameterType="rentacarModel" resultMap="rentacarModelRes">
+	<select id="rentacarLatLngSearchList" parameterType="rentacarModel" resultMap="rentacarModelRes">
 			select * from car where car_lat = #{car_lat} and car_lng = #{car_lng}
+			order by car_no desc
+	</select>
+	
+	<select id="rentacarAddrSearchList" parameterType="String" resultMap="rentacarModelRes">
+			select * from car where car_addr like #{car_addr}
 			order by car_no desc
 	</select>
 	
