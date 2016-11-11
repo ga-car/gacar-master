@@ -158,6 +158,10 @@
 	<definition name="mypage" extends="main">
 		<put-attribute name="body" value="/WEB-INF/views/mypage/mypage.jsp" />
 	</definition>
+	<definition name="mypageList" extends="main">
+		<put-attribute name="body"
+			value="/WEB-INF/views/mypage/myreviewlist.jsp" />
+	</definition>
 	<definition name="memberConfirm" extends="main">
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/member/memberConfirm.jsp" />
@@ -181,6 +185,7 @@
 			value="/WEB-INF/views/admin/admin_left.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/admin/main.jsp" />
 	</definition>
+
 	<definition name="memberList" extends="adminMain">
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/member/memberList.jsp" />
@@ -210,19 +215,19 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/member/stats.jsp" />
 	</definition>
-	<definition name="stats2" extends="adminMain">
-		<put-attribute name="body"
-			value="/WEB-INF/views/admin/member/stats2.jsp" />
-	</definition>
 
 	<!-- 1:1문의 관리자 -->
 	<definition name="qnaAdmin" extends="main">
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/qna/qnaAdmin.jsp" />
+		<put-attribute name="left"
+			value="/WEB-INF/views/admin/admin_left.jsp" />
 	</definition>
 	<definition name="qnaAdminView" extends="main">
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/qna/qnaAdminView.jsp" />
+		<put-attribute name="left"
+			value="/WEB-INF/views/admin/admin_left.jsp" />
 	</definition>
 
 	<!-- 1:1문의 -->
