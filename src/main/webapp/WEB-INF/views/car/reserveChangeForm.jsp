@@ -14,13 +14,32 @@
 </style>
 <script type="text/javascript">
 	function windowClose() {
+		
 		var ev = eval("document.reserveChangeForm");
+		var rTime = "${rTime}";
 		var no = "${car_no}";
 		var car_dt1 = ev.car_dt1.value;
 		var car_dt2 = ev.car_dt2.value;
-
-		opener.location.href = "/rentacar/car/reserve.do?car_no=" + no + "&car_dt1="
-				+ car_dt1 + "&car_dt2=" + car_dt2;
+		if (car_dt1 == "") {
+			alert("대여시간을 정해주세요");
+			ev.car_dt1.focus();
+			return false;
+		} else if (car_dt2 == "") {
+			alert(car_dt1);
+			alert("반납시간을 정해주세요");
+			ev.car_dt2.focus();
+			return false;
+		} else if (car_dt1 < rTime) {
+			alert("대여시간이 현재 시간보다 빠를 수 없습니다.");
+			ev.car_dt1.focus();
+			return false;
+		}else if (car_dt1 > car_dt2) {
+			alert("반납시간이 대여시간보다 빠를 수 없습니다.");
+			ev.car_dt2.focus();
+			return false;
+		}
+		opener.location.href = "/rentacar/car/reserve.do?car_no=" + no
+				+ "&car_dt1=" + car_dt1 + "&car_dt2=" + car_dt2;
 		window.close();
 	}
 </script>
@@ -39,8 +58,8 @@
 				<td><input type="text" id="car_dt2" name="car_dt2" /></td>
 			</tr>
 			<tr>
-				<td colspan="3" align="right"><input type="button" value="결정" onclick="windowClose()"><input
-					type="button" value="취소"></td>
+				<td colspan="3" align="right"><input type="button" value="결정"
+					onclick="windowClose()"><input type="button" value="취소"></td>
 			</tr>
 		</table>
 
@@ -51,23 +70,16 @@
 	src="../resources/js/datetimepicker-master-js/jquery.datetimepicker.js"></script>
 <script>
 	var dateToDisable = new Date();
-	var time = [ '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00',
-			'08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00',
-			'15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00',
-			'22:00', '23:00', '00:00' ];
-
+	/* if ((date.getYear() == dateToDisable.getYear())
+			&& (date.getMonth() == dateToDisable.getMonth())
+			&& (date.getDate() == dateToDisable.getDate())) {
+		var t = new Date().getHours()
+	} */
 	dateToDisable.setDate(dateToDisable.getDate());
 	$('#car_dt1')
 			.datetimepicker(
 					{
 						beforeShowDay : function(date) {
-							if ((date.getYear() == dateToDisable.getYear())
-									&& (date.getMonth() == dateToDisable
-											.getMonth())
-									&& (date.getDate() == dateToDisable
-											.getDate())) {
-								var t = new Date().getHours()
-							}
 							if (date.getYear() < dateToDisable.getYear()
 									|| (date.getYear() == dateToDisable
 											.getYear() && date.getMonth() < dateToDisable
@@ -82,8 +94,6 @@
 							}
 							return [ true, "" ];
 						},
-						'minTime' : time[new Date().getHours()],
-						'showDuration' : true
 					});
 	$('#car_dt2')
 			.datetimepicker(
@@ -103,8 +113,6 @@
 							}
 							return [ true, "" ];
 						},
-						'minTime' : time[new Date().getHours()],
-						'showDuration' : true
 					});
 </script>
 </html>

@@ -75,7 +75,14 @@ tbody>tr:HOVER {
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
+		<!-- 답변상태 -->
 
+								<select class="form-control" name="sortNum" onchange="window.open(value,'_self');"
+									style="width: 120px; display: inline-block;">
+									<option value="/rentacar/admin/qna/list.do?sortNum=null">-답변분류-</option>
+									<option value="/rentacar/admin/qna/list.do?sortNum=1">답변 완료</option>
+									<option value="/rentacar/admin/qna/list.do?sortNum=2">답변 전</option>
+								</select>
 
 							<!-- 글번호 글제목 작성자 작성일 -->
 							<table

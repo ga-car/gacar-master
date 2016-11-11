@@ -67,7 +67,7 @@ public class adminFAQController {
 				faqList = faqService.faqSearch2(isSearch);
 		
 			totalCount = faqList.size();
-			page = new Paging(currentPage, totalCount, blockCount, blockPage, "faqList", searchNum, isSearch);
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "list", searchNum, isSearch);
 			pagingHtml = page.getPagingHtml().toString();
 		
 			int lastCount = totalCount;
@@ -91,7 +91,7 @@ public class adminFAQController {
 		
 		totalCount = faqList.size();
 		
-		page = new Paging(currentPage, totalCount, blockCount, blockPage, "faqList");
+		page = new Paging(currentPage, totalCount, blockCount, blockPage, "list");
 		pagingHtml=page.getPagingHtml().toString();  
 		
 		int lastCount = totalCount;

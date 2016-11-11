@@ -34,7 +34,7 @@ import com.Project.review.ReviewService;
 @RequestMapping("/review")
 public class ReviewController {
 	
-	private static final String uploadPath = "C:\\java\\GACAR\\src\\main\\webapp\\resources\\reviewUpload\\";
+	private static final String uploadPath = "C:\\JAVA\\App\\gacar-master\\src\\main\\webapp\\resources\\reviewUpload\\";
 	
 	@Resource
 	private ReviewService reviewService;
@@ -45,7 +45,7 @@ public class ReviewController {
 	
 	private int currentPage = 1;	 
 	private int totalCount; 		 
-	private int blockCount = 5;	 
+	private int blockCount = 10;	 
 	private int blockPage = 5; 	 
 	private String pagingHtml;  
 	private Paging page;
@@ -84,7 +84,7 @@ public class ReviewController {
 				reviewList = reviewService.reviewSearch2(isSearch);
 		
 			totalCount = reviewList.size();
-			page = new Paging(currentPage, totalCount, blockCount, blockPage, "reviewList", searchNum, isSearch);
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "list", searchNum, isSearch);
 			pagingHtml = page.getPagingHtml().toString();
 		
 			int lastCount = totalCount;
@@ -93,7 +93,7 @@ public class ReviewController {
 				lastCount = page.getEndCount() + 1;
 			
 			reviewList = reviewList.subList(page.getStartCount(), lastCount);
-		
+ 
 			mav.addObject("isSearch", isSearch);
 			mav.addObject("searchNum", searchNum);
 			mav.addObject("totalCount", totalCount);
@@ -108,7 +108,7 @@ public class ReviewController {
 		
 		totalCount = reviewList.size();
 		
-		page = new Paging(currentPage, totalCount, blockCount, blockPage, "reviewList");
+		page = new Paging(currentPage, totalCount, blockCount, blockPage, "list");
 		pagingHtml=page.getPagingHtml().toString();
 		
 		int lastCount = totalCount;
