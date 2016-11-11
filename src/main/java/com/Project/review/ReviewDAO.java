@@ -2,49 +2,53 @@ package com.Project.review;
 
 import java.util.List;
 
+import com.Project.qna.qnaModel;
+
 public interface ReviewDAO {
 
-	//±Û¸ñ·Ï
+	//ï¿½Û¸ï¿½ï¿½
 	List<ReviewModel> reviewList();
+	public List<ReviewModel> reviewList(String email);
 	
-	//°Ë»ö (0=Á¦¸ñ, 1=³»¿ë, 2=ÀÌ¸§)
+	//ï¿½Ë»ï¿½ (0=ï¿½ï¿½ï¿½ï¿½, 1=ï¿½ï¿½ï¿½ï¿½, 2=ï¿½Ì¸ï¿½)
 	List<ReviewModel> reviewSearch0(String search);
 	List<ReviewModel> reviewSearch1(String search);
 	List<ReviewModel> reviewSearch2(String search);
 
-	//±Û¾²±â
+	//ï¿½Û¾ï¿½ï¿½ï¿½
 	int reviewWrite(ReviewModel reviewModel);
 
-	//»ó¼¼º¸±â
+	//ï¿½ó¼¼ºï¿½ï¿½ï¿½
 	ReviewModel reviewView(int no);
 	
-	//Á¶È¸¼ö Áõ°¡
+	//ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int reviewUpdateReadhit(int no);
 	
-	//±Û »èÁ¦
+	//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int reviewDelete(int no);
 
-	//±Û ¼öÁ¤
+	//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int reviewModify(ReviewModel reviewModel);
+
 	
-	/*//´ñ±Û¸ñ·Ï
+	/*//ï¿½ï¿½Û¸ï¿½ï¿½
 	List<ReviewcommModel> reviewcommList(int no);
 	
-	//´ñ±Û¾²±â
+	//ï¿½ï¿½Û¾ï¿½ï¿½ï¿½
 	int reviewcommWrite(ReviewcommModel reviewcommModel);
 	
-	//´ñ±Û»èÁ¦
+	//ï¿½ï¿½Û»ï¿½ï¿½ï¿½
 	int reviewcommDelete(ReviewcommModel reviewcommModel);
 	
-	//´ñ±Û ¸ðµÎ »èÁ¦
+	//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int reviewallcommDelete(int no);
 			
-	//´ñ±Û ÃÑ °³¼ö
+	//ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int reviewcommCount(int no);
 	
-	//´ñ±Û 1 »ó½Â
+	//ï¿½ï¿½ï¿½ 1 ï¿½ï¿½ï¿½
 	int reviewcommUpdate1(int no);
 			
-	//´ñ±Û 1 ÇÏ¶ô
+	//ï¿½ï¿½ï¿½ 1 ï¿½Ï¶ï¿½
 	int reviewcommUpdate2(int no);*/
 }
