@@ -31,7 +31,7 @@ public class FAQController {
 	//����¡�� ���� ���� ����
 	private int currentPage = 1;	 
 	private int totalCount; 		 
-	private int blockCount = 10;	 
+	private int blockCount = 5;	 
 	private int blockPage = 5; 	 
 	private String pagingHtml;  
 	private Paging page;
@@ -67,7 +67,7 @@ public class FAQController {
 				faqList = faqService.faqSearch2(isSearch);
 		
 			totalCount = faqList.size();
-			page = new Paging(currentPage, totalCount, blockCount, blockPage, "faqList", searchNum, isSearch);
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "list", searchNum, isSearch);
 			pagingHtml = page.getPagingHtml().toString();
 		
 			int lastCount = totalCount;
@@ -91,7 +91,7 @@ public class FAQController {
 		
 		totalCount = faqList.size();
 		
-		page = new Paging(currentPage, totalCount, blockCount, blockPage, "faqList");
+		page = new Paging(currentPage, totalCount, blockCount, blockPage, "list");
 		pagingHtml=page.getPagingHtml().toString();  
 		
 		int lastCount = totalCount;

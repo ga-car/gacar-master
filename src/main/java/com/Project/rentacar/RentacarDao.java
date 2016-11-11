@@ -12,4 +12,6 @@ public interface RentacarDao {
 
 	int insertReserve(ReserveModel reserveModel);
 
+	List<ReserveModel> reserveList(Object reserve_mem_no);
+
 }

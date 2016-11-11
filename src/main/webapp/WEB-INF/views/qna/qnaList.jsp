@@ -150,12 +150,11 @@ tbody>tr:HOVER {
 								<!-- #@#@#@#@#@#@#@#글쓰기폼 끝@#@#@#@#@#@#@#@#@#@# -->
 								<!-- 답변상태 -->
 
-								<select class="form-control" name="replyNum"
-									onchange="window.open(value,'_self');"
+								<select class="form-control" name="sortNum" onchange="window.open(value,'_self');"
 									style="width: 120px; display: inline-block;">
-									<option value="/rentacar/qna/list.do?replyNum=null">-답변분류-</option>
-									<option value="/rentacar/qna/list.do?replyNum=1">답변 완료</option>
-									<option value="/rentacar/qna/list.do?replyNum=2">답변 전</option>
+									<option value="/rentacar/qna/list.do?sortNum=null">-답변분류-</option>
+									<option value="/rentacar/qna/list.do?sortNum=1">답변 완료</option>
+									<option value="/rentacar/qna/list.do?sortNum=2">답변 전</option>
 								</select>
 							</div>
 						</div>
@@ -177,7 +176,7 @@ tbody>tr:HOVER {
 									<c:url var="viewURL" value="view.do">
 										<c:param name="no" value="${list.no}" />
 									</c:url>
-									<!-- 관리자 -->
+	<!-- 관리자 -->
 									<c:if test="${session_email == 'admin'}">
 
 
@@ -212,10 +211,10 @@ tbody>tr:HOVER {
 
 									</c:if>
 
-									<!-- 본인 -->
+		<!-- 본인 -->
 									
-										<c:if test="${session_email == list.email && lise.email != admin}">
-
+										 <c:if test="${session_email == list.email && list.email != 'admin'}">         
+									
 											<tr>
 												<!-- 글번호 -->
 												<td align="center">${list.no}</td>

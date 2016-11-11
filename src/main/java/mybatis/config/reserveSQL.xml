@@ -20,12 +20,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	<insert id="insertReserve" parameterType="reserveModel">
 		insert into reserve
-		(reserve_no, reserve_car_no, reserve_mem_no, reserve_sdate, reserve_edate, reserve_rdate, reserve_slat,
-		reserve_slng, reserve_price, reserve_conf, reserve_insure, reserve_cancel)
-		values(reserve_no_SEQ.NEXTVAL, #{reserve_car_no}, #{reserve_mem_no}, #{reserve_sdate}, #{reserve_edate},
-		SYSDATE, #{reserve_slat}, #{reserve_slng}, #{reserve_price}, 'false',
+		(reserve_no, reserve_car_no, reserve_mem_no, reserve_sdate,
+		reserve_edate, reserve_rdate, reserve_slat,
+		reserve_slng,
+		reserve_price, reserve_conf, reserve_insure, reserve_cancel)
+		values(reserve_no_SEQ.NEXTVAL, #{reserve_car_no}, #{reserve_mem_no},
+		#{reserve_sdate}, #{reserve_edate},
+		SYSDATE, #{reserve_slat},
+		#{reserve_slng}, #{reserve_price}, 'false',
 		#{reserve_insure}, 'false')
 	</insert>
+	<select id="reserveList" resultMap="reserveModelRes">
+		select * from reserve where
+		reserve_mem_no = #{reserve_mem_no}
+		order by reserve_rdate desc
+	</select>
+	<select id="reserveAdminList" resultMap="reserveModelRes">
+		select * from reserve
+		order by reserve_rdate desc
+	</select>
 </mapper>
 <!-- create table reserve( reserve_no number NOT NULL PRIMARY KEY, reserve_car_no 
 	varchar2(25) NOT NULL, reserve_mem_no number NOT NULL, reserve_sdate varchar2(20) 
