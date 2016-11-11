@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.Project.member.MemberModel;
 import com.Project.member.MemberService;
+import com.Project.qna.qnaModel;
 import com.Project.review.ReviewModel;
 import com.Project.review.ReviewService;
 import com.Project.util.Paging;
@@ -40,7 +41,7 @@ private static final String uploadPath = "C:\\java\\GACAR\\src\\main\\webapp\\re
 	private ReviewService reviewService;
 	private int searchNum;
 	private String isSearch;
-	private ReviewService reviewlis;
+	private ReviewService reviewlist;
 	private int currentPage = 1;	 
 	private int totalCount; 		 
 	private int blockCount =  3;	 
@@ -55,7 +56,7 @@ private static final String uploadPath = "C:\\java\\GACAR\\src\\main\\webapp\\re
 	
 	/*/////////////////////////////////////�۸��/////////////////////////////////////*/
 	@RequestMapping(value="/mypageList.do")
-	public ModelAndView reviewList(HttpServletRequest request) throws UnsupportedEncodingException{
+	public ModelAndView reviewList(HttpServletRequest request, HttpSession session) throws UnsupportedEncodingException{
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -65,44 +66,9 @@ private static final String uploadPath = "C:\\java\\GACAR\\src\\main\\webapp\\re
             currentPage = Integer.parseInt(request.getParameter("currentPage"));
         }
 		
-		List<ReviewModel> reviewList = null;
-		
-		String isSearch = request.getParameter("isSearch");
-		if(isSearch != null) isSearch = new String(isSearch.getBytes("8859_1"), "UTF-8");
-		
-		if(isSearch != null)
-		{
-			searchNum = Integer.parseInt(request.getParameter("searchNum"));
-			
-			if(searchNum==0)
-				reviewList = reviewService.reviewSearch0(isSearch);
-			else if(searchNum==1)
-				reviewList = reviewService.reviewSearch1(isSearch);
-			else if(searchNum==2)
-				reviewList = reviewService.reviewSearch2(isSearch);
-		
-			totalCount = reviewList.size();
-			page = new Paging(currentPage, totalCount, blockCount, blockPage, "mypageList", searchNum, isSearch);
-			pagingHtml = page.getPagingHtml().toString();
-		
-			int lastCount = totalCount;
-		
-			if(page.getEndCount() < totalCount)
-				lastCount = page.getEndCount() + 1;
-			
-			reviewList = reviewList.subList(page.getStartCount(), lastCount);
- 
-			mav.addObject("isSearch", isSearch);
-			mav.addObject("searchNum", searchNum);
-			mav.addObject("totalCount", totalCount);
-			mav.addObject("pagingHtml", pagingHtml);
-			mav.addObject("currentPage", currentPage);
-			mav.addObject("reviewList", reviewList);
-			mav.setViewName("mypageList");
-			return mav;
-		}
-		
-		reviewList = reviewService.reviewList();
+		String session_email = (String) session.getAttribute("session_email");
+		List<ReviewModel> reviewList;
+		reviewList = reviewService.reviewList(session_email);
 		
 		totalCount = reviewList.size();
 		
