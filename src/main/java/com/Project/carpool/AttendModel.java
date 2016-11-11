@@ -4,11 +4,39 @@ public class AttendModel {
 	
 	private String email;
 	private String name;
+	private String phone;
+	private String apemail;
+	private String apname;
+	private String apphone;
 	private String subject;
 	private String content;
 	private int no;
 	private int count;
 	
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getApemail() {
+		return apemail;
+	}
+	public void setApemail(String apemail) {
+		this.apemail = apemail;
+	}
+	public String getApname() {
+		return apname;
+	}
+	public void setApname(String apname) {
+		this.apname = apname;
+	}
+	public String getApphone() {
+		return apphone;
+	}
+	public void setApphone(String apphone) {
+		this.apphone = apphone;
+	}
 	public int getCount() {
 		return count;
 	}
