@@ -14,6 +14,10 @@ public interface AdminDAO {
 
 	List<ReserveModel> reserveAdminList();
 
+	ReserveModel reserveAdminModify(int reserve_no);
+
+	RentacarModel rentacarAdminOne(String car_no);
+
 	// 회원목록
 	public List<MemberModel> memberList();
 

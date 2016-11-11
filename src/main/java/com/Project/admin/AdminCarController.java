@@ -43,8 +43,8 @@ public class AdminCarController {
 	private int blockPage = 5;
 	private String pagingHtml;
 	private Paging page;
-	
-	Date currentTime = new Date ( );
+
+	Date currentTime = new Date();
 	SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 
 	@RequestMapping(value = "/car/list.do", method = RequestMethod.GET)
@@ -154,6 +154,21 @@ public class AdminCarController {
 		mav.addObject("rentacarList", rentacarList);
 		mav.addObject("reserveList", reserveList);
 		mav.setViewName("AdminreserveListForm");
+		return mav;
+	}
+
+	@RequestMapping(value = "/car/reserveModify.do", method = RequestMethod.GET)
+	public ModelAndView ModifyReserveForm(HttpServletRequest request, HttpSession session)
+			throws UnsupportedEncodingException {
+		ModelAndView mav = new ModelAndView();
+		ReserveModel reserveOne;
+		RentacarModel rentacarOne;
+		reserveOne = adminService.reserveAdminModify(Integer.parseInt(request.getParameter("reserve_no")));
+		rentacarOne = adminService.rentacarAdminOne(reserveOne.getReserve_car_no());
+		
+		mav.addObject("rentacarOne", rentacarOne);
+		mav.addObject("reserveOne", reserveOne);
+		mav.setViewName("AdminreserveModifyForm");
 		return mav;
 	}
 }
