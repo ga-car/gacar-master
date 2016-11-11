@@ -110,14 +110,14 @@ public class qnaService implements qnaDao{
 	//관리자 답변유무 확인 콤보박스
 	//답변완료
 	@Override
-	public List<qnaModel> qnaReply1() {
-		return sqlSessionTemplate.selectList("qna.qnaReply1"); 
+	public List<qnaModel> qnaReply1(String email) {
+		return sqlSessionTemplate.selectList("qna.qnaReply1", email); 
 	}
 
 	//답변전
 	@Override
-	public List<qnaModel> qnaReply2(){
-		return sqlSessionTemplate.selectList("qna.qnaReply2"); 
+	public List<qnaModel> qnaReply2(String email){
+		return sqlSessionTemplate.selectList("qna.qnaReply2", email); 
 	}
 
 	//관리자 댓글 +1
@@ -128,5 +128,9 @@ public class qnaService implements qnaDao{
 	//관리자 댓글 -1
 	public int AdminDeleteReply(int no){
 		return sqlSessionTemplate.update("qna.AdminDeleteReply",no);
+	}
+
+	public List<qnaModel> qnaList(String email) {
+		return sqlSessionTemplate.selectList("qna.qnaMyList", email); 
 	}
 }
