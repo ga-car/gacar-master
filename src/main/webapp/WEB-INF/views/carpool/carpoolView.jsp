@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -89,22 +90,30 @@ function noticeDelete() {
 								id="dataTables-example">
 								<tbody>
 									<tr>
-										<td align="center" width="100">목적</th>
+										<td align="center" width="100">목적</td>
 										<td align="left">${carpoolModel.goal }</td>
 										<td align="center" width="100">출발일시</td>
 										<td align="left">${carpoolModel.startdate }</td>
 									</tr>
 									<tr>
-										<td align="center" width="100">좌석수</th>
+										<td align="center" width="100">좌석수</td>
 										<td align="left">${carpoolModel.pnum1 }/${carpoolModel.pnum2 }
-										<c:if test="${carpoolModel.pnum1 != carpoolModel.pnum2 }">
-										<button type="button" onclick="onAttend(${carpoolModel.no })" id="pnum1" name="pnum1" class="btn btn-primary">참가</button>
-										</c:if>
+										<%-- <c:if test="${carpoolModel.pnum1 != carpoolModel.pnum2 }">
+												<button type="button" onclick="return validation(${carpoolModel.no })" id="pnum1" name="pnum1" class="btn btn-primary">참가</button>
+										</c:if> --%>
+										<c:choose>
+    										<c:when test="${carpoolModel.pnum1 != carpoolModel.pnum2 && attendModel.name != session_name }">
+    											<button type="button" onclick="return validation(${carpoolModel.no })" id="pnum1" name="pnum1" class="btn btn-primary">참가</button>
+    										</c:when>
+    										<c:when test="${attendModel.name == session_name}">
+    										<button type="button" onclick="return validation(${carpoolModel.no })" id="pnum1" name="pnum1" class="btn btn-primary">불가</button>
+    										</c:when>
+    									</c:choose>
 										<td align="center" width="100">비용</td>
 										<td align="left">${carpoolModel.charge }원</td>
 									</tr>
 									<tr>
-										<td align="center" width="100">차내흡연</th>
+										<td align="center" width="100">차내흡연</td>
 										<td align="left">${carpoolModel.smoke }</td>
 										<td align="center" width="100">보험가입종류</td>
 										<td align="left">${carpoolModel.insure }</td>
@@ -138,6 +147,28 @@ function noticeDelete() {
 
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=079b4daabc5db4153ba00f0a15d911f0&libraries=services"></script>
 <script>
+function validation() {
+	
+	if ("${session_name}" ==  "") {
+		alert("로그인을 해주세요.");
+		return false;
+	}
+	else
+	{
+		if("${count}">=1)
+		{
+			alert("이미참가하였습니다.");
+		}
+		else
+		{
+			alert("참가하겠습니까?");
+		}
+	location.href='attend.do?no=${carpoolModel.no}';
+	}
+	return true; 
+	
+}
+
 function onAttend() {
 	alert("참가하겠습니까?");
 	location.href='attend.do?no=${carpoolModel.no}';
@@ -165,6 +196,17 @@ mapOption = {
 
 //지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
 var map = new daum.maps.Map(mapContainer, mapOption); 
+
+var mapTypeControl = new daum.maps.MapTypeControl();
+
+//지도에 컨트롤을 추가해야 지도위에 표시됩니다
+//daum.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
+
+//지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+var zoomControl = new daum.maps.ZoomControl();
+map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
+
 
 /* var slat = document.getElementById('slat').value;
 var slng = document.getElementById('slng').value;
@@ -287,5 +329,3 @@ var slng = document.getElementById('elng').value; */
 	  </script>   
 </body>
 </html>
-
-
