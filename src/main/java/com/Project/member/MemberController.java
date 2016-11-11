@@ -247,23 +247,16 @@ public class MemberController {
 				session.setAttribute("TOKEN_SAVE_CHECK", "TRUE");
 				memberService.updateAccess(emailCheck);
 
-				if (emailCheck.equals("admin")) {/* emailCheck!="admin" 문자열 비교는 함수사용!! */
-					System.out.println("admin");
+				if (emailCheck.equals("admin")) {
 					suc = "admin";
 				} else
 					suc = "suc";
-				/* mav.setViewName("redirect:"+addr); */
-				/*
-				 * mav.addObject("suc", suc); mav.setViewName("member/login");
-				 * return mav;
-				 */
 			} else {
 				suc = "err2";
 			}
 		} else {
 
 			suc = "err";
-			// System.out.println("로그인 실패");
 		}
 
 		mav.addObject("suc", suc);

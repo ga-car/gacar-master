@@ -39,9 +39,16 @@ function delchk(){
 					class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="row" style="margin-bottom:5px;">
 						<div class="col-sm-6">
-							<button type="button" class="btn btn-outline btn-default">전체</button>
-							<button type="button" class="btn btn-outline btn-default">이름순</button>
-							<button type="button" class="btn btn-outline btn-default">가입순</button>												
+						<a href="/rentacar/admin/memberList.do"><button type="button" class="btn btn-outline btn-default">전체보기</button></a> &nbsp;&nbsp;&nbsp;
+						<c:if test ="${isSearch eq null}">
+							<a href="/rentacar/admin/memberList.do?sortNum=0"><button type="button" class="btn btn-outline btn-default">이름순</button></a>
+							<a href="/rentacar/admin/memberList.do?sortNum=1"><button type="button" class="btn btn-outline btn-default">가입순</button></a>	
+						</c:if>
+						<c:if test ="${isSearch ne null}">
+							<a href="/rentacar/admin/memberList.do?searchNum=${searchNum}&isSearch=${isSearch}&sortNum=0"><button type="button" class="btn btn-outline btn-default">이름순</button></a>
+							<a href="/rentacar/admin/memberList.do?searchNum=${searchNum}&isSearch=${isSearch}&sortNum=1"><button type="button" class="btn btn-outline btn-default">가입순</button></a>	
+						</c:if>
+							<button type="button" style="float:right;"  onClick="window.location='/rentacar/admin/excel.do'">엑셀 다운로드</button>
 						</div>
 						<div class="col-sm-6" style="text-align:right;">
 							<div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">총 회원수 : ${totalCount}</div>
