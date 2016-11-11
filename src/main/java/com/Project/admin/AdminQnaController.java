@@ -21,10 +21,11 @@ import com.Project.util.Paging;
 public class AdminQnaController {
 
 	private int searchNum;
+	private String replyNum;
 	private String isSearch;
 	private int currentPage = 1;	 
 	private int totalCount; 		 
-	private int blockCount = 7;	 
+	private int blockCount = 5;	 
 	private int blockPage = 5; 	 
 	private String pagingHtml;  
 	private Paging page;
@@ -61,9 +62,27 @@ public class AdminQnaController {
 				list =  qnaService.qnaSearch2(isSearch);
 			}
 		}
+		/* 답변 유무 카테고리 분류 */
+		replyNum = request.getParameter("replyNum");
+
+		if (replyNum == null) {
+			System.out.println(replyNum);
+			// 콤보박스가 입력이 안 된 상태
+		} else {
+			System.out.println(replyNum);
+			// 콤보박스가 입력이 된 상태
+			if (!(replyNum.equals("null"))) {
+				if (replyNum.equals("1")) {
+					list = qnaService.qnaReply1();
+				} else if (replyNum.equals("2")) {
+					list = qnaService.qnaReply2();
+				}
+			}
+
+		}
 
 		totalCount = list.size();
-		page = new Paging(currentPage, totalCount, blockCount, blockPage, "qnaAdmin");
+		page = new Paging(currentPage, totalCount, blockCount, blockPage, "list",replyNum);
 		pagingHtml=page.getPagingHtml().toString();  
 
 		int lastCount = totalCount;
@@ -112,7 +131,7 @@ public class AdminQnaController {
 
 		return mav;
 	}
-
+	
 	//qna 관리자 삭제
 	@RequestMapping(value="/delete.do")
 	public ModelAndView qnaDelete(HttpServletRequest request, qnaModel qnaModel){			   

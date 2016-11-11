@@ -152,6 +152,79 @@ public class Paging {
 		}
 			
 	}
+	
+	
+	//답변완료
+		public Paging(int currentPage, int totalCount, int blockCount, int blockPage,String PageName, String replyNum){
+			
+			this.blockCount = blockCount;
+			this.blockPage = blockPage;
+			this.currentPage = currentPage;
+			this.totalCount = totalCount;
+			
+			totalPage = (int) Math.ceil((double) totalCount / blockCount);
+			if(totalPage == 0){
+				totalPage = 1;
+			}
+			
+			if(currentPage > totalPage){
+				currentPage = totalPage;
+			}
+			
+			startCount = (currentPage -1) * blockCount;
+			endCount = startCount + blockCount -1;
+			
+			startPage = (int)((currentPage -1) / blockPage) * blockPage +1;
+			endPage = startPage + blockPage -1;
+			
+			if(endPage > totalPage){
+				endPage = totalPage;
+			}
+			
+			// ���� block ������
+			pagingHtml = new StringBuffer();
+			if(currentPage > blockPage){
+				if(replyNum != "")
+					pagingHtml.append("<a class='page prv' href=" + PageName + ".do?currentPage=" + (startPage - 1) + "&replyNum="+replyNum+ ">");
+				else                    
+					pagingHtml.append("<a class='page prv' href=" + PageName + ".do?currentPage=" + (startPage - 1) + ">");
+				pagingHtml.append("&lt;");
+				pagingHtml.append("</a>");
+				}
+			
+			//������ ��ȣ, ���� �������� �ٸ��� ǥ��
+			for(int i = startPage; i <= endPage; i++){
+				if(i > totalPage){
+					break;
+				}
+				if(i == currentPage){
+					pagingHtml.append("<strong>");
+					pagingHtml.append(i);
+					pagingHtml.append("</strong>");
+				}
+				else{
+					pagingHtml.append("<a class='page' href=" + PageName + ".do?currentPage=" + i);
+					if(replyNum != "")
+						pagingHtml.append("&replyNum="+replyNum);
+					pagingHtml.append(">");
+					pagingHtml.append(i);
+					pagingHtml.append("</a>");
+				}
+			}
+			// ���� block ������
+			if(totalPage - startPage >= blockPage){
+				pagingHtml.append("<a class='page next' href=" + PageName + ".do?currentPage=" + (endPage + 1));
+				if(replyNum != "")
+					pagingHtml.append("&replyNum="+replyNum);
+				pagingHtml.append(">");
+				pagingHtml.append("&gt;");
+				pagingHtml.append("</a>");
+			}
+				
+		}
+		
+	
+	
 
 	public int getCurrentPage() {
 		return currentPage;
