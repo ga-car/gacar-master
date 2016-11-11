@@ -39,6 +39,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from reserve
 		order by reserve_rdate desc
 	</select>
+
+	<select id="reserveAdminOne" parameterType="int" resultMap="reserveModelRes">
+		select * from reserve where reserve_no = #{reserve_no}
+		order by reserve_rdate desc
+	</select>
+	
+	<update id="reserveDelete" parameterType="int">
+		UPDATE reserve SET
+		reserve_cancel = 'true'
+		WHERE
+		reserve_no = #{reserve_no}
+	</update>
 </mapper>
 <!-- create table reserve( reserve_no number NOT NULL PRIMARY KEY, reserve_car_no 
 	varchar2(25) NOT NULL, reserve_mem_no number NOT NULL, reserve_sdate varchar2(20) 

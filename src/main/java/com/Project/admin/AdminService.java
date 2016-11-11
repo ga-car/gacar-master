@@ -31,12 +31,10 @@ public class AdminService implements AdminDAO {
 	public List<ReserveModel> reserveAdminList() {
 		return sqlSessionTemplate.selectList("reserve.reserveAdminList");
 	}
-
 	@Override
 	public ReserveModel reserveAdminModify(int reserve_no) {
 		return sqlSessionTemplate.selectOne("reserve.reserveAdminOne", reserve_no);
 	}
-
 	@Override
 	public RentacarModel rentacarAdminOne(String car_no) {
 		return sqlSessionTemplate.selectOne("rentacar.rentacarSearchOne", car_no);

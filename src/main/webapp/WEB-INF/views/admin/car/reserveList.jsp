@@ -43,7 +43,8 @@
 					<td><c:choose>
 							<c:when test="${reserveList.reserve_sdate >= rTime}">
 							예약중
-							<td><input type=button value="변경/취소"></td>
+							<td><a
+									href="/rentacar/admin/car/reserveModify.do?reserve_no=${reserveList.reserve_no}">변경</a>/<a>취소</a></td>
 							</c:when>
 							<c:when
 								test="${reserveList.reserve_sdate <= rTime && reserveList.reserve_edate >= rTime}">
