@@ -21,8 +21,8 @@
 		<!-- // container -->
 	</div>
 	<!-- footer -->
-	<div id="footer" style="background:#9999CC; height:180px; width: 80%; float: left; margin:0 20px 20px 0;">
-		<tiles:insertAttribute name="footer" />
+	<%-- <div id="footer" style="background:#9999CC; height:180px; width: 80%; float: left; margin:0 20px 20px 0;">
+		<tiles:insertAttribute name="footer" /> --%>
 		<!-- // footer -->
 	</div>
 </body>

@@ -30,7 +30,7 @@ public class qnaController {
 
 	private int currentPage = 1;
 	private int totalCount;
-	private int blockCount = 10;
+	private int blockCount = 5;
 	private int blockPage = 5;
 	private String pagingHtml;
 	private Paging page;
@@ -94,7 +94,7 @@ public class qnaController {
 		}
 
 		totalCount = list.size();
-		page = new Paging(currentPage, totalCount, blockCount, blockPage, "qnaList");
+		page = new Paging(currentPage, totalCount, blockCount, blockPage, "list");
 		pagingHtml = page.getPagingHtml().toString();
 
 		int lastCount = totalCount;

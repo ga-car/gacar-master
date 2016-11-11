@@ -125,7 +125,7 @@
 			<li><a href="/rentacar/mypage/memberConfirm.do">개인정보</a></li>
 			<li><a href="/rentacar/car/reserveList.do">렌트카 이용현황</a></li>
 			<li><a href="#">카풀 이용현황</a></li>
-			<li><a href="/rentacar/mypage/mypage.do">내가쓴글보기</a></li>
+			<li><a href="/rentacar/mypage/mypageList.do">내가쓴글보기</a></li>
 			<li><a href="/rentacar/mypage/memberDelPre.do">회원탈퇴</a></li>
 		</ul>
 	</c:if>

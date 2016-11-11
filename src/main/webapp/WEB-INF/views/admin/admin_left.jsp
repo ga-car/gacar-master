@@ -97,7 +97,7 @@
 		</h4>
 
 		<h4>
-			<a href="/rentacar/admin/reviewList.do">이용후기관리</a>
+			<a href="/rentacar/admin/review/list.do">이용후기관리</a>
 		</h4>
 
 		<h4>
@@ -105,8 +105,8 @@
 		</h4>
 		<ul>
 			<li><a href="/rentacar/admin/notify/list.do">공지사항</a></li>
-			<li><a href="/rentacar/admin/faqList.do">FAQ</a></li>
-			<li><a href="#">1:1문의</a></li>
+			<li><a href="/rentacar/admin/faq/list.do">FAQ</a></li>
+			<li><a href="/rentacar/admin/qna/list.do">1:1문의</a></li>
 		</ul>
 	</c:if>
 

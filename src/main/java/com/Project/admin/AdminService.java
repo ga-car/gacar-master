@@ -27,6 +27,21 @@ public class AdminService implements AdminDAO {
 		return sqlSessionTemplate.insert("rentacar.insertRentacar", reatacarModel);
 	}
 
+	@Override
+	public List<ReserveModel> reserveAdminList() {
+		return sqlSessionTemplate.selectList("reserve.reserveAdminList");
+	}
+
+	@Override
+	public ReserveModel reserveAdminModify(int reserve_no) {
+		return sqlSessionTemplate.selectOne("reserve.reserveAdminOne", reserve_no);
+	}
+
+	@Override
+	public RentacarModel rentacarAdminOne(String car_no) {
+		return sqlSessionTemplate.selectOne("rentacar.rentacarSearchOne", car_no);
+	}
+
 	// 회원목록 출력
 	@Override
 	public List<MemberModel> memberList() {
