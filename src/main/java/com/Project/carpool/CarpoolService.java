@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.Project.carpool.CarpoolDAO;
 import com.Project.carpool.CarpoolModel;
+import com.Project.carpool.AttendModel;
 
 @Service
 public class CarpoolService implements CarpoolDAO {
@@ -64,4 +65,20 @@ public class CarpoolService implements CarpoolDAO {
 		return sqlSessionTemplate.update("carpool.carpoolUpdateAttend",no); 
 	}
 	
+	@Override
+	public int attendWrite(int no, String name) {
+		AttendModel attendModel = new AttendModel();
+		attendModel.setName(name);
+		attendModel.setNo(no);
+		return sqlSessionTemplate.insert("carpool.attendWrite", attendModel);
+	}
+	
+	@Override
+	public int attendOverlap(int no, String name)
+	{
+		AttendModel attendModel = new AttendModel();
+		attendModel.setName(name);
+		attendModel.setNo(no);
+		return sqlSessionTemplate.selectList("carpool.attendOverlap", attendModel).size();
+	}
 }

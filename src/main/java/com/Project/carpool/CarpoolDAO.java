@@ -24,4 +24,8 @@ public interface CarpoolDAO {
 	int carpoolDelete(int no);
 	
 	int carpoolUpdateAttend(int no);
+	
+	int attendWrite(int no, String name);
+	
+	int attendOverlap(int no, String name);
 }
