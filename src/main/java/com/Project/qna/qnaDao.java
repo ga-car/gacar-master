@@ -53,7 +53,9 @@ public interface qnaDao {
 		//답변유무 검색(1=답변완료, 2=답변전)
 		List<qnaModel> qnaReply1(String email);
 		List<qnaModel> qnaReply2(String email);
-	
+
+		List<qnaModel> qnaReply1();
+		List<qnaModel> qnaReply2();
 		//관리자 댓글 +1
 		int AdminUpdateReply(int no);
 		

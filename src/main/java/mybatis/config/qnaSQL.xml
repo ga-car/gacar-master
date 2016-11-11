@@ -116,6 +116,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY NO DESC
 	</select>
 
+<!-- 답변완료 -->
+	<select id="qnaReply01" resultMap="qnaModelRes">
+		SELECT * FROM QNA
+		WHERE ADMIN>=1 
+		ORDER BY NO DESC
+	</select>
+
+	<!-- 답변 전 -->
+	<select id="qnaReply02" resultMap="qnaModelRes">
+		SELECT * FROM QNA
+		WHERE ADMIN=0 
+		ORDER BY NO DESC
+	</select>
+	
+	
 	<!-- 댓글 목록 -->
 	<select id="qnaCommList" resultMap="qnaCommModelRes"
 		parameterType="int">
