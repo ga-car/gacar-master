@@ -18,7 +18,7 @@
 				<td>대여위치</td>
 				<td>금액</td>
 				<td>상태</td>
-				<td>변경/최소</td>
+				<td></td>
 			</tr>
 			<c:forEach var="reserveList" items="${reserveList}" varStatus="stat">
 				<tr>
@@ -41,10 +41,16 @@
 						</c:forEach></td>
 					<td>${reserveList.reserve_price}</td>
 					<td><c:choose>
+							<c:when test="${reserveList.reserve_cancel == 'true'}">
+							예약 취소
+							</c:when>
 							<c:when test="${reserveList.reserve_sdate >= rTime}">
 							예약중
-							<td><a
-									href="/rentacar/admin/car/reserveModify.do?reserve_no=${reserveList.reserve_no}">변경</a>/<a>취소</a></td>
+							<td>
+									<%-- <a
+									href="/rentacar/admin/car/reserveModify.do?reserve_no=${reserveList.reserve_no}">변경</a>/ --%>
+									<a
+									href="/rentacar/admin/car/reserveDelete.do?reserve_no=${reserveList.reserve_no}">취소</a></td>
 							</c:when>
 							<c:when
 								test="${reserveList.reserve_sdate <= rTime && reserveList.reserve_edate >= rTime}">

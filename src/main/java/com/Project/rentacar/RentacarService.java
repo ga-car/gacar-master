@@ -39,14 +39,14 @@ public class RentacarService implements RentacarDao {
 	}
 
 	@Override
-	public int reserveDelete(int reserve_no) {
-		return sqlSessionTemplate.update("reserve.reserveDelete", reserve_no);
+	public int reserveDelete(ReserveModel reserveModel) {
+		return sqlSessionTemplate.update("reserve.reserveDelete", reserveModel);
 
 	}
 
 	@Override
 	public List<RentacarModel> rentacarSearchList(String car_addr) {
-		return sqlSessionTemplate.selectList("rentacar.rentacarAddrSearchList", car_addr);
+		return sqlSessionTemplate.selectList("rentacar.rentacarAddrSearchList", "%" + car_addr + "%");
 	}
 
 }

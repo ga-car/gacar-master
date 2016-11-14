@@ -18,7 +18,6 @@
 				<td>차량명</td>
 				<td>인승</td>
 				<td colspan="2">서비스위치</td>
-				<td></td>
 			</tr>
 			<c:forEach var="rentacarList" items="${rentacarList}"
 				varStatus="stat">
@@ -33,16 +32,11 @@
 						id="car_lat" /> <input type="hidden" name="car_lng"
 						value="${rentacarList.car_lng}" id="car_lng" />
 					</td>
-					<td><a
-						href="/rentacar/admin/car/delete.do?car_no=${rentacarList.car_no}">삭제</a></td>
+					<td><input type="button" onclick="Modify(${rentacarList.car_no})"></td>
 				</tr>
 			</c:forEach>
 			<tr>
 				<td>${pagingHtml}</td>
-			</tr>
-			<tr>
-				<td colspan="6" align="right"><a
-					href="/rentacar/admin/car/write.do">글쓰기</a></td>
 			</tr>
 		</table>
 	</form>
