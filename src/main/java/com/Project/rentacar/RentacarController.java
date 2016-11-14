@@ -31,6 +31,7 @@ public class RentacarController {
 	private String car_dt1;
 	private String car_dt2;
 	private String car_no;
+	private String alert;
 	private long Day;
 	private long Hours;
 	private long Price1;
@@ -64,22 +65,22 @@ public class RentacarController {
 
 			mav.addObject("rentacarLatlng", rentacarLatLng);
 		}
-
-		car_addr = request.getParameter("car_addr");
-		if (car_addr == null || car_addr == "") {
-			rentacarList = rentacarService.rentacarList();
-		} else {
+		if (request.getParameter("car_addr") != null && request.getParameter("car_addr") != "") {
+			car_addr = request.getParameter("car_addr");
 			rentacarList = rentacarService.rentacarSearchList(car_addr);
 			if (rentacarList.size() <= 0) {
-				rentacarList = rentacarService.rentacarList();
-				mav.addObject("alter", "검색 결과가 존재하지 않습니다.");
-			} else if (request.getParameter("car_lat") == null || request.getParameter("car_lng") == null) {
-				mav.addObject("car_addr", car_addr);
+				alert = "검색 결과가 존재하지 않습니다.";
+			} else {
 				car_lat = rentacarList.get(0).getCar_lat();
 				car_lng = rentacarList.get(0).getCar_lng();
-			} else
-				mav.addObject("car_addr", car_addr);
+				alert = "";
+			}
+		} else {
+			rentacarList = rentacarService.rentacarList();
+			alert = "";
 		}
+
+		mav.addObject("alert", alert);
 		mav.addObject("car_lat", car_lat);
 		mav.addObject("car_lng", car_lng);
 		mav.addObject("rentacarList", rentacarList);
@@ -189,10 +190,12 @@ public class RentacarController {
 	}
 
 	@RequestMapping(value = "/reserveDelete.do", method = RequestMethod.GET)
-	public ModelAndView reserveDelete(HttpServletRequest request, HttpSession session)
+	public ModelAndView reserveDelete(ReserveModel reserveModel, HttpServletRequest request, HttpSession session)
 			throws UnsupportedEncodingException {
 		ModelAndView mav = new ModelAndView();
-		rentacarService.reserveDelete(Integer.parseInt(request.getParameter("reserve_no")));
+		reserveModel.setReserve_mem_no(Integer.parseInt(String.valueOf(session.getAttribute("session_num"))));
+		reserveModel.setReserve_no(Integer.parseInt(request.getParameter("reserve_no")));
+		rentacarService.reserveDelete(reserveModel);
 		mav.setViewName("redirect:reserveList.do");
 		return mav;
 	}

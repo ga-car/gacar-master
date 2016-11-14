@@ -119,8 +119,8 @@
 				<td><input type="text" name="car_charge"></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center"><input type="submit">&nbsp;&nbsp;<input
-					type="reset">&nbsp;&nbsp;</td>
+				<td colspan="2" align="center"><input type="submit" value="등록" />&nbsp;&nbsp;<input
+					type="reset" value="다시" />&nbsp;&nbsp;</td>
 			</tr>
 			<tr>
 				<td colspan="2" align="right"><a
@@ -134,7 +134,7 @@
 			var geocoder = new daum.maps.services.Geocoder();
 
 			function addrSearch() {
-				var frm = eval("document.infoinput");
+				var frm = eval("document.writeFrom");
 				new daum.Postcode(
 						{
 							oncomplete : function(data) {

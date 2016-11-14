@@ -34,8 +34,7 @@ public class AdminCarController {
 	private AdminService adminService;
 
 	ModelAndView mav = new ModelAndView();
-
-	String uploadPath = "F:\\";
+	String uploadPath = "F:\\project\\gacar-master\\src\\main\\webapp\\WEB-INF\\views\\admin\\car\\image";
 
 	private int currentPage = 1;
 	private int totalCount;
@@ -116,6 +115,14 @@ public class AdminCarController {
 		return mav;
 	}
 
+	@RequestMapping(value = "/car/delete.do", method = RequestMethod.GET)
+	public ModelAndView deleteRentacar(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		adminService.deleteRentacar(request.getParameter("car_no"));
+		mav.setViewName("redirect:list.do");
+		return mav;
+	}
+
 	@RequestMapping(value = "/car/reserveList.do", method = RequestMethod.GET)
 	public ModelAndView listReserveForm(HttpServletRequest request, HttpSession session)
 			throws UnsupportedEncodingException {
@@ -165,10 +172,60 @@ public class AdminCarController {
 		RentacarModel rentacarOne;
 		reserveOne = adminService.reserveAdminModify(Integer.parseInt(request.getParameter("reserve_no")));
 		rentacarOne = adminService.rentacarAdminOne(reserveOne.getReserve_car_no());
-		
+
 		mav.addObject("rentacarOne", rentacarOne);
 		mav.addObject("reserveOne", reserveOne);
 		mav.setViewName("AdminreserveModifyForm");
+		return mav;
+	}
+
+	@RequestMapping(value = "/car/reserveModifyCar.do", method = RequestMethod.GET)
+	public ModelAndView ModifyReserveCarForm(HttpServletRequest request, HttpSession session)
+			throws UnsupportedEncodingException {
+
+		ModelAndView mav = new ModelAndView();
+
+		if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
+				|| request.getParameter("currentPage").equals("0")) {
+			currentPage = 1;
+		} else {
+			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		}
+
+		List<ReserveModel> reserveList;
+		List<RentacarModel> rentacarList;
+
+		reserveList = adminService.reserveAdminList();
+		rentacarList = adminService.rentacarAdminList();
+		String rTime = format.format(currentTime);
+		totalCount = reserveList.size();
+
+		page = new Paging(currentPage, totalCount, blockCount, blockPage, "reserveList");
+		pagingHtml = page.getPagingHtml().toString();
+
+		int lastCount = totalCount;
+
+		if (page.getEndCount() < totalCount)
+			lastCount = page.getEndCount() + 1;
+
+		reserveList = reserveList.subList(page.getStartCount(), lastCount);
+
+		mav.addObject("totalCount", totalCount);
+		mav.addObject("pagingHtml", pagingHtml);
+		mav.addObject("currentPage", currentPage);
+		mav.addObject("rTime", rTime);
+		mav.addObject("rentacarList", rentacarList);
+		mav.addObject("reserveList", reserveList);
+		mav.setViewName("admin/car/reserveModifyCar");
+		return mav;
+	}
+
+	@RequestMapping(value = "/car/reserveDelete.do", method = RequestMethod.GET)
+	public ModelAndView reserveDelete(HttpServletRequest request, HttpSession session)
+			throws UnsupportedEncodingException {
+		ModelAndView mav = new ModelAndView();
+		adminService.reserveDelete(Integer.parseInt(request.getParameter("reserve_no")));
+		mav.setViewName("redirect:reserveList.do");
 		return mav;
 	}
 }

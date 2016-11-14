@@ -6,8 +6,17 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <script type="text/javascript">
+	window.onload = function() {
+		if ("${alert}" != "") {
+			alert("${alert}");
+			history.back();
+		}
+	}
 	function selectEvent(selectObj) {
-		location.href = "/rentacar/car/list.do?car_addr=" + subjectObj.value;
+		if (selectObj.value != "") {
+			javascript: location.href = "/rentacar/car/list.do?car_addr="
+					+ selectObj.value
+		}
 	}
 </script>
 </head>
@@ -16,7 +25,8 @@
 		enctype="multipart/form-data">
 		<table>
 			<tr>
-				<td><select name="car_addr" onChange="javascript:selectEvent(this)">
+				<td><select name="car_addr"
+					onChange="javascript:selectEvent(this);">
 						<option value="" selected="selected">지역</option>
 						<option value="강남구">강남구</option>
 						<option value="강동구">강동구</option>
@@ -49,6 +59,8 @@
 			<c:forEach var="rentacarLatlng" items="${rentacarLatlng}"
 				varStatus="stat">
 				<tr>
+				<td><img
+					src="../resources/carUpload/${rentacarLatlng.car_image}"></td>
 					<td>브랜드</td>
 					<td><a
 						href="/rentacar/car/reserve.do?car_no=${rentacarLatlng.car_no}">${rentacarLatlng.car_brand}</a></td>
