@@ -85,17 +85,15 @@
 		</div>
 	</div>
 </div>
-
-
 			<c:if test="${fn:length(faqList) le 0}">
 				<br />
 				<center>등록된 게시물이 없습니다</center>
 				<br />
 			</c:if>
-
-		
-
-
+			
+					<div class="paging" style= "font-size: 15px; text-align:center;">
+			${pagingHtml}
+		</div>
 		<div class="row">
 			<div style="text-align: center;">
 				<div id="dataTables-example_filter" class="dataTables_filter">
@@ -118,9 +116,7 @@
 			</div>
 
 		</div>
-		<div class="paging">
-			${pagingHtml}
-		</div>
+
 	</div>
 </div>
 

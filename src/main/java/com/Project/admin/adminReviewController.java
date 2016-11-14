@@ -84,7 +84,7 @@ public class adminReviewController {
 				reviewList = reviewService.reviewSearch2(isSearch);
 		
 			totalCount = reviewList.size();
-			page = new Paging(currentPage, totalCount, blockCount, blockPage, "reviewList", searchNum, isSearch);
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "list", searchNum, isSearch);
 			pagingHtml = page.getPagingHtml().toString();
 		
 			int lastCount = totalCount;
@@ -108,7 +108,7 @@ public class adminReviewController {
 		
 		totalCount = reviewList.size();
 		
-		page = new Paging(currentPage, totalCount, blockCount, blockPage, "reviewList");
+		page = new Paging(currentPage, totalCount, blockCount, blockPage, "list");
 		pagingHtml=page.getPagingHtml().toString();
 		
 		int lastCount = totalCount;

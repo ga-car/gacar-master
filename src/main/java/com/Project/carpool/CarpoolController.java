@@ -16,8 +16,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.Project.carpool.CarpoolModel;
 import com.Project.carpool.CarpoolService;
-import com.Project.carpool.CarpoolModel;
+import com.Project.member.MemberModel;
+import com.Project.carpool.AttendModel;
 import com.Project.util.Paging;
+import com.Project.validator.CarpoolValidator;
 
 @Controller
 @RequestMapping("/carpool")
@@ -34,6 +36,7 @@ public class CarpoolController {
 	private int blockPage = 5; 	 
 	private String pagingHtml;  
 	private Paging page;
+	private int count=0;
 	
 	@RequestMapping(value="/list.do", method=RequestMethod.GET)
 	public ModelAndView carpoolList(HttpServletRequest request) throws UnsupportedEncodingException
@@ -110,9 +113,12 @@ public class CarpoolController {
 	
 			//īǮ �۾��� ��
 			@RequestMapping(value="/write.do", method=RequestMethod.GET)
-			public ModelAndView carpoolForm(HttpServletRequest request) {
+			public ModelAndView carpoolForm(HttpServletRequest request, HttpSession session) {
 				
 				ModelAndView mav = new ModelAndView();
+				MemberModel mem = (MemberModel) session.getAttribute("session_mem");
+				String phone =  mem.getPhone();
+				mav.addObject("phone", phone);
 				mav.addObject("carpoolModel", new CarpoolModel());
 				mav.setViewName("carpoolForm");
 				return mav;
@@ -125,8 +131,8 @@ public class CarpoolController {
 				System.out.println(carpoolModel.getSubject());
 				ModelAndView mav = new ModelAndView();
 				
-				
-				
+				new CarpoolValidator().validate(carpoolModel, result);
+								
 				if(result.hasErrors()) {
 					mav.setViewName("carpoolForm");
 					return mav;
@@ -150,13 +156,17 @@ public class CarpoolController {
 				ModelAndView mav = new ModelAndView();
 				
 				int no = Integer.parseInt(request.getParameter("no"));
+				/*HttpSession session = request.getSession();
+				String name = (String) session.getAttribute("session_name");
+				count = carpoolService.attendOverlap(no,name);
+				System.out.println(count);*/
 				
 				CarpoolModel carpoolModel = carpoolService.carpoolView(no);
 				
 				carpoolService.carpoolUpdateReadcount(no);
-				
 				mav.addObject("currentPage", currentPage);
 				mav.addObject("carpoolModel", carpoolModel);
+				mav.addObject("count", count);
 				mav.setViewName("carpoolView");
 				
 				return mav;
@@ -208,14 +218,31 @@ public class CarpoolController {
 			
 			//īǮ ����
 			@RequestMapping("/attend.do")
-			public ModelAndView Attend(HttpServletRequest request){
+			public ModelAndView Attend(@ModelAttribute("attendModel") AttendModel attendModel, HttpServletRequest request){
 				
 				ModelAndView mav = new ModelAndView();
 				int no = Integer.parseInt(request.getParameter("no"));
-				carpoolService.carpoolUpdateAttend(no);
-				mav.setViewName("redirect:view.do?currnetPage='${carpool.no}'");
+				HttpSession session = request.getSession();
+				String name = (String) session.getAttribute("session_name");
+			 	/*int count = carpoolService.attendOverlap(no,name);
+				System.out.println(count);*/
+				count = carpoolService.attendOverlap(no,name);
+				System.out.println(count);
 				
-				return mav;	
+				if(count == 0)
+				{
+					 count =1;
+				carpoolService.carpoolUpdateAttend(no);	
+				carpoolService.attendWrite(no,name);
+				}
+				/*if(count == 1)
+				{	count1 = 2;
+					mav.addObject("count1", count1);
+				}*/
+			
+				mav.setViewName("redirect:detail.do?no="+no+"&currentPage="+currentPage);
+				return mav;
+				
 			}
 
 }

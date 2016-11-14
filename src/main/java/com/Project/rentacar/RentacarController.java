@@ -8,11 +8,15 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.Project.util.Paging;
 
 @Controller
 @RequestMapping(value = "/car")
@@ -23,16 +27,26 @@ public class RentacarController {
 
 	private String car_lat = String.valueOf(37.4849649737);
 	private String car_lng = String.valueOf(127.0347567814);
+	private String car_addr;
 	private String car_dt1;
 	private String car_dt2;
 	private String car_no;
 	private long Day;
 	private long Hours;
-	private long Price;
+	private long Price1;
+	private long Price2;
+	Date currentTime = new Date();
 	SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 
-	@RequestMapping(value = "/list.do")
-	public ModelAndView listRentacarform(RentacarModel rentacarModel, HttpServletRequest request)
+	private int currentPage = 1;
+	private int totalCount;
+	private int blockCount = 10;
+	private int blockPage = 5;
+	private String pagingHtml;
+	private Paging page;
+
+	@RequestMapping(value = "/list.do", method = RequestMethod.GET)
+	public ModelAndView listRentacarForm(RentacarModel rentacarModel, HttpServletRequest request)
 			throws UnsupportedEncodingException {
 
 		ModelAndView mav = new ModelAndView();
@@ -51,8 +65,21 @@ public class RentacarController {
 			mav.addObject("rentacarLatlng", rentacarLatLng);
 		}
 
-		rentacarList = rentacarService.rentacarList();
-
+		car_addr = request.getParameter("car_addr");
+		if (car_addr == null || car_addr == "") {
+			rentacarList = rentacarService.rentacarList();
+		} else {
+			rentacarList = rentacarService.rentacarSearchList(car_addr);
+			if (rentacarList.size() <= 0) {
+				rentacarList = rentacarService.rentacarList();
+				mav.addObject("alter", "검색 결과가 존재하지 않습니다.");
+			} else if (request.getParameter("car_lat") == null || request.getParameter("car_lng") == null) {
+				mav.addObject("car_addr", car_addr);
+				car_lat = rentacarList.get(0).getCar_lat();
+				car_lng = rentacarList.get(0).getCar_lng();
+			} else
+				mav.addObject("car_addr", car_addr);
+		}
 		mav.addObject("car_lat", car_lat);
 		mav.addObject("car_lng", car_lng);
 		mav.addObject("rentacarList", rentacarList);
@@ -61,7 +88,7 @@ public class RentacarController {
 	}
 
 	@RequestMapping(value = "/reserve.do", method = RequestMethod.GET)
-	public ModelAndView listReserveform(HttpServletRequest request) throws UnsupportedEncodingException {
+	public ModelAndView reserveForm(HttpServletRequest request) throws UnsupportedEncodingException {
 		ModelAndView mav = new ModelAndView();
 
 		car_no = new String(request.getParameter("car_no").getBytes("8859_1"), "utf8");
@@ -78,38 +105,95 @@ public class RentacarController {
 
 			Day = (expiryDate.getTime() - nowDate.getTime()) / 1000 / 60 / 60 / 24;
 			Hours = (expiryDate.getTime() - nowDate.getTime()) / 1000 / 60 / 60 % 24;
-			Price = (Day * 24 + Hours) * Integer.valueOf(rentacarOne.getCar_charge());
+			Price1 = (Day * 24 + Hours) * Integer.valueOf(rentacarOne.getCar_charge());
+			Price2 = (Day * 24 + Hours) * (Integer.valueOf(rentacarOne.getCar_charge()) + 400);
 			mav.addObject("Day", Day);
 			mav.addObject("Hours", Hours);
-			mav.addObject("Price", Price);
+			mav.addObject("Price1", Price1);
+			mav.addObject("Price2", Price2);
 		}
 		mav.addObject("rentacarOne", rentacarOne);
 		mav.setViewName("carReserveForm");
 		return mav;
 	}
 
-	/*
-	 * @RequestMapping(value = "/car/list.do", method = RequestMethod.POST)
-	 * public ModelAndView RentacarSearch(HttpServletRequest request) throws
-	 * UnsupportedEncodingException{
-	 * 
-	 * ModelAndView mav = new ModelAndView();
-	 * 
-	 * List<RentacarModel> rentacarList; Search =
-	 * request.getParameter("Search"); rentacarList =
-	 * rentacarService.rentacarSearchList(Search); mav.addObject("Search",
-	 * Search); mav.addObject("rentacarList", rentacarList);
-	 * mav.setViewName("carListForm"); return mav; }
-	 */
+	@RequestMapping(value = "/reserve.do", method = RequestMethod.POST)
+	public ModelAndView reserveChange(HttpServletRequest request,
+			@ModelAttribute("reserveModel") ReserveModel reserveModel) throws UnsupportedEncodingException {
+		ModelAndView mav = new ModelAndView();
+		System.out.printf("%s", reserveModel.getReserve_car_no());
+		System.out.printf("%s", reserveModel.getReserve_mem_no());
+		System.out.printf("%s", reserveModel.getReserve_sdate());
+		System.out.printf("%s", reserveModel.getReserve_edate());
+		System.out.printf("%s", reserveModel.getReserve_slat());
+		System.out.printf("%s", reserveModel.getReserve_slng());
+		System.out.printf("%s", reserveModel.getReserve_price());
+		System.out.printf("%s", reserveModel.getReserve_insure());
+
+		rentacarService.insertReserve(reserveModel);
+		mav.setViewName("redirect:reserveList.do");
+		return mav;
+	}
+
 	@RequestMapping(value = "/reserveChangeForm.do", method = RequestMethod.GET)
-	public ModelAndView reserveChangeform(HttpServletRequest request) throws UnsupportedEncodingException {
+	public ModelAndView reserveChangeForm(HttpServletRequest request) throws UnsupportedEncodingException {
 		ModelAndView mav = new ModelAndView();
 		car_no = new String(request.getParameter("car_no").getBytes("8859_1"), "utf8");
+		String rTime = format.format(currentTime);
 
+		mav.addObject("rTime", rTime);
 		mav.addObject("car_no", car_no);
 		mav.setViewName("car/reserveChangeForm");
 		return mav;
 	}
 
+	@RequestMapping(value = "/reserveList.do", method = RequestMethod.GET)
+	public ModelAndView reserveListForm(HttpServletRequest request, HttpSession session)
+			throws UnsupportedEncodingException {
 
+		ModelAndView mav = new ModelAndView();
+
+		if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
+				|| request.getParameter("currentPage").equals("0")) {
+			currentPage = 1;
+		} else {
+			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		}
+
+		List<ReserveModel> reserveList;
+		List<RentacarModel> rentacarList;
+
+		reserveList = rentacarService.reserveList(session.getAttribute("session_num"));
+		rentacarList = rentacarService.rentacarList();
+		String rTime = format.format(currentTime);
+		totalCount = reserveList.size();
+
+		page = new Paging(currentPage, totalCount, blockCount, blockPage, "reserveList");
+		pagingHtml = page.getPagingHtml().toString();
+
+		int lastCount = totalCount;
+
+		if (page.getEndCount() < totalCount)
+			lastCount = page.getEndCount() + 1;
+
+		reserveList = reserveList.subList(page.getStartCount(), lastCount);
+
+		mav.addObject("totalCount", totalCount);
+		mav.addObject("pagingHtml", pagingHtml);
+		mav.addObject("currentPage", currentPage);
+		mav.addObject("rTime", rTime);
+		mav.addObject("rentacarList", rentacarList);
+		mav.addObject("reserveList", reserveList);
+		mav.setViewName("reserveListForm");
+		return mav;
+	}
+
+	@RequestMapping(value = "/reserveDelete.do", method = RequestMethod.GET)
+	public ModelAndView reserveDelete(HttpServletRequest request, HttpSession session)
+			throws UnsupportedEncodingException {
+		ModelAndView mav = new ModelAndView();
+		rentacarService.reserveDelete(Integer.parseInt(request.getParameter("reserve_no")));
+		mav.setViewName("redirect:reserveList.do");
+		return mav;
+	}
 }

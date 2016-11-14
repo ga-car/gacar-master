@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.Project.member.MemberModel;
 import com.Project.rentacar.RentacarModel;
+import com.Project.rentacar.ReserveModel;
 
 @Service
 public class AdminService implements AdminDAO {
@@ -24,6 +25,19 @@ public class AdminService implements AdminDAO {
 	@Override
 	public int insertRentacar(RentacarModel reatacarModel) {
 		return sqlSessionTemplate.insert("rentacar.insertRentacar", reatacarModel);
+	}
+
+	@Override
+	public List<ReserveModel> reserveAdminList() {
+		return sqlSessionTemplate.selectList("reserve.reserveAdminList");
+	}
+	@Override
+	public ReserveModel reserveAdminModify(int reserve_no) {
+		return sqlSessionTemplate.selectOne("reserve.reserveAdminOne", reserve_no);
+	}
+	@Override
+	public RentacarModel rentacarAdminOne(String car_no) {
+		return sqlSessionTemplate.selectOne("rentacar.rentacarSearchOne", car_no);
 	}
 
 	// 회원목록 출력
@@ -70,5 +84,50 @@ public class AdminService implements AdminDAO {
 	@Override
 	public List<MemberModel> memberSearch2(String search) {
 		return sqlSessionTemplate.selectList("member.memberSearch2", "%" + search + "%");
+	}
+
+	/* 1110수정 */
+	@Override
+	public List<MemberModel> withdrawSearch1(String search) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("member.withdrawSearch1", "%" + search + "%");
+	}
+
+	@Override
+	public List<MemberModel> withdrawSearch2(String search) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("member.withdrawSearch2", "%" + search + "%");
+	}
+
+	@Override
+	public List<MemberModel> totalList() {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("member.totalList");
+	}
+
+	public List<MemberModel> memberSort0() {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("member.memberSort0");
+	}
+
+	public List<MemberModel> memberSort1() {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectList("member.memberSort1");
+	}
+
+	public List<MemberModel> memberSort0(int searchNum, String search) {
+		// TODO Auto-generated method stub
+		if (searchNum == 1)
+			return sqlSessionTemplate.selectList("member.memberSearch3", "%" + search + "%");
+		else
+			return sqlSessionTemplate.selectList("member.memberSearch4", "%" + search + "%");
+	}
+
+	public List<MemberModel> memberSort1(int searchNum, String search) {
+		// TODO Auto-generated method stub
+		if (searchNum == 1)
+			return sqlSessionTemplate.selectList("member.memberSearch5", "%" + search + "%");
+		else
+			return sqlSessionTemplate.selectList("member.memberSearch6", "%" + search + "%");
 	}
 }

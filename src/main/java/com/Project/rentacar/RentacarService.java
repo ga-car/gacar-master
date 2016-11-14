@@ -17,14 +17,36 @@ public class RentacarService implements RentacarDao {
 	public List<RentacarModel> rentacarList() {
 		return sqlSessionTemplate.selectList("rentacar.rentacarList");
 	}
-	
+
 	@Override
 	public List<RentacarModel> rentacarLatLng(RentacarModel rentacarModel) {
-		return sqlSessionTemplate.selectList("rentacar.rentacarSearchList", rentacarModel);
+		return sqlSessionTemplate.selectList("rentacar.rentacarLatLngSearchList", rentacarModel);
 	}
+
 	@Override
 	public RentacarModel rentacarOneView(String car_no) {
 		return sqlSessionTemplate.selectOne("rentacar.rentacarSearchOne", car_no);
+	}
+
+	@Override
+	public int insertReserve(ReserveModel reserveModel) {
+		return sqlSessionTemplate.insert("reserve.insertReserve", reserveModel);
+	}
+
+	@Override
+	public List<ReserveModel> reserveList(Object reserve_mem_no) {
+		return sqlSessionTemplate.selectList("reserve.reserveList", reserve_mem_no);
+	}
+
+	@Override
+	public int reserveDelete(int reserve_no) {
+		return sqlSessionTemplate.update("reserve.reserveDelete", reserve_no);
+
+	}
+
+	@Override
+	public List<RentacarModel> rentacarSearchList(String car_addr) {
+		return sqlSessionTemplate.selectList("rentacar.rentacarAddrSearchList", car_addr);
 	}
 
 }

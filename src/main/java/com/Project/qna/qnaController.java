@@ -25,12 +25,12 @@ public class qnaController {
 	@Resource
 	private qnaService qnaService;
 	private int searchNum;
-	private String replyNum;
+	private String sortNum;
 	private String isSearch;
 
 	private int currentPage = 1;
 	private int totalCount;
-	private int blockCount = 10;
+	private int blockCount = 5;
 	private int blockPage = 5;
 	private String pagingHtml;
 	private Paging page;
@@ -45,7 +45,7 @@ public class qnaController {
 	}
 
 	@RequestMapping(value = "/list.do")
-	public ModelAndView qnaList(HttpServletRequest request, qnaModel qnaModel) throws UnsupportedEncodingException {
+	public ModelAndView qnaList(HttpServletRequest request, qnaModel qnaModel, HttpSession session) throws UnsupportedEncodingException {
 		ModelAndView mav = new ModelAndView();
 
 		if (request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty()
@@ -54,9 +54,9 @@ public class qnaController {
 		} else {
 			currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		}
-
+		String session_email = (String) session.getAttribute("session_email");
 		List<qnaModel> list;
-		list = qnaService.qnaList();
+		list = qnaService.qnaList(session_email);
 
 		/* 게시판 검색 */
 		String isSearch = request.getParameter("isSearch");
@@ -75,26 +75,26 @@ public class qnaController {
 			}
 		}
 		/* 답변 유무 카테고리 분류 */
-		replyNum = request.getParameter("replyNum");
+		sortNum = request.getParameter("sortNum");
 
-		if (replyNum == null) {
-			System.out.println(replyNum);
+		if (sortNum == null) {
+			System.out.println(sortNum);
 			// 콤보박스가 입력이 안 된 상태
 		} else {
-			System.out.println(replyNum);
+			System.out.println(sortNum);
 			// 콤보박스가 입력이 된 상태
-			if (!(replyNum.equals("null"))) {
-				if (replyNum.equals("1")) {
-					list = qnaService.qnaReply1();
-				} else if (replyNum.equals("2")) {
-					list = qnaService.qnaReply2();
+			if (!(sortNum.equals("null"))) {
+				if (sortNum.equals("1")) {
+					list = qnaService.qnaReply1(session_email);
+				} else if (sortNum.equals("2")) {
+					list = qnaService.qnaReply2(session_email);
 				}
 			}
 
 		}
 
 		totalCount = list.size();
-		page = new Paging(currentPage, totalCount, blockCount, blockPage, "qnaList");
+		page = new Paging(currentPage, totalCount, blockCount, blockPage, "list");
 		pagingHtml = page.getPagingHtml().toString();
 
 		int lastCount = totalCount;
