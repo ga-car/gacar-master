@@ -98,15 +98,12 @@ function noticeDelete() {
 									<tr>
 										<td align="center" width="100">좌석수</td>
 										<td align="left">${carpoolModel.pnum1 }/${carpoolModel.pnum2 }
-										<%-- <c:if test="${carpoolModel.pnum1 != carpoolModel.pnum2 }">
-												<button type="button" onclick="return validation(${carpoolModel.no })" id="pnum1" name="pnum1" class="btn btn-primary">참가</button>
-										</c:if> --%>
 										<c:choose>
     										<c:when test="${carpoolModel.pnum1 != carpoolModel.pnum2 && attendModel.name != session_name }">
     											<button type="button" onclick="return validation(${carpoolModel.no })" id="pnum1" name="pnum1" class="btn btn-primary">참가</button>
     										</c:when>
     										<c:when test="${attendModel.name == session_name}">
-    										<button type="button" onclick="return validation(${carpoolModel.no })" id="pnum1" name="pnum1" class="btn btn-primary">불가</button>
+    										<button type="button" onclick="return validation(${carpoolModel.no })" id="pnum1" name="pnum1" class="btn btn-primary">참가</button>
     										</c:when>
     									</c:choose>
 										<td align="center" width="100">비용</td>
@@ -128,11 +125,8 @@ function noticeDelete() {
 						</div>
 						<form class="viewForm" method="post">
 							<input type="hidden" name="${carpoolModel.no }" />
-							<%-- <input type="hidden" name="seq" value="${item.seq }" /> --%>
-							<%-- <c:if test="${session_name == carpoolModel.name }"> --%>
 								<button type="button" onclick="onModify(${carpoolModel.no })"
 									class="btn btn-primary">수정</button>
-							<%-- </c:if> --%>
 							<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
 							<button type="button" onclick="onDelete()" class="btn btn-primary">삭제</button>
 						</form>

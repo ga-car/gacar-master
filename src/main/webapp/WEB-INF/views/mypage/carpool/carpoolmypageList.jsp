@@ -60,9 +60,9 @@ tbody>tr:HOVER {
 <body>
 	<div class="category_top">
 		<ul>
-			<li class="post1">CarPool</li>
-			<li>></li>
-			<li class="post2">타세요</li>
+			<li class="post1">MyPage</li>
+			<li>>CarPool</li>
+			<li class="post2">>>내가 쓴 글</li>
 
 		</ul>
 	</div>
@@ -73,22 +73,23 @@ tbody>tr:HOVER {
 				<div class="col-lg-12">
 					<div class="page-header">
 						<img src="/rentacar/resources/images/SkinImg/2.jpg"> <strong><font
-							size="6px">CarPool</font></strong>&nbsp;&nbsp; <font color="red">같이 가요</font>
+							size="6px">CarPool</font></strong>&nbsp;&nbsp; <font color="red">내가 쓴 글</font>
 					</div>
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>
-				<div class="row">
+				<!-- <div class="row">
 				<div style="text-align: center;">
 					<div id="dataTables-example_filter" class="dataTables_filter">
 						<form action="">
 						<input type="hidden" name="searchNum" id="searchNum" value="0">
 						<input class="txte" type="text" name="isSearch" id="isSearch" placeholder="출발지"  />
+						<input class="txte" type="text" name="isSearch" id="isSearch" placeholder="도착지" />
 						<input type="submit" value="검색"/> 
 						</form>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<!-- /.row -->
 			<div class="row">
 				<div class="col-lg-12">

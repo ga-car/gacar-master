@@ -93,7 +93,11 @@
 		</ul>
 
 		<h4>
-			<a href="#">카풀모임관리</a>
+			<a href="/rentacar/admin/carpool/list.do">카풀모임관리</a>
+		</h4>
+		
+		<h4>
+			<a href="/rentacar/admin/carpool/attendlist.do">카풀모임관리</a>
 		</h4>
 
 		<h4>
