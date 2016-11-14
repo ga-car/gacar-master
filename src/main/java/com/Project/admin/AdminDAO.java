@@ -12,11 +12,15 @@ public interface AdminDAO {
 
 	List<RentacarModel> rentacarAdminList();
 
+	int deleteRentacar(String car_no);
+
 	List<ReserveModel> reserveAdminList();
 
 	ReserveModel reserveAdminModify(int reserve_no);
 
 	RentacarModel rentacarAdminOne(String car_no);
+
+	int reserveDelete(int reserve_no);
 
 	// 회원목록
 	public List<MemberModel> memberList();
