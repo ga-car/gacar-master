@@ -13,7 +13,7 @@
 		open(
 				url,
 				"예약일정변경",
-				"toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
+				"toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=650, height=400");
 	}
 	function Rradio_OnOff(id) {
 		//  <tr> id로 값을 비교한다!

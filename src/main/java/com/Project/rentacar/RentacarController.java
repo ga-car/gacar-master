@@ -3,6 +3,7 @@ package com.Project.rentacar;
 import java.io.UnsupportedEncodingException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -36,8 +37,14 @@ public class RentacarController {
 	private long Hours;
 	private long Price1;
 	private long Price2;
+
+	Date expirySt_day;
+	Date expiryEnd_day;
+	private String Day2;
+	private List<String> expiryDate = new ArrayList<String>();
+
 	Date currentTime = new Date();
-	SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+	SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 
 	private int currentPage = 1;
 	private int totalCount;
@@ -105,11 +112,9 @@ public class RentacarController {
 			Date expiryDate = format.parse(car_dt2, new ParsePosition(0));
 
 			Day = (expiryDate.getTime() - nowDate.getTime()) / 1000 / 60 / 60 / 24;
-			Hours = (expiryDate.getTime() - nowDate.getTime()) / 1000 / 60 / 60 % 24;
-			Price1 = (Day * 24 + Hours) * Integer.valueOf(rentacarOne.getCar_charge());
-			Price2 = (Day * 24 + Hours) * (Integer.valueOf(rentacarOne.getCar_charge()) + 400);
+			Price1 = (Day * 24) * Integer.valueOf(rentacarOne.getCar_charge());
+			Price2 = (Day * 24) * (Integer.valueOf(rentacarOne.getCar_charge()) + 400);
 			mav.addObject("Day", Day);
-			mav.addObject("Hours", Hours);
 			mav.addObject("Price1", Price1);
 			mav.addObject("Price2", Price2);
 		}
@@ -141,7 +146,24 @@ public class RentacarController {
 		ModelAndView mav = new ModelAndView();
 		car_no = new String(request.getParameter("car_no").getBytes("8859_1"), "utf8");
 		String rTime = format.format(currentTime);
+		List<ReserveModel> reserveList;
 
+		reserveList = rentacarService.reserveCarList(car_no);
+
+		if (reserveList.size() > 0) {
+			for (int i = 0; i < reserveList.size(); i++) {
+				expirySt_day = format.parse(reserveList.get(i).getReserve_sdate(), new ParsePosition(0));
+				expiryEnd_day = format.parse(reserveList.get(i).getReserve_edate(), new ParsePosition(0));
+				expiryEnd_day = new Date(expiryEnd_day.getTime() + (long) (1000 * 60 * 60 * 24));
+				do {
+					Day2 = format.format(expirySt_day);
+					expiryDate.add(Day2);
+					expirySt_day = new Date(expirySt_day.getTime() + (long) (1000 * 60 * 60 * 24));
+				} while (expirySt_day.before(expiryEnd_day));
+			}
+		}
+
+		mav.addObject("expiryDate", expiryDate);
 		mav.addObject("rTime", rTime);
 		mav.addObject("car_no", car_no);
 		mav.setViewName("car/reserveChangeForm");
