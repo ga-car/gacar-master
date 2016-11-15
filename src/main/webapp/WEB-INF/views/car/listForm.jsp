@@ -18,7 +18,7 @@
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 		mapOption = {
 			center : mapCenter, // 지도의 중심좌표
-			level : 5
+			level : 7
 		// 지도의 확대 레벨
 		};
 
@@ -66,7 +66,7 @@
 		function clickEvent(lat, lng) {
 			return function() {
 				location.href = "/rentacar/car/list.do?car_lat=" + lat
-						+ "&car_lng=" + lng + "&car_addr=" + ${car_addr}
+						+ "&car_lng=" + lng
 			};
 
 		}
