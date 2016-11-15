@@ -57,24 +57,12 @@
 
 		</tr>
 		<c:choose>
-			<c:when test="${Day == null && Hours == null }">
+			<c:when test="${Day == null}">
 			</c:when>
-			<c:when test="${Day == 0 && Hours != 0 }">
+			<c:when test="${Day != 0}">
 				<tr>
 					<td>이용시간</td>
-					<td>${Hours}시간</td>
-				</tr>
-			</c:when>
-			<c:when test="${Day != 0 && Hours == 0 }">
-				<tr>
-					<td>이용시간</td>
-					<td>${Day}일간</td>
-				</tr>
-			</c:when>
-			<c:when test="${Day != 0 && Hours != 0 }">
-				<tr>
-					<td>이용시간</td>
-					<td>${Day}일${Hours}시간</td>
+					<td>${Day}일</td>
 				</tr>
 			</c:when>
 		</c:choose>

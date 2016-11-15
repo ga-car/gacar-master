@@ -34,7 +34,6 @@ public class RentacarController {
 	private String car_no;
 	private String alert;
 	private long Day;
-	private long Hours;
 	private long Price1;
 	private long Price2;
 
@@ -112,8 +111,8 @@ public class RentacarController {
 			Date expiryDate = format.parse(car_dt2, new ParsePosition(0));
 
 			Day = (expiryDate.getTime() - nowDate.getTime()) / 1000 / 60 / 60 / 24;
-			Price1 = (Day * 24) * Integer.valueOf(rentacarOne.getCar_charge());
-			Price2 = (Day * 24) * (Integer.valueOf(rentacarOne.getCar_charge()) + 400);
+			Price1 = Day * Integer.valueOf(rentacarOne.getCar_charge());
+			Price2 = Day * (Integer.valueOf(rentacarOne.getCar_charge()) + 7000);
 			mav.addObject("Day", Day);
 			mav.addObject("Price1", Price1);
 			mav.addObject("Price2", Price2);
@@ -127,15 +126,6 @@ public class RentacarController {
 	public ModelAndView reserveChange(HttpServletRequest request,
 			@ModelAttribute("reserveModel") ReserveModel reserveModel) throws UnsupportedEncodingException {
 		ModelAndView mav = new ModelAndView();
-		System.out.printf("%s", reserveModel.getReserve_car_no());
-		System.out.printf("%s", reserveModel.getReserve_mem_no());
-		System.out.printf("%s", reserveModel.getReserve_sdate());
-		System.out.printf("%s", reserveModel.getReserve_edate());
-		System.out.printf("%s", reserveModel.getReserve_slat());
-		System.out.printf("%s", reserveModel.getReserve_slng());
-		System.out.printf("%s", reserveModel.getReserve_price());
-		System.out.printf("%s", reserveModel.getReserve_insure());
-
 		rentacarService.insertReserve(reserveModel);
 		mav.setViewName("redirect:reserveList.do");
 		return mav;
@@ -167,6 +157,12 @@ public class RentacarController {
 		mav.addObject("rTime", rTime);
 		mav.addObject("car_no", car_no);
 		mav.setViewName("car/reserveChangeForm");
+		return mav;
+	}
+	@RequestMapping(value = "/carclause.do")
+	public ModelAndView carclause() throws UnsupportedEncodingException {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("car/carclause");
 		return mav;
 	}
 
