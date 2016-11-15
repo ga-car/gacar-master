@@ -84,6 +84,7 @@ tbody>tr:HOVER {
 						<form action="">
 						<input type="hidden" name="searchNum" id="searchNum" value="0">
 						<input class="txte" type="text" name="isSearch" id="isSearch" placeholder="출발지"  />
+						<input class="txte" type="text" name="isSearch1" id="isSearch1" placeholder="도착지" />
 						<input type="submit" value="검색"/> 
 						</form>
 					</div>
@@ -131,7 +132,10 @@ tbody>tr:HOVER {
 						</div>
 					</div>
 					<div class="menu-wrap">
-						<button type="button" onclick="onWrite()" class="btn btn-primary">쓰기</button>
+						<c:if test="${session_name != null }">
+							<button type="button" onclick="onWrite()" class="btn btn-primary">쓰기</button>
+						</c:if> 
+						
 
 						<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
 					</div>

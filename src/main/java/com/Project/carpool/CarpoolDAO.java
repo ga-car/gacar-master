@@ -14,7 +14,7 @@ public interface CarpoolDAO {
 	
 	int carpoolUpdateReadcount(int no);
 	
-	List<CarpoolModel> carpoolSearch0(String search);
+	List<CarpoolModel> carpoolSearch0(String isSearch, String isSearch1);
 	
 	List<CarpoolModel> carpoolSearch1(String search);
 	
