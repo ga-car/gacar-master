@@ -56,8 +56,8 @@ public class CarpoolController {
 		
 		String isSearch = request.getParameter("isSearch");
 		String isSearch1 = request.getParameter("isSearch1");
-		if(isSearch != null) isSearch = new String(isSearch.getBytes("8859_1"), "UTF-8");
-		if(isSearch1 != null) isSearch1 = new String(isSearch1.getBytes("8859_1"), "UTF-8");
+		/*if(isSearch != null) isSearch = new String(isSearch.getBytes("8859_1"), "UTF-8");
+		if(isSearch1 != null) isSearch1 = new String(isSearch1.getBytes("8859_1"), "UTF-8");*/
 		
 		if(isSearch != null)
 		{
