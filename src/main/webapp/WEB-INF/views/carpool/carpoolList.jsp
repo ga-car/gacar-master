@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
 <script
@@ -55,7 +55,7 @@ tbody>tr:HOVER {
 #page-wrapper {
 	margin: auto;
 }
-</style>
+</style> -->
 </head>
 <body>
 	<div class="category_top">
@@ -117,8 +117,8 @@ tbody>tr:HOVER {
 										</c:url>
 										<tr>
 											<td>${list.no}</td>
-											<td style="text-align: left;"><a href="${viewURL}">${list.subject}</a>
-											${list.saddr} -> ${list.eaddr}
+											<td style="text-align: left;"><a href="${viewURL}">[${list.subject}]
+											${list.saddr} -> ${list.eaddr}</a>
 											</td>
 											<td>${list.name}</td>
 											<td><fmt:formatDate value="${list.regdate}"
