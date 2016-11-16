@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="http://code.jquery.com/jquery-1.9.1.js"/>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"/>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
@@ -27,7 +27,7 @@
         
         margin: auto;
     }
-</style>
+</style> -->
 </head>
 <body>
 

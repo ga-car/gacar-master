@@ -15,16 +15,17 @@
 		<!-- // header -->
 	</div>
 	<!-- container -->
-	<div id="containerLeft"
-		style="background: #FFCCCC; height: 750px; width: 60%; float: left; margin: 0 0 10px 0;">
+	<div id="containerRight"
+		style="background: #FFDDDD; height: 750px; width: 20%; float: left; margin: 0 0 10px 0;">
 		<tiles:insertAttribute name="bodyLeft" />
 		<!-- // container -->
 	</div>
-	<div id="containerRight"
-		style="background: #FFDDDD; height: 750px; width: 20%; float: left; margin: 0 0 10px 0;">
+	<div id="containerLeft"
+		style="background: #FFCCCC; height: 750px; width: 60%; float: left; margin: 0 0 10px 0;">
 		<tiles:insertAttribute name="bodyRight" />
 		<!-- // container -->
 	</div>
+	
 	<!-- footer -->
 	<div id="footer"
 		style="background: #9999CC; height: 180px; width: 80%; float: left; margin: 0 20px 20px 0;">

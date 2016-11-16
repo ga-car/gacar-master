@@ -19,7 +19,7 @@ function reviewList() {
 }
 
 </script>
-
+<!-- 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
 <link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
@@ -34,7 +34,7 @@ function reviewList() {
    .hit-wrap{color:#888; margin: 10px 0;}
    .viewForm{margin: 20px 0 0 0;}
 </style>
-<title>REVIEW</title> 
+<title>REVIEW</title>  -->
 </head>
 
 
