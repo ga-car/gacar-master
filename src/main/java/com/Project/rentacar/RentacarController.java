@@ -71,22 +71,8 @@ public class RentacarController {
 
 			mav.addObject("rentacarLatlng", rentacarLatLng);
 		}
-		if (request.getParameter("car_addr") != null && request.getParameter("car_addr") != "") {
-			car_addr = request.getParameter("car_addr");
-			rentacarList = rentacarService.rentacarSearchList(car_addr);
-			if (rentacarList.size() <= 0) {
-				alert = "검색 결과가 존재하지 않습니다.";
-			} else {
-				car_lat = rentacarList.get(0).getCar_lat();
-				car_lng = rentacarList.get(0).getCar_lng();
-				alert = "";
-			}
-		} else {
-			rentacarList = rentacarService.rentacarList();
-			alert = "";
-		}
-
-		mav.addObject("alert", alert);
+		
+		rentacarList = rentacarService.rentacarList();
 		mav.addObject("car_lat", car_lat);
 		mav.addObject("car_lng", car_lng);
 		mav.addObject("rentacarList", rentacarList);
