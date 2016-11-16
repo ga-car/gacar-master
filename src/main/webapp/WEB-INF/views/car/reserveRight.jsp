@@ -25,6 +25,12 @@
 		javascript: location.href = "/rentacar/car/list.do?car_lat=" + car_lat
 				+ "&car_lng=" + car_lng;
 	}
+	function carclause() {
+		open(
+				"/rentacar/car/carclause.do",
+				"예약일정변경",
+				"toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=650, height=800");
+	}
 </script>
 </head>
 <body>
@@ -38,8 +44,8 @@
 			id="reserve_edate" value="${car_dt2}"> <input type="hidden"
 			name="reserve_slat" id="reserve_slat" value="${rentacarOne.car_lat}">
 		<input type="hidden" name="reserve_slng" id="reserve_slng"
-			value="${rentacarOne.car_lng}"> <input
-			type="hidden" name="reserve_insure" id="reserve_insure" value="true">
+			value="${rentacarOne.car_lng}"> <input type="hidden"
+			name="reserve_insure" id="reserve_insure" value="true">
 		<table>
 			<tr>
 				<td align="left">결재금액</td>
@@ -49,20 +55,23 @@
 					</c:when>
 					<c:otherwise>
 						<td><input type="text" name="reserve_price"
-							id="reserve_price" value="${Price1}" readonly>원</td>
+							id="reserve_price" value="${Price2}" size="5"
+							style="text-align: right;" readonly>원</td>
 					</c:otherwise>
 				</c:choose>
 			</tr>
 			<tr id="Radio_On" style="display: '';">
 				<td align="left" class="input_text">보험료</td>
-				<td>시간당 400원</td>
+				<td>하루 7000원</td>
 			</tr>
 			<tr>
 				<td>자동차 대여표준약관</td>
-				<td><input type="button" value="전체보기"></td>
+				<td><input type="button" value="전체보기" onclick="carclause()"></td>
 			</tr>
 			<tr>
-				<td colspan="2"><textarea rows="16" cols="26"></textarea></td>
+				<td colspan="2"><textarea rows="16" cols="26">제1조 (목적)
+		이 약관은 (주)그린카, 롯데렌탈(주) (이하 "임대인"/회사라 합니다)와 고객(이하 "임차인"이라 합니다.)
+			사이의 대여용자동차 임대차계약(이하 "대여계약"이라 합니다.)상의 권리, 의무에 관한 사항을 규정함을 목적으로 합니다.</textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2"></td>
