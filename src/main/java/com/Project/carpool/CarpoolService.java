@@ -1,5 +1,6 @@
 package com.Project.carpool;
 
+import java.util.HashMap;
 import java.util.List;
 import javax.annotation.Resource;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -36,8 +37,12 @@ public class CarpoolService implements CarpoolDAO {
 	}
 
 	@Override
-	public List<CarpoolModel> carpoolSearch0(String search) {
-		return sqlSessionTemplate.selectList("carpool.carpoolSearch0", "%"+search+"%"); 
+	public List<CarpoolModel> carpoolSearch0(String isSearch, String isSearch1) {
+		HashMap h = new HashMap();
+		h.put("saddr", "%"+isSearch+"%");
+		h.put("eaddr", "%"+isSearch1+"%");
+		
+		return sqlSessionTemplate.selectList("carpool.carpoolSearch0", h); 
 	}
 
 	@Override
@@ -46,7 +51,7 @@ public class CarpoolService implements CarpoolDAO {
 	}
 
 	@Override
-	public List<CarpoolModel> carpoolSearch2(String search) {
+	public List<AttendModel> carpoolSearch2(String search) {
 		return sqlSessionTemplate.selectList("carpool.carpoolSearch2", "%"+search+"%"); 
 	}
 
@@ -61,24 +66,74 @@ public class CarpoolService implements CarpoolDAO {
 	}
 	
 	@Override
-	public int carpoolUpdateAttend(int no) {
-		return sqlSessionTemplate.update("carpool.carpoolUpdateAttend",no); 
+	public int carpoolAttendIncrease(int no) {
+		return sqlSessionTemplate.update("carpool.carpoolAttendIncrease",no); 
 	}
 	
 	@Override
-	public int attendWrite(int no, String name) {
+	public int carpoolAttendDecrease(int no) {
+		return sqlSessionTemplate.update("carpool.carpoolAttendDecrease",no); 
+	}
+	
+	
+	@Override
+	public int attendWrite(int no, String email) {
 		AttendModel attendModel = new AttendModel();
-		attendModel.setName(name);
+		attendModel.setEmail(email);
 		attendModel.setNo(no);
 		return sqlSessionTemplate.insert("carpool.attendWrite", attendModel);
 	}
 	
 	@Override
-	public int attendOverlap(int no, String name)
+	public int attendOverlap(int no, String email)
 	{
 		AttendModel attendModel = new AttendModel();
-		attendModel.setName(name);
+		attendModel.setEmail(email);
 		attendModel.setNo(no);
 		return sqlSessionTemplate.selectList("carpool.attendOverlap", attendModel).size();
 	}
+	
+	@Override
+	public List<AttendModel> carpoolattendList() {
+		return sqlSessionTemplate.selectList("carpool.carpoolAttendList");
+	}
+	
+	@Override
+	public List<CarpoolModel> carpoolmypageList(String email) {
+		return sqlSessionTemplate.selectList("carpool.carpoolmypageList",email);
+	}
+	
+	@Override
+	public List<CarpoolModel> carpoolmypageattendList(String email) {
+		return sqlSessionTemplate.selectList("carpool.carpoolmypageattnedList",email);
+	}
+	
+	@Override
+	public List<AttendModel> carpoolmypageapplyList(String email) {
+		return sqlSessionTemplate.selectList("carpool.carpoolmypageapplyList", email);
+	}
+	
+	@Override
+	public int carpoolAttendDelete(String email, int no) {
+		AttendModel attendModel = new AttendModel();
+		attendModel.setEmail(email);
+		attendModel.setNo(no);
+		return sqlSessionTemplate.update("carpool.carpoolAttendDelete",attendModel); 
+	}
+	
+	@Override
+	public int carpoolApplyDelete(String email, int no) {
+		AttendModel attendModel = new AttendModel();
+		attendModel.setEmail(email);
+		attendModel.setNo(no);
+		return sqlSessionTemplate.update("carpool.carpoolApplyDelete",attendModel); 
+	}
+	
+	@Override
+	public String getNo(int no) {
+		return sqlSessionTemplate.selectOne("carpool.getNo", no); 
+	}
+	
+	
+
 }

@@ -12,10 +12,12 @@ public interface RentacarDao {
 
 	int insertReserve(ReserveModel reserveModel);
 
+	List<ReserveModel> reserveCarList(String car_no);
+
 	List<ReserveModel> reserveList(Object reserve_mem_no);
 
-	int reserveDelete(int reserve_no);
-
 	List<RentacarModel> rentacarSearchList(String car_addr);
+
+	int reserveDelete(ReserveModel reserveModel);
 
 }

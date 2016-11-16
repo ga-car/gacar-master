@@ -3,6 +3,7 @@ package com.Project.rentacar;
 import java.io.UnsupportedEncodingException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -31,12 +32,18 @@ public class RentacarController {
 	private String car_dt1;
 	private String car_dt2;
 	private String car_no;
+	private String alert;
 	private long Day;
-	private long Hours;
 	private long Price1;
 	private long Price2;
+
+	Date expirySt_day;
+	Date expiryEnd_day;
+	private String Day2;
+	private List<String> expiryDate = new ArrayList<String>();
+
 	Date currentTime = new Date();
-	SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+	SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 
 	private int currentPage = 1;
 	private int totalCount;
@@ -64,22 +71,8 @@ public class RentacarController {
 
 			mav.addObject("rentacarLatlng", rentacarLatLng);
 		}
-
-		car_addr = request.getParameter("car_addr");
-		if (car_addr == null || car_addr == "") {
-			rentacarList = rentacarService.rentacarList();
-		} else {
-			rentacarList = rentacarService.rentacarSearchList(car_addr);
-			if (rentacarList.size() <= 0) {
-				rentacarList = rentacarService.rentacarList();
-				mav.addObject("alter", "검색 결과가 존재하지 않습니다.");
-			} else if (request.getParameter("car_lat") == null || request.getParameter("car_lng") == null) {
-				mav.addObject("car_addr", car_addr);
-				car_lat = rentacarList.get(0).getCar_lat();
-				car_lng = rentacarList.get(0).getCar_lng();
-			} else
-				mav.addObject("car_addr", car_addr);
-		}
+		
+		rentacarList = rentacarService.rentacarList();
 		mav.addObject("car_lat", car_lat);
 		mav.addObject("car_lng", car_lng);
 		mav.addObject("rentacarList", rentacarList);
@@ -104,11 +97,9 @@ public class RentacarController {
 			Date expiryDate = format.parse(car_dt2, new ParsePosition(0));
 
 			Day = (expiryDate.getTime() - nowDate.getTime()) / 1000 / 60 / 60 / 24;
-			Hours = (expiryDate.getTime() - nowDate.getTime()) / 1000 / 60 / 60 % 24;
-			Price1 = (Day * 24 + Hours) * Integer.valueOf(rentacarOne.getCar_charge());
-			Price2 = (Day * 24 + Hours) * (Integer.valueOf(rentacarOne.getCar_charge()) + 400);
+			Price1 = Day * Integer.valueOf(rentacarOne.getCar_charge());
+			Price2 = Day * (Integer.valueOf(rentacarOne.getCar_charge()) + 7000);
 			mav.addObject("Day", Day);
-			mav.addObject("Hours", Hours);
 			mav.addObject("Price1", Price1);
 			mav.addObject("Price2", Price2);
 		}
@@ -121,15 +112,6 @@ public class RentacarController {
 	public ModelAndView reserveChange(HttpServletRequest request,
 			@ModelAttribute("reserveModel") ReserveModel reserveModel) throws UnsupportedEncodingException {
 		ModelAndView mav = new ModelAndView();
-		System.out.printf("%s", reserveModel.getReserve_car_no());
-		System.out.printf("%s", reserveModel.getReserve_mem_no());
-		System.out.printf("%s", reserveModel.getReserve_sdate());
-		System.out.printf("%s", reserveModel.getReserve_edate());
-		System.out.printf("%s", reserveModel.getReserve_slat());
-		System.out.printf("%s", reserveModel.getReserve_slng());
-		System.out.printf("%s", reserveModel.getReserve_price());
-		System.out.printf("%s", reserveModel.getReserve_insure());
-
 		rentacarService.insertReserve(reserveModel);
 		mav.setViewName("redirect:reserveList.do");
 		return mav;
@@ -140,10 +122,33 @@ public class RentacarController {
 		ModelAndView mav = new ModelAndView();
 		car_no = new String(request.getParameter("car_no").getBytes("8859_1"), "utf8");
 		String rTime = format.format(currentTime);
+		List<ReserveModel> reserveList;
 
+		reserveList = rentacarService.reserveCarList(car_no);
+
+		if (reserveList.size() > 0) {
+			for (int i = 0; i < reserveList.size(); i++) {
+				expirySt_day = format.parse(reserveList.get(i).getReserve_sdate(), new ParsePosition(0));
+				expiryEnd_day = format.parse(reserveList.get(i).getReserve_edate(), new ParsePosition(0));
+				expiryEnd_day = new Date(expiryEnd_day.getTime() + (long) (1000 * 60 * 60 * 24));
+				do {
+					Day2 = format.format(expirySt_day);
+					expiryDate.add(Day2);
+					expirySt_day = new Date(expirySt_day.getTime() + (long) (1000 * 60 * 60 * 24));
+				} while (expirySt_day.before(expiryEnd_day));
+			}
+		}
+
+		mav.addObject("expiryDate", expiryDate);
 		mav.addObject("rTime", rTime);
 		mav.addObject("car_no", car_no);
 		mav.setViewName("car/reserveChangeForm");
+		return mav;
+	}
+	@RequestMapping(value = "/carclause.do")
+	public ModelAndView carclause() throws UnsupportedEncodingException {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("car/carclause");
 		return mav;
 	}
 
@@ -189,10 +194,12 @@ public class RentacarController {
 	}
 
 	@RequestMapping(value = "/reserveDelete.do", method = RequestMethod.GET)
-	public ModelAndView reserveDelete(HttpServletRequest request, HttpSession session)
+	public ModelAndView reserveDelete(ReserveModel reserveModel, HttpServletRequest request, HttpSession session)
 			throws UnsupportedEncodingException {
 		ModelAndView mav = new ModelAndView();
-		rentacarService.reserveDelete(Integer.parseInt(request.getParameter("reserve_no")));
+		reserveModel.setReserve_mem_no(Integer.parseInt(String.valueOf(session.getAttribute("session_num"))));
+		reserveModel.setReserve_no(Integer.parseInt(request.getParameter("reserve_no")));
+		rentacarService.reserveDelete(reserveModel);
 		mav.setViewName("redirect:reserveList.do");
 		return mav;
 	}

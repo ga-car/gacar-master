@@ -47,10 +47,12 @@
 						class="nav-sidebar-label nav-sidebar-category-label">고객센터</span></a></li>
 			</ul>
 			<ul class="nav nav-sidebar nav-bottom">
-				<li><a href="https://github.com/ga-car/gacar-master"><i class="fa fa-github"></i> 
-					<span class="nav-sidebar-label nav-sidebar-category-label">
-					Github Issues</span></a></li>
-				<li><a href="javascript:bookmarksite('http://localhost:8080/rentacar/main.do', '가치같이타')" >
+				<li><a href="https://github.com/ga-car/gacar-master"><i
+						class="fa fa-github"></i> <span
+						class="nav-sidebar-label nav-sidebar-category-label">
+							Github Issues</span></a></li>
+				<li><a
+					href="javascript:bookmarksite('http://localhost:8080/rentacar/main.do', '가치같이타')">
 						<i class="fa fa-github"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">즐겨찾기
 							추가</span>
@@ -105,10 +107,12 @@
 						class="nav-sidebar-label nav-sidebar-category-label">마이페이지</span></a></li>
 			</ul>
 			<ul class="nav nav-sidebar nav-bottom">
-				<li><a href="https://github.com/ga-car/gacar-master"><i class="fa fa-github"></i> 
-					<span class="nav-sidebar-label nav-sidebar-category-label">
-					Github Issues</span></a></li>
-				<li><a href="javascript:bookmarksite('http://localhost:8080/rentacar/main.do', '가치같이타')" >
+				<li><a href="https://github.com/ga-car/gacar-master"><i
+						class="fa fa-github"></i> <span
+						class="nav-sidebar-label nav-sidebar-category-label">
+							Github Issues</span></a></li>
+				<li><a
+					href="javascript:bookmarksite('http://localhost:8080/rentacar/main.do', '가치같이타')">
 						<i class="fa fa-github"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">즐겨찾기
 							추가</span>
@@ -156,9 +160,11 @@
 		</h4>
 		<ul>
 			<li><a href="/rentacar/mypage/memberConfirm.do">개인정보</a></li>
-			<li><a href="#">렌트카 이용현황</a></li>
-			<li><a href="#">카풀 이용현황</a></li>
-			<li><a href="#">내가쓴글보기</a></li>
+			<li><a href="/rentacar/car/reserveList.do">렌트카 이용현황</a></li>
+			<li><a href="/rentacar/mypage/carpool/list.do">카풀 이용현황</a></li>
+			<li><a href="/rentacar/mypage/carpool/attendlist.do">카풀 참가 내역</a></li>
+			<li><a href="/rentacar/mypage/carpool/applylist.do">카풀 신청자 현황</a></li>
+			<li><a href="/rentacar/mypage/mypageList.do">내가쓴글보기</a></li>
 			<li><a href="/rentacar/mypage/memberDelPre.do">회원탈퇴</a></li>
 		</ul>
 	</c:if> --%>

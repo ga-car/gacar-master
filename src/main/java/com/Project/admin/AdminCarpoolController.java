@@ -1,4 +1,4 @@
-package com.Project.carpool;
+package com.Project.admin;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
@@ -16,21 +16,18 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.Project.carpool.CarpoolModel;
 import com.Project.carpool.CarpoolService;
-import com.Project.member.MemberModel;
 import com.Project.carpool.AttendModel;
 import com.Project.util.Paging;
-import com.Project.validator.CarpoolValidator;
 
 @Controller
-@RequestMapping("/carpool")
-public class CarpoolController {
+@RequestMapping("/admin/carpool")
+public class AdminCarpoolController {
 	
 	@Resource
 	private CarpoolService carpoolService;
 	private int searchNum;
 	private String isSearch;
 	private String isSearch1;
-
 	
 	private int currentPage = 1;	 
 	private int totalCount; 		 
@@ -38,7 +35,6 @@ public class CarpoolController {
 	private int blockPage = 5; 	 
 	private String pagingHtml;  
 	private Paging page;
-	private int count=0;
 	
 	@RequestMapping(value="/list.do", method=RequestMethod.GET)
 	public ModelAndView carpoolList(HttpServletRequest request) throws UnsupportedEncodingException
@@ -55,15 +51,13 @@ public class CarpoolController {
 		
 		
 		String isSearch = request.getParameter("isSearch");
-		String isSearch1 = request.getParameter("isSearch1");
 		if(isSearch != null) isSearch = new String(isSearch.getBytes("8859_1"), "UTF-8");
-		if(isSearch1 != null) isSearch1 = new String(isSearch1.getBytes("8859_1"), "UTF-8");
+		
 		
 		if(isSearch != null)
 		{
 			searchNum = Integer.parseInt(request.getParameter("searchNum"));
-
-			carpoolList = carpoolService.carpoolSearch0(isSearch, isSearch1);
+			carpoolList = carpoolService.carpoolSearch1(isSearch);
 		
 			totalCount = carpoolList.size();
 			page = new Paging(currentPage, totalCount, blockCount, blockPage, "list", searchNum, isSearch);
@@ -77,13 +71,12 @@ public class CarpoolController {
 			carpoolList = carpoolList.subList(page.getStartCount(), lastCount);
 		
 			mav.addObject("isSearch", isSearch);
-			mav.addObject("isSearch1", isSearch1);
 			mav.addObject("searchNum", searchNum);
 			mav.addObject("totalCount", totalCount);
 			mav.addObject("pagingHtml", pagingHtml);
 			mav.addObject("currentPage", currentPage);
 			mav.addObject("carpoolList", carpoolList);
-			mav.setViewName("carpoolList");
+			mav.setViewName("admincarpoolList");
 			return mav;
 		}
 		
@@ -105,18 +98,15 @@ public class CarpoolController {
 		mav.addObject("pagingHtml", pagingHtml);
 		mav.addObject("currentPage", currentPage);
 		mav.addObject("carpoolList", carpoolList);
-		mav.setViewName("carpoolList");
+		mav.setViewName("admincarpoolList");
 		return mav;
 	}
 	
 			//īǮ �۾��� ��
 			@RequestMapping(value="/write.do", method=RequestMethod.GET)
-			public ModelAndView carpoolForm(HttpServletRequest request, HttpSession session) {
+			public ModelAndView carpoolForm(HttpServletRequest request) {
 				
 				ModelAndView mav = new ModelAndView();
-				MemberModel mem = (MemberModel) session.getAttribute("session_mem");
-				String phone =  mem.getPhone();
-				mav.addObject("phone", phone);
 				mav.addObject("carpoolModel", new CarpoolModel());
 				mav.setViewName("carpoolForm");
 				return mav;
@@ -129,8 +119,8 @@ public class CarpoolController {
 				System.out.println(carpoolModel.getSubject());
 				ModelAndView mav = new ModelAndView();
 				
-				new CarpoolValidator().validate(carpoolModel, result);
-								
+				
+				
 				if(result.hasErrors()) {
 					mav.setViewName("carpoolForm");
 					return mav;
@@ -154,13 +144,13 @@ public class CarpoolController {
 				ModelAndView mav = new ModelAndView();
 				
 				int no = Integer.parseInt(request.getParameter("no"));
-
+				
 				CarpoolModel carpoolModel = carpoolService.carpoolView(no);
 				
 				carpoolService.carpoolUpdateReadcount(no);
+				
 				mav.addObject("currentPage", currentPage);
 				mav.addObject("carpoolModel", carpoolModel);
-				mav.addObject("count", count);
 				mav.setViewName("carpoolView");
 				
 				return mav;
@@ -210,28 +200,85 @@ public class CarpoolController {
 				return mav;	
 			}
 			
-			//īǮ ����
-			@RequestMapping("/attend.do")
-			public ModelAndView Attend(@ModelAttribute("attendModel") AttendModel attendModel, HttpServletRequest request){
+
+			
+			@RequestMapping(value="/attendlist.do", method=RequestMethod.GET)
+			public ModelAndView carpoolattendList(HttpServletRequest request) throws UnsupportedEncodingException
+			{ 
+			ModelAndView mav = new ModelAndView();
+				
+				if(request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty() || request.getParameter("currentPage").equals("0")) {
+		            currentPage = 1;
+		        } else {
+		            currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		        }
+
+				List<AttendModel> attendList;
+				
+				
+				String isSearch = request.getParameter("isSearch");
+				if(isSearch != null) isSearch = new String(isSearch.getBytes("8859_1"), "UTF-8");
+				
+				
+				if(isSearch != null)
+				{
+					searchNum = Integer.parseInt(request.getParameter("searchNum"));
+					attendList = carpoolService.carpoolSearch2(isSearch);
+				
+					totalCount = attendList.size();
+					page = new Paging(currentPage, totalCount, blockCount, blockPage, "adminattendList", searchNum, isSearch);
+					pagingHtml = page.getPagingHtml().toString();
+				
+					int lastCount = totalCount;
+				
+					if(page.getEndCount() < totalCount)
+						lastCount = page.getEndCount() + 1;
+					
+					attendList = attendList.subList(page.getStartCount(), lastCount);
+				
+					mav.addObject("isSearch", isSearch);
+					mav.addObject("searchNum", searchNum);
+					mav.addObject("totalCount", totalCount);
+					mav.addObject("pagingHtml", pagingHtml);
+					mav.addObject("currentPage", currentPage);
+					mav.addObject("attendList", attendList);
+					mav.setViewName("adminattendList");
+					return mav;
+				}
+				
+				attendList = carpoolService.carpoolattendList();
+				
+				totalCount = attendList.size();
+				
+				page = new Paging(currentPage, totalCount, blockCount, blockPage, "adminattendList");
+				pagingHtml=page.getPagingHtml().toString();  
+				
+				int lastCount = totalCount;
+				 
+				if (page.getEndCount() < totalCount)
+					lastCount = page.getEndCount() + 1;
+				 
+				attendList = attendList.subList(page.getStartCount(), lastCount);
+				
+				mav.addObject("totalCount", totalCount);
+				mav.addObject("pagingHtml", pagingHtml);
+				mav.addObject("currentPage", currentPage);
+				mav.addObject("attendList", attendList);
+				mav.setViewName("adminattendList");
+				return mav;
+			}
+			
+			@RequestMapping("/attenddelete.do")
+			public ModelAndView AttendDelete(HttpServletRequest request){
 				
 				ModelAndView mav = new ModelAndView();
 				int no = Integer.parseInt(request.getParameter("no"));
-				HttpSession session = request.getSession();
-				String email = (String) session.getAttribute("session_email");
-
-				count = carpoolService.attendOverlap(no,email);
-				System.out.println(count);
+				String email = request.getParameter("email");
+				carpoolService.carpoolAttendDelete(email, no);
+				carpoolService.carpoolAttendDecrease(no);
+				mav.setViewName("redirect:attendlist.do");
 				
-				if(count == 0)
-				{
-					 count =1;
-				carpoolService.carpoolAttendIncrease(no);	
-				carpoolService.attendWrite(no,email);
-				}
-				
-				mav.setViewName("redirect:detail.do?no="+no+"&currentPage="+currentPage);
-				return mav;
-				
+				return mav;	
 			}
 
 }
