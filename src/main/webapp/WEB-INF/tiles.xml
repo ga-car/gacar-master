@@ -272,7 +272,7 @@
 		<put-attribute name="body" value="/WEB-INF/views/carpool/carpoolModify.jsp" />
 	</definition>
 	
-	<definition name="admincarpoolList" extends="main">
+	<definition name="admincarpoolList" extends="adminMain">
 		<put-attribute name="body" value="/WEB-INF/views/admin/carpool/carpooladminList.jsp" />
 	</definition>
 
