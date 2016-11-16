@@ -15,12 +15,12 @@
 		<!-- // header -->
 	</div>
 	<!-- container -->
-	<div id="containerRight"
-		style="background: #FFDDDD; height: 750px; width: 20%; float: left; margin: 0 0 10px 0;">
+	<div id="containerLeft"
+		style="background: #FFDDDD; height: 750px; width: 20%; float: left; margin: 0 0 10px 0; overflow:scroll;">
 		<tiles:insertAttribute name="bodyLeft" />
 		<!-- // container -->
 	</div>
-	<div id="containerLeft"
+	<div id="containerRight"
 		style="background: #FFCCCC; height: 750px; width: 60%; float: left; margin: 0 0 10px 0;">
 		<tiles:insertAttribute name="bodyRight" />
 		<!-- // container -->
