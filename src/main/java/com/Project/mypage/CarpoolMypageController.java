@@ -29,6 +29,7 @@ public class CarpoolMypageController {
 	private CarpoolService carpoolService;
 	private int searchNum;
 	private String isSearch;
+	private String isSearch1;
 	
 	private int currentPage = 1;	 
 	private int totalCount; 		 
@@ -39,7 +40,7 @@ public class CarpoolMypageController {
 	private int count=0;
 	
 	@RequestMapping(value="/list.do", method=RequestMethod.GET)
-	public ModelAndView carpoolMypageList(HttpServletRequest request) throws UnsupportedEncodingException
+	public ModelAndView carpoolList(HttpServletRequest request) throws UnsupportedEncodingException
 	{ 
 	ModelAndView mav = new ModelAndView();
 		
@@ -53,14 +54,16 @@ public class CarpoolMypageController {
 		
 		
 		String isSearch = request.getParameter("isSearch");
+		String isSearch1 = request.getParameter("isSearch1");
 		if(isSearch != null) isSearch = new String(isSearch.getBytes("8859_1"), "UTF-8");
-		
+		if(isSearch1 != null) isSearch1 = new String(isSearch1.getBytes("8859_1"), "UTF-8");
+		System.out.println(isSearch1);
+		/*System.out.println(isSearch);*/
 		
 		if(isSearch != null)
 		{
 			searchNum = Integer.parseInt(request.getParameter("searchNum"));
-			carpoolList = carpoolService.carpoolSearch0(isSearch);
-
+			carpoolList = carpoolService.carpoolSearch0(isSearch, isSearch1);		
 			totalCount = carpoolList.size();
 			page = new Paging(currentPage, totalCount, blockCount, blockPage, "list", searchNum, isSearch);
 			pagingHtml = page.getPagingHtml().toString();
@@ -73,6 +76,7 @@ public class CarpoolMypageController {
 			carpoolList = carpoolList.subList(page.getStartCount(), lastCount);
 		
 			mav.addObject("isSearch", isSearch);
+			mav.addObject("isSearch1", isSearch1);
 			mav.addObject("searchNum", searchNum);
 			mav.addObject("totalCount", totalCount);
 			mav.addObject("pagingHtml", pagingHtml);
@@ -84,6 +88,7 @@ public class CarpoolMypageController {
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("session_email");
 		carpoolList = carpoolService.carpoolmypageList(email);
+		
 		
 		totalCount = carpoolList.size();
 		

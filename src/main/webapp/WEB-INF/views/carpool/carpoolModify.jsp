@@ -17,11 +17,11 @@
 }
 </style>
 <body>
-<form:form commandName="carpoolModel" action="write.do" method="post">
+<form:form commandName="carpoolModel" action="/rentacar/carpool/modifySuccess.do" method="post">
       <div id="page-wrapper">
          <div class="row">
             <div class="col-lg-12">
-				<h3 class="page-header">CARPOOL 글쓰기</h3>
+				<h3 class="page-header">CARPOOL 글수정</h3>
 				<table class="table table-striped table-bordered table-hover"  id="dataTables-example">
 					<thead>
 						<tr class="danger" >
@@ -34,12 +34,13 @@
 					</thead>
 					<tbody>
 						<tr><!-- 사용자 -->
-							<th>사용자 ID</th>
+							<th>글쓴이</th>
 							<td>
 								<strong>
-									<%-- ${session_member_name} --%>
-									<input type="text" name="name" value="${carpoolModel.name }"/>
-								</strong>
+									 ${session_name} 
+									<input type="hidden" name="name" value="${session_name }"/>
+								<input type="hidden" name="phone" value="${phone}"/>
+								<input type="hidden" name="email" value="${session_email}"/>
 							</td>
 							<th>출발일시</th>
 							<td><input type="text" name="startdate" value="" id="datetimepicker"/></td>	
@@ -59,7 +60,7 @@
 						</tr>
 						<tr>
 							<th>차내흡연</th>
-							<td><input type="text" name="smoke" id="smoke" value="" /></td>
+							<td><input type="text" name="smoke" id="smoke" value="${carpoolModel.smoke }" /></td>
 							<th>보험</th>
 							<td><select name="insure" id="insure">
     							<option value="대인배상Ⅰ">대인배상Ⅰ</option> 
