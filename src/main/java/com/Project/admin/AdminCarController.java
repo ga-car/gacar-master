@@ -34,7 +34,7 @@ public class AdminCarController {
 	private AdminService adminService;
 
 	ModelAndView mav = new ModelAndView();
-	String uploadPath = "F:\\project\\gacar-master\\src\\main\\webapp\\resources\\carUpload";
+	String uploadPath = "C:\\Users\\HK\\Documents\\car";
 
 	private int currentPage = 1;
 	private int totalCount;
