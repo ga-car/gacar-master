@@ -13,7 +13,7 @@
 	bottom: 0;
 	width: 350px;
 	height: 25px;
-	margin: 10px 0 30px 17%;
+	margin: 10px 0 30px 37%;
 	padding: 5px;
 	overflow-y: auto;
 	background: rgba(255, 255, 255, 0.7);
