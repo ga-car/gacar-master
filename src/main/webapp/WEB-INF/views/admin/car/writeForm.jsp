@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,12 +14,19 @@
 	function check() {
 
 		var f = document.writeFrom; //문서.Form name="";
-
 		if (f.car_no.value == "") {
 			alert("차량번호를 입력해주세요.");
 			f.car_no.focus();
 			return false;
 		}
+		<c:forEach var="rentacarList" items="${rentacarList}"
+			varStatus="stat">
+		if (f.car_no.value == "${rentacarList.car_no}") {
+			alert("이미 등록된 차량입니다.");
+			f.car_no.focus();
+			return false;
+		}
+		</c:forEach>
 		if (f.car_type.value == "") {
 			alert("차종를 입력해주세요.");
 			f.car_type.focus();

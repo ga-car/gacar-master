@@ -100,7 +100,8 @@ function delchk(){
 							<div style="text-align:center;">
 								<div id="dataTables-example_filter" class="dataTables_filter">
 									<form action="">
-										<input class="form-control" type="text" name="isSearch" id="isSearch" value="2"/>
+									<input class="form-control" type="hidden" name="searchNum" id="searchNum" value="2" />
+										<input class="form-control" type="text" name="isSearch" id="isSearch" />
 										<span>
 										<button type="submit" class="btn btn-default">신청자 검색</button>
 										</span>

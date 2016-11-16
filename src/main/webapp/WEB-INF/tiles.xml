@@ -23,9 +23,9 @@
 	</definition>
 
 	<definition name="carReserveForm" extends="carListForm">
-		<put-attribute name="bodyLeft" value="/WEB-INF/views/car/reserveForm.jsp" />
-		<put-attribute name="bodyRight"
-			value="/WEB-INF/views/car/reserveRight.jsp" />
+		<put-attribute name="bodyLeft"
+			value="/WEB-INF/views/car/reserveLeft.jsp" />
+		<put-attribute name="bodyRight" value="/WEB-INF/views/car/reserveForm.jsp" />
 	</definition>
 
 	<!-- 차량 관리자 -->

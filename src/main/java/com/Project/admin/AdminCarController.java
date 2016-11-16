@@ -86,6 +86,9 @@ public class AdminCarController {
 	public ModelAndView insertRentacarform() {
 		/* return "admin/car/writeForm"; */
 		ModelAndView mav = new ModelAndView();
+		List<RentacarModel> rentacarList;
+		rentacarList = adminService.rentacarAdminList();
+		mav.addObject("rentacarList", rentacarList);
 		mav.setViewName("AdmincarWriteForm");
 		return mav;
 	}
