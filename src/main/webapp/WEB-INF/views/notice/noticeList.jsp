@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
 <script
@@ -55,7 +55,7 @@ tbody>tr:HOVER {
 #page-wrapper {
 	margin: auto;
 }
-</style>
+</style> -->
 </head>
 <body>
 	<div class="category_top">
