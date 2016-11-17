@@ -24,7 +24,7 @@
 				<tr></tr>
 			</table>
 			<table
-				onClick="location.href='/rentacar/car/reserve.do?car_no=${rentacarLatlng.car_no}'"
+				onClick="location.replace='/rentacar/car/reserve.do?car_no=${rentacarLatlng.car_no}'"
 				style="cursor: pointer;">
 				<tr></tr>
 				<tr>
