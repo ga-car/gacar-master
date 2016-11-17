@@ -62,7 +62,7 @@
 			</tr>
 			<tr id="Radio_On" style="display: '';">
 				<td align="left" class="input_text">보험료</td>
-				<td>하루 7000원</td>
+				<td>하루 ${premium }원</td>
 			</tr>
 			<tr>
 				<td>자동차 대여표준약관</td>
