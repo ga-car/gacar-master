@@ -12,7 +12,9 @@
 	<form enctype="multipart/form-data" method="post">
 		<table>
 			<tr>
-				<td>차량정보</td>
+				<td>브랜드</td>
+				<td>차종</td>
+				<td>차량명</td>
 				<td>대여일</td>
 				<td>반납일</td>
 				<td>대여위치</td>
@@ -25,7 +27,9 @@
 					<td><c:forEach var="rentacarList" items="${rentacarList}"
 							varStatus="stat">
 							<c:if test="${reserveList.reserve_car_no == rentacarList.car_no}">
-								${rentacarList.car_brand}&nbsp;${rentacarList.car_type}&nbsp;${rentacarList.car_name}
+								<td>${rentacarList.car_brand}</td>
+								<td>${rentacarList.car_type}</td>
+								<td>${rentacarList.car_name}</td>
 							</c:if>
 						</c:forEach> (${reserveList.reserve_car_no})</td>
 					<td>${reserveList.reserve_sdate}</td>
