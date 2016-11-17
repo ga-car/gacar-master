@@ -111,10 +111,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE subject like #{search}
 		ORDER BY no DESC
 	</select>
+	
+	<!-- 관리자 제목 검색 -->
+	<select id="carpoolSearch3" resultMap="carpoolModelRes" parameterType="String">
+		SELECT * FROM carpool
+		WHERE name like #{search}
+		ORDER BY no DESC
+	</select>
 
 	<!-- 신청자검색 -->
 	<select id="carpoolSearch2" resultMap="attendModelRes" parameterType="String">
-		SELECT no, email, name, phone, subject, content FROM ATTEND
+		SELECT no, email, name, phone, apemail, apname, apphone FROM ATTEND
 		WHERE name like #{search}
 		ORDER BY no DESC
 	</select>
