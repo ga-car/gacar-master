@@ -213,8 +213,7 @@ tbody>tr:HOVER {
 
 		<!-- 본인 -->
 									
-										 <c:if test="${session_email == list.email && list.email != 'admin'}">         
-									
+								
 											<tr>
 												<!-- 글번호 -->
 												<td align="center">${list.no}</td>
@@ -243,12 +242,16 @@ tbody>tr:HOVER {
 												<td align="center">${list.readcount}</td>
 											</tr>
 
-										</c:if>
+									
 
 									</c:forEach>
+									
+								
 							</tbody>
 						</table>
+							
 					</div>
+					<div class="paging" " style="text-align: center;" >${pagingHtml}</div>
 				</div>
 			</div>
 		</div>

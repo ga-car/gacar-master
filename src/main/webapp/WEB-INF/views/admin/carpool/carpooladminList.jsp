@@ -63,35 +63,31 @@ function delchk(){
 									</tr>
 								</thead>
 								<tbody>
-								<c:forEach var="noticeList"  items="${noticeList}" varStatus="stat">	
+								<c:forEach var="carpoolList"  items="${carpoolList}" varStatus="stat">	
 								
 								<c:url var="viewURL" value="detail.do">
-											<c:param name="no" value="${noticeList.no }" />
+											<c:param name="no" value="${carpoolList.no }" />
 											<c:param name="currentPage" value="${currentPage }" />
 									</c:url>
 																		
 									<tr class="gradeA even" role="row">
-										<td style="text-align:center;vertical-align:middle;">${noticeList.no}</td>
-										<td style="text-align:center;vertical-align:middle;"><a href="${viewURL}">${noticeList.subject}</a></td>
-										<td style="text-align:center;vertical-align:middle;">${noticeList.name}</td>
-										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${noticeList.regdate}" pattern="YY.MM.dd HH:mm" /></td>
-										<td style="text-align:center;vertical-align:middle;">${noticeList.readcount}</td>									
+										<td style="text-align:center;vertical-align:middle;">${carpoolList.no}</td>
+										<td ><a href="${viewURL}">${carpoolList.subject}</a>
+										${carpoolList.saddr} -> ${carpoolList.eaddr}
+										</td>
+										<td style="text-align:center;vertical-align:middle;">${carpoolList.name}</td>
+										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${carpoolList.regdate}" pattern="YY.MM.dd HH:mm" /></td>
+										<td style="text-align:center;vertical-align:middle;">${carpoolList.readcount}</td>									
 										<td style="text-align:center;vertical-align:middle;">									
 										<c:url var="viewURL2" value="delete.do" >
-											<c:param name="no" value="${noticeList.no }" />							
+											<c:param name="no" value="${carpoolList.no }" />							
 										</c:url>	
 										 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a></td>									
 									</tr>
 								</c:forEach>
-								
-								 <c:url var="viewURL3" value="write.do" >
-											<%-- <c:param name="no" value="${notifyModel.no }" />	 --%>						
-										</c:url>	 
-										 <a href="${viewURL3}"> <input type="button" value="글쓰기"></a>
-								
-								
+																
 								<!--  등록된 상품이 없을때 -->
-									<c:if test="${fn:length(noticeList) le 0}">
+									<c:if test="${fn:length(carpoolList) le 0}">
 										<tr><td colspan="9" style="text-align:center;">등록된 게시물이 없습니다</td></tr>
 									</c:if> 
 								</tbody>

@@ -7,6 +7,7 @@ public interface qnaDao {
 
 		//글목록
 		List<qnaModel> qnaList();
+		public List<qnaModel> qnaList(String email);
 		
 		//글쓰기
 		int qnaWrite(qnaModel qnaModel);
@@ -50,9 +51,11 @@ public interface qnaDao {
 		List<qnaModel> qnaSearch2(String search);
 		
 		//답변유무 검색(1=답변완료, 2=답변전)
+		List<qnaModel> qnaReply1(String email);
+		List<qnaModel> qnaReply2(String email);
+
 		List<qnaModel> qnaReply1();
 		List<qnaModel> qnaReply2();
-	
 		//관리자 댓글 +1
 		int AdminUpdateReply(int no);
 		

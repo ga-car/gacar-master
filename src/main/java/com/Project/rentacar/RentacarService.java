@@ -20,7 +20,7 @@ public class RentacarService implements RentacarDao {
 
 	@Override
 	public List<RentacarModel> rentacarLatLng(RentacarModel rentacarModel) {
-		return sqlSessionTemplate.selectList("rentacar.rentacarSearchList", rentacarModel);
+		return sqlSessionTemplate.selectList("rentacar.rentacarLatLngSearchList", rentacarModel);
 	}
 
 	@Override
@@ -34,8 +34,24 @@ public class RentacarService implements RentacarDao {
 	}
 
 	@Override
+	public List<ReserveModel> reserveCarList(String car_no) {
+		return sqlSessionTemplate.selectList("reserve.reserveCarList", car_no);
+	}
+
+	@Override
 	public List<ReserveModel> reserveList(Object reserve_mem_no) {
 		return sqlSessionTemplate.selectList("reserve.reserveList", reserve_mem_no);
+	}
+
+	@Override
+	public int reserveDelete(ReserveModel reserveModel) {
+		return sqlSessionTemplate.update("reserve.reserveDelete", reserveModel);
+
+	}
+
+	@Override
+	public List<RentacarModel> rentacarSearchList(String car_addr) {
+		return sqlSessionTemplate.selectList("rentacar.rentacarAddrSearchList", "%" + car_addr + "%");
 	}
 
 }

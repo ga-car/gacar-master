@@ -25,31 +25,45 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="insure" column="insure" />
 		<result property="pnum1" column="pnum1" />
 		<result property="pnum2" column="pnum2" />
+		<result property="phone" column="phone" />
+		<result property="email" column="email" />
 	</resultMap>
+	
+	<resultMap type="attendModel" id="attendModelRes">
+		<result property="email" column="email" />		
+		<result property="name" column="name" />
+		<result property="phone" column="phone" />
+		<result property="apemail" column="apemail" />		
+		<result property="apname" column="apname" />
+		<result property="apphone" column="apphone" />
+		<result property="subject" column="subject" />		
+		<result property="content" column="content" />
+		<result property="no" column="no" />
+	</resultMap>	
 	
 	<!-- 글목록 -->
 	<select id="carpoolList" resultMap="carpoolModelRes">
-			SELECT * FROM TEST 
+			SELECT * FROM CARPOOL 
 			ORDER BY no DESC
 	</select>
 	
 	<insert id="carpoolWrite" parameterType="Integer">
-			INSERT INTO TEST
+			INSERT INTO CARPOOL
 			(NO, SUBJECT, CONTENT, REGDATE, NAME, SLAT, SLNG, ELAT, ELNG, SADDR, EADDR, STARTDATE, GOAL
-			 , SMOKE, INSURE, PNUM1, PNUM2 )
+			 , TERM, CHARGE, SMOKE, INSURE, PNUM1, PNUM2, PHONE, EMAIL )
 			VALUES
-			(TEST_SEQ.NEXTVAL, #{subject}, #{content}, SYSDATE, #{name}, #{slat}, #{slng}, #{elat}, #{elng}, #{saddr}, #{eaddr}, #{startdate}, #{goal}
-			, #{smoke}, #{insure}, '0', #{pnum2} )
+			(CARPOOL_SEQ.NEXTVAL, #{subject}, #{content}, SYSDATE, #{name}, #{slat}, #{slng}, #{elat}, #{elng}, #{saddr}, #{eaddr}, #{startdate}, #{goal}
+			, #{term}, #{charge}, #{smoke}, #{insure}, '0', #{pnum2} , #{phone}, #{email} )
 	</insert>
 	
 	<select id="carpoolView" resultMap="carpoolModelRes" parameterType="Integer">
-			SELECT * FROM TEST 
+			SELECT * FROM CARPOOL 
 			WHERE NO = #{no}
 	</select>
 	
 	<!-- 조회수 -->
 	<update id="carpoolUpdateReadcount" parameterType="Integer">
-			UPDATE TEST
+			UPDATE CARPOOL
 			SET
 				READCOUNT = READCOUNT + 1
 			WHERE
@@ -57,7 +71,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	<!-- 수정 -->
 	<update id="carpoolModify" parameterType="carpoolModel">
-			UPDATE TEST
+			UPDATE CARPOOL
 			SET
 				<!-- NAME = #{name}, -->
 				SUBJECT = #{subject},
@@ -68,37 +82,111 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 글삭제 -->
 	<delete id="carpoolDelete" parameterType="Integer">
-			DELETE FROM TEST WHERE NO=#{no}
+			DELETE FROM CARPOOL WHERE NO=#{no}
 	</delete>
 
 	<!-- 제목검색 -->
 	<select id="carpoolSearch0" resultMap="carpoolModelRes" parameterType="String">
-		SELECT * FROM TEST
-		 WHERE saddr like #{search} or eaddr like #{search}
+		SELECT * FROM CARPOOL
+		 WHERE saddr like #{search}
 		 ORDER BY no DESC
 	</select>
 	
-	<!-- 내용검색 -->
+	<!-- 참가 내역 검색 -->
 	<select id="carpoolSearch1" resultMap="carpoolModelRes" parameterType="String">
-		SELECT * FROM TEST
-		WHERE content like #{search}
-		ORDER BY no DESC
-	</select>
-
-	<!-- 작성자검색 -->
-	<select id="carpoolSearch2" resultMap="carpoolModelRes" parameterType="String">
-		SELECT * FROM TEST
+		SELECT * FROM carpool
 		WHERE name like #{search}
 		ORDER BY no DESC
 	</select>
+
+	<!-- 신청자검색 -->
+	<select id="carpoolSearch2" resultMap="attendModelRes" parameterType="String">
+		SELECT * FROM attend
+		WHERE apname like #{search}
+		ORDER BY no DESC
+	</select>
 	
-	<!-- 참가 -->
-	<update id="carpoolUpdateAttend" parameterType="Integer">
-			UPDATE TEST
+	<!-- 참가수 증가 -->
+	<update id="carpoolAttendIncrease" parameterType="Integer">
+			UPDATE CARPOOL
 			SET
 				PNUM1 = PNUM1 + 1
 			WHERE
 				NO = #{no}	
 	</update>
+	
+		<!-- 참가수 감소 -->
+	<update id="carpoolAttendDecrease" parameterType="Integer">
+			UPDATE CARPOOL
+			SET
+				PNUM1 = PNUM1 - 1
+			WHERE
+				NO = #{no}	
+	</update>
+	
+	<!-- 참가자 입력 -->
+	<insert id="attendWrite" parameterType="Integer">
+			insert into ATTEND(
+			select m.email, m.name, m.phone, t.email, t.name, t.phone, t.subject, t.content, t.no
+			from member_c m inner join carpool t on m.name != t.name
+			where t.no=#{no} and m.email=#{email}) 
+	</insert>
+	
+	<!-- 참가 중복 검사 -->
+	<select id="attendOverlap" resultMap="attendModelRes" parameterType="attendModel">
+	SELECT email, no
+			FROM ATTEND
+			where email=#{email} and no=#{no}
+			
+	</select>
+	
+	<!-- 참가 내역 -->
+	<select id="carpoolAttendList" resultMap="attendModelRes">
+			SELECT * FROM ATTEND
+			ORDER BY no DESC 
+	</select>
+	
+	<!-- 카풀 글쓰기 마이 페이지 -->
+	<select id="carpoolmypageList" resultMap="carpoolModelRes" parameterType="String">
+			SELECT * FROM CARPOOL 
+			where email = #{email}
+			ORDER BY no DESC
+	</select>
+	
+	<!-- 카풀 참가 마이 페이지 -->
+	<select id="carpoolmypageattnedList" resultMap="carpoolModelRes" parameterType="String">
+			SELECT no, name, subject, saddr, eaddr, content, phone FROM carpool
+			 where no in
+			(SELECT no FROM ATTEND
+			where email = #{email}) 
+			ORDER BY no DESC
+			
+	</select>
+	
+	<!-- 카풀 신청 마이 페이지 -->
+	<select id="carpoolmypageapplyList" resultMap="attendModelRes" parameterType="String">
+			SELECT no, email, name, phone, subject, content FROM ATTEND
+			where no in (SELECT NO FROM CARPOOL
+			where email = #{email})
+			ORDER BY no DESC
+	</select>
+	
+		<!-- 참가삭제 -->
+	<delete id="carpoolAttendDelete" parameterType="attendModel">
+			DELETE FROM ATTEND WHERE apemail=#{email} and no = #{no}
+	</delete>
+	
+			<!-- 신청자삭제 -->
+	<delete id="carpoolApplyDelete" parameterType="attendModel">
+			DELETE FROM ATTEND WHERE email=#{email} and no=#{no}
+	</delete>
+	
+	<!-- 카풀 신청 마이 페이지 -->
+	<select id="getNo" resultMap="attendModelRes" parameterType="Integer">
+			SELECT NO FROM CARPOOL
+			where NO = #{no}
+			ORDER BY no DESC			
+	</select>
+	
 	
 </mapper>

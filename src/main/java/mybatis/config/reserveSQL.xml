@@ -18,6 +18,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="reserve_insure" column="reserve_insure" />
 		<result property="reserve_cancel" column="reserve_cancel" />
 	</resultMap>
+	<update id="reserveAdminDelete" parameterType="int">
+		UPDATE reserve SET
+		reserve_cancel = 'true'
+		WHERE
+		reserve_no = #{reserve_no}
+	</update>
 	<insert id="insertReserve" parameterType="reserveModel">
 		insert into reserve
 		(reserve_no, reserve_car_no, reserve_mem_no, reserve_sdate,
@@ -35,10 +41,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		reserve_mem_no = #{reserve_mem_no}
 		order by reserve_rdate desc
 	</select>
+	
+	<select id="reserveCarList" resultMap="reserveModelRes">
+		select * from reserve where
+		reserve_car_no = #{car_no}
+		order by reserve_rdate desc
+	</select>
 	<select id="reserveAdminList" resultMap="reserveModelRes">
 		select * from reserve
 		order by reserve_rdate desc
 	</select>
+
+	<select id="reserveAdminOne" parameterType="int" resultMap="reserveModelRes">
+		select * from reserve where reserve_no = #{reserve_no}
+		order by
+		reserve_rdate desc
+	</select>
+
+	<update id="reserveDelete" parameterType="int">
+		UPDATE reserve SET
+		reserve_cancel = 'true'
+		WHERE
+		reserve_no = #{reserve_no} and
+		reserve_mem_no = #{reserve_mem_no}
+	</update>
 </mapper>
 <!-- create table reserve( reserve_no number NOT NULL PRIMARY KEY, reserve_car_no 
 	varchar2(25) NOT NULL, reserve_mem_no number NOT NULL, reserve_sdate varchar2(20) 
