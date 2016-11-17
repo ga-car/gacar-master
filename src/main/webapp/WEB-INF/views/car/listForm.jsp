@@ -5,14 +5,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 #menu_wrap {
 	position: absolute;
 	top: 0;
 	left: 0;
 	bottom: 0;
-	width: 350px;
-	height: 25px;
+	width: 600px;
+	height: 65px;
 	margin: 10px 0 30px 37%;
 	padding: 5px;
 	overflow-y: auto;
@@ -74,7 +75,8 @@
 		<div class="option">
 			<div>
 				<form onsubmit="searchPlaces(); return false;">
-					<select name="car_addr" id="car_addr" onChange="javascript:selectEvent(this);">
+					<select name="car_addr" id="car_addr"
+						onChange="javascript:selectEvent(this);">
 						<option value="" selected="selected">지역</option>
 						<option value="강남구">강남구</option>
 						<option value="강동구">강동구</option>
@@ -103,7 +105,6 @@
 						<option value="중랑구">중랑구</option>
 					</select> 키워드 : <input type="text" value="" id="keyword" size="15">
 					<button type="submit">검색하기</button>
-
 				</form>
 			</div>
 		</div>

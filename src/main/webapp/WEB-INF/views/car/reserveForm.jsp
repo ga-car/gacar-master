@@ -38,7 +38,6 @@
 	}
 </script>
 </head>
-
 <body>
 	<table>
 		<tr>
@@ -62,8 +61,6 @@
 
 				</c:otherwise>
 			</c:choose>
-
-
 		</tr>
 		<c:choose>
 			<c:when test="${Day == null}">
