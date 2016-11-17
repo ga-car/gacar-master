@@ -53,7 +53,6 @@
 				map.setBounds(bounds);
 			}
 		}
-
 	}
 	function selectEvent(selectObj) {
 		if (selectObj.value != "") {

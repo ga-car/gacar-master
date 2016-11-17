@@ -13,13 +13,12 @@
 		open(
 				url,
 				"예약일정변경",
-				"toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
+				"toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=1000, height=400");
 	}
 </script>
 </head>
 <body>
 	<form>
-		<input type="hidden" />
 		<table>
 			<tr>
 				<td colspan="2" align="right">예약내역</td>
