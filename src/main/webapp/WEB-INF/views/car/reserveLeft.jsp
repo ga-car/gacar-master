@@ -22,7 +22,7 @@
 	function Cancel() {
 		var car_lat = "${rentacarOne.car_lat}";
 		var car_lng = "${rentacarOne.car_lng}";
-		javascript: location.href = "/rentacar/car/list.do?car_lat=" + car_lat
+		javascript: location.replace = "/rentacar/car/list.do?car_lat=" + car_lat
 				+ "&car_lng=" + car_lng;
 	}
 	function carclause() {

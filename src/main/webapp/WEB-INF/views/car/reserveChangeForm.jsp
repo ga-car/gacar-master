@@ -263,7 +263,7 @@
 			return false;
 		}
 		</c:forEach>
-		opener.location.href = "/rentacar/car/reserve.do?car_no=" + no
+		opener.location.replace = "/rentacar/car/reserve.do?car_no=" + no
 				+ "&car_dt1=" + car_dt1 + "&car_dt2=" + car_dt2;
 		window.close();
 	}
