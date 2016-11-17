@@ -58,6 +58,11 @@ public class AdminCarpoolController {
 		{
 			searchNum = Integer.parseInt(request.getParameter("searchNum"));
 			carpoolList = carpoolService.carpoolSearch1(isSearch);
+			
+			if(searchNum==0)
+				carpoolList = carpoolService.carpoolSearch1(isSearch);
+			else if(searchNum==1)
+				carpoolList = carpoolService.carpoolSearch3(isSearch);
 		
 			totalCount = carpoolList.size();
 			page = new Paging(currentPage, totalCount, blockCount, blockPage, "list", searchNum, isSearch);

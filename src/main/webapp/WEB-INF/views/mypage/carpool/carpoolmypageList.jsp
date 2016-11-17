@@ -103,8 +103,10 @@ tbody>tr:HOVER {
 								<thead>
 									<tr class="danger">
 										<th width="10%">글번호</th>
-										<th width="40%">제목</th>
-										<th width="20%">작성자</th>
+										<th width="10%">제목</th>
+										<th width="20%">출발지</th>
+										<th width="20%">도착지</th>
+										<th width="10%">작성자</th>
 										<th width="20%">작성일</th>
 										<th width="10%">조회수</th>
 									</tr>
@@ -119,8 +121,8 @@ tbody>tr:HOVER {
 										<tr>
 											<td>${list.no}</td>
 											<td style="text-align: left;"><a href="${viewURL}">${list.subject}</a>
-											${list.saddr} -> ${list.eaddr}
-											</td>
+											<td style="text-align: left;">${list.saddr}</td>
+											<td style="text-align: left;">${list.eaddr}</td>
 											<td>${list.name}</td>
 											<td><fmt:formatDate value="${list.regdate}"
 													pattern="yyyy.MM.dd" /></td>

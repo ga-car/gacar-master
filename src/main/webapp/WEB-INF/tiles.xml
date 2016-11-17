@@ -23,8 +23,7 @@
 	</definition>
 
 	<definition name="carReserveForm" extends="carListForm">
-		<put-attribute name="bodyLeft"
-			value="/WEB-INF/views/car/reserveLeft.jsp" />
+		<put-attribute name="bodyLeft" value="/WEB-INF/views/car/reserveLeft.jsp" />
 		<put-attribute name="bodyRight" value="/WEB-INF/views/car/reserveForm.jsp" />
 	</definition>
 
@@ -33,7 +32,10 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/car/writeForm.jsp" />
 	</definition>
-
+	<definition name="AdmincarModifyForm" extends="adminMain">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/car/modifyForm.jsp" />
+	</definition>
 	<definition name="AdmincarListForm" extends="adminMain">
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/car/listForm.jsp" />
