@@ -11,22 +11,10 @@
 <script type="text/javascript"
 	src="//apis.daum.net/maps/maps3.js?apikey=079b4daabc5db4153ba00f0a15d911f0&libraries=services"></script>
 <script type="text/javascript">
+
 	function check() {
 
-		var f = document.writeFrom; //문서.Form name="";
-		if (f.car_no.value == "") {
-			alert("차량번호를 입력해주세요.");
-			f.car_no.focus();
-			return false;
-		}
-		<c:forEach var="rentacarList" items="${rentacarList}"
-			varStatus="stat">
-		if (f.car_no.value == "${rentacarList.car_no}") {
-			alert("이미 등록된 차량입니다.");
-			f.car_no.focus();
-			return false;
-		}
-		</c:forEach>
+		var f = document.modifyFrom; //문서.Form name="";
 		if (f.car_type.value == "") {
 			alert("차종를 입력해주세요.");
 			f.car_type.focus();
@@ -52,11 +40,6 @@
 			f.car_addr2.focus();
 			return false;
 		}
-		if (f.car_image.value == "") {
-			alert("이미지를 등록해주세요.");
-			f.car_image.focus();
-			return false;
-		}
 		if (f.car_charge.value == "") {
 			alert("요금을 입력해주세요.");
 			f.car_charge.focus();
@@ -78,22 +61,23 @@
 </script>
 </head>
 <body onLoad="focus()">
-	<form enctype="multipart/form-data" method="post" name="writeFrom"
+	<form action="modify.do" enctype="multipart/form-data" method="post" name="modifyFrom"
 		onsubmit="return check()">
 		<table>
 			<tr>
 				<td colspan="2" align="center">
-					<center>차량등록폼</center>
+					<center>차량수정폼</center>
 				</td>
 			</tr>
 			<tr>
 				<td align="right">차량번호</td>
-				<td><input type="text" name="car_no"></td>
+				<td><input type="text" name="car_no"
+					value="${rentacarModel.car_no}" readonly></td>
 			</tr>
 			<tr>
 				<td align="right">차종</td>
-				<td><select name="car_type"><option value=""
-							selected="selected"></option>
+				<td><select name="car_type"><option
+							value="${rentacarModel.car_type}" selected="selected">${rentacarModel.car_type}</option>
 						<option value="경형">경형</option>
 						<option value="소형">소형</option>
 						<option value="준중형">준중형</option>
@@ -104,16 +88,18 @@
 			</tr>
 			<tr>
 				<td align="right">브랜드</td>
-				<td><input type="text" name="car_brand"></td>
+				<td><input type="text" name="car_brand"
+					value="${rentacarModel.car_brand}"></td>
 			</tr>
 			<tr>
 				<td align="right">차량명</td>
-				<td><input type="text" name="car_name"></td>
+				<td><input type="text" name="car_name"
+					value="${rentacarModel.car_name}"></td>
 			</tr>
 			<tr>
 				<td align="right">인승</td>
-				<td><select name="car_pnum"><option value=""
-							selected="selected"></option>
+				<td><select name="car_pnum"><option
+							value="${rentacarModel.car_pnum}" selected="selected">${rentacarModel.car_pnum}</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
@@ -137,25 +123,26 @@
 			<tr>
 				<td></td>
 				<td><input type="text" size="50" id="car_addr" name="car_addr"
-					value="${rentacarModel.addr}" readonly />
+					value="${rentacarModel.car_addr}" readonly />
 			</tr>
 			<tr>
 				<td></td>
 				<td><input type="text" size="50" id="car_addr2"
-					name="car_addr2" value="${rentacarModel.addr2}" /><input
+					name="car_addr2" value="${rentacarModel.car_addr2}" /><input
 					type="hidden" name="car_lat" value="${rentacarModel.car_lat}"
 					id="car_lat" /> <input type="hidden" name="car_lng"
 					value="${rentacarModel.car_lng}" id="car_lng" /></td>
 			</tr>
 			<tr>
 				<td align="right">이미지</td>
-				<td><input type="file" name="car_image" size="30" value='' />
+				<td><input type="file" name="car_image" size="30" />
 					<p class="help-block">상품설명 이미지 입니다 1000x1000사이즈 권장</p></td>
 			</tr>
 			<tr>
 				<td align="right">요금</td>
 				<td><input type="text" name="car_charge"
-					style="ime-mode: disabled;" onkeydown="return onlyNumber(event)"></td>
+					style="ime-mode: disabled;" onkeydown="return onlyNumber(event)"
+					value="${rentacarModel.car_charge}"></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><input type="submit" value="등록" />&nbsp;&nbsp;<input

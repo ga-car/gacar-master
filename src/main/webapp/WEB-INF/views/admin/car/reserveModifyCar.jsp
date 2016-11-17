@@ -6,6 +6,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>car List</title>
+<script type="text/javascript">
+function modifyCar(){
+	opener.location.replace = "/rentacar/car/reserve.do";
+	window.close();
+}
+</script>
 </head>
 <body>
 <body>
@@ -32,7 +38,8 @@
 						id="car_lat" /> <input type="hidden" name="car_lng"
 						value="${rentacarList.car_lng}" id="car_lng" />
 					</td>
-					<td><input type="button" onclick="Modify(${rentacarList.car_no})"></td>
+					<td><input type="button"
+						onclick="modifyCar(${rentacarList.car_no})"></td>
 				</tr>
 			</c:forEach>
 			<tr>

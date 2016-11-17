@@ -29,6 +29,8 @@ public class CarpoolController {
 	private CarpoolService carpoolService;
 	private int searchNum;
 	private String isSearch;
+	private String isSearch1;
+
 	
 	private int currentPage = 1;	 
 	private int totalCount; 		 
@@ -53,13 +55,15 @@ public class CarpoolController {
 		
 		
 		String isSearch = request.getParameter("isSearch");
-		if(isSearch != null) isSearch = new String(isSearch.getBytes("8859_1"), "UTF-8");
-		
+		String isSearch1 = request.getParameter("isSearch1");
+		/*if(isSearch != null) isSearch = new String(isSearch.getBytes("8859_1"), "UTF-8");
+		if(isSearch1 != null) isSearch1 = new String(isSearch1.getBytes("8859_1"), "UTF-8");*/
 		
 		if(isSearch != null)
 		{
 			searchNum = Integer.parseInt(request.getParameter("searchNum"));
-			carpoolList = carpoolService.carpoolSearch0(isSearch);
+
+			carpoolList = carpoolService.carpoolSearch0(isSearch, isSearch1);
 		
 			totalCount = carpoolList.size();
 			page = new Paging(currentPage, totalCount, blockCount, blockPage, "list", searchNum, isSearch);
@@ -73,6 +77,7 @@ public class CarpoolController {
 			carpoolList = carpoolList.subList(page.getStartCount(), lastCount);
 		
 			mav.addObject("isSearch", isSearch);
+			mav.addObject("isSearch1", isSearch1);
 			mav.addObject("searchNum", searchNum);
 			mav.addObject("totalCount", totalCount);
 			mav.addObject("pagingHtml", pagingHtml);
@@ -149,7 +154,11 @@ public class CarpoolController {
 				ModelAndView mav = new ModelAndView();
 				
 				int no = Integer.parseInt(request.getParameter("no"));
-	
+				/*HttpSession session = request.getSession();
+				String name = (String) session.getAttribute("session_name");
+				count = carpoolService.attendOverlap(no,name);
+				System.out.println(count);*/
+				
 				CarpoolModel carpoolModel = carpoolService.carpoolView(no);
 				
 				carpoolService.carpoolUpdateReadcount(no);
@@ -215,6 +224,8 @@ public class CarpoolController {
 				String email = (String) session.getAttribute("session_email");
 			 	/*int count = carpoolService.attendOverlap(no,name);
 				System.out.println(count);*/
+				System.out.println(no);
+				System.out.println(email);
 				count = carpoolService.attendOverlap(no,email);
 				System.out.println(count);
 				
@@ -223,8 +234,13 @@ public class CarpoolController {
 					 count =1;
 				carpoolService.carpoolAttendIncrease(no);	
 				carpoolService.attendWrite(no,email);
-				}
 				
+				}
+				/*if(count == 1)
+				{	count1 = 2;
+					mav.addObject("count1", count1);
+				}*/
+			
 				mav.setViewName("redirect:detail.do?no="+no+"&currentPage="+currentPage);
 				return mav;
 				

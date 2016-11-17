@@ -27,6 +27,7 @@ public class AdminCarpoolController {
 	private CarpoolService carpoolService;
 	private int searchNum;
 	private String isSearch;
+	private String isSearch1;
 	
 	private int currentPage = 1;	 
 	private int totalCount; 		 
@@ -50,14 +51,19 @@ public class AdminCarpoolController {
 		
 		
 		String isSearch = request.getParameter("isSearch");
-		if(isSearch != null) isSearch = new String(isSearch.getBytes("8859_1"), "UTF-8");
+		/*if(isSearch != null) isSearch = new String(isSearch.getBytes("8859_1"), "UTF-8");*/
 		
 		
 		if(isSearch != null)
 		{
 			searchNum = Integer.parseInt(request.getParameter("searchNum"));
-			carpoolList = carpoolService.carpoolSearch0(isSearch);
-
+			carpoolList = carpoolService.carpoolSearch1(isSearch);
+			
+			if(searchNum==0)
+				carpoolList = carpoolService.carpoolSearch1(isSearch);
+			else if(searchNum==1)
+				carpoolList = carpoolService.carpoolSearch3(isSearch);
+		
 			totalCount = carpoolList.size();
 			page = new Paging(currentPage, totalCount, blockCount, blockPage, "list", searchNum, isSearch);
 			pagingHtml = page.getPagingHtml().toString();

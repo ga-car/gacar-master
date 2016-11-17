@@ -8,13 +8,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
-<script
+<!-- <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script> -->
+<!-- <script
 	src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
 <link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet">
-<title>Insert title here</title>
-<style type="text/css">
+ --><title>Insert title here</title>
+<!-- <style type="text/css">
 thead>tr>th {
 	text-align: center;
 }
@@ -55,7 +55,7 @@ tbody>tr:HOVER {
 #page-wrapper {
 	margin: auto;
 }
-</style>
+</style> -->
 </head>
 <body>
 	<div class="category_top">
@@ -84,6 +84,7 @@ tbody>tr:HOVER {
 						<form action="">
 						<input type="hidden" name="searchNum" id="searchNum" value="0">
 						<input class="txte" type="text" name="isSearch" id="isSearch" placeholder="출발지"  />
+						<input class="txte" type="text" name="isSearch1" id="isSearch1" placeholder="도착지" />
 						<input type="submit" value="검색"/> 
 						</form>
 					</div>
@@ -102,8 +103,10 @@ tbody>tr:HOVER {
 								<thead>
 									<tr class="danger">
 										<th width="10%">글번호</th>
-										<th width="40%">제목</th>
-										<th width="20%">작성자</th>
+										<th width="10%">제목</th>
+										<th width="20%">출발지</th>
+										<th width="20%">도착지</th>
+										<th width="10%">작성자</th>
 										<th width="20%">작성일</th>
 										<th width="10%">조회수</th>
 									</tr>
@@ -117,9 +120,9 @@ tbody>tr:HOVER {
 										</c:url>
 										<tr>
 											<td>${list.no}</td>
-											<td style="text-align: left;"><a href="${viewURL}">${list.subject}</a>
-											${list.saddr} -> ${list.eaddr}
-											</td>
+											<td style="text-align: left;"><a href="${viewURL}">[${list.subject}]</a></td>
+											<td style="text-align: left;">${list.saddr}</td>
+											<td style="text-align: left;">${list.eaddr}</td>
 											<td>${list.name}</td>
 											<td><fmt:formatDate value="${list.regdate}"
 													pattern="yyyy.MM.dd" /></td>
@@ -131,7 +134,10 @@ tbody>tr:HOVER {
 						</div>
 					</div>
 					<div class="menu-wrap">
-						<button type="button" onclick="onWrite()" class="btn btn-primary">쓰기</button>
+						<c:if test="${session_name != null }">
+							<button type="button" onclick="onWrite()" class="btn btn-primary">쓰기</button>
+						</c:if> 
+						
 
 						<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
 					</div>

@@ -26,7 +26,10 @@ public class AdminService implements AdminDAO {
 	public int insertRentacar(RentacarModel reatacarModel) {
 		return sqlSessionTemplate.insert("rentacar.insertRentacar", reatacarModel);
 	}
-	
+	@Override
+	public int modifyRentacar(RentacarModel rentacarModel) {
+		return sqlSessionTemplate.update("rentacar.modifyRentacar", rentacarModel);
+	}
 	@Override
 	public int deleteRentacar(String car_no) {
 		return sqlSessionTemplate.update("rentacar.deleteRentacar", car_no); 

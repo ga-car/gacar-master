@@ -22,7 +22,7 @@
 	function Cancel() {
 		var car_lat = "${rentacarOne.car_lat}";
 		var car_lng = "${rentacarOne.car_lng}";
-		javascript: location.href = "/rentacar/car/list.do?car_lat=" + car_lat
+		javascript: location.replace = "/rentacar/car/list.do?car_lat=" + car_lat
 				+ "&car_lng=" + car_lng;
 	}
 	function carclause() {
@@ -62,7 +62,7 @@
 			</tr>
 			<tr id="Radio_On" style="display: '';">
 				<td align="left" class="input_text">보험료</td>
-				<td>하루 7000원</td>
+				<td>하루 ${premium }원</td>
 			</tr>
 			<tr>
 				<td>자동차 대여표준약관</td>

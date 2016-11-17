@@ -34,7 +34,7 @@ public class AdminCarController {
 	private AdminService adminService;
 
 	ModelAndView mav = new ModelAndView();
-	String uploadPath = "F:\\project\\gacar-master\\src\\main\\webapp\\resources\\carUpload";
+	String uploadPath = "C:\\Users\\HK\\Documents\\car";
 
 	private int currentPage = 1;
 	private int totalCount;
@@ -86,6 +86,9 @@ public class AdminCarController {
 	public ModelAndView insertRentacarform() {
 		/* return "admin/car/writeForm"; */
 		ModelAndView mav = new ModelAndView();
+		List<RentacarModel> rentacarList;
+		rentacarList = adminService.rentacarAdminList();
+		mav.addObject("rentacarList", rentacarList);
 		mav.setViewName("AdmincarWriteForm");
 		return mav;
 	}
@@ -101,16 +104,49 @@ public class AdminCarController {
 		String filename = multipartFile.getOriginalFilename();
 
 		if (filename != "") {
-			rentacarModel.setCar_image(System.currentTimeMillis() + "_" + multipartFile.getOriginalFilename());
-			String savimagename = System.currentTimeMillis() + "_" + multipartFile.getOriginalFilename();
+			rentacarModel.setCar_image(multipartFile.getOriginalFilename());
+			String savimagename = multipartFile.getOriginalFilename();
 			FileCopyUtils.copy(multipartFile.getInputStream(), new FileOutputStream(uploadPath + "/" + savimagename));
 		} else {
 			rentacarModel.setCar_image("NULL");
 		}
 
-		/* adminService.insertRentacar(rentacarModel); */
 		adminService.insertRentacar(rentacarModel);
 
+		mav.setViewName("redirect:list.do");
+		return mav;
+	}
+
+	@RequestMapping(value = "/car/modify.do", method = RequestMethod.GET)
+	public ModelAndView modifyRentacarform(HttpServletRequest request) {
+		/* return "admin/car/writeForm"; */
+		ModelAndView mav = new ModelAndView();
+		RentacarModel rentacarModel;
+		rentacarModel = adminService.rentacarAdminOne(request.getParameter("car_no"));
+		mav.addObject("rentacarModel", rentacarModel);
+		mav.setViewName("AdmincarModifyForm");
+		return mav;
+	}
+
+	@RequestMapping(value = "/car/modify.do", method = RequestMethod.POST)
+	public ModelAndView modifyRentacar(@ModelAttribute("rentacarModel") RentacarModel rentacarModel,
+			BindingResult result, MultipartHttpServletRequest multipartHttpServletRequest, HttpSession session)
+			throws FileNotFoundException, IOException {
+
+		ModelAndView mav = new ModelAndView();
+
+		MultipartFile multipartFile = multipartHttpServletRequest.getFile("car_image");
+		String filename = multipartFile.getOriginalFilename();
+
+		if (filename != "") {
+			rentacarModel.setCar_image(multipartFile.getOriginalFilename());
+			String savimagename = multipartFile.getOriginalFilename();
+			FileCopyUtils.copy(multipartFile.getInputStream(), new FileOutputStream(uploadPath + "/" + savimagename));
+		} else {
+			rentacarModel.setCar_image(adminService.rentacarAdminOne(rentacarModel.getCar_no()).getCar_image());
+		}
+
+		adminService.modifyRentacar(rentacarModel);
 		mav.setViewName("redirect:list.do");
 		return mav;
 	}

@@ -1,5 +1,6 @@
 package com.Project.carpool;
 
+import java.util.HashMap;
 import java.util.List;
 import javax.annotation.Resource;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -36,8 +37,12 @@ public class CarpoolService implements CarpoolDAO {
 	}
 
 	@Override
-	public List<CarpoolModel> carpoolSearch0(String search) {
-		return sqlSessionTemplate.selectList("carpool.carpoolSearch0", "%"+search+"%"); 
+	public List<CarpoolModel> carpoolSearch0(String isSearch, String isSearch1) {
+		HashMap h = new HashMap();
+		h.put("saddr", "%"+isSearch+"%");
+		h.put("eaddr", "%"+isSearch1+"%");
+		
+		return sqlSessionTemplate.selectList("carpool.carpoolSearch0", h); 
 	}
 
 	@Override
@@ -47,6 +52,11 @@ public class CarpoolService implements CarpoolDAO {
 
 	@Override
 	public List<AttendModel> carpoolSearch2(String search) {
+		return sqlSessionTemplate.selectList("carpool.carpoolSearch2", "%"+search+"%"); 
+	}
+	
+	@Override
+	public List<CarpoolModel> carpoolSearch3(String search) {
 		return sqlSessionTemplate.selectList("carpool.carpoolSearch2", "%"+search+"%"); 
 	}
 

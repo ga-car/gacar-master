@@ -129,7 +129,6 @@
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script>
 	$(function() {
-
 		$.datepicker.regional['ko'] = {
 			closeText : '닫기',
 			prevText : '이전달',
@@ -264,7 +263,7 @@
 			return false;
 		}
 		</c:forEach>
-		opener.location.href = "/rentacar/car/reserve.do?car_no=" + no
+		opener.location.replace = "/rentacar/car/reserve.do?car_no=" + no
 				+ "&car_dt1=" + car_dt1 + "&car_dt2=" + car_dt2;
 		window.close();
 	}

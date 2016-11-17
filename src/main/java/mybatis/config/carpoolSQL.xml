@@ -73,9 +73,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="carpoolModify" parameterType="carpoolModel">
 			UPDATE CARPOOL
 			SET
-				<!-- NAME = #{name}, -->
 				SUBJECT = #{subject},
-				CONTENT = #{content}
+				CONTENT = #{content},
+				SLAT = #{slat},
+				SLNG = #{slng},
+				ELAT = #{elat},
+				ELNG = #{elng},
+				SADDR = #{saddr},
+				EADDR = #{eaddr},
+				STARTDATE = #{startdate},
+				TERM = #{term},
+				CHARGE = #{charge},
+				SMOKE = #{smoke},
+				INSURE = #{insure},
+				PNUM2 = #{pnum2}
 			WHERE
 				NO = #{no}	
 	</update>
@@ -85,15 +96,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			DELETE FROM CARPOOL WHERE NO=#{no}
 	</delete>
 
-	<!-- 제목검색 -->
-	<select id="carpoolSearch0" resultMap="carpoolModelRes" parameterType="String">
+	<!-- 지역 검색 -->
+	<select id="carpoolSearch0" resultMap="carpoolModelRes" parameterType="java.util.HashMap">
+		<![CDATA[
 		SELECT * FROM CARPOOL
-		 WHERE saddr like #{search}
+		 WHERE saddr like #{saddr} and eaddr like #{eaddr}
 		 ORDER BY no DESC
+		 ]]>
 	</select>
 	
-	<!-- 참가 내역 검색 -->
+	<!-- 관리자 제목 검색 -->
 	<select id="carpoolSearch1" resultMap="carpoolModelRes" parameterType="String">
+		SELECT * FROM carpool
+		WHERE subject like #{search}
+		ORDER BY no DESC
+	</select>
+	
+	<!-- 관리자 제목 검색 -->
+	<select id="carpoolSearch3" resultMap="carpoolModelRes" parameterType="String">
 		SELECT * FROM carpool
 		WHERE name like #{search}
 		ORDER BY no DESC
@@ -101,8 +121,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 신청자검색 -->
 	<select id="carpoolSearch2" resultMap="attendModelRes" parameterType="String">
-		SELECT * FROM attend
-		WHERE apname like #{search}
+		SELECT no, email, name, phone, apemail, apname, apphone FROM ATTEND
+		WHERE name like #{search}
 		ORDER BY no DESC
 	</select>
 	

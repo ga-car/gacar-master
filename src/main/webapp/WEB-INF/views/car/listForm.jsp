@@ -13,7 +13,7 @@
 	bottom: 0;
 	width: 350px;
 	height: 25px;
-	margin: 10px 0 30px 17%;
+	margin: 10px 0 30px 37%;
 	padding: 5px;
 	overflow-y: auto;
 	background: rgba(255, 255, 255, 0.7);
@@ -35,13 +35,36 @@
 			alert('키워드를 입력해주세요!');
 			return false;
 		}
-
-		javascript: location.href = "/rentacar/car/list.do?car_addr=" + keyword
+		// 장소 검색 객체를 생성합니다
+		var ps = new daum.maps.services.Places();
+		// 키워드로 장소를 검색합니다
+		ps.keywordSearch(keyword, placesSearchCB);
+		// 키워드 검색 완료 시 호출되는 콜백함수 입니다
+		function placesSearchCB(status, data, pagination) {
+			if (status === daum.maps.services.Status.OK) {
+				// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+				// LatLngBounds 객체에 좌표를 추가합니다
+				var bounds = new daum.maps.LatLngBounds();
+				for (var i = 0; i < data.places.length; i++) {
+					bounds.extend(new daum.maps.LatLng(data.places[i].latitude,
+							data.places[i].longitude));
+				}
+				// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+				map.setBounds(bounds);
+			}
+		}
 	}
 	function selectEvent(selectObj) {
 		if (selectObj.value != "") {
-			javascript: location.href = "/rentacar/car/list.do?car_addr="
-					+ selectObj.value
+			var geocoder = new daum.maps.services.Geocoder();
+			geocoder.addr2coord(selectObj.value, function(status, result) {
+				if (status === daum.maps.services.Status.OK) {
+					var coords = new daum.maps.LatLng(result.addr[0].lat,
+							result.addr[0].lng);
+					panTo(coords.getLat(), coords.getLng());
+					document.getElementById("car_addr").selectedIndex = "0";
+				}
+			});
 		}
 	}
 </script>
@@ -51,7 +74,7 @@
 		<div class="option">
 			<div>
 				<form onsubmit="searchPlaces(); return false;">
-					<select name="car_addr" onChange="javascript:selectEvent(this);">
+					<select name="car_addr" id="car_addr" onChange="javascript:selectEvent(this);">
 						<option value="" selected="selected">지역</option>
 						<option value="강남구">강남구</option>
 						<option value="강동구">강동구</option>
