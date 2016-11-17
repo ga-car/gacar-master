@@ -7,13 +7,22 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <script type="text/javascript">
+	$(document).keydown(function(e) {
+		if (e.target.nodeName != "INPUT" && e.target.nodeName != "TEXTAREA") {
+			if (e.keyCode === 8) {
+				return false;
+			}
+		}
+	});
+
+	window.history.forward(0);
 	function reserveChange() {
 		var no = "${rentacarOne.car_no}"
 		var url = "reserveChangeForm.do?car_no=" + no;
 		open(
 				url,
 				"예약일정변경",
-				"toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
+				"toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=650, height=400");
 	}
 	function Rradio_OnOff(id) {
 		//  <tr> id로 값을 비교한다!
@@ -57,24 +66,12 @@
 
 		</tr>
 		<c:choose>
-			<c:when test="${Day == null && Hours == null }">
+			<c:when test="${Day == null}">
 			</c:when>
-			<c:when test="${Day == 0 && Hours != 0 }">
+			<c:when test="${Day != 0}">
 				<tr>
 					<td>이용시간</td>
-					<td>${Hours}시간</td>
-				</tr>
-			</c:when>
-			<c:when test="${Day != 0 && Hours == 0 }">
-				<tr>
-					<td>이용시간</td>
-					<td>${Day}일간</td>
-				</tr>
-			</c:when>
-			<c:when test="${Day != 0 && Hours != 0 }">
-				<tr>
-					<td>이용시간</td>
-					<td>${Day}일${Hours}시간</td>
+					<td>${Day}일</td>
 				</tr>
 			</c:when>
 		</c:choose>

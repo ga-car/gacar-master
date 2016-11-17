@@ -6,79 +6,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
-<script
-	src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
-<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet">
-<title>Insert title here</title>
-<style type="text/css">
-thead>tr>th {
-	text-align: center;
-}
-
-tbody>tr>td:nth-child(1) {
-	width: 80px;
-	text-align: center;
-}
-
-tbody>tr>td:nth-child(3) {
-	width: 110px;
-	text-align: center;
-}
-
-tbody>tr>td:nth-child(4) {
-	width: 130px;
-	text-align: center;
-}
-
-tbody>tr>td:nth-child(5) {
-	width: 70px;
-	text-align: center;
-}
-
-tbody>tr:HOVER {
-	color: #da8c92;
-	cursor: pointer;
-}
-
-.menu-wrap {
-	text-align: right;
-}
-
-.form-wrap {
-	text-align: center;
-}
-
-#page-wrapper {
-	margin: auto;
-}
-</style>
 </head>
 <body>
-	<div class="category_top">
-		<ul>
-			<li class="post1">커뮤니티</li>
-			<li>></li>
-			<li class="post2">공지사항</li>
-		</ul>
-	</div>
-	<div id="wrapper">
+	<div id="list-article" class="content scaffold-list" role="main">
+		<div class="nav" role="navigation">
+			<h4>고객센터 > 공지사항</h4>
+			<div class="category-filter-wrapper">
+				<form action="/articles/columns" method="get"
+					name="category-filter-form" id="category-filter-form">
+					<!-- okky 검색엔진 시작 -->
+					<div class="category-filter-query pull-right">
+						<div class="input-group input-group-sm">
+							<input type="search" name="query" class="form-control"
+								placeholder="검색어" value="" /> <span class="input-group-btn">
+								<button type="submit" class="btn btn-default">
+									<i class="fa fa-search"></i>
+								</button>
 
-		<div id="page-wrapper">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="page-header">
-						<img src="/rentacar/resources/images/SkinImg/2.jpg"> <strong><font
-							size="6px">NOTICE</font></strong>&nbsp;&nbsp; <font color="red">공지사항
-							게시판입니다.</font>
+							</span>
+						</div>
 					</div>
-				</div>
-				<!-- /.col-lg-12 -->
+					<!-- okky 검색엔진 끝 -->
+					<input type="hidden" name="sort" id="category-sort-input"
+						value="id" /> <input type="hidden" name="order"
+						id="category-order-input" value="desc" />
+				</form>
 			</div>
-			<!-- /.row -->
+
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="panel panel-default">

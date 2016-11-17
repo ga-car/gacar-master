@@ -17,16 +17,14 @@
 	<!-- 차량예약 -->
 	<definition name="carListForm" template="/WEB-INF/views/layout/car_layout.jsp">
 		<put-attribute name="left" value="/WEB-INF/views/layout/left.jsp" />
-		<put-attribute name="top" value="/WEB-INF/views/layout/top.jsp" />
-		<put-attribute name="bodyLeft" value="/WEB-INF/views/car/listForm.jsp" />
-		<put-attribute name="bodyRight" value="/WEB-INF/views/car/listRight.jsp" />
+		<put-attribute name="bodyLeft" value="/WEB-INF/views/car/listLeft.jsp" />
+		<put-attribute name="bodyRight" value="/WEB-INF/views/car/listForm.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
 
 	<definition name="carReserveForm" extends="carListForm">
-		<put-attribute name="bodyLeft" value="/WEB-INF/views/car/reserveForm.jsp" />
-		<put-attribute name="bodyRight"
-			value="/WEB-INF/views/car/reserveRight.jsp" />
+		<put-attribute name="bodyLeft" value="/WEB-INF/views/car/reserveLeft.jsp" />
+		<put-attribute name="bodyRight" value="/WEB-INF/views/car/reserveForm.jsp" />
 	</definition>
 
 	<!-- 차량 관리자 -->
@@ -34,7 +32,10 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/car/writeForm.jsp" />
 	</definition>
-
+	<definition name="AdmincarModifyForm" extends="adminMain">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/car/modifyForm.jsp" />
+	</definition>
 	<definition name="AdmincarListForm" extends="adminMain">
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/car/listForm.jsp" />
@@ -44,6 +45,12 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/car/reserveList.jsp" />
 	</definition>
+
+	<definition name="AdminreserveModifyForm" extends="adminMain">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/car/reserveModify.jsp" />
+	</definition>
+
 
 	<!-- 예약 마이페이지 -->
 	<definition name="reserveListForm" extends="main">
@@ -269,6 +276,36 @@
 	<definition name="carpoolModify" extends="main">
 		<put-attribute name="body"
 			value="/WEB-INF/views/carpool/carpoolModify.jsp" />
+	</definition>
+	<!-- 카풀 관리자 -->
+	<definition name="admincarpoolList" extends="adminMain">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/carpool/carpooladminList.jsp" />
+		<put-attribute name="left"
+			value="/WEB-INF/views/admin/admin_left.jsp" />
+	</definition>
+
+	<definition name="adminattendList" extends="main">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/carpool/adminattendList.jsp" />
+		<put-attribute name="left"
+			value="/WEB-INF/views/admin/admin_left.jsp" />
+	</definition>
+
+	<!-- 카풀 mypage -->
+	<definition name="carpoolmypageList" extends="main">
+		<put-attribute name="body"
+			value="/WEB-INF/views/mypage/carpool/carpoolmypageList.jsp" />
+	</definition>
+
+	<definition name="carpoolmypageattendList" extends="main">
+		<put-attribute name="body"
+			value="/WEB-INF/views/mypage/carpool/carpoolmypageattendList.jsp" />
+	</definition>
+
+	<definition name="carpoolmypageapplyList" extends="main">
+		<put-attribute name="body"
+			value="/WEB-INF/views/mypage/carpool/carpoolmypageapplyList.jsp" />
 	</definition>
 
 </tiles-definitions>

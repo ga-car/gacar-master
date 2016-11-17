@@ -10,6 +10,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Service;
 
 import com.Project.review.ReviewModel;
+import com.Project.qna.qnaModel;
 import com.Project.review.ReviewDAO;
 
 @Service
@@ -18,99 +19,108 @@ public class ReviewService implements ReviewDAO {
 	@Resource
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	//¸®½ºÆ®
+	//ï¿½ï¿½ï¿½ï¿½Æ®
+
+	public List<ReviewModel> reviewList(String email) {
+		return sqlSessionTemplate.selectList("review.reviewMyList", email); 
+	}
+	
 	@Override
 	public List<ReviewModel> reviewList() {
 		// TODO Auto-generated method stub
 		return sqlSessionTemplate.selectList("review.reviewList");
 	}
 	
-	//±Û¾²±âreviewWrite
+	
+	//ï¿½Û¾ï¿½ï¿½ï¿½reviewWrite
 	@Override
 	public int reviewWrite(ReviewModel reviewModel) {
 		return sqlSessionTemplate.insert("review.reviewWrite", reviewModel);
 	}
 	
-	//±Û ÇÏ³ª ºÒ·¯¿À±â
+	//ï¿½ï¿½ ï¿½Ï³ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public ReviewModel reviewView(int no) {
 		return sqlSessionTemplate.selectOne("review.reviewView",no); 
 	}
 	
-	//Á¶È¸¼ö Áõ°¡
+	//ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public int reviewUpdateReadhit(int no) {
 		return sqlSessionTemplate.update("review.reviewUpdateReadhit",no); 
 	}
 	
-	//Á¦¸ñÀ¸·Î °Ë»ö
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	@Override
 	public List<ReviewModel> reviewSearch0(String search) {
 		return sqlSessionTemplate.selectList("review.reviewSearch0", "%"+search+"%"); 
 	}
 		
-	//³»¿ëÀ¸·Î °Ë»ö
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	@Override
 	public List<ReviewModel> reviewSearch1(String search) {
 		return sqlSessionTemplate.selectList("review.reviewSearch1", "%"+search+"%"); 
 	}
 		
-	//ÀÛ¼ºÀÚ·Î °Ë»ö
+	//ï¿½Û¼ï¿½ï¿½Ú·ï¿½ ï¿½Ë»ï¿½
 	@Override
 	public List<ReviewModel> reviewSearch2(String search) {
 		return sqlSessionTemplate.selectList("review.reviewSearch2", "%"+search+"%"); 
 	}
 	
-	//±Û»èÁ¦
+	//ï¿½Û»ï¿½ï¿½ï¿½
 	@Override
 	public int reviewDelete(int no) {
 		return sqlSessionTemplate.update("review.reviewDelete",no); 
 	}
-	//±Û¼öÁ¤
+	//ï¿½Û¼ï¿½ï¿½ï¿½
 	@Override
 	public int reviewModify(ReviewModel reviewModel) {
 		return sqlSessionTemplate.update("review.reviewModify",reviewModel); 
 	}
 	/*
-	//´ñ±Û¸ñ·Ï
+	//ï¿½ï¿½Û¸ï¿½ï¿½
 	@Override
 	public List<ReviewcommModel> reviewcommList(int no) {
 		return sqlSessionTemplate.selectList("review.reviewcommList", no); 
 	}
 	
-	//´ñ±Û¾²±â
+	//ï¿½ï¿½Û¾ï¿½ï¿½ï¿½
 	@Override
 	public int reviewcommWrite(ReviewcommModel reviewcommModel){
 		return sqlSessionTemplate.insert("review.reviewcommWrite", reviewcommModel); 
 	}
 	
-	//´ñ±Û»èÁ¦
+	//ï¿½ï¿½Û»ï¿½ï¿½ï¿½
 	@Override
 	public int reviewcommDelete(ReviewcommModel reviewcommModel){
 		return sqlSessionTemplate.delete("review.reviewcommDelete",  reviewcommModel); 
 	}
 	
-	//´ñ±Û ¸ðµÎ »èÁ¦
+	//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public int reviewallcommDelete(int no){
 		return sqlSessionTemplate.delete("review.reviewallcommDelete", no); 
 	}
 	
-	//´ñ±Û ÃÑ °³¼ö
+	//ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int reviewcommCount(int no){
 		return sqlSessionTemplate.selectOne("review.reviewcommCount", no); 
 	}
 	
-	//´ñ±Û 1 »ó½Â
+	//ï¿½ï¿½ï¿½ 1 ï¿½ï¿½ï¿½
 	public int reviewcommUpdate1(int no){
 		return sqlSessionTemplate.update("review.reviewcommUpdate1",no);
 	}
 			
-	//´ñ±Û 1 ÇÏ¶ô
+	//ï¿½ï¿½ï¿½ 1 ï¿½Ï¶ï¿½
 	public int reviewcommUpdate2(int no){
 		return sqlSessionTemplate.update("review.reviewcommUpdate2",no);
 	}*/
-	
+
+
+
+
 }
 
 

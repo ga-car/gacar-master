@@ -41,17 +41,25 @@
 						</c:forEach></td>
 					<td>${reserveList.reserve_price}</td>
 					<td><c:choose>
-							<c:when test="${reserveList.reserve_sdate >= rTime}">
-							예약중
-							<td><input type=button value="변경/취소"></td>
+							<c:when test="${reserveList.reserve_cancel == 'true'}">
+							예약 취소
 							</c:when>
-							<c:when
-								test="${reserveList.reserve_sdate <= rTime && reserveList.reserve_edate >= rTime}">
+							<c:otherwise>
+								<c:choose>
+									<c:when test="${reserveList.reserve_sdate >= rTime}">
+							예약중
+							<td><a
+											href="/rentacar/car/reserveDelete.do?reserve_no=${reserveList.reserve_no}">취소</a></td>
+									</c:when>
+									<c:when
+										test="${reserveList.reserve_sdate <= rTime && reserveList.reserve_edate >= rTime}">
 							운행중
 							</c:when>
-							<c:when test="${reserveList.reserve_edate <= rTime}">
+									<c:when test="${reserveList.reserve_edate <= rTime}">
 							예약 완료
 							</c:when>
+								</c:choose>
+							</c:otherwise>
 						</c:choose></td>
 				</tr>
 			</c:forEach>

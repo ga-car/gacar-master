@@ -33,6 +33,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			SELECT * FROM REVIEW ORDER BY no DESC
 	</select>
 	
+		<select id="reviewMyList" resultMap="reviewModelRes" parameterType="String">
+		SELECT * FROM REVIEW
+		WHERE EMAIL = #{email} ORDER BY NO DESC
+	</select>
+	
+	
 	<!-- , IMAGEFILE_SAVNAME -->
 	<!-- 글쓰기 -->
 	<insert id="reviewWrite" parameterType="reviewModel">

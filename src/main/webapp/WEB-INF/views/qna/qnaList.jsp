@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
 <script
 	src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <link href="/rentacar/resources/admincss/bootstrap.min.css"
@@ -54,7 +54,7 @@ tbody>tr:HOVER {
 .form-wrap {
 	text-align: center;
 }
-</style>
+</style> -->
 </head>
 
 <body>
@@ -213,8 +213,7 @@ tbody>tr:HOVER {
 
 		<!-- 본인 -->
 									
-										 <c:if test="${session_email == list.email && list.email != 'admin'}">         
-									
+								
 											<tr>
 												<!-- 글번호 -->
 												<td align="center">${list.no}</td>
@@ -243,12 +242,16 @@ tbody>tr:HOVER {
 												<td align="center">${list.readcount}</td>
 											</tr>
 
-										</c:if>
+									
 
 									</c:forEach>
+									
+								
 							</tbody>
 						</table>
+							
 					</div>
+					<div class="paging" " style="text-align: center;" >${pagingHtml}</div>
 				</div>
 			</div>
 		</div>

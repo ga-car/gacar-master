@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
 <link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
 <link href="/rentacar/resources/css/reset.css" rel="stylesheet">
@@ -33,7 +34,7 @@
 .viewForm {
 	margin: 20px 0 0 0;
 }
-</style>
+</style> -->
 
 <!-- <script type="text/javascript">
 function noticeDelete() {
@@ -89,22 +90,27 @@ function noticeDelete() {
 								id="dataTables-example">
 								<tbody>
 									<tr>
-										<td align="center" width="100">목적</th>
+										<td align="center" width="100">목적</td>
 										<td align="left">${carpoolModel.goal }</td>
 										<td align="center" width="100">출발일시</td>
 										<td align="left">${carpoolModel.startdate }</td>
 									</tr>
 									<tr>
-										<td align="center" width="100">좌석수</th>
+										<td align="center" width="100">좌석수</td>
 										<td align="left">${carpoolModel.pnum1 }/${carpoolModel.pnum2 }
-										<c:if test="${carpoolModel.pnum1 != carpoolModel.pnum2 }">
-										<button type="button" onclick="onAttend(${carpoolModel.no })" id="pnum1" name="pnum1" class="btn btn-primary">참가</button>
-										</c:if>
+										<c:choose>
+    										<c:when test="${carpoolModel.pnum1 != carpoolModel.pnum2 && attendModel.name != session_name }">
+    											<button type="button" onclick="return validation(${carpoolModel.no })" id="pnum1" name="pnum1" class="btn btn-primary">참가</button>
+    										</c:when>
+    										<c:when test="${attendModel.name == session_name}">
+    										<button type="button" onclick="return validation(${carpoolModel.no })" id="pnum1" name="pnum1" class="btn btn-primary">참가</button>
+    										</c:when>
+    									</c:choose>
 										<td align="center" width="100">비용</td>
 										<td align="left">${carpoolModel.charge }원</td>
 									</tr>
 									<tr>
-										<td align="center" width="100">차내흡연</th>
+										<td align="center" width="100">차내흡연</td>
 										<td align="left">${carpoolModel.smoke }</td>
 										<td align="center" width="100">보험가입종류</td>
 										<td align="left">${carpoolModel.insure }</td>
@@ -119,11 +125,8 @@ function noticeDelete() {
 						</div>
 						<form class="viewForm" method="post">
 							<input type="hidden" name="${carpoolModel.no }" />
-							<%-- <input type="hidden" name="seq" value="${item.seq }" /> --%>
-							<%-- <c:if test="${session_name == carpoolModel.name }"> --%>
 								<button type="button" onclick="onModify(${carpoolModel.no })"
 									class="btn btn-primary">수정</button>
-							<%-- </c:if> --%>
 							<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
 							<button type="button" onclick="onDelete()" class="btn btn-primary">삭제</button>
 						</form>
@@ -138,10 +141,27 @@ function noticeDelete() {
 
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=079b4daabc5db4153ba00f0a15d911f0&libraries=services"></script>
 <script>
-function onAttend() {
-	alert("참가하겠습니까?");
-	location.href='attend.do?no=${carpoolModel.no}';
+function validation() {
+	
+	if ("${session_name}" ==  "") {
+		alert("로그인을 해주세요.");
+		return false;
+	}
+	else
+	{
+		if(confirm("참가하겠습니까?(참가 내역은 마이페이지에서 확인 가능합니다.)"))
+		{
+			location.href='attend.do?no=${carpoolModel.no}';
+		}
+		else
+		{
+			location.href='detail.do?no=${carpoolModel.no}&currentPage=${currentPage}';
+		}
+		return true;
+	}
+		
 }
+
 
 function onDelete() {
 	alert("삭제하겠습니까?");
@@ -166,39 +186,16 @@ mapOption = {
 //지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
 var map = new daum.maps.Map(mapContainer, mapOption); 
 
-/* var slat = document.getElementById('slat').value;
-var slng = document.getElementById('slng').value;
-var elat = document.getElementById('elat').value;
-var slng = document.getElementById('elng').value; */
+var mapTypeControl = new daum.maps.MapTypeControl();
 
+//지도에 컨트롤을 추가해야 지도위에 표시됩니다
+//daum.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
 
+//지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+var zoomControl = new daum.maps.ZoomControl();
+map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
 
-/* 	var onModify = function(no){
-		var form = $('.viewForm')[0];
-		form.action = 'noticeModify.dog?no='+no;
-		form.submit();
-	}; */
-
-	/*
-	    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-	        mapOption = {
-	            center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
-	            level: 5 // 지도의 확대 레벨
-	        };
-
-	    //지도를 미리 생성
-	    var map = new daum.maps.Map(mapContainer, mapOption); */
-	    //주소-좌표 변환 객체를 생성
-	   /*  var geocoder = new daum.maps.services.Geocoder();
-	    
-	    var geocoder1 = new daum.maps.services.Geocoder(); */
-	    //마커를 미리 생성
-	/*     var marker = new daum.maps.Marker({
-	        position: new daum.maps.LatLng(37.537187, 127.005476),
-	        map: map
-	        
-	    }); */
-	    
 	     var startSrc = 'http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/red_b.png', // 출발 마커이미지의 주소입니다    
 	    startSize = new daum.maps.Size(50, 45), // 출발 마커이미지의 크기입니다 
 	    startOption = { 
@@ -287,5 +284,3 @@ var slng = document.getElementById('elng').value; */
 	  </script>   
 </body>
 </html>
-
-

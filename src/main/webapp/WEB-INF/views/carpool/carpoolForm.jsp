@@ -10,12 +10,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 </head>
+<!-- 영균 필요링크 시작 -->
 <link rel="stylesheet" type="text/css" href="/rentacar/resources/css/jquery.datetimepicker.css"/>
 <style type="text/css">
 .custom-date-style {
 	background-color: red !important;
 }
 </style>
+<!-- 영균 필요링크 끝-->
 <body>
 <form:form commandName="carpoolModel" action="write.do" method="post">
       <div id="page-wrapper">
@@ -28,28 +30,27 @@
 							<th width="100">글제목</th>
 							<td colspan=3>
 								<input type="text" name="subject" value="${carpoolModel.subject}" size="67"/>
-								<font color="red"><form:errors path="subject" /></font>
 							</td>
 						</tr>
 					</thead>
 					<tbody>
 						<tr><!-- 사용자 -->
-							<th>사용자 ID</th>
+							<th>글쓴이</th>
 							<td>
 								<strong>
-									<%-- ${session_name} --%>
-									<input type="text" name="name" value="${carpoolModel.name }"/>
-								</strong>
+									 ${session_name} 
+									<input type="hidden" name="name" value="${session_name }"/>
+								<input type="hidden" name="phone" value="${phone}"/>
+								<input type="hidden" name="email" value="${session_email}"/>
 							</td>
 							<th>출발일시</th>
 							<td><input type="text" name="startdate" value="" id="datetimepicker"/></td>	
-							<%-- <input type="hidden" name="name" value="${session_name }"/> --%>
 						</tr>
 						<tr>
 							<th>목적</th>
 							<td><input type="text" name="goal" id="goal" value="${carpoolModel.goal }" /></td>
 							<th>기간</th>
-							<td><input type="text" name="term" id="term" value="${carpoolModel.term }" /></td>
+							<td><input type="text" name="term" id="term" value="${carpoolModel.term }" /></td> 
 						</tr>
 						<tr>
 							<th>좌석수</th>
@@ -59,7 +60,7 @@
 						</tr>
 						<tr>
 							<th>차내흡연</th>
-							<td><input type="text" name="smoke" id="smoke" value="" /></td>
+							<td><input type="text" name="smoke" id="smoke" value="${carpoolModel.smoke }" /></td>
 							<th>보험</th>
 							<td><select name="insure" id="insure">
     							<option value="대인배상Ⅰ">대인배상Ⅰ</option> 
@@ -67,12 +68,11 @@
     							<option value="대인배상Ⅱ">대인배상Ⅱ</option>
 								</select>
 							</td>
-						</tr>		
+						</tr>	
 						<tr><!-- 글내용 -->
 							<th>추가내용</th>
 							<td colspan=3 height=150 style="padding: 0px !important;">
-							   <textarea  name="content" style=" padding:3px; margin: 1px; width: 100%; height: 98%;"></textarea>
-							   <font color="red"><form:errors path="content" /></font>
+							   <textarea  name="content" style=" padding:3px; margin: 1px; width: 100%; height: 98%;" ></textarea>
 							</td>
 						</tr>
 					</tbody>	
@@ -90,6 +90,9 @@
 						<td><input type="button" onclick="addrSearch()" value="출발지"><br></td>
 						<th><input type="text" name="eaddr" id="eaddr" value="${carpoolModel.eaddr}" placeholder="주소"></th>
 						<td><input type="button" name="ezipcode" onclick="addrSearch1()" value="도착지"><br></td>
+						</tr>
+						 <tr>
+							<td colspan="4" align="center"><font color="red"><form:errors path="eaddr" /></font></td>
 						</tr>
 					</tbody>	
 				</table>
@@ -118,10 +121,21 @@ var onList = function(){
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div
    mapOption = {
      center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
-     level: 5 // 지도의 확대 레벨
+     level: 3 // 지도의 확대 레벨
     };
 //지도를 미리 생성
 var map = new daum.maps.Map(mapContainer, mapOption);
+
+var mapTypeControl = new daum.maps.MapTypeControl();
+
+//지도에 컨트롤을 추가해야 지도위에 표시됩니다
+//daum.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
+
+//지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+var zoomControl = new daum.maps.ZoomControl();
+map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
+
 //주소-좌표 변환 객체를 생성
 var geocoder = new daum.maps.services.Geocoder();
 var geocoder1 = new daum.maps.services.Geocoder();

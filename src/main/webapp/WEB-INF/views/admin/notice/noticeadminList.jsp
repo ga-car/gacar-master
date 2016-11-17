@@ -65,14 +65,14 @@ function delchk(){
 								<tbody>
 								<c:forEach var="noticeList"  items="${noticeList}" varStatus="stat">	
 								
-								<c:url var="viewURL2" value="detail.do">
+								<c:url var="viewURL" value="detail.do">
 											<c:param name="no" value="${noticeList.no }" />
 											<c:param name="currentPage" value="${currentPage }" />
 									</c:url>
 																		
 									<tr class="gradeA even" role="row">
 										<td style="text-align:center;vertical-align:middle;">${noticeList.no}</td>
-										<td style="text-align:center;vertical-align:middle;"><a href="${viewURL2}">${noticeList.subject}</a></td>
+										<td style="text-align:center;vertical-align:middle;"><a href="${viewURL}">${noticeList.subject}</a></td>
 										<td style="text-align:center;vertical-align:middle;">${noticeList.name}</td>
 										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${noticeList.regdate}" pattern="YY.MM.dd HH:mm" /></td>
 										<td style="text-align:center;vertical-align:middle;">${noticeList.readcount}</td>									

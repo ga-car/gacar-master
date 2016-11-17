@@ -28,6 +28,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM QNA
 		ORDER BY NO DESC
 	</select>
+	
+	<select id="qnaMyList" resultMap="qnaModelRes" parameterType="String">
+		SELECT * FROM QNA
+		WHERE EMAIL = #{email} ORDER BY NO DESC
+	</select>
 
 	<!-- 글쓰기 -->
 	<insert id="qnaWrite" parameterType="Integer">
@@ -98,19 +103,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 관리자 답변유무 확인 콤보박스 -->
 	<!-- 답변완료 -->
-	<select id="qnaReply1" resultMap="qnaModelRes" parameterType="int">
+	<select id="qnaReply1" resultMap="qnaModelRes" parameterType="String">
 		SELECT * FROM QNA
-		WHERE ADMIN>=1
+		WHERE ADMIN>=1 and email = #{email}
 		ORDER BY NO DESC
 	</select>
 
 	<!-- 답변 전 -->
-	<select id="qnaReply2" resultMap="qnaModelRes" parameterType="int">
+	<select id="qnaReply2" resultMap="qnaModelRes" parameterType="String">
 		SELECT * FROM QNA
-		WHERE ADMIN=0
+		WHERE ADMIN=0 and email = #{email}
 		ORDER BY NO DESC
 	</select>
 
+<!-- 답변완료 -->
+	<select id="qnaReply01" resultMap="qnaModelRes">
+		SELECT * FROM QNA
+		WHERE ADMIN>=1 
+		ORDER BY NO DESC
+	</select>
+
+	<!-- 답변 전 -->
+	<select id="qnaReply02" resultMap="qnaModelRes">
+		SELECT * FROM QNA
+		WHERE ADMIN=0 
+		ORDER BY NO DESC
+	</select>
+	
+	
 	<!-- 댓글 목록 -->
 	<select id="qnaCommList" resultMap="qnaCommModelRes"
 		parameterType="int">

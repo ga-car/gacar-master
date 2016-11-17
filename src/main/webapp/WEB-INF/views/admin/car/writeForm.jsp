@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,12 +14,19 @@
 	function check() {
 
 		var f = document.writeFrom; //문서.Form name="";
-
 		if (f.car_no.value == "") {
 			alert("차량번호를 입력해주세요.");
 			f.car_no.focus();
 			return false;
 		}
+		<c:forEach var="rentacarList" items="${rentacarList}"
+			varStatus="stat">
+		if (f.car_no.value == "${rentacarList.car_no}") {
+			alert("이미 등록된 차량입니다.");
+			f.car_no.focus();
+			return false;
+		}
+		</c:forEach>
 		if (f.car_type.value == "") {
 			alert("차종를 입력해주세요.");
 			f.car_type.focus();
@@ -39,8 +47,7 @@
 			f.car_pnum.focus();
 			return false;
 		}
-		if (f.car_zipcode.value == "" || f.car_addr.value == ""
-				|| f.car_addr2.value == "") {
+		if (f.car_zipcode.value == "" || f.car_addr.value == "") {
 			alert("주소를 상세히 입력해주세요.");
 			f.car_addr2.focus();
 			return false;
@@ -56,6 +63,18 @@
 			return false;
 		}
 	}
+	function onlyNumber(event) {
+		var key = window.event ? event.keyCode : event.which;
+
+		if ((event.shiftKey == false)
+				&& ((key > 47 && key < 58) || (key > 95 && key < 106)
+						|| key == 35 || key == 36 || key == 37 || key == 39 // 방향키 좌우,home,end  
+						|| key == 8 || key == 46)) {
+			return true;
+		} else {
+			return false;
+		}
+	};
 </script>
 </head>
 <body onLoad="focus()">
@@ -73,7 +92,15 @@
 			</tr>
 			<tr>
 				<td align="right">차종</td>
-				<td><input type="text" name="car_type"></td>
+				<td><select name="car_type"><option value=""
+							selected="selected"></option>
+						<option value="경형">경형</option>
+						<option value="소형">소형</option>
+						<option value="준중형">준중형</option>
+						<option value="중형">중형</option>
+						<option value="대형">대형</option>
+						<option value="스포츠카">스포츠카</option>
+				</select></td>
 			</tr>
 			<tr>
 				<td align="right">브랜드</td>
@@ -85,7 +112,18 @@
 			</tr>
 			<tr>
 				<td align="right">인승</td>
-				<td><input type="text" name="car_pnum"></td>
+				<td><select name="car_pnum"><option value=""
+							selected="selected"></option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+				</select></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">서비스위치</td>
@@ -116,11 +154,12 @@
 			</tr>
 			<tr>
 				<td align="right">요금</td>
-				<td><input type="text" name="car_charge"></td>
+				<td><input type="text" name="car_charge"
+					style="ime-mode: disabled;" onkeydown="return onlyNumber(event)"></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center"><input type="submit">&nbsp;&nbsp;<input
-					type="reset">&nbsp;&nbsp;</td>
+				<td colspan="2" align="center"><input type="submit" value="등록" />&nbsp;&nbsp;<input
+					type="reset" value="다시" />&nbsp;&nbsp;</td>
 			</tr>
 			<tr>
 				<td colspan="2" align="right"><a
@@ -134,7 +173,7 @@
 			var geocoder = new daum.maps.services.Geocoder();
 
 			function addrSearch() {
-				var frm = eval("document.infoinput");
+				var frm = eval("document.writeFrom");
 				new daum.Postcode(
 						{
 							oncomplete : function(data) {

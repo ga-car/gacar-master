@@ -22,6 +22,7 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 		<!-- review -->
 		<typeAlias alias="reviewModel" type="com.Project.review.ReviewModel" />
 		<typeAlias alias="carpoolModel" type="com.Project.carpool.CarpoolModel" />
+		<typeAlias alias="attendModel" type="com.Project.carpool.AttendModel" />
 		<typeAlias alias="notifyModel" type="com.Project.notify.NotifyModel" />
 		<typeAlias alias="faqModel" type="com.Project.faq.FAQModel" />
 		<typeAlias alias="qnaModel" type="com.Project.qna.qnaModel" />

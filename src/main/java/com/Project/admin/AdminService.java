@@ -26,6 +26,14 @@ public class AdminService implements AdminDAO {
 	public int insertRentacar(RentacarModel reatacarModel) {
 		return sqlSessionTemplate.insert("rentacar.insertRentacar", reatacarModel);
 	}
+	@Override
+	public int modifyRentacar(RentacarModel rentacarModel) {
+		return sqlSessionTemplate.update("rentacar.modifyRentacar", rentacarModel);
+	}
+	@Override
+	public int deleteRentacar(String car_no) {
+		return sqlSessionTemplate.update("rentacar.deleteRentacar", car_no); 
+	}
 
 	@Override
 	public List<ReserveModel> reserveAdminList() {
@@ -40,6 +48,11 @@ public class AdminService implements AdminDAO {
 	@Override
 	public RentacarModel rentacarAdminOne(String car_no) {
 		return sqlSessionTemplate.selectOne("rentacar.rentacarSearchOne", car_no);
+	}
+
+	@Override
+	public int reserveDelete(int reserve_no) {
+		return sqlSessionTemplate.update("reserve.reserveAdminDelete", reserve_no);
 	}
 
 	// 회원목록 출력
@@ -132,4 +145,5 @@ public class AdminService implements AdminDAO {
 		else
 			return sqlSessionTemplate.selectList("member.memberSearch6", "%" + search + "%");
 	}
+
 }
