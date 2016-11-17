@@ -59,12 +59,6 @@ function delchk(){
 								aria-describedby="dataTables-example_info">
 								<thead>
 									<tr role="row">
-			<!-- 							<th style="width: 12%; text-align:center;">번호</th>
-										<th style="width: 40%; text-align:center;">제목</th>
-										<th style="width: 12%; text-align:center;">작성자</th>										
-										<th style="width: 12%; text-align:center;">등록일자</th>
-										<th style="width: 12%; text-align:center;">조회수</th>
-										<th style="width: 12%; text-align:center;">관리</th> -->
 										<th style="width: 7%; text-align:center;">번호</th>
 										<th style="width:   ; text-align:center;">제목</th>
 										<th style="width:15%; text-align:center;">작성자</th>										
@@ -74,10 +68,14 @@ function delchk(){
 									</tr>
 								</thead>
 								<tbody>
-								<c:forEach var="reviewList"  items="${reviewList}" varStatus="stat">															
+								<c:forEach var="reviewList"  items="${reviewList}" varStatus="stat">	
+								<c:url var="viewURL" value="view.do" >
+											<c:param name="no" value="${reviewList.no}" />
+										    <c:param name="currentPage" value="${currentPage }" />
+										</c:url>														
 									<tr class="gradeA even" role="row">
 										<td style="text-align:center;vertical-align:middle;">${reviewList.no}</td>
-										<td style="text-align:center;vertical-align:middle;">${reviewList.subject}</td>
+										<td style="text-align:center;vertical-align:middle;"><a href="${viewURL}">${reviewList.subject}</td></a>
 										<td style="text-align:center;vertical-align:middle;">${reviewList.email}</td>
 										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${reviewList.regdate}" pattern="YY.MM.dd HH:mm" /></td>
 										<td style="text-align:center;vertical-align:middle;">${reviewList.readcount}</td>									
