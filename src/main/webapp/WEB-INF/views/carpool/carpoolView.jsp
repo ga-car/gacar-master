@@ -125,8 +125,10 @@ function noticeDelete() {
 						</div>
 						<form class="viewForm" method="post">
 							<input type="hidden" name="${carpoolModel.no }" />
+							<c:if test="${session_name == carpoolModel.name }">
 								<button type="button" onclick="onModify(${carpoolModel.no })"
 									class="btn btn-primary">수정</button>
+							</c:if>
 							<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
 							<button type="button" onclick="onDelete()" class="btn btn-primary">삭제</button>
 						</form>
