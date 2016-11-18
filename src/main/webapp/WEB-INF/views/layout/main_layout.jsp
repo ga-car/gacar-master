@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if lt IE 7 ]> <html lang="ko" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="ko" class="no-js ie7"> <![endif]-->
@@ -109,6 +110,24 @@
 <!-- 미령이가 작업한 부분 끝 -->
 </head>
 <body>
+<c:if test='${session_email!=null && session_email!="admin"}'>
+<!-- Tocplus -->
+<script type="text/javascript">
+tocplusAwayImage='https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQNh9gerNq1DFGPaL-Vmc3Ymf2fVEzTcD7kDud-drVbklUuKW9M';
+tocplusTop=1150;
+tocplusLeft=5;
+tocplusMinimizedImage='http://kr02.tocplus007.com/img/minimized_ko.gif';
+tocplusHAlign='right';
+tocplusWidth=180;
+tocplusHeight=220;
+tocplusUserName='${session_name}';
+tocplusFrameColor='#FF5757';
+tocplusFloatingWindow=true;
+var tocplusHost = (("https:" == document.location.protocol) ? "https://" : "http://");
+document.write(unescape("%"+"3Cscript src='" + tocplusHost + "kr02.tocplus007.com/chatLoader.do?userId=rrryung' type='text/javascript'"+"%"+"3E"+"%"+"3C/script"+"%"+"3E"));
+</script>
+<!-- End of Tocplus -->
+</c:if>
 	<div class="layout-container">
 		<div class="main index">
 			<!-- header -->
