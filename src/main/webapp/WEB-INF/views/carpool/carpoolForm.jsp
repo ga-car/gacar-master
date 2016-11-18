@@ -10,12 +10,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 </head>
+<!-- 영균 필요링크 시작 -->
 <link rel="stylesheet" type="text/css" href="/rentacar/resources/css/jquery.datetimepicker.css"/>
 <style type="text/css">
 .custom-date-style {
 	background-color: red !important;
 }
 </style>
+<!-- 영균 필요링크 끝-->
 <body>
 <form:form commandName="carpoolModel" action="write.do" method="post">
       <div id="page-wrapper">

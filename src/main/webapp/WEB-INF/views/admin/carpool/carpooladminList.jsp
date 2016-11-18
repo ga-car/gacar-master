@@ -54,8 +54,10 @@ function delchk(){
 								aria-describedby="dataTables-example_info">
 								<thead>
 									<tr role="row">
-										<th style="width: 12%; text-align:center;">번호</th>
-										<th style="width: 40%; text-align:center;">제목</th>
+										<th style="width: 12%; text-align:center;">글번호</th>
+										<th style="width: 10%; text-align:center;">제목</th>
+										<th style="width: 12%; text-align:center;">출발지</th>
+										<th style="width: 12%; text-align:center;">도착지</th>
 										<th style="width: 12%; text-align:center;">작성자</th>										
 										<th style="width: 12%; text-align:center;">등록일자</th>
 										<th style="width: 12%; text-align:center;">조회수</th>
@@ -73,8 +75,8 @@ function delchk(){
 									<tr class="gradeA even" role="row">
 										<td style="text-align:center;vertical-align:middle;">${carpoolList.no}</td>
 										<td ><a href="${viewURL}">${carpoolList.subject}</a>
-										${carpoolList.saddr} -> ${carpoolList.eaddr}
-										</td>
+										<td>${carpoolList.saddr}</td> 
+										<td>${carpoolList.eaddr}</td>
 										<td style="text-align:center;vertical-align:middle;">${carpoolList.name}</td>
 										<td style="text-align:center;vertical-align:middle;"><fmt:formatDate value="${carpoolList.regdate}" pattern="YY.MM.dd HH:mm" /></td>
 										<td style="text-align:center;vertical-align:middle;">${carpoolList.readcount}</td>									
@@ -85,13 +87,7 @@ function delchk(){
 										 <a href="${viewURL2}"><input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Trash_font_awesome.svg/32px-Trash_font_awesome.svg.png" onclick="return delchk()"></a></td>									
 									</tr>
 								</c:forEach>
-								
-								 <c:url var="viewURL3" value="write.do" >
-											<%-- <c:param name="no" value="${notifyModel.no }" />	 --%>						
-										</c:url>	 
-										 <a href="${viewURL3}"><input type="button" value="글쓰기"></a>
-								
-								
+																
 								<!--  등록된 상품이 없을때 -->
 									<c:if test="${fn:length(carpoolList) le 0}">
 										<tr><td colspan="9" style="text-align:center;">등록된 게시물이 없습니다</td></tr>
@@ -112,8 +108,7 @@ function delchk(){
 									<form action="">
 									<select class="form-control" name="searchNum" id="searchNum">
 										<option value="0">제목</option>
-										<option value="1">내용</option>
-										<option value="2">글쓴이</option>
+										<option value="1">글쓴이</option>
 
 									</select>
 										<input class="form-control" type="text" name="isSearch" id="isSearch"/>

@@ -6,104 +6,98 @@
 <html>
 <head>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
-<link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
-<link href="/rentacar/resources/css/reset.css" rel="stylesheet">
-<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet">
-<style type="text/css">
-.contents-wrap {
-	margin: 30px 0 0 0;
-	min-height: 500px;
-}
-
-.contents {
-	margin: 60px 0 0 0;
-}
-
-.recode-wrap {
-	text-align: right;
-	color: #888;
-}
-
-.hit-wrap {
-	color: #888;
-	margin: 10px 0;
-}
-
-.viewForm {
-	margin: 20px 0 0 0;
-}
-</style>
-
-<!-- <script type="text/javascript">
-function noticeDelete() {
-	alert("삭제하겠습니까?");
-	location.href='noticeDelete.dog?no=${notifyModel.no}';
-}
-</script> -->
 </head>
-
 <body>
-	<div id="wrapper">
-		<div class="category_top">
-			<ul>
-				<li class="post1">커뮤니티</li>
-				<li>></li>
-				<li class="post2">공지사항</li>
-			</ul>
-		</div>
-		<div id="page-wrapper">
-			<div class="row">
-				<div class="col-lg-12">
-					<h1 class="page-header">NOTICE</h1>
-				</div>
-				<!-- /.col-lg-12 -->
-			</div>
-			<!-- /.row -->
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="panel panel-default">
-						<!-- /.panel-heading -->
-						<div class="dataTable_wrapper">
-							<table class="table table-striped table-bordered table-hover"
-								id="dataTables-example">
-								<thead>
-									<tr class="danger">
-										<th>${notifyModel.subject }</th>
-
-									</tr>
-								</thead>
-								<tbody>
-
-									<tr>
-										<td align=right><strong>${notifyModel.name }</strong>&nbsp;&nbsp;|&nbsp;&nbsp;<fmt:formatDate
-												value="${notifyModel.regdate }" pattern="yyyy-MM-dd" /></td>
-									</tr>
-									<tr>
-										<td>${notifyModel.content }</td>
-
-									</tr>
-
-								</tbody>
-							</table>
+	<div id="article" class="content" role="main">
+	<!-- 상단 시작 -->
+		<div class="nav" role="navigation">
+			<h4>고객센터 > 공지사항</h4>
+			<!-- 게시판 검색 시작 -->
+			<div class="category-filter-wrapper">
+				<div class="category-filter-wrapper">
+					<form action="" name="category-filter-form"
+						id="category-filter-form">
+						<div class="category-filter-query pull-right">
+							<div class="input-group input-group-sm">
+								<input type="text" name="isSearch" id="isSearch"
+									class="form-control" placeholder="검색어" value="" /> <span
+									class="input-group-btn">
+									<button type="submit" class="btn btn-default">
+										<i class="fa fa-search"></i>
+									</button>
+								</span>
+							</div>
 						</div>
-						<form class="viewForm" method="post">
-							<input type="hidden" name="${notifyModel.no }" />
-							<%-- <input type="hidden" name="seq" value="${item.seq }" /> --%>
-							<c:if test="${session_member_id == 'admin' }">
-								<button type="button" onclick="onModify(${notifyModel.no })"
-									class="btn btn-primary">수정</button>
-							</c:if>
-							<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
-						</form>
+						<ul class="list-sort pull-left">
+							<li><select name="searchNum" id="searchNum">
+									<option value="0">제목</option>
+									<option value="1">내용</option>
+									<option value="2">글쓴이</option>
+							</select></li>
 
-					</div>
+						</ul>
+						<input type="hidden" name="sort" id="category-sort-input"
+							value="id" /> <input type="hidden" name="order"
+							id="category-order-input" value="desc" />
+					</form>
+				</div>
+			</div>
+			<!-- 게시판 검색 끝 -->
+		</div>
+		<!-- 상단 끝 -->
+		<!--게시판 뷰 시작-->
+		<div class="panel panel-default clearfix">
+			<!--작성 정보 시작-->
+			<div class="panel-heading clearfix">
+				<div class='avatar avatar-medium clearfix pull-left'>
+					<!-- 제목 -->
+					<h2 class="panel-title">${notifyModel.subject }</h2>
+				</div>
+				<div class="content-identity pull-right">
+
+							<!-- 작성자명 -->
+							<div class="content-identity-count">${notifyModel.name }</div>
+
+							<!-- 조회수 -->
+							<div class="content-identity-count">
+								<i class="fa fa-eye"></i> ${notifyModel.readcount}
+							</div>
+
+
+							<!-- 작성일 -->
+							<div class="content-identity-count">
+								<span class="timeago"> <fmt:formatDate
+										value="${notifyModel.regdate }" pattern="yy-MM-dd" />
+								</span>
+							</div>
+
+	
+				</div>
+				<!--작성자 정보 끝 -->
+			</div>
+			<!--작성 정보 끝-->
+			<div class="content-container ">
+				<div id="content-body" class="panel-body pull-left">
+					<!-- 글내용 -->
+					<article class="content-text">${notifyModel.content }</article>
 
 				</div>
 			</div>
 		</div>
+		<form class="viewForm" method="post">
+			<input type="hidden" name="${notifyModel.no }" />
+			<%-- <input type="hidden" name="seq" value="${item.seq }" /> --%>
+			<c:if test="${session_member_id == 'admin' }">
+				<button type="button" onclick="onModify(${notifyModel.no })"
+					class="btn btn-primary">수정</button>
+			</c:if>
+			<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
+		</form>
+		<!--게시판 뷰 끝-->
 	</div>
 </body>
+
+
 <script type="text/javascript">
 /* 	var onModify = function(no){
 		var form = $('.viewForm')[0];
@@ -116,5 +110,4 @@ function noticeDelete() {
 	};
 </script>
 </html>
-
 
