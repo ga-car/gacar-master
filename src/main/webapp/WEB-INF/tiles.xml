@@ -312,6 +312,9 @@
 			value="/WEB-INF/views/mypage/carpool/carpoolmypageapplyList.jsp" />
 	</definition>
 
+	<definition name="chat-sockjs" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/carpool/chat-sockjs.jsp"/>
+	</definition>  
 </tiles-definitions>
 	
 	

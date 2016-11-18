@@ -93,7 +93,6 @@ public class MemberController {
 		String reciver = request.getParameter("email");
 		MemberModel result = memberService.getMember(reciver);
 		if (result == null) {
-			System.out.println("reciver" + reciver);
 
 			/* String reciver = "rrryung83@gmail.com"; */
 			String authNum = "";
@@ -102,7 +101,7 @@ public class MemberController {
 			isEmail = sendEmail(reciver.toString(), authNum);
 
 			if (isEmail == true) {
-				System.out.println("인증번호:" + authNum);
+				/*System.out.println("인증번호:" + authNum);*/
 
 				ModelAndView mav = new ModelAndView();
 				mav.addObject("email", reciver);
@@ -216,7 +215,6 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();// QModelAndView는 미리 객체 생성해놓으면 안
 												// 되는지?ex>service,controller와 같이
 		String preAddr = request.getHeader("referer");
-		System.out.println(preAddr);
 		mv.setViewName("member/login");
 		return mv;
 	}
@@ -224,16 +222,15 @@ public class MemberController {
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	public ModelAndView login(HttpServletRequest request, MemberModel mem) throws Exception {
 		String addr = request.getParameter("parentUrl");
-		System.out.println(addr);
 
 		MemberModel result = memberService.login(mem);
 		String suc = null;
 		if (result != null) {
 			Date del = result.getDeldate(); // Q1.getDel()로 해서 del!="Y"안되는 이유?
 			String emailCheck = result.getEmail();
-			System.out.println("삭제여부" + del);
+			
 			if (del == null) {
-				System.out.println("name:" + result.getName());
+				
 
 				HttpSession session = request.getSession();
 
@@ -284,7 +281,6 @@ public class MemberController {
 	public ModelAndView memFindForm(HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		String preAddr = request.getHeader("Referer");
-		System.out.println(preAddr);
 		mv.setViewName("member/emailpwFind");
 		return mv;
 	}
@@ -302,8 +298,6 @@ public class MemberController {
 			/* emailOrpw=0; */
 			if (mem.getDeldate() == null) {
 				isFind = 1;
-				System.out.println("id찾기의 mem" + mem.getEmail());
-				System.out.println("id찾기의 mem2" + mem.getPassword());
 				mav.addObject("mem", mem);
 			} else {
 				isFind = 3;
@@ -329,7 +323,6 @@ public class MemberController {
 			if (mem.getDeldate() == null) {
 				isFind = 2;
 				mav.addObject("mem", mem);
-				System.out.println("pw찾기의 mem" + mem.getPassword());
 			} else {
 				isFind = -3;
 			}
@@ -361,7 +354,6 @@ public class MemberController {
 		MemberModel result = memberService.getMember(reciver);
 
 		if (result != null) {
-			System.out.println("reciver" + reciver);
 			if(result.getDel()==null){
 			/* String reciver = "rrryung83@gmail.com"; */
 			String authNum = "";
@@ -370,7 +362,7 @@ public class MemberController {
 			/* isEmail = sendEmail(reciver.toString(), authNum); */
 
 			sendEmail(reciver.toString(), authNum);
-			System.out.println("인증번호:" + authNum);
+			/*System.out.println("인증번호:" + authNum);*/
 			mav.addObject("authNum", authNum);
 			mav.addObject("email", reciver);
 			
