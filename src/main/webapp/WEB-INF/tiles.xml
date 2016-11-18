@@ -118,6 +118,10 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/review/reviewadminList.jsp" />
 	</definition>
+		<definition name="adminreviewView" extends="adminMain">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/review/reviewadminView.jsp" />
+	</definition>
 
 	<!-- faq관리자 -->
 	<definition name="adminfaqList" extends="adminMain">

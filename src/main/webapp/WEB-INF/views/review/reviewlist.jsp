@@ -77,7 +77,7 @@
 											<td>${list.no}</td>
 											<td style="text-align:center;">
 												<c:if test="${list.imagefile_savname != 'NULL'}">
-													<a href="${viewURL}"> =${list.subject}<img src="/rentacar/resources/images/reviewImage.PNG" width="20" height="20">&nbsp;</a>
+													<a href="${viewURL}"> ${list.subject}<img src="/rentacar/resources/images/reviewImage.PNG" width="20" height="20">&nbsp;</a>
 												</c:if>
 												<c:if test="${list.imagefile_savname == 'NULL'}">
 													<a href="${viewURL}"> ${list.subject}</a>
