@@ -132,7 +132,7 @@ function fnChkByte(obj, maxByte){
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
-<link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
+<!-- <link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet"> -->
 <link href="/rentacar/resources/css/reset.css" rel="stylesheet">
 <link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet">
 <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
