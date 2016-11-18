@@ -169,29 +169,6 @@ public class adminReviewController {
 		return "redirect:list.do";
 	}
 	
-/*	/////////////////////////////////////�ڸ�Ʈ/////////////////////////////////////
-	@RequestMapping(value="//reviewcommWrite.do", method=RequestMethod.POST)
-	public ModelAndView reviewcommWrite( ReviewcommModel reviewcommModel,
-			HttpServletRequest request, HttpSession session){
-	    
-		ModelAndView mav = new ModelAndView();
-		int no = reviewcommModel.getContent_num();
-		
-		�ٹٲ�
-		String contentt = reviewcommModel.getCommentt().replaceAll("\r\n", "<br />");
-		reviewcommModel.setCommentt(contentt);
-				
-		reviewService.reviewcommWrite(reviewcommModel);
-		reviewService.reviewcommUpdate1(no);
-		commenter = reviewcommModel.getCommenter();
-		
-		mav.setViewName("redirect:/review/reviewView.do?no="+reviewcommModel.getContent_num());
-		
-		return mav;
-	}*/
-	
-	/*/////////////////////////////////////�󼼺���/////////////////////////////////////*/
-	
 	@RequestMapping("/view.do")
 	public ModelAndView reviewView(HttpServletRequest request){			   
 		ModelAndView mav = new ModelAndView();
@@ -200,16 +177,9 @@ public class adminReviewController {
 		
 		ReviewModel reviewModel = reviewService.reviewView(no);
 		reviewService.reviewUpdateReadhit(no);
-		/*comment_count =  reviewService.reviewcommCount(no);
-		
-		List<ReviewcommModel> reviewcommList;
-		reviewcommList = reviewService.reviewcommList(no);
-		comment_count = reviewcommList.size();
-		
-		mav.addObject("CommList", reviewcommList);*/
+
 		mav.addObject("reviewModel", reviewModel);
-		/*mav.addObject("comment_count", comment_count);*/
-		mav.setViewName("reviewView");
+		mav.setViewName("adminreviewView");
 		
 		return mav;
 	}
@@ -224,79 +194,6 @@ public class adminReviewController {
 	/*	reviewService.reviewallcommDelete(no);*/
 		mav.setViewName("redirect:list.do");
 		
-		return mav;	
-	}
-	
-	/*/////////////////////////////////////�ڸ�Ʈ����/////////////////////////////////////
-	@RequestMapping(value="/review/reviewcommDelete.do")
-	public ModelAndView qnacommDelete(HttpServletRequest request, ReviewModel reviewModel, ReviewcommModel reviewcommModel){			   
-			ModelAndView mav = new ModelAndView();
-			
-			System.out.println(reviewcommModel.getComment_num());
-			
-			int no = reviewModel.getNo();
-			reviewService.reviewcommDelete(reviewcommModel);
-			reviewService.reviewView(reviewModel.getNo());
-			reviewService.reviewcommUpdate2(no);
-			
-			mav.setViewName("redirect:/review/reviewView.do?no="+reviewModel.getNo());
-			
-			return mav;
-	}*/
-	/*/////////////////////////////////////�ۼ��� �̵�/////////////////////////////////////*/
-	@RequestMapping("/modify.do")
-	public ModelAndView reviewModifyForm(@ModelAttribute("reviewModel") ReviewModel reviewModel, BindingResult result, HttpServletRequest request){
-		
-		ModelAndView mav = new ModelAndView();
-		reviewModel = reviewService.reviewView(reviewModel.getNo());
-		
-		String contents = reviewModel.getContent().replaceAll("<br />", "\r\n");
-		reviewModel.setContent(contents);
-		
-		mav.addObject("reviewModel", reviewModel);
-		mav.setViewName("reviewModify");
-		
-		return mav;	
-	}
-	
-	/*/////////////////////////////////////�� ����/////////////////////////////////////*/
-	@RequestMapping("/modifySuccess.do")
-	public ModelAndView reviewModify(ReviewModel reviewModel, MultipartHttpServletRequest multipartHttpServletRequest){
-		
-		ModelAndView mav = new ModelAndView();
-        
-        /*�ٹٲ�*/
-		String content = reviewModel.getContent().replaceAll("\r\n", "<br />");
-		reviewModel.setContent(content);
-	    
-        if (multipartHttpServletRequest.getFile("file") != null){
- 		//���� ��ǰ�̹���
-        	MultipartFile multipartFile = multipartHttpServletRequest.getFile("file");
-        	String filename = multipartFile.getOriginalFilename();
-	        	if (filename != ""){ 
-				    reviewModel.setImagefile_savname(System.currentTimeMillis()+"_"+multipartFile.getOriginalFilename());					    
-				    String savimagename = System.currentTimeMillis()+"_"+multipartFile.getOriginalFilename();				    
-			        try {
-						FileCopyUtils.copy(multipartFile.getInputStream(), new FileOutputStream(uploadPath+"/"+savimagename));
-					} catch (FileNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}			            	        
-	        	}/*else{
-	        		reviewModel.setImagefile_savname("NULL");
-	        	}*/
-        }
-        else{
-        	reviewModel.setImagefile_savname(multipartHttpServletRequest.getParameter("imagefile_savname"));
-        }
-        
-        reviewService.reviewModify(reviewModel);
-		
-		mav.addObject("no", reviewModel.getNo());
-		mav.setViewName("redirect:view.do");
 		return mav;	
 	}
 }
