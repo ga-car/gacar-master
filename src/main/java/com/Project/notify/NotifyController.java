@@ -20,7 +20,7 @@ import com.Project.util.Paging;
 import com.Project.validator.NoticeValidator;
 
 @Controller
-@RequestMapping("/notice")
+@RequestMapping("/notify")
 public class NotifyController {
 
 	@Resource
@@ -28,19 +28,18 @@ public class NotifyController {
 	private int searchNum;
 	private String isSearch;
 	
-	//ÆäÀÌÂ¡À» À§ÇÑ º¯¼ö ¼³Á¤
 	private int currentPage = 1;	 
 	private int totalCount; 		 
 	private int blockCount = 10;	 
 	private int blockPage = 5; 	 
 	private String pagingHtml;  
-	private Paging page;
-
-	//¸®½ºÆ® Ã³¸®(°Ë»ö)
-	@RequestMapping(value="list.do", method=RequestMethod.GET)
-	public ModelAndView noticeList(HttpServletRequest request) throws UnsupportedEncodingException{
-		
-		ModelAndView mav = new ModelAndView();
+	private Paging page;	
+	
+	
+	@RequestMapping(value="/list.do", method=RequestMethod.GET)
+	public ModelAndView noticeList(HttpServletRequest request) throws UnsupportedEncodingException
+	{ 
+	ModelAndView mav = new ModelAndView();
 		
 		if(request.getParameter("currentPage") == null || request.getParameter("currentPage").trim().isEmpty() || request.getParameter("currentPage").equals("0")) {
             currentPage = 1;
@@ -67,7 +66,7 @@ public class NotifyController {
 				noticeList = notifyService.noticeSearch2(isSearch);
 		
 			totalCount = noticeList.size();
-			page = new Paging(currentPage, totalCount, blockCount, blockPage, "noticeList", searchNum, isSearch);
+			page = new Paging(currentPage, totalCount, blockCount, blockPage, "list", searchNum, isSearch);
 			pagingHtml = page.getPagingHtml().toString();
 		
 			int lastCount = totalCount;
@@ -91,7 +90,7 @@ public class NotifyController {
 		
 		totalCount = noticeList.size();
 		
-		page = new Paging(currentPage, totalCount, blockCount, blockPage, "noticeList");
+		page = new Paging(currentPage, totalCount, blockCount, blockPage, "list");
 		pagingHtml=page.getPagingHtml().toString();  
 		
 		int lastCount = totalCount;
@@ -109,101 +108,23 @@ public class NotifyController {
 		return mav;
 	}
 
-	//°øÁö»çÇ× »ó¼¼º¸±â
-	@RequestMapping("detail.do")
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ó¼¼ºï¿½ï¿½ï¿½
+	@RequestMapping("/detail.do")
 	public ModelAndView noticeView(HttpServletRequest request){
 		   
 		ModelAndView mav = new ModelAndView();
 		
 		int no = Integer.parseInt(request.getParameter("no"));
 		
-		NotifyModel noticeModel = notifyService.noticeView(no);
+		NotifyModel notifyModel = notifyService.noticeView(no);
 		
 		notifyService.noticeUpdateReadcount(no);
 		
 		mav.addObject("currentPage", currentPage);
-		mav.addObject("noticeModel", noticeModel);
+		mav.addObject("notifyModel", notifyModel);
 		mav.setViewName("noticeView");
 		
 		return mav;
 	}
 	
-	/*//°øÁö»çÇ× ±Û¾²±â Æû
-	@RequestMapping(value="/notice/noticeWrite.dog", method=RequestMethod.GET)
-	public ModelAndView noticeForm(HttpServletRequest request) {
-		
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("noticeModel", new NotifyModel());
-		mav.setViewName("noticeForm");
-		return mav;
-	}
-	
-	//°øÁö»çÇ× ±Û¾²±â
-	@RequestMapping(value="/notice/noticeWrite.dog", method=RequestMethod.POST)
-	public ModelAndView noticeWrite(@ModelAttribute("noticeModel") NotifyModel noticeModel, BindingResult result, 
-			HttpServletRequest request, HttpSession session){
-		
-		ModelAndView mav = new ModelAndView();
-		
-		new NoticeValidator().validate(noticeModel, result);
-		
-		if(result.hasErrors()) {
-			mav.setViewName("noticeForm");
-			return mav;
-		}
-		
-		String content = noticeModel.getContent().replaceAll("\r\n", "<br />");
-		noticeModel.setContent(content);
-		
-		notifyService.noticeWrite(noticeModel);
-		
-		mav.addObject("noticeModel", noticeModel);
-		mav.setViewName("redirect:noticeList.dog");
-		
-		return mav;
-	}
-	
-	//°øÁö»çÇ× »èÁ¦
-	@RequestMapping("/notice/noticeDelete.dog")
-	public ModelAndView noticeDelete(HttpServletRequest request){
-		
-		ModelAndView mav = new ModelAndView();
-		int no = Integer.parseInt(request.getParameter("no"));
-		notifyService.noticeDelete(no);
-		mav.setViewName("redirect:noticeList.dog");
-		
-		return mav;	
-	}
-	
-	//°øÁö»çÇ× ¼öÁ¤Æû
-	@RequestMapping("/notice/noticeModify.dog")
-	public ModelAndView noticeModifyForm(@ModelAttribute("noticeModel") NotifyModel noticeModel, BindingResult result, HttpServletRequest request){
-		
-		ModelAndView mav = new ModelAndView();
-		noticeModel = notifyService.noticeView(noticeModel.getNo());
-		
-		String content = noticeModel.getContent().replaceAll("<br />", "\r\n");
-		noticeModel.setContent(content);
-		
-		mav.addObject("noticeModel", noticeModel);
-		mav.setViewName("noticeModify");
-		
-		return mav;	
-	}
-	
-	//°øÁö»çÇ× ¼öÁ¤
-	@RequestMapping("/notice/noticeModifySuccess.dog")
-	public ModelAndView noticeModify(@ModelAttribute("noticeModel") NotifyModel noticeModel, HttpServletRequest request){
-		
-		ModelAndView mav = new ModelAndView("redirect:noticeView.dog");
-		
-		String content = noticeModel.getContent().replaceAll("\r\n", "<br />");
-		noticeModel.setContent(content);
-		
-		notifyService.noticeModify(noticeModel);
-		
-		mav.addObject("no", noticeModel.getNo());
-		
-		return mav;	
-	}*/
 }

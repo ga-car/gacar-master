@@ -39,7 +39,7 @@
 	        <div class="complete">
 	        <img src="http://img.echosting.cafe24.com/design/skin/default/order/ico_complete.gif">
 	        
-	        <p>${member.name}고객님의<br/>가입이 완료 되었습니다.</p>
+	        <p>${mem.name}고객님의<br/>가입이 완료 되었습니다.</p>
 			<ul>
 				<li class="number">
 				<span>로그인 후 이용해 주세요</span>
@@ -50,7 +50,7 @@
 	    </div>
 	    
 	    <div style="margin-top:15px; text-align:center;">
-			<span class="btn btnC_04 btnP_04"><a href="/pet/main.dog"><input type="button" value="메인화면으로"></a></span>
+			<span class="btn btnC_04 btnP_04"><a href="/rentacar/main.do"><input type="button" value="메인화면으로"></a></span>
 			
 		</div>
 	</div>

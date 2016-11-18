@@ -19,38 +19,32 @@ PUBLIC " - //mybatis.org//DTD Config 3.0//EN"
 	</settings>
 	<!-- ModelMapping -->
 	<typeAliases>
-<<<<<<< HEAD
-	<typeAlias type="com.Project.notice.NoticeModel" alias="noticeModel" />
-=======
 		<!-- review -->
 		<typeAlias alias="reviewModel" type="com.Project.review.ReviewModel" />
 		<typeAlias alias="carpoolModel" type="com.Project.carpool.CarpoolModel" />
+		<typeAlias alias="attendModel" type="com.Project.carpool.AttendModel" />
 		<typeAlias alias="notifyModel" type="com.Project.notify.NotifyModel" />
-		<typeAlias alias="faqModel" type="com.Project.faq.FaqModel" />
-		<typeAlias alias="qnaModel" type="com.Project.qna.QnaModel" />
+		<typeAlias alias="faqModel" type="com.Project.faq.FAQModel" />
+		<typeAlias alias="qnaModel" type="com.Project.qna.qnaModel" />
+		<typeAlias alias="qnaCommModel" type="com.Project.qna.qnaCommModel" />
 		<typeAlias alias="mypageModel" type="com.Project.mypage.MypageModel" />
-		<typeAlias alias="joinModel" type="com.Project.join.JoinModel" />
-		<typeAlias alias="loginModel" type="com.Project.login.LoginModel" />
-		<typeAlias alias="adminModel" type="com.Project.admin.AdminModel" />
 		<typeAlias alias="rentacarModel" type="com.Project.rentacar.RentacarModel" />
->>>>>>> refs/remotes/origin/master
+		<typeAlias alias="adminModel" type="com.Project.admin.AdminModel" />	
+		<typeAlias alias="memberModel" type="com.Project.member.MemberModel"/>
+		<typeAlias alias="zipcodeModel" type="com.Project.member.ZipcodeModel"  />
+		<typeAlias alias="ReserveModel" type="com.Project.rentacar.ReserveModel"  />
 	</typeAliases>
 	<!-- SQL 정의한 xml문서 Mapping -->
 	<mappers>
-<<<<<<< HEAD
-	<mapper resource="mybatis/config/noticeSQL.xml" />
-=======
 		<mapper resource="mybatis/config/reviewSQL.xml" />
+		<mapper resource="mybatis/config/faqSQL.xml" />
 		<mapper resource="mybatis/config/carpoolSQL.xml" />
 		<mapper resource="mybatis/config/notifySQL.xml" />
-		<mapper resource="mybatis/config/faqSQL.xml" />
 		<mapper resource="mybatis/config/qnaSQL.xml" />
 		<mapper resource="mybatis/config/mypageSQL.xml" />
-		<mapper resource="mybatis/config/joinSQL.xml" />
-		<mapper resource="mybatis/config/loginSQL.xml" />
 		<mapper resource="mybatis/config/adminSQL.xml" />
 		<mapper resource="mybatis/config/rentacarSQL.xml" />
->>>>>>> refs/remotes/origin/master
+		<mapper resource="mybatis/config/memberSQL.xml"/>
+		<mapper resource="mybatis/config/reserveSQL.xml"/>
 	</mappers>
-
 </configuration>

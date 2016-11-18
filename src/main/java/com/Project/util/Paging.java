@@ -2,62 +2,61 @@ package com.Project.util;
 
 public class Paging {
 
-	private int currentPage;   // ÇöÀçÆäÀÌÁö
-	private int totalCount;	 // ÀüÃ¼ °Ô½Ã¹° ¼ö
-	private int totalPage;	 // ÀüÃ¼ ÆäÀÌÁö ¼ö
-	private int blockCount;	 // ÇÑ ÆäÀÌÁöÀÇ  °Ô½Ã¹°ÀÇ ¼ö
-	private int blockPage;	 // ÇÑ È­¸é¿¡ º¸¿©ÁÙ ÆäÀÌÁö ¼ö
-	private int startCount;	 // ÇÑ ÆäÀÌÁö¿¡¼­ º¸¿©ÁÙ °Ô½Ã±ÛÀÇ ½ÃÀÛ ¹øÈ£
-	private int endCount;	 // ÇÑ ÆäÀÌÁö¿¡¼­ º¸¿©ÁÙ °Ô½Ã±ÛÀÇ ³¡ ¹øÈ£
-	private int startPage;	 // ½ÃÀÛ ÆäÀÌÁö
-	private int endPage;	 // ¸¶Áö¸· ÆäÀÌÁö
-	private String dogName;
+	private int currentPage; // í˜„ì¬í˜ì´ì§€
+	private int totalCount; // ì „ì²´ ê²Œì‹œë¬¼ ìˆ˜
+	private int totalPage; // ì „ì²´ í˜ì´ì§€ ìˆ˜
+	private int blockCount; // í•œ í˜ì´ì§€ì˜ ê²Œì‹œë¬¼ì˜ ìˆ˜
+	private int blockPage; // í•œ í™”ë©´ì— ë³´ì—¬ì¤„ í˜ì´ì§€ ìˆ˜
+	private int startCount; // í•œ í˜ì´ì§€ì—ì„œ ë³´ì—¬ì¤„ ê²Œì‹œê¸€ì˜ ì‹œì‘ ë²ˆí˜¸
+	private int endCount; // í•œ í˜ì´ì§€ì—ì„œ ë³´ì—¬ì¤„ ê²Œì‹œê¸€ì˜ ë ë²ˆí˜¸
+	private int startPage; // ì‹œì‘ í˜ì´ì§€
+	private int endPage; // ë§ˆì§€ë§‰ í˜ì´ì§€
+	private String PageName;
 
 	private StringBuffer pagingHtml;
 
-	// ÆäÀÌÂ¡ »ı¼ºÀÚ
-	public Paging(int currentPage, int totalCount, int blockCount,
-			int blockPage, String dogName) {
+	// í˜ì´ì§• ìƒì„±ì
+	public Paging(int currentPage, int totalCount, int blockCount, int blockPage, String PageName) {
 
 		this.blockCount = blockCount;
 		this.blockPage = blockPage;
 		this.currentPage = currentPage;
 		this.totalCount = totalCount;
-		this.dogName = dogName;
+		this.PageName = PageName;
 
-		// ÀüÃ¼ ÆäÀÌÁö ¼ö
+		// ì „ì²´ í˜ì´ì§€ ìˆ˜
 		totalPage = (int) Math.ceil((double) totalCount / blockCount);
 		if (totalPage == 0) {
 			totalPage = 1;
 		}
 
-		// ÇöÀç ÆäÀÌÁö°¡ ÀüÃ¼ ÆäÀÌÁö ¼öº¸´Ù Å©¸é ÀüÃ¼ ÆäÀÌÁö ¼ö·Î ¼³Á¤
+		// í˜„ì¬ í˜ì´ì§€ê°€ ì „ì²´ í˜ì´ì§€ ìˆ˜ë³´ë‹¤ í¬ë©´ ì „ì²´ í˜ì´ì§€ ìˆ˜ë¡œ ì„¤ì •
 		if (currentPage > totalPage) {
 			currentPage = totalPage;
 		}
 
-		// ÇöÀç ÆäÀÌÁöÀÇ Ã³À½°ú ¸¶Áö¸· ±ÛÀÇ ¹øÈ£ °¡Á®¿À±â.
+		// í˜„ì¬ í˜ì´ì§€ì˜ ì²˜ìŒê³¼ ë§ˆì§€ë§‰ ê¸€ì˜ ë²ˆí˜¸ ê°€ì ¸ì˜¤ê¸°.
 		startCount = (currentPage - 1) * blockCount;
 		endCount = startCount + blockCount - 1;
 
-		// ½ÃÀÛ ÆäÀÌÁö¿Í ¸¶Áö¸· ÆäÀÌÁö °ª ±¸ÇÏ±â.
+		// ì‹œì‘ í˜ì´ì§€ì™€ ë§ˆì§€ë§‰ í˜ì´ì§€ ê°’ êµ¬í•˜ê¸°.
 		startPage = (int) ((currentPage - 1) / blockPage) * blockPage + 1;
 		endPage = startPage + blockPage - 1;
 
-		// ¸¶Áö¸· ÆäÀÌÁö°¡ ÀüÃ¼ ÆäÀÌÁö ¼öº¸´Ù Å©¸é ÀüÃ¼ ÆäÀÌÁö ¼ö·Î ¼³Á¤
+		// ë§ˆì§€ë§‰ í˜ì´ì§€ê°€ ì „ì²´ í˜ì´ì§€ ìˆ˜ë³´ë‹¤ í¬ë©´ ì „ì²´ í˜ì´ì§€ ìˆ˜ë¡œ ì„¤ì •
 		if (endPage > totalPage) {
 			endPage = totalPage;
 		}
 
-		// ÀÌÀü block ÆäÀÌÁö
+		// ì´ì „ block í˜ì´ì§€
 		pagingHtml = new StringBuffer();
 		if (currentPage > blockPage) {
-			pagingHtml.append("<a class='page prv' href=" + dogName + ".dog?currentPage=" + (startPage - 1) + ">");
+			pagingHtml.append("<a class='page prv' href=" + PageName + ".do?currentPage=" + (startPage - 1) + ">");
 			pagingHtml.append("&lt;");
 			pagingHtml.append("</a>");
 		}
 
-		//ÆäÀÌÁö ¹øÈ£.ÇöÀç ÆäÀÌÁö´Â »¡°£»öÀ¸·Î °­Á¶ÇÏ°í ¸µÅ©¸¦ Á¦°Å.
+		// í˜ì´ì§€ ë²ˆí˜¸.í˜„ì¬ í˜ì´ì§€ëŠ” ë¹¨ê°„ìƒ‰ìœ¼ë¡œ ê°•ì¡°í•˜ê³  ë§í¬ë¥¼ ì œê±°.
 		for (int i = startPage; i <= endPage; i++) {
 			if (i > totalPage) {
 				break;
@@ -67,7 +66,7 @@ public class Paging {
 				pagingHtml.append(i);
 				pagingHtml.append("</strong>");
 			} else {
-				pagingHtml.append("<a class='page' href=" + dogName + ".dog?currentPage=");
+				pagingHtml.append("<a class='page' href=" + PageName + ".do?currentPage=");
 				pagingHtml.append(i);
 				pagingHtml.append(">");
 				pagingHtml.append(i);
@@ -75,81 +74,222 @@ public class Paging {
 			}
 		}
 
-		// ´ÙÀ½ block ÆäÀÌÁö
+		// ë‹¤ìŒ block í˜ì´ì§€
 		if (totalPage - startPage >= blockPage) {
-			pagingHtml.append("<a class='page next' href=" + dogName + ".dog?currentPage=" + (endPage + 1) + ">");
+			pagingHtml.append("<a class='page next' href=" + PageName + ".do?currentPage=" + (endPage + 1) + ">");
 			pagingHtml.append("&gt;");
 			pagingHtml.append("</a>");
 		}
 	}
 
-	// SearchÀÖ´Â »ı¼ºÀÚ
-	public Paging(int currentPage, int totalCount, int blockCount, int blockPage,String dogName, int searchNum, String isSearch){
-		
+	// SearchìˆëŠ” ìƒì„±ì
+	public Paging(int currentPage, int totalCount, int blockCount, int blockPage, String PageName, int searchNum,
+			String isSearch) {
+
 		this.blockCount = blockCount;
 		this.blockPage = blockPage;
 		this.currentPage = currentPage;
 		this.totalCount = totalCount;
-		
+
 		totalPage = (int) Math.ceil((double) totalCount / blockCount);
-		if(totalPage == 0){
+		if (totalPage == 0) {
 			totalPage = 1;
 		}
-		
-		if(currentPage > totalPage){
+
+		if (currentPage > totalPage) {
 			currentPage = totalPage;
 		}
-		
-		startCount = (currentPage -1) * blockCount;
-		endCount = startCount + blockCount -1;
-		
-		startPage = (int)((currentPage -1) / blockPage) * blockPage +1;
-		endPage = startPage + blockPage -1;
-		
-		if(endPage > totalPage){
+
+		startCount = (currentPage - 1) * blockCount;
+		endCount = startCount + blockCount - 1;
+
+		startPage = (int) ((currentPage - 1) / blockPage) * blockPage + 1;
+		endPage = startPage + blockPage - 1;
+
+		if (endPage > totalPage) {
 			endPage = totalPage;
 		}
-		
-		// ÀÌÀü block ÆäÀÌÁö
+
+		// ì´ì „ block í˜ì´ì§€
 		pagingHtml = new StringBuffer();
-		if(currentPage > blockPage){
-			if(isSearch != "")
-				pagingHtml.append("<a class='page prv' href=" + dogName + ".dog?currentPage=" + (startPage - 1) + "&searchNum="+searchNum+ "&isSearch="+isSearch+">");
-			else                    
-				pagingHtml.append("<a class='page prv' href=" + dogName + ".dog?currentPage=" + (startPage - 1) + ">");
+		if (currentPage > blockPage) {
+			if (isSearch != "")
+				pagingHtml.append("<a class='page prv' href=" + PageName + ".do?currentPage=" + (startPage - 1)
+						+ "&searchNum=" + searchNum + "&isSearch=" + isSearch + ">");
+			else
+				pagingHtml.append("<a class='page prv' href=" + PageName + ".do?currentPage=" + (startPage - 1) + ">");
 			pagingHtml.append("&lt;");
 			pagingHtml.append("</a>");
-			}
-		
-		//ÆäÀÌÁö ¹øÈ£, ÇöÀç ÆäÀÌÁö´Â ´Ù¸£°Ô Ç¥½Ã
-		for(int i = startPage; i <= endPage; i++){
-			if(i > totalPage){
+		}
+
+		// í˜ì´ì§€ ë²ˆí˜¸, í˜„ì¬ í˜ì´ì§€ëŠ” ë‹¤ë¥´ê²Œ í‘œì‹œ
+		for (int i = startPage; i <= endPage; i++) {
+			if (i > totalPage) {
 				break;
 			}
-			if(i == currentPage){
+			if (i == currentPage) {
 				pagingHtml.append("<strong>");
 				pagingHtml.append(i);
 				pagingHtml.append("</strong>");
-			}
-			else{
-				pagingHtml.append("<a class='page' href=" + dogName + ".dog?currentPage=" + i);
-				if(isSearch != "")
-					pagingHtml.append("&isSearch=" + isSearch+"&searchNum="+searchNum);
+			} else {
+				pagingHtml.append("<a class='page' href=" + PageName + ".do?currentPage=" + i);
+				if (isSearch != "")
+					pagingHtml.append("&isSearch=" + isSearch + "&searchNum=" + searchNum);
 				pagingHtml.append(">");
 				pagingHtml.append(i);
 				pagingHtml.append("</a>");
 			}
 		}
-		// ´ÙÀ½ block ÆäÀÌÁö
-		if(totalPage - startPage >= blockPage){
-			pagingHtml.append("<a class='page next' href=" + dogName + ".dog?currentPage=" + (endPage + 1));
-			if(isSearch != "")
-				pagingHtml.append("&isSearch=" + isSearch+"&searchNum="+searchNum);
+		// ë‹¤ìŒ block í˜ì´ì§€
+		if (totalPage - startPage >= blockPage) {
+			pagingHtml.append("<a class='page next' href=" + PageName + ".do?currentPage=" + (endPage + 1));
+			if (isSearch != "")
+				pagingHtml.append("&isSearch=" + isSearch + "&searchNum=" + searchNum);
 			pagingHtml.append(">");
 			pagingHtml.append("&gt;");
 			pagingHtml.append("</a>");
 		}
-			
+
+	}
+
+	// SortìˆëŠ” ìƒì„±ì
+	public Paging(int currentPage, int totalCount, int blockCount, int blockPage, String PageName, String sortNum) {
+
+		this.blockCount = blockCount;
+		this.blockPage = blockPage;
+		this.currentPage = currentPage;
+		this.totalCount = totalCount;
+
+		totalPage = (int) Math.ceil((double) totalCount / blockCount);
+		if (totalPage == 0) {
+			totalPage = 1;
+		}
+
+		if (currentPage > totalPage) {
+			currentPage = totalPage;
+		}
+
+		startCount = (currentPage - 1) * blockCount;
+		endCount = startCount + blockCount - 1;
+
+		startPage = (int) ((currentPage - 1) / blockPage) * blockPage + 1;
+		endPage = startPage + blockPage - 1;
+
+		if (endPage > totalPage) {
+			endPage = totalPage;
+		}
+
+		// ì´ì „ block í˜ì´ì§€
+		pagingHtml = new StringBuffer();
+		if (currentPage > blockPage) {
+			if (sortNum != "")
+				pagingHtml.append("<a class='page prv' href=" + PageName + ".do?currentPage=" + (startPage - 1)
+						+ "&sortNum=" + sortNum + ">");
+			else
+				pagingHtml.append("<a class='page prv' href=" + PageName + ".do?currentPage=" + (startPage - 1) + ">");
+			pagingHtml.append("&lt;");
+			pagingHtml.append("</a>");
+		}
+
+		// í˜ì´ì§€ ë²ˆí˜¸, í˜„ì¬ í˜ì´ì§€ëŠ” ë‹¤ë¥´ê²Œ í‘œì‹œ
+		for (int i = startPage; i <= endPage; i++) {
+			if (i > totalPage) {
+				break;
+			}
+			if (i == currentPage) {
+				pagingHtml.append("<strong>");
+				pagingHtml.append(i);
+				pagingHtml.append("</strong>");
+			} else {
+				pagingHtml.append("<a class='page' href=" + PageName + ".do?currentPage=" + i);
+
+				if (sortNum != "")
+					pagingHtml.append("&sortNum=" + sortNum);
+				pagingHtml.append(">");
+				pagingHtml.append(i);
+				pagingHtml.append("</a>");
+			}
+		}
+		// ë‹¤ìŒ block í˜ì´ì§€
+		if (totalPage - startPage >= blockPage) {
+			pagingHtml.append("<a class='page next' href=" + PageName + ".do?currentPage=" + (endPage + 1));
+			if (sortNum != "")
+				pagingHtml.append("&sortNum=" + sortNum);
+			pagingHtml.append(">");
+			pagingHtml.append("&gt;");
+			pagingHtml.append("</a>");
+		}
+
+	}
+
+	// Search&SortìˆëŠ” ìƒì„±ì
+	public Paging(int currentPage, int totalCount, int blockCount, int blockPage, String PageName, int searchNum,
+			String isSearch, String sortNum) {
+
+		this.blockCount = blockCount;
+		this.blockPage = blockPage;
+		this.currentPage = currentPage;
+		this.totalCount = totalCount;
+
+		totalPage = (int) Math.ceil((double) totalCount / blockCount);
+		if (totalPage == 0) {
+			totalPage = 1;
+		}
+
+		if (currentPage > totalPage) {
+			currentPage = totalPage;
+		}
+
+		startCount = (currentPage - 1) * blockCount;
+		endCount = startCount + blockCount - 1;
+
+		startPage = (int) ((currentPage - 1) / blockPage) * blockPage + 1;
+		endPage = startPage + blockPage - 1;
+
+		if (endPage > totalPage) {
+			endPage = totalPage;
+		}
+
+		// ì´ì „ block í˜ì´ì§€
+		pagingHtml = new StringBuffer();
+		if (currentPage > blockPage) {
+			if (isSearch != "")
+				pagingHtml.append("<a class='page prv' href=" + PageName + ".do?currentPage=" + (startPage - 1)
+						+ "&searchNum=" + searchNum + "&isSearch=" + isSearch + "&sortNum=" + sortNum + ">");
+			else
+				pagingHtml.append("<a class='page prv' href=" + PageName + ".do?currentPage=" + (startPage - 1) + ">");
+			pagingHtml.append("&lt;");
+			pagingHtml.append("</a>");
+		}
+
+		// í˜ì´ì§€ ë²ˆí˜¸, í˜„ì¬ í˜ì´ì§€ëŠ” ë‹¤ë¥´ê²Œ í‘œì‹œ
+		for (int i = startPage; i <= endPage; i++) {
+			if (i > totalPage) {
+				break;
+			}
+			if (i == currentPage) {
+				pagingHtml.append("<strong>");
+				pagingHtml.append(i);
+				pagingHtml.append("</strong>");
+			} else {
+				pagingHtml.append("<a class='page' href=" + PageName + ".do?currentPage=" + i);
+				if (isSearch != "")
+					pagingHtml.append("&isSearch=" + isSearch + "&searchNum=" + searchNum + "&sortNum=" + sortNum);
+				pagingHtml.append(">");
+				pagingHtml.append(i);
+				pagingHtml.append("</a>");
+			}
+		}
+		// ë‹¤ìŒ block í˜ì´ì§€
+		if (totalPage - startPage >= blockPage) {
+			pagingHtml.append("<a class='page next' href=" + PageName + ".do?currentPage=" + (endPage + 1));
+			if (isSearch != "")
+				pagingHtml.append("&isSearch=" + isSearch + "&searchNum=" + searchNum + "&sortNum=" + sortNum);
+			pagingHtml.append(">");
+			pagingHtml.append("&gt;");
+			pagingHtml.append("</a>");
+		}
+
 	}
 
 	public int getCurrentPage() {
@@ -232,11 +372,11 @@ public class Paging {
 		this.pagingHtml = pagingHtml;
 	}
 
-	public String getdogName() {
-		return dogName;
+	public String getPageName() {
+		return PageName;
 	}
 
-	public void setdogName(String dogName) {
-		this.dogName = dogName;
+	public void setPageName(String PageName) {
+		this.PageName = PageName;
 	}
 }

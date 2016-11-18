@@ -53,13 +53,13 @@
 		<beans:property name="preparerFactoryClass" value="org.springframework.web.servlet.view.tiles2.SpringBeanPreparerFactory"/>
 	</beans:bean>
 	
-	
-	<!-- 파일 업로드용 resolver
+	<!-- 파일 업로드용 resolver -->
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<beans:property name="defaultEncoding" value="UTF-8" />
 		<beans:property name="maxUploadSize" value="10485760" />
 	</beans:bean>
-	
+<!--
+>>>>>>> origin/revert-22-박혜경
 	<interceptors>
         <interceptor>
             <mapping path="/admin/**" />
@@ -68,5 +68,5 @@
             <beans:bean class="com.Project.interceptor.InterCeptor"></beans:bean>            
         </interceptor>        
     </interceptors>
-	 -->
+		-->
 </beans:beans>

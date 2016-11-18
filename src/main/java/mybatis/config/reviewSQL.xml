@@ -4,7 +4,157 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="review">
+
 	<resultMap type="reviewModel" id="reviewModelRes">
-	
+		<result property="no" column="no" />		
+		<result property="email" column="email"/>
+		<result property="subject" column="subject" />
+		<result property="content" column="content" />
+		<result property="regdate" column="regdate" />
+		<result property="readcount" column="readcount" />
+		<result property="imagefile_orgname" column="imagefile_orgname" />
+		<result property="imagefile_savname" column="imagefile_savname" />
+		<!-- <result property="commcount" column="commcount" /> -->
 	</resultMap>
+	<!-- 
+	<resultMap type="reviewcommModel" id="reviewcommModelRes">
+		<result property="content_num" column="content_num" />	
+		<result property="comment_num" column="comment_num" />
+		<result property="commenter" column="commenter" />
+		<result property="commentt" column="commentt" />
+		<result property="reg_date" column="reg_date" />
+		<result property="comment_count" column="comment_count" />
+	</resultMap>
+
+	 -->
+
+	<!-- 글목록  -->
+	<select id="reviewList" resultMap="reviewModelRes">
+			SELECT * FROM REVIEW ORDER BY no DESC
+	</select>
+	
+		<select id="reviewMyList" resultMap="reviewModelRes" parameterType="String">
+		SELECT * FROM REVIEW
+		WHERE EMAIL = #{email} ORDER BY NO DESC
+	</select>
+	
+	
+	<!-- , IMAGEFILE_SAVNAME -->
+	<!-- 글쓰기 -->
+	<insert id="reviewWrite" parameterType="reviewModel">
+			INSERT INTO REVIEW
+			(NO, SUBJECT, CONTENT, EMAIL, REGDATE, IMAGEFILE_SAVNAME)
+			VALUES
+			(REVIEW_SEQ.NEXTVAL, #{subject}, #{content}, #{email}, SYSDATE, #{imagefile_savname})
+	</insert>
+	<!-- , #{imagefile_savname} -->
+	
+	
+	<!-- 글 상세보기 -->
+	<select id="reviewView" resultMap="reviewModelRes" parameterType="Integer">
+			SELECT * FROM REVIEW
+			WHERE NO = #{no}
+	</select>
+	
+	<!-- 조회수 1증가 -->
+	<update id="reviewUpdateReadhit" parameterType="Integer">
+			UPDATE REVIEW
+			SET
+				READCOUNT = READCOUNT + 1
+			WHERE
+				NO = #{no}	
+	</update>
+	
+	<!-- 글삭제 -->
+	<update id="reviewDelete" parameterType="Integer">
+			DELETE REVIEW
+			WHERE
+				NO = #{no}
+	</update>
+	
+	
+	<!-- 글수정 -->
+	<update id="reviewModify" parameterType="reviewModel">
+			UPDATE REVIEW
+			SET
+				SUBJECT = #{subject},
+				CONTENT = #{content},
+				IMAGEFILE_SAVNAME = #{imagefile_savname}
+			WHERE
+				NO = #{no}	
+	</update>
+	
+<!-- 	<select id="reviewcommList" resultMap="reviewcommModelRes" parameterType="int">
+			SELECT * FROM REVIEW_COMMENT
+			where content_num = #{no}
+			ORDER BY COMMENT_NUM DESC
+	</select> -->
+	
+	<!-- 제목검색 -->
+	<select id="reviewSearch0" resultMap="reviewModelRes" parameterType="String">
+		SELECT * FROM REVIEW
+		 WHERE subject like #{search}
+		 ORDER BY no DESC
+	</select>
+	
+	<!-- 내용검색 -->
+	<select id="reviewSearch1" resultMap="reviewModelRes" parameterType="String">
+		SELECT * FROM REVIEW
+		WHERE content like #{search}
+		ORDER BY no DESC
+	</select>
+
+	<!-- 작성자검색 -->
+	<select id="reviewSearch2" resultMap="reviewModelRes" parameterType="String">
+		SELECT * FROM REVIEW
+		WHERE email like #{search}
+		ORDER BY no DESC
+	</select>
+	
+<!-- 댓글 쓰기
+	<insert id="reviewcommWrite"  parameterType="reviewcommModel">
+		insert into review_comment(comment_num, content_num, commenter, commentt, reg_date )
+		values(review_comment_SEQ.NEXTVAL, #{content_num}, #{commenter}, #{commentt}, sysdate)
+	</insert>
+	
+	댓글 삭제
+	<delete id="reviewcommDelete"  parameterType="reviewcommModel">
+		DELETE REVIEW_COMMENT
+			WHERE
+				comment_num = #{comment_num}
+	</delete>
+	
+	댓글 모두 삭제
+	<delete id="reviewallcommDelete"  parameterType="reviewModel">
+		DELETE REVIEW_COMMENT
+			WHERE
+				content_num = #{no}
+	</delete>	
+	
+ 	댓글 카운팅
+	<select id="reviewcommCount" parameterType="integer" resultType="integer">
+			SELECT count(*) FROM REVIEW_COMMENT
+			where 
+			content_num = #{no}
+	</select>
+	
+	댓글 1 상승
+	<update id="reviewcommUpdate1" parameterType="Integer">
+			UPDATE REVIEW
+			SET
+				COMMCOUNT  = COMMCOUNT + 1
+			WHERE
+				NO = #{no}	
+	</update>
+	
+	
+	댓글 1 하락
+	<update id="reviewcommUpdate2" parameterType="Integer" >
+			UPDATE REVIEW
+			SET
+				COMMCOUNT = COMMCOUNT - 1
+			WHERE
+				NO = #{no}	
+	</update> -->
+	
 </mapper>
