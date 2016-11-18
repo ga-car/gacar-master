@@ -82,6 +82,9 @@ tbody>tr:HOVER {
 				<div style="text-align: center;">
 					<div id="dataTables-example_filter" class="dataTables_filter">
 						<form action="">
+						<c:if test="${session_name != null }">
+							<a href="chat.do">실시간 카풀 모집</a>
+						</c:if>
 						<input type="hidden" name="searchNum" id="searchNum" value="0">
 						<input class="txte" type="text" name="isSearch" id="isSearch" placeholder="출발지"  />
 						<input class="txte" type="text" name="isSearch1" id="isSearch1" placeholder="도착지" />
