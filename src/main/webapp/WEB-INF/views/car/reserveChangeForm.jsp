@@ -278,14 +278,14 @@
 			<tr>
 				<td width="325" align="left">
 					<div id="datepicker">
-						<font class="indigo">체크인날짜</font>&nbsp;&nbsp;<input type="text"
+						<font class="indigo">시작날짜</font>&nbsp;&nbsp;<input type="text"
 							id="datepicker" name="st_day"
 							style="border: 0px solid #eee; margin: 10px;" size="20">
 					</div>
 				</td>
 				<td width="325" align="left">
 					<div id="datepicker1">
-						<font class="indigo">체크아웃날짜</font>&nbsp;&nbsp;<input type="text"
+						<font class="indigo">종료날짜</font>&nbsp;&nbsp;<input type="text"
 							id="datepicker1" name="end_day"
 							style="border: 0px solid #eee; margin: 10px;" size="20">
 					</div>
