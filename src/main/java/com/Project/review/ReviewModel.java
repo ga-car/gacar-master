@@ -9,12 +9,19 @@ public class ReviewModel {
 	private String content;
 	private String subject;
 	private String email;
+	private String name;
 	private Date regdate;
 	private int readcount;
 	private String imagefile_orgname;
 	private String imagefile_savname;
 	
 
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String getEmail() {
 		return email;
 	}

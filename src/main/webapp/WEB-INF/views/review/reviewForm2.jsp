@@ -27,33 +27,25 @@
 			<h3>새 글 쓰기</h3>
 		</div>
 		<!-- 헤드글 끝 -->
-
 		<div class="panel panel-default clearfix">
+			<!-- form 정보 위치1 -->
+
+			<!-- 유저이메일 시작 -->
 			<div class="panel-heading clearfix">
-
 				<div class="avatar avatar-medium clearfix pull-left">
-					<a href="/user/info/49756" class="avatar-photo"><img
-						src="//www.gravatar.com/avatar/1c3ecba7722e67b1b5db8d4facd36d1a?d=identicon&amp;s=40"></a>
-					<div class="avatar-info">
-						<a class="nickname" href="/user/info/49756">푸른바다생각</a>
-						<div class="activity block">
-							<span class="fa fa-flash"></span> 0
-						</div>
-					</div>
-				</div>
-
+					${session_email }</div>
+				<input type="hidden" name="email" value="${session_email }" />
 			</div>
+			<!-- 유저이메일 끝 -->
+			<!-- 글쓰기 창 시작 -->
 			<div class="panel-body">
+				<!-- form 정보 위치2 -->
 				<form:form commandName="reviewModel" action="write.do"
 					enctype="multipart/form-data" method="post">
-					<input type="hidden" name="SYNCHRONIZER_TOKEN"
-						value="2a1f4c86-e74f-4b12-a1ba-0f2c5c57a2a8"
-						id="SYNCHRONIZER_TOKEN">
-					<input type="hidden" name="SYNCHRONIZER_URI"
-						value="/articles/questions/create" id="SYNCHRONIZER_URI">
 					<fieldset class="form">
 						<input type="hidden" name="categoryCode" value="questions"
 							id="categoryCode">
+						<!-- 글 제목 작성창 시작 -->
 						<div class="form-group has-feedback">
 							<div>
 								<input type="textarea" name="subject" required=""
@@ -63,23 +55,29 @@
 								<!-- 벨리데이터 표시 -->
 							</div>
 						</div>
+						<!-- 글 제목 작성창 끝 -->
+						<!-- 글 내용 창 시작 -->
 						<div class="form-group  has-feedback">
-							<textarea name="content.text" id="summernote" rows="20"
+
+							<textarea name="content" id="content" rows="20"
 								class="form-control input-block-level" style="display: none;"></textarea>
-							<div class="note-editor panel panel-default">
-								<div class="note-editing-area">
-									<div>
-										<textarea name="content" id="content" class="note-codable"></textarea>
-										<div class="note-editable panel-body" contenteditable="true"
-											data-placeholder="내용을 입력해 주세요."
-											style="height: 300px; max-height: 860px;">
-											<p>
-												<br>
-											</p>
-										</div>
+										<font color="red"><form:errors path="content" /></font><br />
+										<!-- 벨리데이터 표시 -->
+										<p>
+											<br>
+										</p>
+
 									</div>
+
+						
 								</div>
+								<div class="nav" role="navigation">
+									<input type="file" name="file"
+										value="${reviewModel.imagefile_savname}" />
+								</div>
+
 							</div>
+							<!-- 글 내용 창 끝 -->
 							<div class="nav" role="navigation">
 								<fieldset class="buttons">
 									<button type="button" onclick="this.form.submit();"
@@ -88,12 +86,11 @@
 										class="btn btn-default btn-wide">목록</button>
 								</fieldset>
 							</div>
-					</fieldset>
-				</form:form>
+						</div>
 			</div>
+			</fieldset>
+			</form:form>
 		</div>
-	</div>
-
 </body>
 
 <script type="text/javascript">
