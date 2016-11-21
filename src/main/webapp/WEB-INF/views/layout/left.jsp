@@ -18,8 +18,8 @@
 			<h1>
 				<div class="logo">
 					<a href="/rentacar/main.do"><img
-						src="http://okky.kr/assets/okjsp_logo-467f1484e489ca1133e6320083e1fb9f.png"
-						alt="OKKY" title="OKKY" /></a>
+						src="/rentacar/resources/images/GC_log.png"
+						alt="GaCar" title="GaCar" /></a>
 				</div>
 			</h1>
 			<div class="nav-user nav-sidebar">
@@ -140,53 +140,5 @@
 			</ul>
 		</div>
 	</c:if>
-
-	<%-- 
-	<c:if test='${session_email!=null}'>
-		<strong>${session_name}&nbsp;님</strong>
-		<a href="/rentacar/member/logout.do">로그아웃</a>
-		<br />
-		<a
-			href="javascript:bookmarksite('http://localhost:8080/rentacar/main.do', '가치같이타')">즐겨찾기
-			추가</a>
-		<h4>
-			<a href="#">이용안내</a>
-		</h4>
-		<ul>
-			<li><a href="#">이용방법</a></li>
-			<li><a href="#">이용요금</a></li>
-			<li><a href="#">이용규칙</a></li>
-		</ul>
-		<h4>
-			<a href="/rentacar/car/list.do">가카예약</a>
-		</h4>
-		<h4>
-			<a href="/rentacar/carpool/list.do">카풀모임</a>
-		</h4>
-		<h4>
-			<a href="/rentacar/review/list.do">이용후기</a>
-		</h4>
-		<h4>
-			<a href="/rentacar/notify/list.do">고객센터</a>
-		</h4>
-		<ul>
-			<li><a href="/rentacar/notify/list.do">공지사항</a></li>
-			<li><a href="/rentacar/faq/list.do">FAQ</a></li>
-			<li><a href="/rentacar/qna/list.do">1:1문의</a></li>
-
-		</ul>
-		<h4>
-			<a href="/rentacar/mypage/mypage.do">마이페이지</a>
-		</h4>
-		<ul>
-			<li><a href="/rentacar/mypage/memberConfirm.do">개인정보</a></li>
-			<li><a href="/rentacar/car/reserveList.do">렌트카 이용현황</a></li>
-			<li><a href="/rentacar/mypage/carpool/list.do">카풀 이용현황</a></li>
-			<li><a href="/rentacar/mypage/carpool/attendlist.do">카풀 참가 내역</a></li>
-			<li><a href="/rentacar/mypage/carpool/applylist.do">카풀 신청자 현황</a></li>
-			<li><a href="/rentacar/mypage/mypageList.do">내가쓴글보기</a></li>
-			<li><a href="/rentacar/mypage/memberDelPre.do">회원탈퇴</a></li>
-		</ul>
-	</c:if> --%>
 </body>
 </html>
