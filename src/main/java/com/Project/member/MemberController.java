@@ -209,8 +209,10 @@ public class MemberController {
 
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public ModelAndView loginForm(HttpServletRequest request) {
-		mav.setViewName("member/login");
-		return mav;
+		ModelAndView mv = new ModelAndView();
+
+		mv.setViewName("member/login");
+		return mv;
 	}
 
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
@@ -262,7 +264,6 @@ public class MemberController {
 		String nick = request.getParameter("nick");
 		session.setAttribute("session_nick", nick);
 		session.setAttribute("TOKEN_SAVE_CHECK", "TRUE");
-		System.out.println("nickname:"+nick);
 		mav.addObject("nick",nick);
 		mav.setViewName("member/login");
 		return mav;
