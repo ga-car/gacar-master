@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import com.Project.util.Paging;
+import com.Project.validator.ReviewValidator;
 import com.Project.review.ReviewModel;
 import com.Project.review.ReviewService;
 /*import com.Project.validator.ReviewValidator;*/
@@ -140,7 +141,7 @@ public class ReviewController {
 			MultipartHttpServletRequest multipartHttpServletRequest) throws Exception, Exception{
 		ModelAndView mav = new ModelAndView();
 		/*��������Ʈ*/
-		/*new ReviewValidator().validate(reviewModel, result);*/
+		new ReviewValidator().validate(reviewModel, result);
 		if(result.hasErrors()) {
 			mav.setViewName("reviewWrite");
 			return "reviewWrite";
