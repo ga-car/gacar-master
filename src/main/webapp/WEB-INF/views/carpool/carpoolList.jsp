@@ -26,15 +26,18 @@
 						id="category-filter-form">
 						<div class="category-filter-query pull-right">
 							<div class="input-group input-group-sm">
-							<input type="hidden" name="searchNum" id="searchNum" value="0">
-						<input class="form-control" type="text" name="isSearch" id="isSearch" placeholder="출발지"  />
-						<input class="form-control" type="text" name="isSearch1" id="isSearch1" placeholder="도착지" />
-						 <span class="input-group-btn">
-						<button type="submit" class="btn btn-default">
-							<i class="fa fa-search"></i>
-						</button>
-						</span>
+								<input type="hidden" name="searchNum" id="searchNum" value="0">
+								<input class="form-control" type="text" name="isSearch"
+									id="isSearch" placeholder="출발지" /> <input
+									class="form-control" type="text" name="isSearch1"
+									id="isSearch1" placeholder="도착지" /> <span
+									class="input-group-btn">
+									<button type="submit" class="btn btn-default">
+										<i class="fa fa-search"></i>
+									</button>
+								</span>
 							</div>
+
 						</div>
 					</form>
 				</div>
@@ -55,9 +58,9 @@
 							<div class="list-tag clearfix">
 								<span class="list-group-item-text article-id">${list.no}</span>
 							</div>
-							<h3 class="list-group-item-heading ">							
-									<a href="${viewURL}">${list.subject}</a>
-									${list.saddr} -> ${list.eaddr}							
+							<h3 class="list-group-item-heading ">
+								<a href="${viewURL}">${list.subject}</a> ${list.saddr} ->
+								${list.eaddr}
 							</h3>
 						</div>
 						<div class="list-summary-wrapper clearfix">
@@ -108,13 +111,13 @@
 	</div>
 </body>
 
- <script type="text/javascript">
+<script type="text/javascript">
 	$('.searchOption').val($('.searchOptionVal').val());
 	var onWrite = function() {
 		location.href = 'write.do';
 	};
-	var onList = function(){
-		location.href='list.do'
+	var onList = function() {
+		location.href = 'list.do'
 	};
-</script> 
+</script>
 </html>

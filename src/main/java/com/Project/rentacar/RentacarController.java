@@ -28,14 +28,13 @@ public class RentacarController {
 
 	private String car_lat = String.valueOf(37.4849649737);
 	private String car_lng = String.valueOf(127.0347567814);
-	private String car_addr;
 	private String car_dt1;
 	private String car_dt2;
 	private String car_no;
-	private String alert;
 	private long Day;
 	private long Price1;
 	private long Price2;
+	private int premium;
 
 	Date expirySt_day;
 	Date expiryEnd_day;
@@ -53,25 +52,21 @@ public class RentacarController {
 	private Paging page;
 
 	@RequestMapping(value = "/list.do", method = RequestMethod.GET)
-	public ModelAndView listRentacarForm(RentacarModel rentacarModel, HttpServletRequest request)
+	public ModelAndView listRentacarForm(RentacarModel rentacarModel, ReserveModel reserveModel, HttpServletRequest request)
 			throws UnsupportedEncodingException {
 
 		ModelAndView mav = new ModelAndView();
 
 		List<RentacarModel> rentacarList;
-		List<RentacarModel> rentacarLatLng;
+		List<ReserveModel> reserveList;
 
-		if (request.getParameter("car_lat") != null || request.getParameter("car_lng") != null) {
-			car_lat = request.getParameter("car_lat");
-			car_lng = request.getParameter("car_lng");
-			rentacarModel.setCar_lat(car_lat);
-			rentacarModel.setCar_lng(car_lng);
+		if (request.getParameter("from") != null || request.getParameter("to") != null) {
+			reserveModel.setReserve_sdate(request.getParameter("from"));
+			reserveModel.setReserve_edate(request.getParameter("to"));
 
-			rentacarLatLng = rentacarService.rentacarLatLng(rentacarModel);
-
-			mav.addObject("rentacarLatlng", rentacarLatLng);
+			reserveList = rentacarService.reserveDateList(reserveModel);
 		}
-		
+
 		rentacarList = rentacarService.rentacarList();
 		mav.addObject("car_lat", car_lat);
 		mav.addObject("car_lng", car_lng);
@@ -84,9 +79,31 @@ public class RentacarController {
 	public ModelAndView reserveForm(HttpServletRequest request) throws UnsupportedEncodingException {
 		ModelAndView mav = new ModelAndView();
 
-		car_no = new String(request.getParameter("car_no").getBytes("8859_1"), "utf8");
+		car_no = request.getParameter("car_no");
 		RentacarModel rentacarOne;
 		rentacarOne = rentacarService.rentacarOneView(car_no);
+		String car_type = rentacarOne.getCar_type();
+		switch (car_type) {
+		case "경형": 
+			premium = 7000;
+			break;
+		case "소형": 
+			premium = 8000;
+			break;
+		case "준중형": 
+			premium = 9000;
+			break;
+		case "중형": 
+			premium = 10000;
+			break;
+		case "대형": 
+			premium = 15000;
+			break;
+		case "스포츠카": 
+			premium = 19000;
+			break;
+		}
+		
 		if (request.getParameter("car_dt1") != null || request.getParameter("car_dt2") != null) {
 			car_dt1 = request.getParameter("car_dt1");
 			car_dt2 = request.getParameter("car_dt2");
@@ -98,11 +115,12 @@ public class RentacarController {
 
 			Day = (expiryDate.getTime() - nowDate.getTime()) / 1000 / 60 / 60 / 24;
 			Price1 = Day * Integer.valueOf(rentacarOne.getCar_charge());
-			Price2 = Day * (Integer.valueOf(rentacarOne.getCar_charge()) + 7000);
+			Price2 = Day * (Integer.valueOf(rentacarOne.getCar_charge()) + premium);
 			mav.addObject("Day", Day);
 			mav.addObject("Price1", Price1);
 			mav.addObject("Price2", Price2);
 		}
+		mav.addObject("premium", premium);
 		mav.addObject("rentacarOne", rentacarOne);
 		mav.setViewName("carReserveForm");
 		return mav;
@@ -120,7 +138,7 @@ public class RentacarController {
 	@RequestMapping(value = "/reserveChangeForm.do", method = RequestMethod.GET)
 	public ModelAndView reserveChangeForm(HttpServletRequest request) throws UnsupportedEncodingException {
 		ModelAndView mav = new ModelAndView();
-		car_no = new String(request.getParameter("car_no").getBytes("8859_1"), "utf8");
+		car_no = request.getParameter("car_no");
 		String rTime = format.format(currentTime);
 		List<ReserveModel> reserveList;
 
@@ -145,6 +163,7 @@ public class RentacarController {
 		mav.setViewName("car/reserveChangeForm");
 		return mav;
 	}
+
 	@RequestMapping(value = "/carclause.do")
 	public ModelAndView carclause() throws UnsupportedEncodingException {
 		ModelAndView mav = new ModelAndView();

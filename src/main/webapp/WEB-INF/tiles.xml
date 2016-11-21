@@ -9,8 +9,13 @@
 	<!-- Main Page -->
 	<definition name="main" template="/WEB-INF/views/layout/main_layout.jsp">
 		<put-attribute name="left" value="/WEB-INF/views/layout/left.jsp" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/layout/container.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/layout/container.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+	</definition>
+	<!-- sub5 Page -->
+	<definition name="sub5" template="/WEB-INF/views/layout/main_layout.jsp">
+		<put-attribute name="left" value="/WEB-INF/views/layout/left_sub5.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/layout/container.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
 
@@ -23,9 +28,8 @@
 	</definition>
 
 	<definition name="carReserveForm" extends="carListForm">
-		<put-attribute name="bodyLeft" value="/WEB-INF/views/car/reserveForm.jsp" />
-		<put-attribute name="bodyRight"
-			value="/WEB-INF/views/car/reserveRight.jsp" />
+		<put-attribute name="bodyLeft" value="/WEB-INF/views/car/reserveLeft.jsp" />
+		<put-attribute name="bodyRight" value="/WEB-INF/views/car/reserveForm.jsp" />
 	</definition>
 
 	<!-- 차량 관리자 -->
@@ -33,7 +37,10 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/car/writeForm.jsp" />
 	</definition>
-
+	<definition name="AdmincarModifyForm" extends="adminMain">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/car/modifyForm.jsp" />
+	</definition>
 	<definition name="AdmincarListForm" extends="adminMain">
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/car/listForm.jsp" />
@@ -57,12 +64,12 @@
 	</definition>
 
 	<!-- 공지사항 -->
-	<definition name="noticeList" extends="main">
+	<definition name="noticeList" extends="sub5">
 		<put-attribute name="body"
 			value="/WEB-INF/views/notice/noticeList.jsp" />
 	</definition>
 
-	<definition name="noticeView" extends="main">
+	<definition name="noticeView" extends="sub5">
 		<put-attribute name="body"
 			value="/WEB-INF/views/notice/noticeView.jsp" />
 	</definition>
@@ -108,13 +115,17 @@
 			value="/WEB-INF/views/review/reviewModify.jsp" />
 	</definition>
 	<!-- FAQ -->
-	<definition name="faqList" extends="main">
+	<definition name="faqList" extends="sub5">
 		<put-attribute name="body" value="/WEB-INF/views/faq/faqList.jsp" />
 	</definition>
 	<!-- 리뷰관리자 -->
 	<definition name="adminreviewList" extends="adminMain">
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/review/reviewadminList.jsp" />
+	</definition>
+		<definition name="adminreviewView" extends="adminMain">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/review/reviewadminView.jsp" />
 	</definition>
 
 	<!-- faq관리자 -->
@@ -231,11 +242,11 @@
 	</definition>
 
 	<!-- 1:1문의 -->
-	<definition name="qnaList" extends="main">
+	<definition name="qnaList" extends="sub5">
 		<put-attribute name="body" value="/WEB-INF/views/qna/qnaList.jsp" />
 	</definition>
 
-	<definition name="qnaForm" extends="main">
+	<definition name="qnaForm" extends="sub5">
 		<put-attribute name="body" value="/WEB-INF/views/qna/qnaForm.jsp" />
 	</definition>
 	<definition name="memberList" extends="adminMain">
@@ -306,6 +317,9 @@
 			value="/WEB-INF/views/mypage/carpool/carpoolmypageapplyList.jsp" />
 	</definition>
 
+	<definition name="chat-sockjs" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/carpool/chat-sockjs.jsp"/>
+	</definition>  
 </tiles-definitions>
 	
 	

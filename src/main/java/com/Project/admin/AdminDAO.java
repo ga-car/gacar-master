@@ -22,6 +22,8 @@ public interface AdminDAO {
 
 	int reserveDelete(int reserve_no);
 
+	int modifyRentacar(RentacarModel rentacarModel);
+
 	// 회원목록
 	public List<MemberModel> memberList();
 

@@ -17,28 +17,37 @@
 <body>
 	<form name="reserveRight" id="reserveRight"
 		enctype="multipart/form-data">
-		<table>
-			<tr></tr>
-			<c:forEach var="rentacarLatlng" items="${rentacarLatlng}"
-				varStatus="stat">
+
+		<c:forEach var="rentacarLatlng" items="${rentacarLatlng}"
+			varStatus="stat">
+			<table>
+				<tr></tr>
+			</table>
+			<table
+				onClick="location.replace='/rentacar/car/reserve.do?car_no=${rentacarLatlng.car_no}'"
+				style="cursor: pointer;">
+				<tr></tr>
 				<tr>
 					<td rowspan="3"><img
-						src="../resources/carUpload/${rentacarLatlng.car_image}"></td>
+						src="../resources/carUpload/${rentacarLatlng.car_image}"
+						style="width: 70px; height: 70px;"></td>
 					<td>차종</td>
 					<td>${rentacarLatlng.car_type}</td>
 				</tr>
 				<tr>
 					<td>브랜드</td>
-					<td><a
-						href="/rentacar/car/reserve.do?car_no=${rentacarLatlng.car_no}">${rentacarLatlng.car_brand}</a></td>
+					<td>${rentacarLatlng.car_brand}</td>
 
 				</tr>
 				<tr>
 					<td>모델명</td>
 					<td>${rentacarLatlng.car_name}</td>
 				</tr>
-			</c:forEach>
-		</table>
+			</table>
+			<table>
+				<tr></tr>
+			</table>
+		</c:forEach>
 	</form>
 </body>
 </html>

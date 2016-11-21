@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if lt IE 7 ]> <html lang="ko" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="ko" class="no-js ie7"> <![endif]-->
@@ -16,17 +17,17 @@
 <title>GaCar - 같이 가치타 카쉐어링 ~~ 가카</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon"
-	href="http://okky.kr/assets/favicon-4ddd8035b72404da5a8c298cbaacad86.ico"
+	href="/rentacar/resources/images/GC.ico"
 	type="image/x-icon">
 <link rel="apple-touch-icon"
-	href="http://okky.kr/assets/icon_57x57-5611bd33d9f2b2d84c22219e248455b6.png">
+	href="/rentacar/resources/images/GC_57x57.png">
 <link rel="apple-touch-icon" sizes="114x114"
-	href="http://okky.kr/assets/icon_114x114-b2b627dfde8a040fe54fd257244ba191.png">
+	href="/rentacar/resources/images/GC_114x114.png">
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
 	rel="stylesheet">
 <meta property="og:image"
-	content="http://okky.kr/assets/okky_logo_fb-cea175ff727ef14a4d8be0e68cff730a.png">
+	content="/rentacar/resources/images/GC_200x200.png">
 <link rel="stylesheet" href="/rentacar/resources/css/gacar.css" />
 <!--[if lt IE 9]>
             <script src="http://okky.kr/assets/libs/html5-ca664f64318d191265abf57fdf467aec.js" type="text/javascript" ></script>
@@ -106,9 +107,33 @@
 	}
 </script>
 <!-- 즐겨찾기 끝 -->
+
 <!-- 미령이가 작업한 부분 끝 -->
 </head>
 <body>
+<c:if test='${session_email!=null && session_email!="admin" ||session_nick!=null}'>
+<!-- Tocplus -->
+<script type="text/javascript">
+if('${session_nick}'!=""){
+	var nickname = '${session_nick}';
+} else{
+	var nickname = '${session_name}';
+}
+tocplusAwayImage='https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQNh9gerNq1DFGPaL-Vmc3Ymf2fVEzTcD7kDud-drVbklUuKW9M';
+tocplusTop=1150;
+tocplusLeft=5;
+tocplusMinimizedImage='http://kr02.tocplus007.com/img/minimized_ko.gif';
+tocplusHAlign='right';
+tocplusWidth=180;
+tocplusHeight=220;
+tocplusUserName=nickname;
+tocplusFrameColor='#FF5757';
+tocplusFloatingWindow=true;
+var tocplusHost = (("https:" == document.location.protocol) ? "https://" : "http://");
+document.write(unescape("%"+"3Cscript src='" + tocplusHost + "kr02.tocplus007.com/chatLoader.do?userId=rrryung' type='text/javascript'"+"%"+"3E"+"%"+"3C/script"+"%"+"3E"));
+</script>
+<!-- End of Tocplus -->
+</c:if>
 	<div class="layout-container">
 		<div class="main index">
 			<!-- header -->

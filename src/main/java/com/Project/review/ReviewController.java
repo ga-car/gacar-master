@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import com.Project.util.Paging;
+import com.Project.validator.ReviewValidator;
 import com.Project.review.ReviewModel;
 import com.Project.review.ReviewService;
 /*import com.Project.validator.ReviewValidator;*/
@@ -136,15 +137,15 @@ public class ReviewController {
 	
 	/*/////////////////////////////�۾���/////////////////////////////////////*/
 	@RequestMapping(value="/write.do", method=RequestMethod.POST)
-	public String reviewWrite(ReviewModel reviewModel,  BindingResult result,
+	public ModelAndView reviewWrite(ReviewModel reviewModel,  BindingResult result,
 			MultipartHttpServletRequest multipartHttpServletRequest) throws Exception, Exception{
 		ModelAndView mav = new ModelAndView();
 		/*��������Ʈ*/
-		/*new ReviewValidator().validate(reviewModel, result);*/
+	/*	new ReviewValidator().validate(reviewModel, result);
 		if(result.hasErrors()) {
 			mav.setViewName("reviewWrite");
-			return "reviewWrite";
-		}
+			return mav;
+		}*/
 		
 		/*�ٹٲ�*/
 		String content = reviewModel.getContent().replaceAll("\r\n", "<br />");
@@ -166,7 +167,7 @@ public class ReviewController {
 	
 		mav.setViewName("redirect:list.do");
 		
-		return "redirect:list.do";
+		return mav;
 	}
 	
 /*	/////////////////////////////////////�ڸ�Ʈ/////////////////////////////////////

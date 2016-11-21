@@ -54,6 +54,11 @@ public class CarpoolService implements CarpoolDAO {
 	public List<AttendModel> carpoolSearch2(String search) {
 		return sqlSessionTemplate.selectList("carpool.carpoolSearch2", "%"+search+"%"); 
 	}
+	
+	@Override
+	public List<CarpoolModel> carpoolSearch3(String search) {
+		return sqlSessionTemplate.selectList("carpool.carpoolSearch2", "%"+search+"%"); 
+	}
 
 	@Override
 	public int carpoolModify(CarpoolModel carpoolModel) {

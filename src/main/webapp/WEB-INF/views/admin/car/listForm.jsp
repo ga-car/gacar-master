@@ -34,6 +34,7 @@
 						value="${rentacarList.car_lng}" id="car_lng" />
 					</td>
 					<td><a
+						href="/rentacar/admin/car/modify.do?car_no=${rentacarList.car_no}">변경</a>/<a
 						href="/rentacar/admin/car/delete.do?car_no=${rentacarList.car_no}">삭제</a></td>
 				</tr>
 			</c:forEach>
