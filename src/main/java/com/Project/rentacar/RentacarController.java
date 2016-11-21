@@ -52,23 +52,19 @@ public class RentacarController {
 	private Paging page;
 
 	@RequestMapping(value = "/list.do", method = RequestMethod.GET)
-	public ModelAndView listRentacarForm(RentacarModel rentacarModel, HttpServletRequest request)
+	public ModelAndView listRentacarForm(RentacarModel rentacarModel, ReserveModel reserveModel, HttpServletRequest request)
 			throws UnsupportedEncodingException {
 
 		ModelAndView mav = new ModelAndView();
 
 		List<RentacarModel> rentacarList;
-		List<RentacarModel> rentacarLatLng;
+		List<ReserveModel> reserveList;
 
-		if (request.getParameter("car_lat") != null || request.getParameter("car_lng") != null) {
-			car_lat = request.getParameter("car_lat");
-			car_lng = request.getParameter("car_lng");
-			rentacarModel.setCar_lat(car_lat);
-			rentacarModel.setCar_lng(car_lng);
+		if (request.getParameter("from") != null || request.getParameter("to") != null) {
+			reserveModel.setReserve_sdate(request.getParameter("from"));
+			reserveModel.setReserve_edate(request.getParameter("to"));
 
-			rentacarLatLng = rentacarService.rentacarLatLng(rentacarModel);
-
-			mav.addObject("rentacarLatlng", rentacarLatLng);
+			reserveList = rentacarService.reserveDateList(reserveModel);
 		}
 
 		rentacarList = rentacarService.rentacarList();

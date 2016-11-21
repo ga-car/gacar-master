@@ -139,9 +139,12 @@
 						<option value="중랑구">중랑구</option>
 					</select> 키워드 : <input type="text" value="" id="keyword" size="15">
 					<button type="submit">검색하기</button>
+				</form>
+				<form>
 					<label for="from">From</label> <input type="text" id="from"
 						name="from"> <label for="to">to</label> <input type="text"
 						id="to" name="to">
+					<button type="submit">검색하기</button>
 				</form>
 			</div>
 		</div>

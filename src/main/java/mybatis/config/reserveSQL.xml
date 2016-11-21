@@ -41,12 +41,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		reserve_mem_no = #{reserve_mem_no}
 		order by reserve_rdate desc
 	</select>
-	
+
 	<select id="reserveCarList" resultMap="reserveModelRes">
-		select * from reserve where
+		select * from reserve
+		where
 		reserve_car_no = #{car_no}
 		order by reserve_rdate desc
 	</select>
+
+	<select id="reserveDateList" parameterType="reserveModel" resultMap="reserveModelRes">
+		select *
+		from reserve
+		where not(reserve_sdate <![CDATA[ > ]]> #{resreve_sdate}
+		and reserve_edate <![CDATA[ < ]]>  #{reserve_edate}
+		and reserve_cancel = 'false')
+		order by reserve_rdate desc
+	</select>
+
 	<select id="reserveAdminList" resultMap="reserveModelRes">
 		select * from reserve
 		order by reserve_rdate desc

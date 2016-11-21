@@ -20,4 +20,6 @@ public interface RentacarDao {
 
 	int reserveDelete(ReserveModel reserveModel);
 
+	List<ReserveModel> reserveDateList(ReserveModel reserveModel);
+
 }
