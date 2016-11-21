@@ -107,12 +107,18 @@
 	}
 </script>
 <!-- 즐겨찾기 끝 -->
+
 <!-- 미령이가 작업한 부분 끝 -->
 </head>
 <body>
-<c:if test='${session_email!=null && session_email!="admin"}'>
+<c:if test='${session_email!=null && session_email!="admin" ||session_nick!=null}'>
 <!-- Tocplus -->
 <script type="text/javascript">
+if('${session_nick}'!=""){
+	var nickname = '${session_nick}';
+} else{
+	var nickname = '${session_name}';
+}
 tocplusAwayImage='https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQNh9gerNq1DFGPaL-Vmc3Ymf2fVEzTcD7kDud-drVbklUuKW9M';
 tocplusTop=1150;
 tocplusLeft=5;
@@ -120,7 +126,7 @@ tocplusMinimizedImage='http://kr02.tocplus007.com/img/minimized_ko.gif';
 tocplusHAlign='right';
 tocplusWidth=180;
 tocplusHeight=220;
-tocplusUserName='${session_name}';
+tocplusUserName=nickname;
 tocplusFrameColor='#FF5757';
 tocplusFloatingWindow=true;
 var tocplusHost = (("https:" == document.location.protocol) ? "https://" : "http://");

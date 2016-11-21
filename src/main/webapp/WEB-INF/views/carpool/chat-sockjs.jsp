@@ -8,6 +8,11 @@
 <script type="text/javascript" src="/rentacar/resources/js/chat/sockjs-0.3.min.js"></script>
 <script type="text/javascript">
 	var wsocket;
+	if('${session_nick}'!=""){
+		var nickname = '${session_nick}';
+	} else{
+		var nickname = '${session_name}';
+	}
 	function connect() {
 		wsocket = new SockJS("/rentacar/echo.do");
 		/* wsocket = new WebSocket("ws://localhost:8080/rentacar/echo.do", "protocolOne"); */
@@ -28,7 +33,6 @@
 		}
 	}
 	function onClose(evt) {
-		var nickname = '${session_name}';
 		wsocket.send("msg:"+nickname+" Out");
 		appendMessage("연결을 끊었습니다.");
 		history.back();
@@ -36,7 +40,6 @@
 	
 	function send() {
 		/* var nickname = $("#nickname").val(); */
-		var nickname = '${session_name}';
 		var msg = $("#message").val();
 		wsocket.send("msg:"+nickname+":" + msg);
 		$("#message").val("");
@@ -44,7 +47,6 @@
 	
 	function send2() {
 		/* var nickname = $("#nickname").val(); */
-		var nickname = '${session_name}';
 		wsocket.send("msg:"+nickname+"입장");
 	}
 

@@ -135,6 +135,11 @@ a {
 					"toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
 		}
 	}
+	
+	function login() {
+		location.href = "/rentacar/member/login.do";	
+	}
+	
 	$(document).ready(function() {
 
 		var i = 0;
@@ -229,7 +234,7 @@ a {
 						</tbody>
 					</table>
 					<div class="btn_type_04" align="center">
-						<span class="btn btnC_04 btnF_02"> <input type="submit" value="이메일 찾기" /> <a href="javascript:this.close();"><input type="button" value="닫기" ></a>
+						<span class="btn btnC_04 btnF_02"> <input type="button" value="로그인" onclick="login()"/> <input type="submit" value="이메일 찾기" /> <a href="javascript:this.close();"><input type="button" value="닫기" ></a>
 						</span>
 					</div>
 					<div class="Found" id="emailFound">
@@ -265,7 +270,7 @@ a {
 						</tbody>
 					</table>
 					<div class="btn_type_04" align="center">
-						<span class="btn btnC_04 btnF_02"> <input type="submit" value="비밀번호 찾기" /> <a href="javascript:this.close();"><input type="button" value="닫기" ></a>
+						<span class="btn btnC_04 btnF_02"> <input type="button" value="로그인" onclick="login()"/> <input type="submit" value="비밀번호 찾기" /> <a href="javascript:this.close();"><input type="button" value="닫기" ></a>
 						</span>
 					</div>
 
