@@ -7,22 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<script type="text/javascript">
-	function validation() {
-
-		if ("${session_email}" == "") {
-			alert("로그인을 해주세요.");
-			return false;
-		} else {
-			location.href = '/rentacar/qna/list.do';
-			return true;
-		}
-
-	}
-</script>
 <body>
 	<c:if test="${session_email==null}">
-		<div class="sidebar ">
+		<div class="sidebar sidebar-category ">
 			<a href="javascript://" class="sidebar-header"> <i
 				class="fa fa-bars sidebar-header-icon"></i>
 			</a>
@@ -30,8 +17,8 @@
 			<h1>
 				<div class="logo">
 					<a href="/rentacar/main.do"><img
-						src="/rentacar/resources/images/GC_log.png" alt="OKKY"
-						title="OKKY" /></a>
+						src="/rentacar/resources/images/GC_log.png" alt="GaCar"
+						title="GaCar" /></a>
 				</div>
 			</h1>
 
@@ -115,18 +102,17 @@
 						class="nav-indicator nav-selected "> <span
 							class="nav-selected-dot"></span></span></a></li>
 
-				<li><a href="#" class="link" onclick="return validation()">
-						<span class="nav-sidebar-label nav-sidebar-category-label">1:1문의</span>
+				<li><a href="/rentacar/qna/list.do" class="link"> <span
+						class="nav-sidebar-label nav-sidebar-category-label">1:1문의</span>
 						<span class="nav-indicator nav-selected"> <span
-							class="nav-selected-dot"></span></span>
-				</a></li>
+							class="nav-selected-dot"></span></span></a></li>
 
 			</ul>
 			<div class="special-nav"></div>
 		</div>
 	</c:if>
 	<c:if test='${session_email!=null}'>
-		<div class="sidebar">
+		<div class="sidebar sidebar-category ">
 			<a href="javascript://" class="sidebar-header"> <i
 				class="fa fa-bars sidebar-header-icon"></i>
 			</a>
@@ -134,8 +120,8 @@
 			<h1>
 				<div class="logo">
 					<a href="/rentacar/main.do"><img
-						src="/rentacar/resources/images/GC_log.png" alt="OKKY"
-						title="OKKY" /></a>
+						src="/rentacar/resources/images/GC_log.png" alt="GaCar"
+						title="GaCar" /></a>
 				</div>
 			</h1>
 
@@ -184,12 +170,12 @@
 						class="nav-icon fa fa-quote-left"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">이용후기</span></a></li>
 
-				<li class="active" data-toggle="tooltip" data-placement="right"
+				<li data-toggle="tooltip" data-placement="right"
 					data-container="body" title="고객센터"><a
 					href="/rentacar/notify/list.do" class="link"><i
 						class="nav-icon fa fa-group"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">고객센터</span></a></li>
-				<li data-toggle="tooltip" data-placement="right"
+				<li class="active" data-toggle="tooltip" data-placement="right"
 					data-container="body" title="마이페이지"><a
 					href="/rentacar/mypage/mypage.do" class="link"><i
 						class="nav-icon fa fa-group"></i> <span
@@ -215,23 +201,46 @@
 
 
 		<div class="sidebar-category-nav">
-			<h3 class="sub-title">고객센터</h3>
+			<h3 class="sub-title">MyPage</h3>
 			<ul class="nav">
-				<li><a href="/rentacar/notify/list.do" class="link"> <span
-						class="nav-sidebar-label nav-sidebar-category-label">공지사항</span> <span
+
+
+				<li><a href="/rentacar/car/reserveList.do" class="link"> <span
+						class="nav-sidebar-label nav-sidebar-category-label">렌트카
+							이용현황</span> <span class="nav-indicator nav-selected "> <span
+							class="nav-selected-dot"></span></span></a></li>
+
+				<li><a href="/rentacar/mypage/carpool/attendlist.do"
+					class="link"> <span
+						class="nav-sidebar-label nav-sidebar-category-label">카풀
+							참가내역</span> <span class="nav-indicator nav-selected"> <span
+							class="nav-selected-dot"></span></span>
+				</a></li>
+				<li><a href="/rentacar/mypage/carpool/applylist.do"
+					class="link"> <span
+						class="nav-sidebar-label nav-sidebar-category-label">카풀
+							신청자내역</span> <span class="nav-indicator nav-selected"> <span
+							class="nav-selected-dot"></span></span>
+				</a></li>
+				<li><a href="/rentacar/mypage/carpool/list.do" class="link">
+						<span class="nav-sidebar-label nav-sidebar-category-label">카풀
+							내가쓴글보기</span> <span class="nav-indicator nav-selected"> <span
+							class="nav-selected-dot"></span></span>
+				</a></li>
+				<li><a href="/rentacar/mypage/list.do" class="link"> <span
+						class="nav-sidebar-label nav-sidebar-category-label">이용후기</span> <span
 						class="nav-indicator nav-selected"> <span
 							class="nav-selected-dot"></span></span></a></li>
-
-				<li><a href="/rentacar/faq/list.do" class="link"> <span
-						class="nav-sidebar-label nav-sidebar-category-label">FAQ</span> <span
-						class="nav-indicator nav-selected "> <span
-							class="nav-selected-dot"></span></span></a></li>
-
-				<li><a href="#" class="link" onclick="return validation()">
-						<span class="nav-sidebar-label nav-sidebar-category-label">1:1문의</span>
+				<li><a href="/rentacar/mypage/memberConfirm.do" class="link">
+						<span class="nav-sidebar-label nav-sidebar-category-label">개인정보</span>
 						<span class="nav-indicator nav-selected"> <span
 							class="nav-selected-dot"></span></span>
 				</a></li>
+				<li><a href="/rentacar/mypage/memberDelPre.do" class="link"> <span
+						class="nav-sidebar-label nav-sidebar-category-label">회원탈퇴</span> <span
+						class="nav-indicator nav-selected"> <span
+							class="nav-selected-dot"></span></span></a></li>
+
 
 			</ul>
 			<div class="special-nav"></div>

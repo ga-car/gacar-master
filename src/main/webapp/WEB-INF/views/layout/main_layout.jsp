@@ -16,8 +16,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>GaCar - 같이 가치타 카쉐어링 ~~ 가카</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="shortcut icon"
-	href="/rentacar/resources/images/GC.ico"
+<link rel="shortcut icon" href="/rentacar/resources/images/GC_57x57.ico"
 	type="image/x-icon">
 <link rel="apple-touch-icon"
 	href="/rentacar/resources/images/GC_57x57.png">
@@ -111,31 +110,8 @@
 <!-- 미령이가 작업한 부분 끝 -->
 </head>
 <body>
-<c:if test='${session_email!=null && session_email!="admin" ||session_nick!=null}'>
-<!-- Tocplus -->
-<script type="text/javascript">
-if('${session_nick}'!=""){
-	var nickname = '${session_nick}';
-} else{
-	var nickname = '${session_name}';
-}
-tocplusAwayImage='https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQNh9gerNq1DFGPaL-Vmc3Ymf2fVEzTcD7kDud-drVbklUuKW9M';
-tocplusTop=1150;
-tocplusLeft=5;
-tocplusMinimizedImage='http://kr02.tocplus007.com/img/minimized_ko.gif';
-tocplusHAlign='right';
-tocplusWidth=180;
-tocplusHeight=220;
-tocplusUserName=nickname;
-tocplusFrameColor='#FF5757';
-tocplusFloatingWindow=true;
-var tocplusHost = (("https:" == document.location.protocol) ? "https://" : "http://");
-document.write(unescape("%"+"3Cscript src='" + tocplusHost + "kr02.tocplus007.com/chatLoader.do?userId=rrryung' type='text/javascript'"+"%"+"3E"+"%"+"3C/script"+"%"+"3E"));
-</script>
-<!-- End of Tocplus -->
-</c:if>
 	<div class="layout-container">
-		<div class="main index">
+		<div class="main">
 			<!-- header -->
 			<tiles:insertAttribute name="left" />
 			<!-- // header -->
@@ -182,5 +158,30 @@ document.write(unescape("%"+"3Cscript src='" + tocplusHost + "kr02.tocplus007.co
 			</div>
 		</div>
 	</div>
+	<c:if
+		test='${session_email!=null && session_email!="admin" ||session_nick!=null}'>
+		<!-- Tocplus -->
+		<script type="text/javascript">
+if('${session_nick}'!=""){
+	var nickname = '${session_nick}';
+} else{
+	var nickname = '${session_name}';
+}
+tocplusAwayImage='https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQNh9gerNq1DFGPaL-Vmc3Ymf2fVEzTcD7kDud-drVbklUuKW9M';
+tocplusTop=1150;
+tocplusLeft=5;
+tocplusMinimizedImage='http://kr02.tocplus007.com/img/minimized_ko.gif';
+tocplusHAlign='right';
+tocplusWidth=180;
+tocplusHeight=220;
+tocplusUserName=nickname;
+tocplusFrameColor='#FF5757';
+tocplusFloatingWindow=true;
+var tocplusHost = (("https:" == document.location.protocol) ? "https://" : "http://");
+document.write(unescape("%"+"3Cscript src='" + tocplusHost + "kr02.tocplus007.com/chatLoader.do?userId=rrryung' type='text/javascript'"+"%"+"3E"+"%"+"3C/script"+"%"+"3E"));
+</script>
+		<!-- End of Tocplus -->
+	</c:if>
 </body>
+
 </html>
