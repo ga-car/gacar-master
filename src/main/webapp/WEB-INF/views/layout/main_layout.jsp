@@ -17,17 +17,17 @@
 <title>GaCar - 같이 가치타 카쉐어링 ~~ 가카</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon"
-	href="http://okky.kr/assets/favicon-4ddd8035b72404da5a8c298cbaacad86.ico"
+	href="/rentacar/resources/images/GC.ico"
 	type="image/x-icon">
 <link rel="apple-touch-icon"
-	href="http://okky.kr/assets/icon_57x57-5611bd33d9f2b2d84c22219e248455b6.png">
+	href="/rentacar/resources/images/GC_57x57.png">
 <link rel="apple-touch-icon" sizes="114x114"
-	href="http://okky.kr/assets/icon_114x114-b2b627dfde8a040fe54fd257244ba191.png">
+	href="/rentacar/resources/images/GC_114x114.png">
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
 	rel="stylesheet">
 <meta property="og:image"
-	content="http://okky.kr/assets/okky_logo_fb-cea175ff727ef14a4d8be0e68cff730a.png">
+	content="/rentacar/resources/images/GC_200x200.png">
 <link rel="stylesheet" href="/rentacar/resources/css/gacar.css" />
 <!--[if lt IE 9]>
             <script src="http://okky.kr/assets/libs/html5-ca664f64318d191265abf57fdf467aec.js" type="text/javascript" ></script>

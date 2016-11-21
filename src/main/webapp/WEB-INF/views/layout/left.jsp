@@ -18,8 +18,8 @@
 			<h1>
 				<div class="logo">
 					<a href="/rentacar/main.do"><img
-						src="http://okky.kr/assets/okjsp_logo-467f1484e489ca1133e6320083e1fb9f.png"
-						alt="OKKY" title="OKKY" /></a>
+						src="/rentacar/resources/images/GC_log.png"
+						alt="GaCar" title="GaCar" /></a>
 				</div>
 			</h1>
 			<div class="nav-user nav-sidebar">

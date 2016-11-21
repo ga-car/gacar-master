@@ -35,6 +35,7 @@
 
 					<div class="avatar avatar-medium clearfix pull-left">
 						<div class="avatar-info">${session_email }</div>
+						<input type="hidden" name="email" id="email" value="${session_email }"/>
 					</div>
 
 				</div>
@@ -44,7 +45,7 @@
 							<div>
 								<input type="textarea" name="subject" required=""
 									value="${reviewModel.subject}" placeholder="제목을 입력해 주세요."
-									class="form-control" id="title"> <font color="red"><form:errors
+									class="form-control" id="subject"> <font color="red"><form:errors
 										path="subject" /></font>
 								<!-- 벨리데이터 표시 -->
 							</div>
@@ -67,7 +68,7 @@
 							<!-- 파일 업로드 시작 -->
 							<div class="form-group has-feedback">
 								<div>
-									<input type="file" name="file"
+									<input type="file" name="file" id="file"
 										value="${reviewModel.imagefile_savname}" />
 								</div>
 							</div>
