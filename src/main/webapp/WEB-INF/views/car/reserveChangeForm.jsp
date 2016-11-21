@@ -129,7 +129,6 @@
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script>
 	$(function() {
-
 		$.datepicker.regional['ko'] = {
 			closeText : '닫기',
 			prevText : '이전달',
@@ -264,7 +263,7 @@
 			return false;
 		}
 		</c:forEach>
-		opener.location.href = "/rentacar/car/reserve.do?car_no=" + no
+		opener.location.replace = "/rentacar/car/reserve.do?car_no=" + no
 				+ "&car_dt1=" + car_dt1 + "&car_dt2=" + car_dt2;
 		window.close();
 	}
@@ -279,14 +278,14 @@
 			<tr>
 				<td width="325" align="left">
 					<div id="datepicker">
-						<font class="indigo">체크인날짜</font>&nbsp;&nbsp;<input type="text"
+						<font class="indigo">시작날짜</font>&nbsp;&nbsp;<input type="text"
 							id="datepicker" name="st_day"
 							style="border: 0px solid #eee; margin: 10px;" size="20">
 					</div>
 				</td>
 				<td width="325" align="left">
 					<div id="datepicker1">
-						<font class="indigo">체크아웃날짜</font>&nbsp;&nbsp;<input type="text"
+						<font class="indigo">종료날짜</font>&nbsp;&nbsp;<input type="text"
 							id="datepicker1" name="end_day"
 							style="border: 0px solid #eee; margin: 10px;" size="20">
 					</div>
@@ -300,4 +299,53 @@
 		</table>
 	</form>
 </body>
+<!-- <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jQuery UI Datepicker - Select a Date Range</title>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+	$(function() {
+		var dateFormat = "mm/dd/yy", from = $("#from").datepicker({
+			defaultDate : "+1w",
+			changeMonth : true,
+			numberOfMonths : 1,
+			minDate : 1
+		}).on("change", function() {
+			to.datepicker("option", "minDate", getDate(this));
+		}), to = $("#to").datepicker({
+			defaultDate : "+1w",
+			changeMonth : true,
+			numberOfMonths : 1,
+			minDate : 1
+		}).on("change", function() {
+			from.datepicker("option", "maxDate", getDate(this));
+		});
+
+		function getDate(element) {
+			var date;
+			try {
+				date = $.datepicker.parseDate(dateFormat, element.value);
+			} catch (error) {
+				date = null;
+			}
+
+			return date;
+		}
+	});
+</script>
+</head>
+<body>
+
+	<label for="from">From</label>
+	<input type="text" id="from" name="from">
+	<label for="to">to</label>
+	<input type="text" id="to" name="to">
+
+
+</body> -->
 </html>

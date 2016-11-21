@@ -28,9 +28,8 @@
 	</definition>
 
 	<definition name="carReserveForm" extends="carListForm">
-		<put-attribute name="bodyLeft" value="/WEB-INF/views/car/reserveForm.jsp" />
-		<put-attribute name="bodyRight"
-			value="/WEB-INF/views/car/reserveRight.jsp" />
+		<put-attribute name="bodyLeft" value="/WEB-INF/views/car/reserveLeft.jsp" />
+		<put-attribute name="bodyRight" value="/WEB-INF/views/car/reserveForm.jsp" />
 	</definition>
 
 	<!-- 차량 관리자 -->
@@ -38,7 +37,10 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/car/writeForm.jsp" />
 	</definition>
-
+	<definition name="AdmincarModifyForm" extends="adminMain">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/car/modifyForm.jsp" />
+	</definition>
 	<definition name="AdmincarListForm" extends="adminMain">
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/car/listForm.jsp" />
@@ -120,6 +122,10 @@
 	<definition name="adminreviewList" extends="adminMain">
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/review/reviewadminList.jsp" />
+	</definition>
+		<definition name="adminreviewView" extends="adminMain">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/review/reviewadminView.jsp" />
 	</definition>
 
 	<!-- faq관리자 -->
@@ -311,6 +317,9 @@
 			value="/WEB-INF/views/mypage/carpool/carpoolmypageapplyList.jsp" />
 	</definition>
 
+	<definition name="chat-sockjs" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/carpool/chat-sockjs.jsp"/>
+	</definition>  
 </tiles-definitions>
 	
 	

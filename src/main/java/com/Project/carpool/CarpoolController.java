@@ -154,7 +154,11 @@ public class CarpoolController {
 				ModelAndView mav = new ModelAndView();
 				
 				int no = Integer.parseInt(request.getParameter("no"));
-
+				/*HttpSession session = request.getSession();
+				String name = (String) session.getAttribute("session_name");
+				count = carpoolService.attendOverlap(no,name);
+				System.out.println(count);*/
+				
 				CarpoolModel carpoolModel = carpoolService.carpoolView(no);
 				
 				carpoolService.carpoolUpdateReadcount(no);
@@ -218,7 +222,10 @@ public class CarpoolController {
 				int no = Integer.parseInt(request.getParameter("no"));
 				HttpSession session = request.getSession();
 				String email = (String) session.getAttribute("session_email");
-
+			 	/*int count = carpoolService.attendOverlap(no,name);
+				System.out.println(count);*/
+				System.out.println(no);
+				System.out.println(email);
 				count = carpoolService.attendOverlap(no,email);
 				System.out.println(count);
 				
@@ -227,8 +234,13 @@ public class CarpoolController {
 					 count =1;
 				carpoolService.carpoolAttendIncrease(no);	
 				carpoolService.attendWrite(no,email);
-				}
 				
+				}
+				/*if(count == 1)
+				{	count1 = 2;
+					mav.addObject("count1", count1);
+				}*/
+			
 				mav.setViewName("redirect:detail.do?no="+no+"&currentPage="+currentPage);
 				return mav;
 				

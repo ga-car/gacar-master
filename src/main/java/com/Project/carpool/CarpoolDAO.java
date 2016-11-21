@@ -20,6 +20,8 @@ public interface CarpoolDAO {
 	
 	List<AttendModel> carpoolSearch2(String search);
 	
+	List<CarpoolModel> carpoolSearch3(String search);
+	
 	int carpoolModify(CarpoolModel CarpoolModel);
 	
 	int carpoolDelete(int no);

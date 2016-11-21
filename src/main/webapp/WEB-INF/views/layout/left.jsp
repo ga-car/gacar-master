@@ -8,7 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:if test="${session_email==null}">
+
+
+	<c:if test="${session_email==null&&session_nick==null}">
 		<div class="sidebar ">
 			<a href="javascript://" class="sidebar-header"> <i
 				class="fa fa-bars sidebar-header-icon"></i>
@@ -28,6 +30,8 @@
 							class="fa fa-user"></i> <span class="nav-sidebar-label">회원가입</span></a></li>
 				</ul>
 			</div>
+
+
 
 			<ul class="nav nav-sidebar nav-main">
 				<li><a href="/rentacar/car/list.do" class="link"> <i
@@ -60,7 +64,7 @@
 			</ul>
 		</div>
 	</c:if>
-	<c:if test='${session_email!=null}'>
+	<c:if test='${session_email!=null||session_nick!=null}'>
 		<div class="sidebar ">
 			<a href="javascript://" class="sidebar-header"> <i
 				class="fa fa-bars sidebar-header-icon"></i>
@@ -73,16 +77,30 @@
 				</div>
 			</h1>
 			<h3>
-				<div class="avatar-info">
-					<a class="nickname" href="/rentacar/mypage/memberConfirm.do">${session_name}&nbsp;님</a>
-				</div>
+
+				<c:if test='${session_nick!=null}'>
+					<div class="avatar-info">
+						<a class="nickname" href="#">${session_nick}&nbsp;님(카카오계정 로그인)</a>
+					</div>
+				</c:if>
+				<c:if test='${session_name!=null}'>
+					<div class="avatar-info">
+						<a class="nickname" href="/rentacar/mypage/memberConfirm.do">${session_name}&nbsp;님</a>
+					</div>
+				</c:if>
+
+
 			</h3>
 			<div class="nav-user nav-sidebar">
 				<ul class="nav nav-sidebar">
 					<li><a href="/rentacar/member/logout.do" class="link"><i
 							class="fa fa-sign-in"></i> <span class="nav-sidebar-label">로그아웃</span></a></li>
+					<!-- <li><a href="#" onclick="logout()"><i
+							class="fa fa-sign-in"></i> <span class="nav-sidebar-label">로그아웃</span></a></li> -->	
+					<c:if test='${session_email!=null}'>
 					<li><a href="/rentacar/mypage/memberConfirm.do" class="link"><i
 							class="fa fa-user"></i> <span class="nav-sidebar-label">정보수정</span></a></li>
+					</c:if>		
 				</ul>
 			</div>
 
@@ -102,9 +120,11 @@
 				<li><a href="/rentacar/notify/list.do" class="link"><i
 						class="nav-icon fa fa-group"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">고객센터</span></a></li>
+				<c:if test='${session_email!=null}'>
 				<li><a href="/rentacar/mypage/mypage.do" class="link"><i
 						class="nav-icon fa fa-group"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">마이페이지</span></a></li>
+				</c:if>
 			</ul>
 			<ul class="nav nav-sidebar nav-bottom">
 				<li><a href="https://github.com/ga-car/gacar-master"><i

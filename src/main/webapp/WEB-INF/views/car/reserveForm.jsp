@@ -7,6 +7,15 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <script type="text/javascript">
+	$(document).keydown(function(e) {
+		if (e.target.nodeName != "INPUT" && e.target.nodeName != "TEXTAREA") {
+			if (e.keyCode === 8) {
+				return false;
+			}
+		}
+	});
+
+	window.history.forward(0);
 	function reserveChange() {
 		var no = "${rentacarOne.car_no}"
 		var url = "reserveChangeForm.do?car_no=" + no;
@@ -29,7 +38,6 @@
 	}
 </script>
 </head>
-
 <body>
 	<table>
 		<tr>
@@ -53,8 +61,6 @@
 
 				</c:otherwise>
 			</c:choose>
-
-
 		</tr>
 		<c:choose>
 			<c:when test="${Day == null}">

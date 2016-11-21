@@ -125,8 +125,10 @@ function noticeDelete() {
 						</div>
 						<form class="viewForm" method="post">
 							<input type="hidden" name="${carpoolModel.no }" />
+							<c:if test="${session_name == carpoolModel.name }">
 								<button type="button" onclick="onModify(${carpoolModel.no })"
 									class="btn btn-primary">수정</button>
+							</c:if>
 							<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
 							<button type="button" onclick="onDelete()" class="btn btn-primary">삭제</button>
 						</form>
@@ -149,24 +151,19 @@ function validation() {
 	}
 	else
 	{
-		if("${count}">=1)
+		if(confirm("참가하겠습니까?(참가 내역은 마이페이지에서 확인 가능합니다.)"))
 		{
-			alert("이미참가하였습니다.");
+			location.href='attend.do?no=${carpoolModel.no}';
 		}
 		else
 		{
-			alert("참가하겠습니까?");
+			location.href='detail.do?no=${carpoolModel.no}&currentPage=${currentPage}';
 		}
-	location.href='attend.do?no=${carpoolModel.no}';
+		return true;
 	}
-	return true; 
-	
+		
 }
 
-function onAttend() {
-	alert("참가하겠습니까?");
-	location.href='attend.do?no=${carpoolModel.no}';
-}
 
 function onDelete() {
 	alert("삭제하겠습니까?");
@@ -201,40 +198,6 @@ map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
 var zoomControl = new daum.maps.ZoomControl();
 map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
 
-
-/* var slat = document.getElementById('slat').value;
-var slng = document.getElementById('slng').value;
-var elat = document.getElementById('elat').value;
-var slng = document.getElementById('elng').value; */
-
-
-
-/* 	var onModify = function(no){
-		var form = $('.viewForm')[0];
-		form.action = 'noticeModify.dog?no='+no;
-		form.submit();
-	}; */
-
-	/*
-	    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-	        mapOption = {
-	            center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
-	            level: 5 // 지도의 확대 레벨
-	        };
-
-	    //지도를 미리 생성
-	    var map = new daum.maps.Map(mapContainer, mapOption); */
-	    //주소-좌표 변환 객체를 생성
-	   /*  var geocoder = new daum.maps.services.Geocoder();
-	    
-	    var geocoder1 = new daum.maps.services.Geocoder(); */
-	    //마커를 미리 생성
-	/*     var marker = new daum.maps.Marker({
-	        position: new daum.maps.LatLng(37.537187, 127.005476),
-	        map: map
-	        
-	    }); */
-	    
 	     var startSrc = 'http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/red_b.png', // 출발 마커이미지의 주소입니다    
 	    startSize = new daum.maps.Size(50, 45), // 출발 마커이미지의 크기입니다 
 	    startOption = { 
