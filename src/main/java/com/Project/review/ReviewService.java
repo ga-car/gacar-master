@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import com.Project.review.ReviewModel;
 import com.Project.qna.qnaModel;
+import com.Project.rentacar.RentacarModel;
+import com.Project.rentacar.ReserveModel;
 import com.Project.review.ReviewDAO;
 
 @Service
@@ -78,6 +80,17 @@ public class ReviewService implements ReviewDAO {
 	public int reviewModify(ReviewModel reviewModel) {
 		return sqlSessionTemplate.update("review.reviewModify",reviewModel); 
 	}
+	
+	@Override
+	public ReserveModel reserveOne(ReserveModel reserveModel) {
+		return sqlSessionTemplate.selectOne("reserve.reserveOne",reserveModel);
+	}
+	
+	@Override
+	public RentacarModel rentacarOne(String reserve_car_no) {
+		return sqlSessionTemplate.selectOne("rentacar.rentacarSearchOne", reserve_car_no);
+	}
+
 	/*
 	//��۸��
 	@Override
@@ -117,6 +130,8 @@ public class ReviewService implements ReviewDAO {
 	public int reviewcommUpdate2(int no){
 		return sqlSessionTemplate.update("review.reviewcommUpdate2",no);
 	}*/
+
+	
 
 
 

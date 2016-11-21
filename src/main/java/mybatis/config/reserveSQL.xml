@@ -36,6 +36,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{reserve_slng}, #{reserve_price}, 'false',
 		#{reserve_insure}, 'false')
 	</insert>
+
+	<select id="reserveOne" parameterType="reserveModel" resultMap="reserveModelRes">
+		select * from reserve where reserve_no = #{reserve_no} and
+		reserve_mem_no = #{reserve_mem_no}
+	</select>
+
 	<select id="reserveList" resultMap="reserveModelRes">
 		select * from reserve where
 		reserve_mem_no = #{reserve_mem_no}
