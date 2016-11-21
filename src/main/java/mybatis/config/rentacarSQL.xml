@@ -56,9 +56,39 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		car_no desc
 	</select>
 
-	<select id="rentacarLatLngSearchList" parameterType="rentacarModel"
+	<select id="rentacarDateList" parameterType="searchModel"
+		resultMap="rentacarModelRes">
+		select * from car
+		where car_no in(
+		select reserve_car_no
+		from reserve
+		where not(reserve_sdate <![CDATA[ > ]]>
+		#{reserve_sdate}
+		and reserve_edate <![CDATA[ < ]]>
+		#{reserve_edate}
+		and reserve_cancel = 'false'))
+		order by car_no desc
+	</select>
+
+	<select id="rentacarLatLngSearchList" parameterType="searchModel"
 		resultMap="rentacarModelRes">
 		select * from car where car_lat = #{car_lat} and car_lng =
+		#{car_lng}
+		order by car_no desc
+	</select>
+
+	<select id="rentacarLatLngDateSearchList" parameterType="searchModel"
+		resultMap="rentacarModelRes">
+		select * from car
+		where car_no in(
+		select reserve_car_no
+		from reserve
+		where not(reserve_sdate <![CDATA[ > ]]>
+		#{reserve_sdate}
+		and reserve_edate <![CDATA[ < ]]>
+		#{reserve_edate}
+		and reserve_cancel = 'false')) and car_lat =
+		#{car_lat} and car_lng =
 		#{car_lng}
 		order by car_no desc
 	</select>
@@ -74,6 +104,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from car where car_no = #{car_no}
 		order by car_no desc
 	</select>
+
 
 </mapper>
 <!-- create table car( car_no varchar2(25) NOT NULL PRIMARY KEY, car_type 

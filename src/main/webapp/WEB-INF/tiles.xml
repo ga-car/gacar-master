@@ -13,6 +13,22 @@
 			value="/WEB-INF/views/layout/container.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
+	<!-- sub5 Page(고객센터) -->
+	<definition name="sub5" template="/WEB-INF/views/layout/main_layout.jsp">
+		<put-attribute name="left"
+			value="/WEB-INF/views/layout/left_sub5.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/layout/container.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+	</definition>
+	<!-- sub6 Page(마이페이지) -->
+	<definition name="sub6" template="/WEB-INF/views/layout/main_layout.jsp">
+		<put-attribute name="left"
+			value="/WEB-INF/views/layout/left_sub6.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/layout/container.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+	</definition>
 
 	<!-- 차량예약 -->
 	<definition name="carListForm" template="/WEB-INF/views/layout/car_layout.jsp">
@@ -53,18 +69,18 @@
 
 
 	<!-- 예약 마이페이지 -->
-	<definition name="reserveListForm" extends="main">
+	<definition name="reserveListForm" extends="sub6">
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/car/reserveList.jsp" />
 	</definition>
 
 	<!-- 공지사항 -->
-	<definition name="noticeList" extends="main">
+	<definition name="noticeList" extends="sub5">
 		<put-attribute name="body"
 			value="/WEB-INF/views/notice/noticeList.jsp" />
 	</definition>
 
-	<definition name="noticeView" extends="main">
+	<definition name="noticeView" extends="sub5">
 		<put-attribute name="body"
 			value="/WEB-INF/views/notice/noticeView.jsp" />
 	</definition>
@@ -110,7 +126,7 @@
 			value="/WEB-INF/views/review/reviewModify.jsp" />
 	</definition>
 	<!-- FAQ -->
-	<definition name="faqList" extends="main">
+	<definition name="faqList" extends="sub5">
 		<put-attribute name="body" value="/WEB-INF/views/faq/faqList.jsp" />
 	</definition>
 	<!-- 리뷰관리자 -->
@@ -118,7 +134,7 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/review/reviewadminList.jsp" />
 	</definition>
-		<definition name="adminreviewView" extends="adminMain">
+	<definition name="adminreviewView" extends="adminMain">
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/review/reviewadminView.jsp" />
 	</definition>
@@ -161,26 +177,26 @@
 	</definition>
 
 	<!-- Mypage -->
-	<definition name="mypage" extends="main">
+	<definition name="mypage" extends="sub6">
 		<put-attribute name="body" value="/WEB-INF/views/mypage/mypage.jsp" />
 	</definition>
-	<definition name="mypageList" extends="main">
+	<definition name="mypageList" extends="sub6">
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/myreviewlist.jsp" />
 	</definition>
-	<definition name="memberConfirm" extends="main">
+	<definition name="memberConfirm" extends="sub6">
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/member/memberConfirm.jsp" />
 	</definition>
-	<definition name="memberModify" extends="main">
+	<definition name="memberModify" extends="sub6">
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/member/memberModify.jsp" />
 	</definition>
-	<definition name="memberModifyEnd" extends="main">
+	<definition name="memberModifyEnd" extends="sub6">
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/member/memberModifyEnd.jsp" />
 	</definition>
-	<definition name="memberDelPre" extends="main">
+	<definition name="memberDelPre" extends="sub6">
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/member/memberDelPre.jsp" />
 	</definition>
@@ -237,11 +253,11 @@
 	</definition>
 
 	<!-- 1:1문의 -->
-	<definition name="qnaList" extends="main">
+	<definition name="qnaList" extends="sub5">
 		<put-attribute name="body" value="/WEB-INF/views/qna/qnaList.jsp" />
 	</definition>
 
-	<definition name="qnaForm" extends="main">
+	<definition name="qnaForm" extends="sub5">
 		<put-attribute name="body" value="/WEB-INF/views/qna/qnaForm.jsp" />
 	</definition>
 	<definition name="memberList" extends="adminMain">
@@ -297,24 +313,28 @@
 	</definition>
 
 	<!-- 카풀 mypage -->
-	<definition name="carpoolmypageList" extends="main">
+	<definition name="carpoolmypageList" extends="sub6">
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/carpool/carpoolmypageList.jsp" />
 	</definition>
-
-	<definition name="carpoolmypageattendList" extends="main">
+	<definition name="carpoolmypageView" extends="sub6">
+		<put-attribute name="body"
+			value="/WEB-INF/views/mypage/carpool/carpoolmypageView.jsp" />
+	</definition>
+	<definition name="carpoolmypageattendList" extends="sub6">
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/carpool/carpoolmypageattendList.jsp" />
 	</definition>
 
-	<definition name="carpoolmypageapplyList" extends="main">
+	<definition name="carpoolmypageapplyList" extends="sub6">
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/carpool/carpoolmypageapplyList.jsp" />
 	</definition>
 
 	<definition name="chat-sockjs" extends="main">
-		<put-attribute name="body" value="/WEB-INF/views/carpool/chat-sockjs.jsp"/>
-	</definition>  
+		<put-attribute name="body"
+			value="/WEB-INF/views/carpool/chat-sockjs.jsp" />
+	</definition>
 </tiles-definitions>
 	
 	
