@@ -128,9 +128,13 @@ public class ReviewController {
 	}
 	
 	/*/////////////////////////////////////�۾��� �� �̵�/////////////////////////////////////*/
+	
 	@RequestMapping(value="/write.do", method=RequestMethod.GET)
 	public ModelAndView reviewForm(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
+		
+		request.getParameter("reserve_no");
+		
 		mav.setViewName("reviewWrite");
 		return mav;
 	}
@@ -140,13 +144,6 @@ public class ReviewController {
 	public ModelAndView reviewWrite(ReviewModel reviewModel,  BindingResult result,
 			MultipartHttpServletRequest multipartHttpServletRequest) throws Exception, Exception{
 		ModelAndView mav = new ModelAndView();
-		/*��������Ʈ*/
-	/*	new ReviewValidator().validate(reviewModel, result);
-		if(result.hasErrors()) {
-			mav.setViewName("reviewWrite");
-			return mav;
-		}*/
-		
 		/*�ٹٲ�*/
 		String content = reviewModel.getContent().replaceAll("\r\n", "<br />");
 		reviewModel.setContent(content);
