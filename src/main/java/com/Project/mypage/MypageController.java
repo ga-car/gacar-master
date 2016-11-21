@@ -155,8 +155,7 @@ private static final String uploadPath = "C:\\java\\GACAR\\src\\main\\webapp\\re
 	}
 	
 	@RequestMapping(value = "/memberDelPre.do")
-	public ModelAndView memberDelPre() {
-		System.out.println("delpre");		
+	public ModelAndView memberDelPre() {		
 		mav.addObject("pwCheck", 0);
 		mav.setViewName("memberDelPre");
 		return mav;
@@ -164,8 +163,7 @@ private static final String uploadPath = "C:\\java\\GACAR\\src\\main\\webapp\\re
 	
 	@RequestMapping(value = "/memberDel.do", method=RequestMethod.POST)
 	public ModelAndView memberDel(HttpSession session, HttpServletRequest request) {
-		
-		System.out.println("delPost");
+
 		MemberModel mem; // 쿼리 결과 값을 저장할 객체
  		
  		String email;
