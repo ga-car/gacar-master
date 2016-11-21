@@ -7,155 +7,116 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+<head>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
 <script
 	src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
-<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet">
-<title>Insert title here</title>
-<style type="text/css">
-thead>tr>th {
-	text-align: center;
-}
-
-tbody>tr>td:nth-child(1) {
-	width: 80px;
-	text-align: center;
-}
-
-tbody>tr>td:nth-child(3) {
-	width: 110px;
-	text-align: center;
-}
-
-tbody>tr>td:nth-child(4) {
-	width: 130px;
-	text-align: center;
-}
-
-tbody>tr>td:nth-child(5) {
-	width: 70px;
-	text-align: center;
-}
-
-tbody>tr:HOVER {
-	color: #da8c92;
-	cursor: pointer;
-}
-
-.menu-wrap {
-	text-align: right;
-}
-
-.form-wrap {
-	text-align: center;
-}
-
-#page-wrapper {
-	margin: auto;
-}
-</style>
 </head>
 <body>
-	<div class="category_top">
-		<ul>
-			<li class="post1">MyPage</li>
-			<li>>CarPool</li>
-			<li class="post2">>>내가 쓴 글</li>
+	<div id="list-article" class="content scaffold-list" role="main">
+		<!-- 상단 시작 -->
+		<div class="nav" role="navigation">
+			<h4>MyPage > 카풀 내가 쓴 글 보기</h4>
+			<!-- 게시판 검색 시작 -->
+			<!-- <div class="category-filter-wrapper">
+				<div class="category-filter-wrapper">
+					<form action="" name="category-filter-form"
+						id="category-filter-form">
+						<div class="category-filter-query pull-right">
+							<div class="input-group input-group-sm">
+								<input type="hidden" name="searchNum" id="searchNum" value="0">
+								<input class="form-control" type="text" name="isSearch"
+									id="isSearch" placeholder="출발지" /> <input class="form-control"
+									type="text" name="isSearch1" id="isSearch1" placeholder="도착지" />
+								<span class="input-group-btn">
 
-		</ul>
-	</div>
-	<div id="wrapper">
-
-		<div id="page-wrapper">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="page-header">
-						<img src="/rentacar/resources/images/SkinImg/2.jpg"> <strong><font
-							size="6px">CarPool</font></strong>&nbsp;&nbsp; <font color="red">내가 쓴 글</font>
-					</div>
-				</div>
-				<!-- /.col-lg-12 -->
-			</div>
-				<!-- <div class="row">
-				<div style="text-align: center;">
-					<div id="dataTables-example_filter" class="dataTables_filter">
-						<form action="">
-						<input type="hidden" name="searchNum" id="searchNum" value="0">
-						<input class="txte" type="text" name="isSearch" id="isSearch" placeholder="출발지"  />
-						<input class="txte" type="text" name="isSearch" id="isSearch" placeholder="도착지" />
-						<input type="submit" value="검색"/> 
-						</form>
-					</div>
+									<button type="submit" class="btn btn-default">
+										<i class="fa fa-search"></i>
+									</button>
+								</span>
+							</div>
+						</div>
+					</form>
 				</div>
 			</div> -->
-			<!-- /.row -->
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="panel panel-default">
-
-						<!-- /.panel-heading -->
-
-						<div class="dataTable_wrapper">
-							<table class="table table-striped table-bordered table-hover"
-								id="dataTables-example">
-								<thead>
-									<tr class="danger">
-										<th width="10%">글번호</th>
-										<th width="10%">제목</th>
-										<th width="20%">출발지</th>
-										<th width="20%">도착지</th>
-										<th width="10%">작성자</th>
-										<th width="20%">작성일</th>
-										<th width="10%">조회수</th>
-									</tr>
-								</thead>
-
-								<tbody>
-									<c:forEach var="list" items="${carpoolList}">
-										<c:url var="viewURL" value="detail.do">
-											<c:param name="no" value="${list.no }" />
-											<c:param name="currentPage" value="${currentPage }" />
-										</c:url>
-										<tr>
-											<td>${list.no}</td>
-											<td style="text-align: left;"><a href="${viewURL}">${list.subject}</a>
-											<td style="text-align: left;">${list.saddr}</td>
-											<td style="text-align: left;">${list.eaddr}</td>
-											<td>${list.name}</td>
-											<td><fmt:formatDate value="${list.regdate}"
-													pattern="yyyy.MM.dd" /></td>
-											<td>${list.readcount}</td>
-										</tr>
-									</c:forEach>
-								</tbody>
-							</table>
-						</div>
-					</div>
-					<div class="menu-wrap">
-						<button type="button" onclick="onWrite()" class="btn btn-primary">쓰기</button>
-
-						<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
-					</div>
-				</div>
-			</div>
-			<c:if test="${fn:length(carpoolList) le 0}">
-				<br />
-				<center>등록된 게시물이 없습니다</center>
-				<br />
-			</c:if>
-			<div class="paging" align="center">${pagingHtml}</div>
+			<!-- 게시판 검색 끝 -->
 		</div>
+		<!-- 상단 끝 -->
+		<!-- 게시판 리스트 시작 -->
+		<div class="panel panel-default">
+			<ul class="list-group">
+				<c:forEach var="list" items="${carpoolList}">
+					<c:url var="viewURL" value="detail.do">
+						<c:param name="no" value="${list.no }" />
+						<c:param name="currentPage" value="${currentPage }" />
+					</c:url>
+					<li class="list-group-item  list-group-has-note clearfix">
+						<div class="list-title-wrapper clearfix">
+							<div class="list-tag clearfix">
+								<span class="list-group-item-text article-id">${list.no}</span>
+							</div>
+							<h3 class="list-group-item-heading ">
+								<a href="${viewURL}">[${list.subject}] ${list.saddr} ->
+								${list.eaddr}</a>
+							</h3>
+						</div>
+						<div class="list-summary-wrapper clearfix">
+							<div class="list-group-item-summary clearfix">
+								<ul>
+									<li class=""><i class="item-icon fa fa-eye"></i>${list.readcount}</li>
+								</ul>
+							</div>
+						</div>
+						<div class="list-group-item-author clearfix">
+							<div class='avatar avatar-list clearfix '>
+								<div class="avatar-info">
+									${list.name}
+									<div class="date-created">
+										<fmt:formatDate value="${list.regdate}" pattern="yyyy.MM.dd" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</c:forEach>
+			</ul>
+			<ul class="list-group">
+				<c:if test="${fn:length(carpoolList) le 0}">
+					<br />
+					<center>등록된 게시물이 없습니다</center>
+					<br />
+				</c:if>
+			</ul>
+		</div>
+		<!-- 게시판 리스트 끝 -->
+		<!-- 글목록 버튼 시작 -->
+		<div class="menu-wrap pull-left">
+			<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
+		</div>
+		<!-- 글목록 버튼 끝 -->
+		<!-- 글쓰기 버튼 시작 -->
+<%-- 		<div class="menu-wrap pull-right">
+			<c:if test="${session_email != null }">
+				<!-- 로그인을 해야 글을 쓸수 있음 -->
+				<button type="button" onclick="onWrite()" class="btn btn-primary">쓰기</button>
+			</c:if>
+		</div> --%>
+		<!-- 글쓰기 버튼 끝 -->
+		<!-- 페이지 넘버 시작 -->
+		<div class="paging">${pagingHtml}</div>
+		<!-- 페이지 넘버 끝 -->
 	</div>
 </body>
- <script type="text/javascript">
+
+<script type="text/javascript">
 	$('.searchOption').val($('.searchOptionVal').val());
 	var onWrite = function() {
 		location.href = 'write.do';
 	};
-	var onList = function(){
-		location.href='list.do'
+	var onList = function() {
+		location.href = 'list.do'
 	};
-</script> 
+</script>
 </html>
