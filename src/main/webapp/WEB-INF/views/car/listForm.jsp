@@ -12,7 +12,7 @@
 	top: 0;
 	left: 0;
 	bottom: 0;
-	width: 660px;
+	width: 750px;
 	height: 35px;
 	margin: 10px 0 30px 17%;
 	padding: 5px;
@@ -31,7 +31,7 @@
 	src="//apis.daum.net/maps/maps3.js?apikey=079b4daabc5db4153ba00f0a15d911f0&libraries=services"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script>
+<script type="text/javascript">
 	$(function() {
 		var dateFormat = "mm/dd/yy", from = $("#from").datepicker({
 			defaultDate : "+1w",
@@ -40,10 +40,12 @@
 			minDate : 1
 		}).on("change", function() {
 			to.datepicker("option", "minDate", getDate(this));
-		}), to = $("#to").datepicker({
+		})
+		to = $("#to").datepicker({
 			defaultDate : "+1w",
 			changeMonth : true,
-			numberOfMonths : 1
+			numberOfMonths : 1,
+			minDate : 1
 		}).on("change", function() {
 			from.datepicker("option", "maxDate", getDate(this));
 		});
@@ -59,8 +61,6 @@
 			return date;
 		}
 	});
-</script>
-<script type="text/javascript">
 	function searchPlaces() {
 
 		var keyword = document.getElementById('keyword').value;
@@ -88,6 +88,14 @@
 			}
 		}
 	}
+	function searchDate() {
+		var sdate = document.getElementById('from').value;
+		var edate = document.getElementById('to').value;
+		if (sdate == "" && edate == "") {
+			alert('날짜를 입력해 주세요');
+			return false;
+		}
+	}
 	function selectEvent(selectObj) {
 		if (selectObj.value != "") {
 			var geocoder = new daum.maps.services.Geocoder();
@@ -107,46 +115,52 @@
 	<div id="map" style="width: 100%; height: 100%;"></div>
 	<div id="menu_wrap" class="bg_white">
 		<div class="option">
-			<div>
-				<form onsubmit="searchPlaces(); return false;">
-					<select name="car_addr" id="car_addr"
-						onChange="javascript:selectEvent(this);">
-						<option value="" selected="selected">지역</option>
-						<option value="강남구">강남구</option>
-						<option value="강동구">강동구</option>
-						<option value="강북구">강북구</option>
-						<option value="강서구">강서구</option>
-						<option value="관악구">관악구</option>
-						<option value="광진구">광진구</option>
-						<option value="구로구">구로구</option>
-						<option value="금천구">금천구</option>
-						<option value="노원구">노원구</option>
-						<option value="도봉구">도봉구</option>
-						<option value="동대문구">동대문구</option>
-						<option value="동작구">동작구</option>
-						<option value="마포구">마포구</option>
-						<option value="서대문구">서대문구</option>
-						<option value="서초구">서초구</option>
-						<option value="성동구">성동구</option>
-						<option value="성북구">성북구</option>
-						<option value="송파구">송파구</option>
-						<option value="양천구">양천구</option>
-						<option value="영등포구">영등포구</option>
-						<option value="용산구">용산구</option>
-						<option value="은평구">은평구</option>
-						<option value="종로구">종로구</option>
-						<option value="중구">중구</option>
-						<option value="중랑구">중랑구</option>
-					</select> 키워드 : <input type="text" value="" id="keyword" size="15">
-					<button type="submit">검색하기</button>
-				</form>
-				<form>
-					<label for="from">From</label> <input type="text" id="from"
-						name="from"> <label for="to">to</label> <input type="text"
-						id="to" name="to">
-					<button type="submit">검색하기</button>
-				</form>
+
+			<div style="float: left;">
+				<select name="car_addr" id="car_addr"
+					onChange="javascript:selectEvent(this);">
+					<option value="" selected="selected">지역</option>
+					<option value="강남구">강남구</option>
+					<option value="강동구">강동구</option>
+					<option value="강북구">강북구</option>
+					<option value="강서구">강서구</option>
+					<option value="관악구">관악구</option>
+					<option value="광진구">광진구</option>
+					<option value="구로구">구로구</option>
+					<option value="금천구">금천구</option>
+					<option value="노원구">노원구</option>
+					<option value="도봉구">도봉구</option>
+					<option value="동대문구">동대문구</option>
+					<option value="동작구">동작구</option>
+					<option value="마포구">마포구</option>
+					<option value="서대문구">서대문구</option>
+					<option value="서초구">서초구</option>
+					<option value="성동구">성동구</option>
+					<option value="성북구">성북구</option>
+					<option value="송파구">송파구</option>
+					<option value="양천구">양천구</option>
+					<option value="영등포구">영등포구</option>
+					<option value="용산구">용산구</option>
+					<option value="은평구">은평구</option>
+					<option value="종로구">종로구</option>
+					<option value="중구">중구</option>
+					<option value="중랑구">중랑구</option>
+				</select>
 			</div>
+			<form onsubmit="searchPlaces(); return false;">
+				<div style="float: left;">
+					키워드 : <input type="text" value="" id="keyword" size="15">
+					<button type="submit">검색하기</button>
+				</div>
+			</form>
+			<form onsubmit="searchDate()">
+				<div style="float: left;">
+					<label for="from">From</label> <input type="text" id="from"
+						name="from" value="${from}"> <label for="to">to</label> <input
+						type="text" id="to" name="to" value="${to}">
+					<button type="submit">검색하기</button>
+				</div>
+			</form>
 		</div>
 	</div>
 </body>
@@ -201,11 +215,19 @@
 		};
 	}
 	function clickEvent(lat, lng) {
-		return function() {
-			location.href = "/rentacar/car/list.do?car_lat=" + lat
-					+ "&car_lng=" + lng
-		};
-
+		var sdate = document.getElementById('from').value;
+		var edate = document.getElementById('to').value;
+		if (sdate == "" && edate == "") {
+			return function() {
+				location.href = "/rentacar/car/list.do?car_lat=" + lat
+						+ "&car_lng=" + lng
+			};
+		} else {
+			return function() {
+				location.href = "/rentacar/car/list.do?car_lat=" + lat
+						+ "&car_lng=" + lng + "&from=" + sdate + "&to=" + edate
+			};
+		}
 	}
 	function panTo(lan, lng) {
 		// 이동할 위도 경도 위치를 생성합니다 
