@@ -182,9 +182,8 @@ public class MemberController {
 
 	@RequestMapping(value = "/zipcodeCheckForm.do")
 	public ModelAndView zipcodeCheckForm(HttpServletRequest req) throws Exception {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("member/zipcodeCheck");
-		return mv;
+		mav.setViewName("member/zipcodeCheck");
+		return mav;
 	}
 
 	/* 회원가입시 우편번호 검색 로직 */
@@ -192,31 +191,26 @@ public class MemberController {
 	public ModelAndView zipcodeCheck(@ModelAttribute ZipcodeModel zipcodeModel, HttpServletRequest req)
 			throws Exception {
 
-		ModelAndView mv = new ModelAndView();
-
 		int chk = 100;
 
 		zipcodeList = memberService.zipcodeCheck(zipcodeModel);
 
-		mv.addObject("zipcode", zipcodeList);
+		mav.addObject("zipcode", zipcodeList);
 
 		if (zipcodeList.size() == 0) {
 			chk = 0;
 		} else {
 			chk = 1;
 		}
-		mv.addObject("chk", chk);
-		mv.setViewName("member/zipcodeCheck");
-		return mv;
+		mav.addObject("chk", chk);
+		mav.setViewName("member/zipcodeCheck");
+		return mav;
 	}
 
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public ModelAndView loginForm(HttpServletRequest request) {
-		ModelAndView mv = new ModelAndView();// QModelAndView는 미리 객체 생성해놓으면 안
-												// 되는지?ex>service,controller와 같이
-		String preAddr = request.getHeader("referer");
-		mv.setViewName("member/login");
-		return mv;
+		mav.setViewName("member/login");
+		return mav;
 	}
 
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
@@ -261,6 +255,18 @@ public class MemberController {
 		return mav;
 
 	}
+	
+	@RequestMapping(value = "/klogin.do")
+	public ModelAndView loginForm2(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String nick = request.getParameter("nick");
+		session.setAttribute("session_nick", nick);
+		session.setAttribute("TOKEN_SAVE_CHECK", "TRUE");
+		System.out.println("nickname:"+nick);
+		mav.addObject("nick",nick);
+		mav.setViewName("member/login");
+		return mav;
+	}
 
 	@RequestMapping("/logout.do")
 	public ModelAndView memberLogout(HttpServletRequest request, MemberModel mem) {
@@ -273,6 +279,7 @@ public class MemberController {
 		/* mav.addObject("member", new MemberModel()); */
 		// ModelAndView mav = new ModelAndView();
 		/* mav.setViewName("main"); */
+		mav.addObject("suc", "0");
 		mav.setViewName("member/logout");
 		return mav;
 	}

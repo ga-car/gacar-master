@@ -82,7 +82,7 @@ tbody>tr:HOVER {
 				<div style="text-align: center;">
 					<div id="dataTables-example_filter" class="dataTables_filter">
 						<form action="">
-						<c:if test="${session_name != null }">
+						<c:if test="${session_name != null || session_nick != null }">
 							<a href="chat.do">실시간 카풀 모집</a>
 						</c:if>
 						<input type="hidden" name="searchNum" id="searchNum" value="0">
