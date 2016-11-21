@@ -42,6 +42,11 @@ public class RentacarService implements RentacarDao {
 	public List<ReserveModel> reserveList(Object reserve_mem_no) {
 		return sqlSessionTemplate.selectList("reserve.reserveList", reserve_mem_no);
 	}
+	
+	@Override
+	public List<ReserveModel> reserveDateList(ReserveModel reserveModel){
+		return sqlSessionTemplate.selectList("reserve.reserveDateList", reserveModel);
+	}
 
 	@Override
 	public int reserveDelete(ReserveModel reserveModel) {
