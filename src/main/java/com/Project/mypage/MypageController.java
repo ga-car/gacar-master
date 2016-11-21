@@ -55,7 +55,7 @@ private static final String uploadPath = "C:\\java\\GACAR\\src\\main\\webapp\\re
 	}
 	
 	/*/////////////////////////////////////�۸��/////////////////////////////////////*/
-	@RequestMapping(value="/mypageList.do")
+	@RequestMapping(value="/list.do")
 	public ModelAndView reviewList(HttpServletRequest request, HttpSession session) throws UnsupportedEncodingException{
 		
 		ModelAndView mav = new ModelAndView();
