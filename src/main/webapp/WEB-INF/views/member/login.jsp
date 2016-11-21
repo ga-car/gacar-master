@@ -6,8 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
-<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script> 
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script> -->
+<script type="text/javascript" src="/rentacar/resources/js/chat/jquery-1.11.0.min.js"></script>
+<script src="/rentacar/resources/js/kakao/kakao.min.js"></script> 
 <script type="text/javascript">
 	function emailFind(){
 		var url = "emailFind.do";
@@ -82,16 +83,6 @@
  				}); 
  				$("#kakao-logged-group").prepend(loginBtn) 
  			} 
- 			/* function createKakaotalkLogout(){ 
- 				$("#kakao-logged-group .kakao-logout-btn,#kakao-logged-group .kakao-login-btn").remove(); 
- 				var logoutBtn = $("<a/>",{"class":"kakao-logout-btn","text":"로그아웃"}); 
- 				logoutBtn.click(function(){ 
- 					Kakao.Auth.logout(); 
- 					createKakaotalkLogin(); 
- 					$("#kakao-profile").text(""); 
- 				}); 
- 				$("#kakao-logged-group").prepend(logoutBtn); 
- 			} */
  			if(Kakao.Auth.getRefreshToken()!=undefined&&Kakao.Auth.getRefreshToken().replace(/ /gi,"")!=""||'${session_nick}'!=""){ 
  				/* document.getElementById("test").innerHTML = '${session_nick}'; */
  				createKakaotalkLogout(); 
