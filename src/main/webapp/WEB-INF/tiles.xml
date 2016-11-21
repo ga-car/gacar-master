@@ -9,8 +9,13 @@
 	<!-- Main Page -->
 	<definition name="main" template="/WEB-INF/views/layout/main_layout.jsp">
 		<put-attribute name="left" value="/WEB-INF/views/layout/left.jsp" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/layout/container.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/layout/container.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+	</definition>
+	<!-- sub5 Page -->
+	<definition name="sub5" template="/WEB-INF/views/layout/main_layout.jsp">
+		<put-attribute name="left" value="/WEB-INF/views/layout/left_sub5.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/layout/container.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
 
@@ -57,12 +62,12 @@
 	</definition>
 
 	<!-- 공지사항 -->
-	<definition name="noticeList" extends="main">
+	<definition name="noticeList" extends="sub5">
 		<put-attribute name="body"
 			value="/WEB-INF/views/notice/noticeList.jsp" />
 	</definition>
 
-	<definition name="noticeView" extends="main">
+	<definition name="noticeView" extends="sub5">
 		<put-attribute name="body"
 			value="/WEB-INF/views/notice/noticeView.jsp" />
 	</definition>
@@ -108,7 +113,7 @@
 			value="/WEB-INF/views/review/reviewModify.jsp" />
 	</definition>
 	<!-- FAQ -->
-	<definition name="faqList" extends="main">
+	<definition name="faqList" extends="sub5">
 		<put-attribute name="body" value="/WEB-INF/views/faq/faqList.jsp" />
 	</definition>
 	<!-- 리뷰관리자 -->
@@ -231,11 +236,11 @@
 	</definition>
 
 	<!-- 1:1문의 -->
-	<definition name="qnaList" extends="main">
+	<definition name="qnaList" extends="sub5">
 		<put-attribute name="body" value="/WEB-INF/views/qna/qnaList.jsp" />
 	</definition>
 
-	<definition name="qnaForm" extends="main">
+	<definition name="qnaForm" extends="sub5">
 		<put-attribute name="body" value="/WEB-INF/views/qna/qnaForm.jsp" />
 	</definition>
 	<definition name="memberList" extends="adminMain">

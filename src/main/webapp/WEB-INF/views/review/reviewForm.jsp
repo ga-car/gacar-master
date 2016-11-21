@@ -29,31 +29,17 @@
 		<!-- 헤드글 끝 -->
 
 		<div class="panel panel-default clearfix">
-			<div class="panel-heading clearfix">
+			<form:form commandName="reviewModel" action="write.do"
+				enctype="multipart/form-data" method="post">
+				<div class="panel-heading clearfix">
 
-				<div class="avatar avatar-medium clearfix pull-left">
-					<a href="/user/info/49756" class="avatar-photo"><img
-						src="//www.gravatar.com/avatar/1c3ecba7722e67b1b5db8d4facd36d1a?d=identicon&amp;s=40"></a>
-					<div class="avatar-info">
-						<a class="nickname" href="/user/info/49756">푸른바다생각</a>
-						<div class="activity block">
-							<span class="fa fa-flash"></span> 0
-						</div>
+					<div class="avatar avatar-medium clearfix pull-left">
+						<div class="avatar-info">${session_email }</div>
 					</div>
-				</div>
 
-			</div>
-			<div class="panel-body">
-				<form:form commandName="reviewModel" action="write.do"
-					enctype="multipart/form-data" method="post">
-					<input type="hidden" name="SYNCHRONIZER_TOKEN"
-						value="2a1f4c86-e74f-4b12-a1ba-0f2c5c57a2a8"
-						id="SYNCHRONIZER_TOKEN">
-					<input type="hidden" name="SYNCHRONIZER_URI"
-						value="/articles/questions/create" id="SYNCHRONIZER_URI">
+				</div>
+				<div class="panel-body">
 					<fieldset class="form">
-						<input type="hidden" name="categoryCode" value="questions"
-							id="categoryCode">
 						<div class="form-group has-feedback">
 							<div>
 								<input type="textarea" name="subject" required=""
@@ -64,22 +50,28 @@
 							</div>
 						</div>
 						<div class="form-group  has-feedback">
-							<textarea name="content.text" id="summernote" rows="20"
-								class="form-control input-block-level" style="display: none;"></textarea>
 							<div class="note-editor panel panel-default">
 								<div class="note-editing-area">
-									<div>
-										<textarea name="content" id="content" class="note-codable"></textarea>
-										<div class="note-editable panel-body" contenteditable="true"
-											data-placeholder="내용을 입력해 주세요."
-											style="height: 300px; max-height: 860px;">
-											<p>
-												<br>
-											</p>
-										</div>
+									<textarea name="content" id="content" class="note-codable"></textarea>
+									<div class="note-editable panel-body" contenteditable="true"
+										data-placeholder="내용을 입력해 주세요."
+										style="height: 300px; max-height: 860px;">
+
+										<p>
+											<br>
+										</p>
+
 									</div>
 								</div>
 							</div>
+							<!-- 파일 업로드 시작 -->
+							<div class="form-group has-feedback">
+								<div>
+									<input type="file" name="file"
+										value="${reviewModel.imagefile_savname}" />
+								</div>
+							</div>
+							<!-- 파일 업도르 끝 -->
 							<div class="nav" role="navigation">
 								<fieldset class="buttons">
 									<button type="button" onclick="this.form.submit();"
@@ -89,8 +81,9 @@
 								</fieldset>
 							</div>
 					</fieldset>
-				</form:form>
-			</div>
+
+				</div>
+			</form:form>
 		</div>
 	</div>
 
