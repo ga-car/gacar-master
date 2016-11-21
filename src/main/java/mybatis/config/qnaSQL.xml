@@ -38,10 +38,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="qnaWrite" parameterType="Integer">
 		INSERT INTO QNA
 		(NO, SUBJECT,
-		CONTENTS, REGDATE,EMAIL, SECRET)
+		CONTENTS, REGDATE,EMAIL)
 		VALUES
 		(QNA_SEQ.NEXTVAL,
-		#{subject}, #{contents}, SYSDATE,#{email},#{secret})
+		#{subject}, #{contents}, SYSDATE,#{email})
 	</insert>
 
 	<!-- 조회수 1증가 -->
@@ -66,8 +66,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SET
 		SUBJECT =
 		#{subject},
-		CONTENTS = #{contents},
-		SECRET=#{secret}
+		CONTENTS = #{contents}
 		WHERE
 		NO = #{no}
 	</update>

@@ -27,52 +27,57 @@
 			<h3>새 글 쓰기</h3>
 		</div>
 		<!-- 헤드글 끝 -->
-
 		<div class="panel panel-default clearfix">
-			<form:form commandName="reviewModel" action="write.do"
-				enctype="multipart/form-data" method="post">
-				<div class="panel-heading clearfix">
+			<!-- form 정보 위치1 -->
 
-					<div class="avatar avatar-medium clearfix pull-left">
-						<div class="avatar-info">${session_email }</div>
-						<input type="hidden" name="email" id="email" value="${session_email }"/>
-					</div>
-
-				</div>
-				<div class="panel-body">
+			<!-- 유저이메일 시작 -->
+			<div class="panel-heading clearfix">
+				<div class="avatar avatar-medium clearfix pull-left">
+					${session_email }</div>
+				<input type="hidden" name="email" value="${session_email }" />
+			</div>
+			<!-- 유저이메일 끝 -->
+			<!-- 글쓰기 창 시작 -->
+			<div class="panel-body">
+				<!-- form 정보 위치2 -->
+				<form:form commandName="reviewModel" action="write.do"
+					enctype="multipart/form-data" method="post">
 					<fieldset class="form">
+						<input type="hidden" name="categoryCode" value="questions"
+							id="categoryCode">
+						<!-- 글 제목 작성창 시작 -->
 						<div class="form-group has-feedback">
 							<div>
 								<input type="textarea" name="subject" required=""
 									value="${reviewModel.subject}" placeholder="제목을 입력해 주세요."
-									class="form-control" id="subject"> <font color="red"><form:errors
+									class="form-control" id="title"> <font color="red"><form:errors
 										path="subject" /></font>
 								<!-- 벨리데이터 표시 -->
 							</div>
 						</div>
+						<!-- 글 제목 작성창 끝 -->
+						<!-- 글 내용 창 시작 -->
 						<div class="form-group  has-feedback">
-							<div class="note-editor panel panel-default">
-								<div class="note-editing-area">
-									<textarea name="content" id="content" class="note-codable"></textarea>
-									<div class="note-editable panel-body" contenteditable="true"
-										data-placeholder="내용을 입력해 주세요."
-										style="height: 300px; max-height: 860px;">
 
+							<textarea name="content" id="content" rows="20"
+								class="form-control input-block-level" style="display: none;"></textarea>
+										<font color="red"><form:errors path="content" /></font><br />
+										<!-- 벨리데이터 표시 -->
 										<p>
 											<br>
 										</p>
 
 									</div>
+
+						
 								</div>
-							</div>
-							<!-- 파일 업로드 시작 -->
-							<div class="form-group has-feedback">
-								<div>
-									<input type="file" name="file" id="file"
+								<div class="nav" role="navigation">
+									<input type="file" name="file"
 										value="${reviewModel.imagefile_savname}" />
 								</div>
+
 							</div>
-							<!-- 파일 업도르 끝 -->
+							<!-- 글 내용 창 끝 -->
 							<div class="nav" role="navigation">
 								<fieldset class="buttons">
 									<button type="button" onclick="this.form.submit();"
@@ -81,13 +86,11 @@
 										class="btn btn-default btn-wide">목록</button>
 								</fieldset>
 							</div>
-					</fieldset>
-
-				</div>
+						</div>
+			</div>
+			</fieldset>
 			</form:form>
 		</div>
-	</div>
-
 </body>
 
 <script type="text/javascript">
