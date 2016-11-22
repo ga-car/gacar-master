@@ -21,18 +21,18 @@ function reviewList() {
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <!-- <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script> -->
-<link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
+<!-- <link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
 <link href="/rentacar/resources/css/reset.css" rel="stylesheet">
-<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<style type="text/css"> 
+<!-- <style type="text/css"> 
 
    .contents-wrap{margin:30px 0 0 0;min-height: 500px;}
    .contents{ margin: 60px 0 0 0;}
    .recode-wrap{text-align: right; color: #888;}
    .hit-wrap{color:#888; margin: 10px 0;}
    .viewForm{margin: 20px 0 0 0;}
-</style>
+</style> -->
 <title>NOTICE</title> 
 </head>
 <body>
@@ -43,7 +43,7 @@ function reviewList() {
       <div id="page-wrapper">
          <div class="row">
             <div class="col-lg-12">
-				<h3 class="page-header">NOTICE 글쓰기</h3>
+				<h3 class="page-header">고객센터관리 > 공지사항 > 새 글 작성 </h3>
 				<table class="table table-striped table-bordered table-hover"  id="dataTables-example">
 					<caption>번호,제목,글쓴이,날짜,조회를 나타내는 공지사항 표</caption>
 					
