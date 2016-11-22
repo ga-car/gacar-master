@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript"
-	src="//apis.daum.net/maps/maps3.js?apikey=079b4daabc5db4153ba00f0a15d911f0&libraries=services"></script>
+	src="//apis.daum.net/maps/maps3.js?apikey=87e19089507641031c40df670c4c1fed&libraries=services"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
