@@ -18,75 +18,133 @@
 		<!-- 상단 시작 -->
 		<div class="nav" role="navigation">
 			<h4>고객센터 > 1:1 문의</h4>
-			<div class="panel panel-default clearfix">
-				<form:form commandName="qnaModel" action="/rentacar/qna/write.do"
-					method="post">
-					<div class="panel-heading clearfix">
-						<div class="avatar avatar-medium clearfix pull-left">
-							<div class="avatar-info">사용자 ID : ${session_email }</div>
-							<input type="hidden" name="email" id="email"
-								value="${session_email }" />
-						</div>
+		</div>
+		<!-- 상단 끝 -->
+		<!-- 게시판 글쓰기 시작 -->
+		<div class="panel panel-default clearfix">
+			<form:form commandName="qnaModel" action="/rentacar/qna/write.do"
+				method="post">
+				<div class="panel-heading clearfix">
+					<div class="avatar avatar-medium clearfix pull-left">
+						<div class="avatar-info">사용자 ID : ${session_email }</div>
+						<input type="hidden" name="email" id="email"
+							value="${session_email }" />
 					</div>
-					<div class="panel-body">
-						<fieldset class="form">
-							<div class="form-group has-feedback">
-								<div>
-									<strong>제목</strong> <input type="textarea" name="subject"
-										required="" value="${qnaModel.subject}"
-										placeholder="제목을 입력해 주세요." class="form-control" id="subject">
-									<font color="red"><form:errors path="subject" /></font>
-									<!-- 벨리데이터 표시 -->
-								</div>
+				</div>
+				<div class="panel-body">
+					<fieldset class="form">
+						<div class="form-group has-feedback">
+							<div>
+								<strong>제목</strong> <input type="textarea" name="subject"
+									required="" value="${qnaModel.subject}"
+									placeholder="제목을 입력해 주세요." class="form-control" id="subject">
+								<font color="red"><form:errors path="subject" /></font>
+								<!-- 벨리데이터 표시 -->
 							</div>
-							<div class="form-group  has-feedback">
-								<div class="note-editor panel panel-default">
-									<div class="note-editing-area">
-										<textarea name="cenater" id="cenater" class="note-codable"></textarea>
-										<div class="note-editable panel-body" contenteditable="true"
-											data-placeholder="내용을 입력해 주세요."
-											style="height: 300px; max-height: 860px;">
-											<p>
-												<br>
-											</p>
+						</div>
+						<div class="form-group  has-feedback">
+							<div class="note-editor panel panel-default">
+								<div class="note-editing-area">
+									<textarea name="cenater" id="cenater" class="note-codable"></textarea>
+									<div class="note-editable panel-body" contenteditable="true"
+										data-placeholder="내용을 입력해 주세요."
+										style="height: 300px; max-height: 860px;">
+										<p>
+											<br>
+										</p>
 
-										</div>
 									</div>
 								</div>
-								<c:if test="${session_email != null }">
-									<span> <input type="submit" value="작성완료"
-										class="btn btn-primary"
-										style="font-size: 14px; padding: 5px; height: 36px; vertical-align: middle;" />
-									</span>
-									<span onclick="history.go(-1);"> <input type="button"
-										value="취소" class="btn btn-primary"
-										style="font-size: 14px; padding: 5px; height: 36px; vertical-align: middle;" />
-									</span>
-								</c:if>
-								<div class="nav" role="navigation">
-									<fieldset class="buttons">
-										<button type="button" onclick="this.form.submit();"
-											class="create btn btn-success btn-wide pull-right">작성완료</button>
-										<button type="button" onclick="reviewList();"
-											class="btn btn-default btn-wide">목록</button>
-									</fieldset>
-								</div>
-						</fieldset>
+							</div>
+							<div class="nav" role="navigation">
+								<fieldset class="buttons">
+									<button type="button" onclick="this.form.submit();"
+										class="create btn btn-success btn-wide pull-right">작성완료</button>
+								</fieldset>
+							</div>
+					</fieldset>
 
-					</div>
-				</form:form>
-			</div>
-			<!-- 답변상태 -->
-
-			<select class="form-control" name="sortNum"
-				onchange="window.open(value,'_self');"
-				style="width: 120px; display: inline-block;">
-				<option value="/rentacar/qna/list.do?sortNum=null">-답변분류-</option>
-				<option value="/rentacar/qna/list.do?sortNum=1">답변 완료</option>
-				<option value="/rentacar/qna/list.do?sortNum=2">답변 전</option>
-			</select>
+				</div>
+			</form:form>
 		</div>
+		<!-- 게시판 글쓰기 끝 -->
+		<!-- 게시판 리스트 시작 -->
+		<div class="panel panel-default">
+			<ul class="list-group">
+				<c:forEach var="list" items="${수정list}">
+					<c:url var="viewURL" value="view.do">
+						<c:param name="no" value="${list.no }" />
+						<c:param name="currentPage" value="${currentPage }" />
+					</c:url>
+					<li class="list-group-item  list-group-has-note clearfix">
+						<div class="list-title-wrapper clearfix">
+							<div class="list-tag clearfix">
+								<span class="list-group-item-text article-id">${list.no}</span>
+							</div>
+							<h3 class="list-group-item-heading ">
+								<c:if test="${list.imagefile_savname != 'NULL'}">
+									<a href="${viewURL}"> =${list.subject}<img
+										src="/rentacar/resources/images/reviewImage.PNG" width="20"
+										height="20">&nbsp;
+									</a>
+								</c:if>
+								<c:if test="${list.imagefile_savname == 'NULL'}">
+									<a href="${viewURL}"> ${list.subject}</a>
+								</c:if>
+							</h3>
+						</div>
+						<div class="list-summary-wrapper clearfix">
+							<div class="list-group-item-summary clearfix">
+								<ul>
+									<li class=""><i class="item-icon fa fa-eye"></i>${list.readcount}</li>
+								</ul>
+							</div>
+						</div>
+						<div class="list-group-item-author clearfix">
+							<div class='avatar avatar-list clearfix '>
+								<div class="avatar-info">
+									${list.email}
+									<div class="date-created">
+										<fmt:formatDate value="${list.regdate}" pattern="yyyy.MM.dd" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</c:forEach>
+			</ul>
+			<ul class="list-group">
+				<c:if test="${fn:length(reviewList) le 0}">
+					<br />
+					<center>등록된 게시물이 없습니다</center>
+					<br />
+				</c:if>
+			</ul>
+		</div>
+		<!-- 게시판 리스트 끝 -->
+		<!-- 글목록 버튼 시작 -->
+		<div class="menu-wrap pull-left">
+			<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
+		</div>
+		<!-- 글목록 버튼 끝 -->
+		<!-- 페이지 넘버 시작 -->
+		<div class="paging">${pagingHtml}</div>
+		<!-- 페이지 넘버 끝 -->
 	</div>
+
+
+<%-- 	<!-- 답변상태 -->
+
+	<select class="form-control" name="sortNum"
+		onchange="window.open(value,'_self');"
+		style="width: 120px; display: inline-block;">
+		<option value="/rentacar/qna/list.do?sortNum=null">-답변분류-</option>
+		<option value="/rentacar/qna/list.do?sortNum=1">답변 완료</option>
+		<option value="/rentacar/qna/list.do?sortNum=2">답변 전</option>
+	</select>
+
+
+
 	<table class="table table-striped table-bordered table-hover"
 		id="dataTables-example">
 		<thead>
@@ -175,13 +233,8 @@
 
 
 		</tbody>
-	</table>
+	</table> --%>
 
-	</div>
-	<div class="paging" " style="text-align: center;">${pagingHtml}</div>
-	</div>
-	</div>
-	</div>
 </body>
 <script type="text/javascript">
 	var oEditors = [];

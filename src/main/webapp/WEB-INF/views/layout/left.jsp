@@ -10,7 +10,8 @@
 <body>
 	<c:if test="${session_email==null&&session_nick==null}">
 		<div class="sidebar">
-			<a href="javascript://" class="sidebar-header"> <i class="fa fa-bars sidebar-header-icon"></i>
+			<a href="javascript://" class="sidebar-header"> <i
+				class="fa fa-bars sidebar-header-icon"></i>
 			</a>
 			<h1>
 				<div class="logo">
@@ -32,13 +33,14 @@
 
 			<ul class="nav nav-sidebar nav-main">
 				<li><a href="/rentacar/car/list.do" class="link"> <i
-						class="nav-icon fa fa-car" ></i> <span
+						class="nav-icon fa fa-car"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">가카예약</span></a></li>
 				<li><a href="/rentacar/carpool/list.do" class="link"><i
-						class="nav-icon fa fa-slideshare" ></i> <span
+						class="nav-icon fa fa-slideshare"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">카풀모임</span></a></li>
-				<li><a href="#" class="link"><i class="nav-icon fa fa-info"></i>
-						<span class="nav-sidebar-label nav-sidebar-category-label">이용안내</span></a></li>
+				<li><a href="/rentacar/method.do" class="link"><i
+						class="nav-icon fa fa-info"></i> <span
+						class="nav-sidebar-label nav-sidebar-category-label">이용안내</span></a></li>
 				<li><a href="/rentacar/review/list.do" class="link"><i
 						class="nav-icon fa fa-star"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">이용후기</span></a></li>
@@ -100,13 +102,16 @@
 
 			<ul class="nav nav-sidebar nav-main">
 				<li><a href="/rentacar/car/list.do" class="link"> <i
-						class="nav-icon fa fa-car" ></i> <span
+						class="nav-icon fa fa-car"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">가카예약</span></a></li>
 				<li><a href="/rentacar/carpool/list.do" class="link"><i
-						class="nav-icon fa fa-slideshare" ></i> <span
+						class="nav-icon fa fa-slideshare"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">카풀모임</span></a></li>
-				<li><a href="#" class="link"><i class="nav-icon fa fa-info"></i>
+
+				<li><a href="/rentacar/method.do" class="link"><i class="nav-icon fa fa-info"></i>
 						<span class="nav-sidebar-label nav-sidebar-category-label">이용안내</span></a></li>
+
+
 				<li><a href="/rentacar/review/list.do" class="link"><i
 						class="nav-icon fa fa-star"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">이용후기</span></a></li>

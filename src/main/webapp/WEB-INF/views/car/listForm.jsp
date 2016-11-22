@@ -1,28 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="EUC-KR"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-#menu_wrap {
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	width: 750px;
-	height: 35px;
-	margin: 10px 0 30px 17%;
-	padding: 5px;
-	overflow-y: auto;
-	background: rgba(255, 255, 255, 0.7);
-	z-index: 1;
-	font-size: 12px;
-	border-radius: 10px;
-}
-</style>
+
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
@@ -66,24 +50,24 @@
 		var keyword = document.getElementById('keyword').value;
 
 		if (!keyword.replace(/^\s+|\s+$/g, '')) {
-			alert('Å°¿öµå¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä!');
+			alert('í‚¤ì›Œë“œë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”!');
 			return false;
 		}
-		// Àå¼Ò °Ë»ö °´Ã¼¸¦ »ı¼ºÇÕ´Ï´Ù
+		// ì¥ì†Œ ê²€ìƒ‰ ê°ì²´ë¥¼ ìƒì„±í•©ë‹ˆë‹¤
 		var ps = new daum.maps.services.Places();
-		// Å°¿öµå·Î Àå¼Ò¸¦ °Ë»öÇÕ´Ï´Ù
+		// í‚¤ì›Œë“œë¡œ ì¥ì†Œë¥¼ ê²€ìƒ‰í•©ë‹ˆë‹¤
 		ps.keywordSearch(keyword, placesSearchCB);
-		// Å°¿öµå °Ë»ö ¿Ï·á ½Ã È£ÃâµÇ´Â Äİ¹éÇÔ¼ö ÀÔ´Ï´Ù
+		// í‚¤ì›Œë“œ ê²€ìƒ‰ ì™„ë£Œ ì‹œ í˜¸ì¶œë˜ëŠ” ì½œë°±í•¨ìˆ˜ ì…ë‹ˆë‹¤
 		function placesSearchCB(status, data, pagination) {
 			if (status === daum.maps.services.Status.OK) {
-				// °Ë»öµÈ Àå¼Ò À§Ä¡¸¦ ±âÁØÀ¸·Î Áöµµ ¹üÀ§¸¦ Àç¼³Á¤ÇÏ±âÀ§ÇØ
-				// LatLngBounds °´Ã¼¿¡ ÁÂÇ¥¸¦ Ãß°¡ÇÕ´Ï´Ù
+				// ê²€ìƒ‰ëœ ì¥ì†Œ ìœ„ì¹˜ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì§€ë„ ë²”ìœ„ë¥¼ ì¬ì„¤ì •í•˜ê¸°ìœ„í•´
+				// LatLngBounds ê°ì²´ì— ì¢Œí‘œë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤
 				var bounds = new daum.maps.LatLngBounds();
 				for (var i = 0; i < data.places.length; i++) {
 					bounds.extend(new daum.maps.LatLng(data.places[i].latitude,
 							data.places[i].longitude));
 				}
-				// °Ë»öµÈ Àå¼Ò À§Ä¡¸¦ ±âÁØÀ¸·Î Áöµµ ¹üÀ§¸¦ Àç¼³Á¤ÇÕ´Ï´Ù
+				// ê²€ìƒ‰ëœ ì¥ì†Œ ìœ„ì¹˜ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì§€ë„ ë²”ìœ„ë¥¼ ì¬ì„¤ì •í•©ë‹ˆë‹¤
 				map.setBounds(bounds);
 			}
 		}
@@ -92,7 +76,7 @@
 		var sdate = document.getElementById('from').value;
 		var edate = document.getElementById('to').value;
 		if (sdate == "" && edate == "") {
-			alert('³¯Â¥¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä');
+			alert('ë‚ ì§œë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”');
 			return false;
 		}
 	}
@@ -119,38 +103,38 @@
 			<div style="float: left;">
 				<select name="car_addr" id="car_addr"
 					onChange="javascript:selectEvent(this);">
-					<option value="" selected="selected">Áö¿ª</option>
-					<option value="°­³²±¸">°­³²±¸</option>
-					<option value="°­µ¿±¸">°­µ¿±¸</option>
-					<option value="°­ºÏ±¸">°­ºÏ±¸</option>
-					<option value="°­¼­±¸">°­¼­±¸</option>
-					<option value="°ü¾Ç±¸">°ü¾Ç±¸</option>
-					<option value="±¤Áø±¸">±¤Áø±¸</option>
-					<option value="±¸·Î±¸">±¸·Î±¸</option>
-					<option value="±İÃµ±¸">±İÃµ±¸</option>
-					<option value="³ë¿ø±¸">³ë¿ø±¸</option>
-					<option value="µµºÀ±¸">µµºÀ±¸</option>
-					<option value="µ¿´ë¹®±¸">µ¿´ë¹®±¸</option>
-					<option value="µ¿ÀÛ±¸">µ¿ÀÛ±¸</option>
-					<option value="¸¶Æ÷±¸">¸¶Æ÷±¸</option>
-					<option value="¼­´ë¹®±¸">¼­´ë¹®±¸</option>
-					<option value="¼­ÃÊ±¸">¼­ÃÊ±¸</option>
-					<option value="¼ºµ¿±¸">¼ºµ¿±¸</option>
-					<option value="¼ººÏ±¸">¼ººÏ±¸</option>
-					<option value="¼ÛÆÄ±¸">¼ÛÆÄ±¸</option>
-					<option value="¾çÃµ±¸">¾çÃµ±¸</option>
-					<option value="¿µµîÆ÷±¸">¿µµîÆ÷±¸</option>
-					<option value="¿ë»ê±¸">¿ë»ê±¸</option>
-					<option value="ÀºÆò±¸">ÀºÆò±¸</option>
-					<option value="Á¾·Î±¸">Á¾·Î±¸</option>
-					<option value="Áß±¸">Áß±¸</option>
-					<option value="Áß¶û±¸">Áß¶û±¸</option>
+					<option value="" selected="selected">ì§€ì—­</option>
+					<option value="ê°•ë‚¨êµ¬">ê°•ë‚¨êµ¬</option>
+					<option value="ê°•ë™êµ¬">ê°•ë™êµ¬</option>
+					<option value="ê°•ë¶êµ¬">ê°•ë¶êµ¬</option>
+					<option value="ê°•ì„œêµ¬">ê°•ì„œêµ¬</option>
+					<option value="ê´€ì•…êµ¬">ê´€ì•…êµ¬</option>
+					<option value="ê´‘ì§„êµ¬">ê´‘ì§„êµ¬</option>
+					<option value="êµ¬ë¡œêµ¬">êµ¬ë¡œêµ¬</option>
+					<option value="ê¸ˆì²œêµ¬">ê¸ˆì²œêµ¬</option>
+					<option value="ë…¸ì›êµ¬">ë…¸ì›êµ¬</option>
+					<option value="ë„ë´‰êµ¬">ë„ë´‰êµ¬</option>
+					<option value="ë™ëŒ€ë¬¸êµ¬">ë™ëŒ€ë¬¸êµ¬</option>
+					<option value="ë™ì‘êµ¬">ë™ì‘êµ¬</option>
+					<option value="ë§ˆí¬êµ¬">ë§ˆí¬êµ¬</option>
+					<option value="ì„œëŒ€ë¬¸êµ¬">ì„œëŒ€ë¬¸êµ¬</option>
+					<option value="ì„œì´ˆêµ¬">ì„œì´ˆêµ¬</option>
+					<option value="ì„±ë™êµ¬">ì„±ë™êµ¬</option>
+					<option value="ì„±ë¶êµ¬">ì„±ë¶êµ¬</option>
+					<option value="ì†¡íŒŒêµ¬">ì†¡íŒŒêµ¬</option>
+					<option value="ì–‘ì²œêµ¬">ì–‘ì²œêµ¬</option>
+					<option value="ì˜ë“±í¬êµ¬">ì˜ë“±í¬êµ¬</option>
+					<option value="ìš©ì‚°êµ¬">ìš©ì‚°êµ¬</option>
+					<option value="ì€í‰êµ¬">ì€í‰êµ¬</option>
+					<option value="ì¢…ë¡œêµ¬">ì¢…ë¡œêµ¬</option>
+					<option value="ì¤‘êµ¬">ì¤‘êµ¬</option>
+					<option value="ì¤‘ë‘êµ¬">ì¤‘ë‘êµ¬</option>
 				</select>
 			</div>
 			<form onsubmit="searchPlaces(); return false;">
 				<div style="float: left;">
-					Å°¿öµå : <input type="text" value="" id="keyword" size="15">
-					<button type="submit">°Ë»öÇÏ±â</button>
+					í‚¤ì›Œë“œ : <input type="text" value="" id="keyword" size="15">
+					<button type="submit">ê²€ìƒ‰í•˜ê¸°</button>
 				</div>
 			</form>
 			<form onsubmit="searchDate()">
@@ -158,7 +142,7 @@
 					<label for="from">From</label> <input type="text" id="from"
 						name="from" value="${from}"> <label for="to">to</label> <input
 						type="text" id="to" name="to" value="${to}">
-					<button type="submit">°Ë»öÇÏ±â</button>
+					<button type="submit">ê²€ìƒ‰í•˜ê¸°</button>
 				</div>
 			</form>
 		</div>
@@ -166,33 +150,33 @@
 </body>
 <script type="text/javascript">
 	var mapCenter = new daum.maps.LatLng("${car_lat}", "${car_lng}")
-	var mapContainer = document.getElementById('map'), // Áöµµ¸¦ Ç¥½ÃÇÒ div
+	var mapContainer = document.getElementById('map'), // ì§€ë„ë¥¼ í‘œì‹œí•  div
 	mapOption = {
-		center : mapCenter, // ÁöµµÀÇ Áß½ÉÁÂÇ¥
+		center : mapCenter, // ì§€ë„ì˜ ì¤‘ì‹¬ì¢Œí‘œ
 		level : 3
-	// ÁöµµÀÇ È®´ë ·¹º§
+	// ì§€ë„ì˜ í™•ëŒ€ ë ˆë²¨
 	};
 
-	var map = new daum.maps.Map(mapContainer, mapOption); // Áöµµ¸¦ »ı¼ºÇÕ´Ï´Ù
+	var map = new daum.maps.Map(mapContainer, mapOption); // ì§€ë„ë¥¼ ìƒì„±í•©ë‹ˆë‹¤
 
 	<c:forEach var="rentacarList" items="${rentacarList}"
 			varStatus="stat">
-	// ¸¶Ä¿¸¦ »ı¼ºÇÕ´Ï´Ù
+	// ë§ˆì»¤ë¥¼ ìƒì„±í•©ë‹ˆë‹¤
 	var moveLatLon = new daum.maps.LatLng("${rentacarList.car_lat}",
 			"${rentacarList.car_lng}");
 	var marker = new daum.maps.Marker({
-		map : map, // ¸¶Ä¿¸¦ Ç¥½ÃÇÒ Áöµµ
+		map : map, // ë§ˆì»¤ë¥¼ í‘œì‹œí•  ì§€ë„
 		position : moveLatLon
-	// ¸¶Ä¿ÀÇ À§Ä¡
+	// ë§ˆì»¤ì˜ ìœ„ì¹˜
 	});
-	// ¸¶Ä¿¿¡ Ç¥½ÃÇÒ ÀÎÆ÷À©µµ¿ì¸¦ »ı¼ºÇÕ´Ï´Ù 
+	// ë§ˆì»¤ì— í‘œì‹œí•  ì¸í¬ìœˆë„ìš°ë¥¼ ìƒì„±í•©ë‹ˆë‹¤ 
 	var infowindow = new daum.maps.InfoWindow({
 		content : "${rentacarList.car_no}"
-	// ÀÎÆ÷À©µµ¿ì¿¡ Ç¥½ÃÇÒ ³»¿ë
+	// ì¸í¬ìœˆë„ìš°ì— í‘œì‹œí•  ë‚´ìš©
 	});
-	// ¸¶Ä¿¿¡ mouseover ÀÌº¥Æ®¿Í mouseout ÀÌº¥Æ®¸¦ µî·ÏÇÕ´Ï´Ù
-	// ÀÌº¥Æ® ¸®½º³Ê·Î´Â Å¬·ÎÀú¸¦ ¸¸µé¾î µî·ÏÇÕ´Ï´Ù 
-	// for¹®¿¡¼­ Å¬·ÎÀú¸¦ ¸¸µé¾î ÁÖÁö ¾ÊÀ¸¸é ¸¶Áö¸· ¸¶Ä¿¿¡¸¸ ÀÌº¥Æ®°¡ µî·ÏµË´Ï´Ù
+	// ë§ˆì»¤ì— mouseover ì´ë²¤íŠ¸ì™€ mouseout ì´ë²¤íŠ¸ë¥¼ ë“±ë¡í•©ë‹ˆë‹¤
+	// ì´ë²¤íŠ¸ ë¦¬ìŠ¤ë„ˆë¡œëŠ” í´ë¡œì €ë¥¼ ë§Œë“¤ì–´ ë“±ë¡í•©ë‹ˆë‹¤ 
+	// forë¬¸ì—ì„œ í´ë¡œì €ë¥¼ ë§Œë“¤ì–´ ì£¼ì§€ ì•Šìœ¼ë©´ ë§ˆì§€ë§‰ ë§ˆì»¤ì—ë§Œ ì´ë²¤íŠ¸ê°€ ë“±ë¡ë©ë‹ˆë‹¤
 	daum.maps.event.addListener(marker, 'mouseover', makeOverListener(map,
 			marker, infowindow));
 	daum.maps.event
@@ -201,14 +185,14 @@
 			"${rentacarList.car_lat}", "${rentacarList.car_lng}"));
 	</c:forEach>
 
-	// ÀÎÆ÷À©µµ¿ì¸¦ Ç¥½ÃÇÏ´Â Å¬·ÎÀú¸¦ ¸¸µå´Â ÇÔ¼öÀÔ´Ï´Ù 
+	// ì¸í¬ìœˆë„ìš°ë¥¼ í‘œì‹œí•˜ëŠ” í´ë¡œì €ë¥¼ ë§Œë“œëŠ” í•¨ìˆ˜ì…ë‹ˆë‹¤ 
 	function makeOverListener(map, marker, infowindow) {
 		return function() {
 			infowindow.open(map, marker);
 		};
 	}
 
-	// ÀÎÆ÷À©µµ¿ì¸¦ ´İ´Â Å¬·ÎÀú¸¦ ¸¸µå´Â ÇÔ¼öÀÔ´Ï´Ù 
+	// ì¸í¬ìœˆë„ìš°ë¥¼ ë‹«ëŠ” í´ë¡œì €ë¥¼ ë§Œë“œëŠ” í•¨ìˆ˜ì…ë‹ˆë‹¤ 
 	function makeOutListener(infowindow) {
 		return function() {
 			infowindow.close();
@@ -230,21 +214,21 @@
 		}
 	}
 	function panTo(lan, lng) {
-		// ÀÌµ¿ÇÒ À§µµ °æµµ À§Ä¡¸¦ »ı¼ºÇÕ´Ï´Ù 
+		// ì´ë™í•  ìœ„ë„ ê²½ë„ ìœ„ì¹˜ë¥¼ ìƒì„±í•©ë‹ˆë‹¤ 
 		var moveLatLon = new daum.maps.LatLng(lan, lng);
-		// Áöµµ Áß½ÉÀ» ºÎµå·´°Ô ÀÌµ¿½ÃÅµ´Ï´Ù
-		// ¸¸¾à ÀÌµ¿ÇÒ °Å¸®°¡ Áöµµ È­¸éº¸´Ù Å©¸é ºÎµå·¯¿î È¿°ú ¾øÀÌ ÀÌµ¿ÇÕ´Ï´Ù
+		// ì§€ë„ ì¤‘ì‹¬ì„ ë¶€ë“œëŸ½ê²Œ ì´ë™ì‹œí‚µë‹ˆë‹¤
+		// ë§Œì•½ ì´ë™í•  ê±°ë¦¬ê°€ ì§€ë„ í™”ë©´ë³´ë‹¤ í¬ë©´ ë¶€ë“œëŸ¬ìš´ íš¨ê³¼ ì—†ì´ ì´ë™í•©ë‹ˆë‹¤
 		map.panTo(moveLatLon);
 	}
 
-	// ÀÏ¹İ Áöµµ¿Í ½ºÄ«ÀÌºä·Î Áöµµ Å¸ÀÔÀ» ÀüÈ¯ÇÒ ¼ö ÀÖ´Â ÁöµµÅ¸ÀÔ ÄÁÆ®·ÑÀ» »ı¼ºÇÕ´Ï´Ù
+	// ì¼ë°˜ ì§€ë„ì™€ ìŠ¤ì¹´ì´ë·°ë¡œ ì§€ë„ íƒ€ì…ì„ ì „í™˜í•  ìˆ˜ ìˆëŠ” ì§€ë„íƒ€ì… ì»¨íŠ¸ë¡¤ì„ ìƒì„±í•©ë‹ˆë‹¤
 	var mapTypeControl = new daum.maps.MapTypeControl();
 
-	// Áöµµ¿¡ ÄÁÆ®·ÑÀ» Ãß°¡ÇØ¾ß ÁöµµÀ§¿¡ Ç¥½ÃµË´Ï´Ù
-	// daum.maps.ControlPositionÀº ÄÁÆ®·ÑÀÌ Ç¥½ÃµÉ À§Ä¡¸¦ Á¤ÀÇÇÏ´Âµ¥ TOPRIGHT´Â ¿À¸¥ÂÊ À§¸¦ ÀÇ¹ÌÇÕ´Ï´Ù
+	// ì§€ë„ì— ì»¨íŠ¸ë¡¤ì„ ì¶”ê°€í•´ì•¼ ì§€ë„ìœ„ì— í‘œì‹œë©ë‹ˆë‹¤
+	// daum.maps.ControlPositionì€ ì»¨íŠ¸ë¡¤ì´ í‘œì‹œë  ìœ„ì¹˜ë¥¼ ì •ì˜í•˜ëŠ”ë° TOPRIGHTëŠ” ì˜¤ë¥¸ìª½ ìœ„ë¥¼ ì˜ë¯¸í•©ë‹ˆë‹¤
 	map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
 
-	// Áöµµ È®´ë Ãà¼Ò¸¦ Á¦¾îÇÒ ¼ö ÀÖ´Â  ÁÜ ÄÁÆ®·ÑÀ» »ı¼ºÇÕ´Ï´Ù
+	// ì§€ë„ í™•ëŒ€ ì¶•ì†Œë¥¼ ì œì–´í•  ìˆ˜ ìˆëŠ”  ì¤Œ ì»¨íŠ¸ë¡¤ì„ ìƒì„±í•©ë‹ˆë‹¤
 	var zoomControl = new daum.maps.ZoomControl();
 	map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
 </script>

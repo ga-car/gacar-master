@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if lt IE 7 ]> <html lang="ko" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="ko" class="no-js ie7"> <![endif]-->
@@ -15,18 +16,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>GaCar - 같이 가치타 카쉐어링 ~~ 가카</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="shortcut icon"
-	href="http://okky.kr/assets/favicon-4ddd8035b72404da5a8c298cbaacad86.ico"
+<link rel="shortcut icon" href="/rentacar/resources/images/GC_57x57.ico"
 	type="image/x-icon">
 <link rel="apple-touch-icon"
-	href="http://okky.kr/assets/icon_57x57-5611bd33d9f2b2d84c22219e248455b6.png">
+	href="/rentacar/resources/images/GC_57x57.png">
 <link rel="apple-touch-icon" sizes="114x114"
-	href="http://okky.kr/assets/icon_114x114-b2b627dfde8a040fe54fd257244ba191.png">
+	href="/rentacar/resources/images/GC_114x114.png">
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
 	rel="stylesheet">
 <meta property="og:image"
-	content="http://okky.kr/assets/okky_logo_fb-cea175ff727ef14a4d8be0e68cff730a.png">
+	content="/rentacar/resources/images/GC_200x200.png">
 <link rel="stylesheet" href="/rentacar/resources/css/gacar.css" />
 <!--[if lt IE 9]>
             <script src="http://okky.kr/assets/libs/html5-ca664f64318d191265abf57fdf467aec.js" type="text/javascript" ></script>
@@ -52,6 +52,57 @@
 }
 </style>
 <!-- 재영이가 작업한 부분 끝 -->
+<!-- 미령이가 작업한 부분 시작 -->
+<!-- 로그인 팝업 시작 -->
+<script type="text/javascript">
+	function loginForm() {
+		/* $.simpleBlock('hide'); */
+		var url = "/rentacar/member/login.do";
+		open(
+				url,
+				"로그인",
+				"toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
+	}
+
+	window.onload = function() {
+		var invalid = "${invalid}";
+		if (invalid == 1) {
+			alert("잘못된 접근 경로 입니다.");
+		}
+	}
+</script>
+<!-- 로그인 팝업 끝 -->
+<!-- 즐겨찾기 시작 -->
+<script type="text/javascript">
+	function bookmarksite(url, title) {
+		// Internet Explorer
+		if (document.all || window.external) {
+			/* alert(url); */
+			/*  alert(title);  */
+			window.external.AddFavorite(url, title);
+		}
+		// Google Chrome
+		else if (window.chrome) {
+			alert("Ctrl+D키를 누르시면 즐겨찾기에 추가하실 수 있습니다.");
+		}
+		// Firefox
+		else if (window.sidebar) // firefox 
+		{
+			window.sidebar.addPanel(title, url, "");
+		}
+		// Opera
+		else if (window.opera && window.print) { // opera 
+			var elem = document.createElement('a');
+			elem.setAttribute('href', url);
+			elem.setAttribute('title', title);
+			elem.setAttribute('rel', 'sidebar');
+			elem.click();
+		}
+	}
+</script>
+<!-- 즐겨찾기 끝 -->
+
+<!-- 미령이가 작업한 부분 끝 -->
 </head>
 <body>
 	<div id="left">
