@@ -5,31 +5,45 @@
        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 
 <tiles-definitions>
-
 	<!-- Main Page -->
 	<definition name="main" template="/WEB-INF/views/layout/main_layout.jsp">
 		<put-attribute name="left" value="/WEB-INF/views/layout/left.jsp" />
-		<put-attribute name="body" value="/WEB-INF/views/layout/container.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/layout/container.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
-	<!-- sub5 Page -->
+	<!-- sub3 Page(이용안내) -->
+	<definition name="sub3" template="/WEB-INF/views/layout/main_layout.jsp">
+		<put-attribute name="left"
+			value="/WEB-INF/views/layout/left_sub3.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/layout/container.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+	</definition>
+	<!-- sub5 Page(고객센터) -->
 	<definition name="sub5" template="/WEB-INF/views/layout/main_layout.jsp">
-		<put-attribute name="left" value="/WEB-INF/views/layout/left_sub5.jsp" />
-		<put-attribute name="body" value="/WEB-INF/views/layout/container.jsp" />
+		<put-attribute name="left"
+			value="/WEB-INF/views/layout/left_sub5.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/layout/container.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+	</definition>
+	<!-- sub6 Page(마이페이지) -->
+	<definition name="sub6" template="/WEB-INF/views/layout/main_layout.jsp">
+		<put-attribute name="left"
+			value="/WEB-INF/views/layout/left_sub6.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/layout/container.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
 
 	<!-- 차량예약 -->
-	<definition name="carListForm" template="/WEB-INF/views/layout/car_layout.jsp">
-		<put-attribute name="left" value="/WEB-INF/views/layout/left.jsp" />
-		<put-attribute name="bodyLeft" value="/WEB-INF/views/car/listLeft.jsp" />
-		<put-attribute name="bodyRight" value="/WEB-INF/views/car/listForm.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+	<definition name="carListForm" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/car/list.jsp" />
 	</definition>
 
-	<definition name="carReserveForm" extends="carListForm">
-		<put-attribute name="bodyLeft" value="/WEB-INF/views/car/reserveLeft.jsp" />
-		<put-attribute name="bodyRight" value="/WEB-INF/views/car/reserveForm.jsp" />
+	<definition name="carReserveForm" extends="main">
+	<put-attribute name="body" value="/WEB-INF/views/car/reserve.jsp" />
 	</definition>
 
 	<!-- 차량 관리자 -->
@@ -58,7 +72,7 @@
 
 
 	<!-- 예약 마이페이지 -->
-	<definition name="reserveListForm" extends="main">
+	<definition name="reserveListForm" extends="sub6">
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/car/reserveList.jsp" />
 	</definition>
@@ -123,7 +137,7 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/review/reviewadminList.jsp" />
 	</definition>
-		<definition name="adminreviewView" extends="adminMain">
+	<definition name="adminreviewView" extends="adminMain">
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/review/reviewadminView.jsp" />
 	</definition>
@@ -166,26 +180,26 @@
 	</definition>
 
 	<!-- Mypage -->
-	<definition name="mypage" extends="main">
+	<definition name="mypage" extends="sub6">
 		<put-attribute name="body" value="/WEB-INF/views/mypage/mypage.jsp" />
 	</definition>
-	<definition name="mypageList" extends="main">
+	<definition name="mypageList" extends="sub6">
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/myreviewlist.jsp" />
 	</definition>
-	<definition name="memberConfirm" extends="main">
+	<definition name="memberConfirm" extends="sub6">
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/member/memberConfirm.jsp" />
 	</definition>
-	<definition name="memberModify" extends="main">
+	<definition name="memberModify" extends="sub6">
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/member/memberModify.jsp" />
 	</definition>
-	<definition name="memberModifyEnd" extends="main">
+	<definition name="memberModifyEnd" extends="sub6">
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/member/memberModifyEnd.jsp" />
 	</definition>
-	<definition name="memberDelPre" extends="main">
+	<definition name="memberDelPre" extends="sub6">
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/member/memberDelPre.jsp" />
 	</definition>
@@ -258,7 +272,7 @@
 			value="/WEB-INF/views/admin/member/withdrawList.jsp" />
 	</definition>
 
-	<definition name="qnaView" extends="main">
+	<definition name="qnaView" extends="sub5">
 		<put-attribute name="body" value="/WEB-INF/views/qna/qnaView.jsp" />
 	</definition>
 
@@ -302,17 +316,20 @@
 	</definition>
 
 	<!-- 카풀 mypage -->
-	<definition name="carpoolmypageList" extends="main">
+	<definition name="carpoolmypageList" extends="sub6">
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/carpool/carpoolmypageList.jsp" />
 	</definition>
-
-	<definition name="carpoolmypageattendList" extends="main">
+	<definition name="carpoolmypageView" extends="sub6">
+		<put-attribute name="body"
+			value="/WEB-INF/views/mypage/carpool/carpoolmypageView.jsp" />
+	</definition>
+	<definition name="carpoolmypageattendList" extends="sub6">
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/carpool/carpoolmypageattendList.jsp" />
 	</definition>
 
-	<definition name="carpoolmypageapplyList" extends="main">
+	<definition name="carpoolmypageapplyList" extends="sub6">
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/carpool/carpoolmypageapplyList.jsp" />
 	</definition>
@@ -339,7 +356,6 @@
 	<definition name="charge" extends="main">
 		<put-attribute name="body" value="/WEB-INF/views/use/charge.jsp"/>
 	</definition>
-	  
 </tiles-definitions>
 	
 	

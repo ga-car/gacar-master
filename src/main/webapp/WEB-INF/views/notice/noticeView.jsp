@@ -11,7 +11,7 @@
 	<div id="article" class="content" role="main">
 	<!-- 상단 시작 -->
 		<div class="nav" role="navigation">
-			<h4>고객센터 > 공지사항</h4>
+			<h4>고객센터 > 1:1문의 > 답변확인</h4>
 			<!-- 게시판 검색 시작 -->
 			<div class="category-filter-wrapper">
 				<div class="category-filter-wrapper">

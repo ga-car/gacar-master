@@ -162,7 +162,7 @@ public class CarpoolMypageController {
 				mav.addObject("currentPage", currentPage);
 				mav.addObject("carpoolModel", carpoolModel);
 				mav.addObject("count", count);
-				mav.setViewName("carpoolView");
+				mav.setViewName("carpoolmypageView");
 				
 				return mav;
 			}

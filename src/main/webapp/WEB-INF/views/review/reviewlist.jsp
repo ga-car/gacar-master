@@ -8,8 +8,7 @@
 <head>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
-<script
-	src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div id="list-article" class="content scaffold-list" role="main">
@@ -103,17 +102,17 @@
 		</div>
 		<!-- 게시판 리스트 끝 -->
 		<!-- 글목록 버튼 시작 -->
-		<div class="menu-wrap pull-left">
+		<div class="menu-wrap pull-right">
 			<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
 		</div>
 		<!-- 글목록 버튼 끝 -->
 		<!-- 글쓰기 버튼 시작 -->
-		<div class="menu-wrap pull-right">
+		<%-- <div class="menu-wrap pull-right">
 			<c:if test="${session_email != null }">
 				<!-- 로그인을 해야 글을 쓸수 있음 -->
 				<button type="button" onclick="onWrite()" class="btn btn-primary">쓰기</button>
 			</c:if>
-		</div>
+		</div> --%>
 		<!-- 글쓰기 버튼 끝 -->
 		<!-- 페이지 넘버 시작 -->
 		<div class="paging">${pagingHtml}</div>

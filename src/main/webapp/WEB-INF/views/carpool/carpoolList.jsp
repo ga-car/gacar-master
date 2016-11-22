@@ -18,7 +18,7 @@
 	<div id="list-article" class="content scaffold-list" role="main">
 		<!-- 상단 시작 -->
 		<div class="nav" role="navigation">
-			<h4>Carpool > 타세요</h4>
+			<h4>CarPool > 타세요</h4>
 			<!-- 게시판 검색 시작 -->
 			<div class="category-filter-wrapper">
 				<div class="category-filter-wrapper">
@@ -31,16 +31,15 @@
 								</c:if>
 								<input type="hidden" name="searchNum" id="searchNum" value="0">
 								<input class="form-control" type="text" name="isSearch"
-									id="isSearch" placeholder="출발지" /> <input
-									class="form-control" type="text" name="isSearch1"
-									id="isSearch1" placeholder="도착지" /> <span
-									class="input-group-btn">
+									id="isSearch" placeholder="출발지" /> <input class="form-control"
+									type="text" name="isSearch1" id="isSearch1" placeholder="도착지" />
+								<span class="input-group-btn">
+
 									<button type="submit" class="btn btn-default">
 										<i class="fa fa-search"></i>
 									</button>
 								</span>
 							</div>
-
 						</div>
 					</form>
 				</div>
@@ -62,8 +61,8 @@
 								<span class="list-group-item-text article-id">${list.no}</span>
 							</div>
 							<h3 class="list-group-item-heading ">
-								<a href="${viewURL}">${list.subject}</a> ${list.saddr} ->
-								${list.eaddr}
+								<a href="${viewURL}">[${list.subject}] ${list.saddr} ->
+								${list.eaddr}</a>
 							</h3>
 						</div>
 						<div class="list-summary-wrapper clearfix">
