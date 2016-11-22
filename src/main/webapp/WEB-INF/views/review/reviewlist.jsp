@@ -58,17 +58,17 @@
 					<li class="list-group-item  list-group-has-note clearfix">
 						<div class="list-title-wrapper clearfix">
 							<div class="list-tag clearfix">
-								<span class="list-group-item-text article-id">${list.no}</span>
+								<span class="list-group-item-text article-id">${list.no}  </span>
 							</div>
 							<h3 class="list-group-item-heading ">
 								<c:if test="${list.imagefile_savname != 'NULL'}">
-									<a href="${viewURL}"> =${list.subject}<img
+									<a href="${viewURL}"> ${list.subject}   [${list.car}]<img
 										src="/rentacar/resources/images/reviewImage.PNG" width="20"
 										height="20">&nbsp;
 									</a>
 								</c:if>
 								<c:if test="${list.imagefile_savname == 'NULL'}">
-									<a href="${viewURL}"> ${list.subject}</a>
+									<a href="${viewURL}"> ${list.subject}&nbsp;&nbsp;&nbsp;[${list.car}]</a>
 								</c:if>
 							</h3>
 						</div>
