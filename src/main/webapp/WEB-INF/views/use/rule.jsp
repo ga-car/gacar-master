@@ -42,12 +42,12 @@
 						<tbody>
 							<tr>
 								<td rowspan="2" class="first">자동차 반납의 지연</td>
-								<td>10분 이상 30분 미만</td>
-								<td>10,000원</td>
+								<td>반나절 이상 하루 미만</td>
+								<td>60,000원</td>
 							</tr>
 							<tr>
-								<td>30분 이상</td>
-								<td>기본 반납 지연 페널티금액 10,000원과 자동차 반납 예정 시각으로부터 반납 시각까지의 시간
+								<td>하루 이상</td>
+								<td>기본 반납 지연 페널티금액 60,000원과 자동차 반납 예정 시각으로부터 반납 시각까지의 시간
 									동안의 해당 자동차 이용 기준요금의 2배</td>
 							</tr>
 							<tr>
@@ -67,7 +67,7 @@
 								<td>20,000원</td>
 							</tr>
 							<tr>
-								<td colspan="2" class="first">쏘카존 쓰레기 투기 및 자동차 내부 상태 불량</td>
+								<td colspan="2" class="first">쓰레기 투기 및 자동차 내부 상태 불량</td>
 								<td>50,000원</td>
 							</tr>
 							<tr>
@@ -82,24 +82,8 @@
 								<td>100,000원</td>
 							</tr>
 							<tr>
-								<td colspan="2" class="first">동승운전자 미등록 운전</td>
-								<td>100,000원</td>
-							</tr>
-							<tr>
 								<td colspan="2" class="first">음주 및 약물복용 운전</td>
 								<td>100,000원</td>
-							</tr>
-							<tr>
-								<td colspan="2" class="first">편도 핫딜 미운행 시</td>
-								<td>30,000원</td>
-							</tr>
-							<tr>
-								<td colspan="2" class="first">핸들 미션 불이행 시</td>
-								<td>30,000원</td>
-							</tr>
-							<tr>
-								<td colspan="2" class="first">전기자동차 반납 시 충전기 미연결 시</td>
-								<td>30,000원</td>
 							</tr>
 						</tbody>
 					</table>

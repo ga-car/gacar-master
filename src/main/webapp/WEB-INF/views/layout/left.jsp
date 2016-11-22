@@ -39,7 +39,7 @@
 						class="nav-icon fa fa-slideshare"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">카풀모임</span></a></li>
 				<li><a href="/rentacar/method.do" class="link"><i
-						class="nav-icon fa fa-comments"></i> <span
+						class="nav-icon fa fa-info"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">이용안내</span></a></li>
 				<li><a href="/rentacar/review/list.do" class="link"><i
 						class="nav-icon fa fa-star"></i> <span
@@ -107,14 +107,11 @@
 				<li><a href="/rentacar/carpool/list.do" class="link"><i
 						class="nav-icon fa fa-slideshare"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">카풀모임</span></a></li>
-				<<<<<<< HEAD
-				<li><a href="#" class="link"><i class="nav-icon fa fa-info"></i>
+
+				<li><a href="/rentacar/method.do" class="link"><i class="nav-icon fa fa-info"></i>
 						<span class="nav-sidebar-label nav-sidebar-category-label">이용안내</span></a></li>
-				=======
-				<li><a href="use/etiquette.jsp" class="link"><i
-						class="nav-icon fa fa-comments"></i> <span
-						class="nav-sidebar-label nav-sidebar-category-label">이용안내</span></a></li>
-				>>>>>>> origin/이미령
+
+
 				<li><a href="/rentacar/review/list.do" class="link"><i
 						class="nav-icon fa fa-star"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">이용후기</span></a></li>
