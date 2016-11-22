@@ -53,7 +53,7 @@
 								</tr>
 								<tr>
 									<th scope="row">대여요금</th>
-									<td>30분 1,000원대부터~ 차종별, 시간대별 최대 86% 할인</td>
+									<td>하루 28,000원대부터~ 차종별, 시간대별 최대 86% 할인</td>
 								</tr>
 								<tr>
 									<th scope="row">포인트 적립/사용<br />(결제대여요금기준)
@@ -109,9 +109,9 @@
 									<tr>
 										<th scope="col" rowspan="2">차종</th>
 										<th scope="col" rowspan="2">차량 모델</th>
-										<th scope="col" rowspan="2">대여요금 <br />(10분기준)
+										<th scope="col" rowspan="2">대여요금 <br />(1일기준)
 										</th>
-										<th scope="col" colspan="3">할인대여요금(10분기준)</th>
+										<th scope="col" colspan="3">할인대여요금(1일기준)</th>
 										<th scope="col" rowspan="2" class="last">주행요금</th>
 									</tr>
 									<tr>
@@ -124,7 +124,7 @@
 									<tr>
 										<td rowspan="3"><strong>경형A</strong></td>
 										<td class="txt-l">넥스트 스파크</td>
-										<td class="minute">1,200원</td>
+										<td class="minute">28,000원</td>
 										<td rowspan="3" class="dc">680원~</td>
 										<td rowspan="3">340원~</td>
 										<td rowspan="3">900원~</td>
@@ -132,19 +132,19 @@
 									</tr>
 									<tr>
 										<td class="txt-l">모닝</td>
-										<td class="minute">1,200원</td>
+										<td class="minute">28,000원</td>
 										<td class="last">160원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">스파크</td>
-										<td class="minute">1,200원</td>
+										<td class="minute">28,000원</td>
 										<td class="last">160원</td>
 									</tr>
 
 									<tr>
 										<td><strong>경형B</strong></td>
 										<td class="txt-l">레이</td>
-										<td class="minute">1,250원</td>
+										<td class="minute">30,000원</td>
 										<td class="dc">690원~</td>
 										<td>340원~</td>
 										<td>910원~</td>
@@ -154,7 +154,7 @@
 									<tr>
 										<td rowspan="3"><strong>소형</strong></td>
 										<td class="txt-l">엑센트</td>
-										<td class="minute">1,430원</td>
+										<td class="minute">396,000원</td>
 										<td rowspan="3" class="dc">700원~</td>
 										<td rowspan="3">350원~</td>
 										<td rowspan="3">930원~</td>
@@ -162,19 +162,19 @@
 									</tr>
 									<tr>
 										<td class="txt-l">엑센트(디젤)</td>
-										<td class="minute">1,430원</td>
+										<td class="minute">396,000원</td>
 										<td class="last">150원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">올뉴프라이드</td>
-										<td class="minute">1,430원</td>
+										<td class="minute">396,000원</td>
 										<td class="last">160원</td>
 									</tr>
 
 									<tr>
 										<td rowspan="12"><strong>준중형A</strong></td>
 										<td class="txt-l">K3</td>
-										<td class="minute">1,580원</td>
+										<td class="minute">37,000원</td>
 										<td rowspan="12" class="dc">660원~</td>
 										<td rowspan="12">330원~</td>
 										<td rowspan="12">870원~</td>
@@ -182,64 +182,64 @@
 									</tr>
 									<tr>
 										<td class="txt-l">K3 Koup</td>
-										<td class="minute">1,580원</td>
+										<td class="minute">37,000원</td>
 										<td class="last">230원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">K3(디젤)</td>
-										<td class="minute">1,580원</td>
+										<td class="minute">37,000원</td>
 										<td class="last">150원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">SM3 Neo</td>
-										<td class="minute">1,580원</td>
+										<td class="minute">37,000원</td>
 										<td class="last">170원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">SM3 Neo(디젤)</td>
-										<td class="minute">1,580원</td>
+										<td class="minute">37,000원</td>
 										<td class="last">150원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">뉴SM3</td>
-										<td class="minute">1,580원</td>
+										<td class="minute">37,000원</td>
 										<td class="last">170원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">더뉴K3</td>
-										<td class="minute">1,580원</td>
+										<td class="minute">37,000원</td>
 										<td class="last">170원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">아반떼AD</td>
-										<td class="minute">1,580원</td>
+										<td class="minute">37,000원</td>
 										<td class="last">170원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">아반떼MD</td>
-										<td class="minute">1,580원</td>
+										<td class="minute">37,000원</td>
 										<td class="last">170원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">아반떼MD(LPG)</td>
-										<td class="minute">1,580원</td>
+										<td class="minute">37,000원</td>
 										<td class="last">130원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">아반떼MD(디젤)</td>
-										<td class="minute">1,580원</td>
+										<td class="minute">37,000원</td>
 										<td class="last">150원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">크루즈</td>
-										<td class="minute">1,580원</td>
+										<td class="minute">37,000원</td>
 										<td class="last">220원</td>
 									</tr>
 
 									<tr>
 										<td rowspan="4"><strong>준중형B</strong></td>
 										<td class="txt-l">i30(디젤)</td>
-										<td class="minute">2,170원</td>
+										<td class="minute">51,000원</td>
 										<td rowspan="4" class="dc">910원~</td>
 										<td rowspan="4">455원~</td>
 										<td rowspan="4">1,210원~</td>
@@ -247,24 +247,24 @@
 									</tr>
 									<tr>
 										<td class="txt-l">i30(휘)</td>
-										<td class="minute">2,170원</td>
+										<td class="minute">51,000원</td>
 										<td class="last">210원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">쏘울</td>
-										<td class="minute">2,170원</td>
+										<td class="minute">51,000원</td>
 										<td class="last">210원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">아이오닉하이브리드</td>
-										<td class="minute">2,870원</td>
+										<td class="minute">68,000원</td>
 										<td class="last">130원</td>
 									</tr>
 
 									<tr>
 										<td rowspan="15"><strong>중형</strong></td>
 										<td class="txt-l">K5 하이브리드</td>
-										<td class="minute">2,170원</td>
+										<td class="minute">51,000원</td>
 										<td rowspan="15" class="dc">880원~</td>
 										<td rowspan="15">440원~</td>
 										<td rowspan="15">1,180원~</td>
@@ -272,79 +272,79 @@
 									</tr>
 									<tr>
 										<td class="txt-l">K5(LPG)</td>
-										<td class="minute">2,170원</td>
+										<td class="minute">51,000원</td>
 										<td class="last">130원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">K5(휘)</td>
-										<td class="minute">2,170원</td>
+										<td class="minute">51,000원</td>
 										<td class="last">220원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">LF쏘나타(LPG)</td>
-										<td class="minute">2,170원</td>
+										<td class="minute">51,000원</td>
 										<td class="last">130원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">LF쏘나타(휘)</td>
-										<td class="minute">2,170원</td>
+										<td class="minute">51,000원</td>
 										<td class="last">210원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">YF쏘나타(LPG)</td>
-										<td class="minute">2,170원</td>
+										<td class="minute">51,000원</td>
 										<td class="last">130원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">YF쏘나타(휘)</td>
-										<td class="minute">2,170원</td>
+										<td class="minute">51,000원</td>
 										<td class="last">230원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">뉴SM5(LPG)</td>
-										<td class="minute">2,170원</td>
+										<td class="minute">51,000원</td>
 										<td class="last">140원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">뉴SM5(휘)</td>
-										<td class="minute">2,170원</td>
+										<td class="minute">51,000원</td>
 										<td class="last">230원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">말리부(LPG)</td>
-										<td class="minute">2,170원</td>
+										<td class="minute">51,000원</td>
 										<td class="last">150원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">말리부(디젤)</td>
-										<td class="minute">2,170원</td>
+										<td class="minute">51,000원</td>
 										<td class="last">160원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">말리부(휘)</td>
-										<td class="minute">2,170원</td>
+										<td class="minute">51,000원</td>
 										<td class="last">250원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">올뉴K5(LPG)</td>
-										<td class="minute">2,170원</td>
+										<td class="minute">51,000원</td>
 										<td class="last">130원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">벨로스터</td>
-										<td class="minute">2,170원</td>
+										<td class="minute">51,000원</td>
 										<td class="last">200원</td>
 									</tr>
 									<tr>
-										<td class="txt-l">제주 쏘나타 하이브리드</td>
-										<td class="minute">3,000원</td>
+										<td class="txt-l">쏘나타 하이브리드</td>
+										<td class="minute">72,000원</td>
 										<td class="last">190원</td>
 									</tr>
 
 									<tr>
 										<td rowspan="10"><strong>SUV</strong></td>
 										<td class="txt-l">QM3</td>
-										<td class="minute">2,870원</td>
+										<td class="minute">68,000원</td>
 										<td rowspan="10" class="dc">830원~</td>
 										<td rowspan="10">415원~</td>
 										<td rowspan="10">1,100원~</td>
@@ -352,54 +352,54 @@
 									</tr>
 									<tr>
 										<td class="txt-l">니로 하이브리드</td>
-										<td class="minute">2,870원</td>
+										<td class="minute">68,000원</td>
 										<td class="last">130원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">스포티지 QL</td>
-										<td class="minute">2,870원</td>
+										<td class="minute">68,000원</td>
 										<td class="last">170원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">스포티지 R</td>
-										<td class="minute">2,870원</td>
+										<td class="minute">68,000원</td>
 										<td class="last">190원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">올 뉴 싼타페(4WD)</td>
-										<td class="minute">2,870원</td>
+										<td class="minute">68,000원</td>
 										<td class="last">180원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">올 뉴 투싼 1.7</td>
-										<td class="minute">2,870원</td>
+										<td class="minute">68,000원</td>
 										<td class="last">150원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">올란도(LPG)</td>
-										<td class="minute">2,870원</td>
+										<td class="minute">68,000원</td>
 										<td class="last">170원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">투싼ix</td>
-										<td class="minute">2,870원</td>
+										<td class="minute">68,000원</td>
 										<td class="last">170원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">티볼리(디젤)</td>
-										<td class="minute">2,870원</td>
+										<td class="minute">68,000원</td>
 										<td class="last">150원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">티볼리(휘)</td>
-										<td class="minute">2,870원</td>
+										<td class="minute">68,000원</td>
 										<td class="last">200원</td>
 									</tr>
 
 									<tr>
 										<td rowspan="8"><strong>수입</strong></td>
 										<td class="txt-l">BMW 118D</td>
-										<td class="minute">3,830원</td>
+										<td class="minute">91,000원</td>
 										<td rowspan="8" class="dc">760원~</td>
 										<td rowspan="8">380원~</td>
 										<td rowspan="8">1,010원~</td>
@@ -407,43 +407,43 @@
 									</tr>
 									<tr>
 										<td class="txt-l">머스탱</td>
-										<td class="minute">4,000원</td>
+										<td class="minute">96,000원</td>
 										<td class="last">370원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">미니 컨트리맨D</td>
-										<td class="minute">3,830원</td>
+										<td class="minute">91,000원</td>
 										<td class="last">170원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">미니 쿠퍼D</td>
-										<td class="minute">3,330원</td>
+										<td class="minute">79,000원</td>
 										<td class="last">160원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">미니 페이스맨D</td>
-										<td class="minute">4,000원</td>
+										<td class="minute">96,000원</td>
 										<td class="last">160원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">벤츠 A200s</td>
-										<td class="minute">3,830원</td>
+										<td class="minute">91,000원</td>
 										<td class="last">160원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">피아트500</td>
-										<td class="minute">3,000원</td>
+										<td class="minute">72,000원</td>
 										<td class="last">220원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">볼트</td>
-										<td class="minute">3,330원</td>
+										<td class="minute">79,000원</td>
 										<td class="last">90원</td>
 									</tr>
 									<tr>
 										<td rowspan="4"><strong>전기</strong></td>
 										<td class="txt-l">BMW i3</td>
-										<td class="minute">5,830원</td>
+										<td class="minute">139,000원</td>
 										<td rowspan="4" class="dc">900원~</td>
 										<td rowspan="4">450원~</td>
 										<td rowspan="4">1,200원~</td>
@@ -451,23 +451,23 @@
 									</tr>
 									<tr>
 										<td class="txt-l">SM3</td>
-										<td class="minute">3,000원</td>
+										<td class="minute">72,000원</td>
 										<td class="last">0원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">레이</td>
-										<td class="minute">3,000원</td>
+										<td class="minute">72,000원</td>
 										<td class="last">0원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">아이오닉</td>
-										<td class="minute">3,000원</td>
+										<td class="minute">72,000원</td>
 										<td class="last">0원</td>
 									</tr>
 									<tr>
 										<td rowspan="2"><strong>승합</strong></td>
 										<td class="txt-l">그랜드카니발</td>
-										<td class="minute">3,330원</td>
+										<td class="minute">79,000원</td>
 										<td rowspan="2" class="dc">1,500원~</td>
 										<td rowspan="2">750원~</td>
 										<td rowspan="2">2,000원~</td>
@@ -482,7 +482,7 @@
 									<tr>
 										<td rowspan="2"><strong>대형</strong></td>
 										<td class="txt-l">그랜저 HG(LPG)</td>
-										<td class="minute">4,000원</td>
+										<td class="minute">96,000원</td>
 										<td rowspan="2" class="dc">960원~</td>
 										<td rowspan="2">480원~</td>
 										<td rowspan="2">1,280원~</td>
@@ -490,7 +490,7 @@
 									</tr>
 									<tr>
 										<td class="txt-l">그랜저 HG(휘)</td>
-										<td class="minute">4,000원</td>
+										<td class="minute">96,000원</td>
 										<td class="last">280원</td>
 									</tr>
 								</tbody>
@@ -529,17 +529,17 @@
 						<div class="insurance-guide-wrap">
 							<div class="insurance-guide-box pdr20 g01">
 								<span class="insurance-img"><img
-									src="/rentacar/resources/images/icons/txt_insurance03.gif" alt="자동차 종합보험" /></span>
+									src="/rentacar/resources/images/icons/txt_insurance03.gif"
+									alt="자동차 종합보험" /></span>
 								<p style="padding-top: 4px;">
-									대인배상 무한<br/>
-									대물배상 1억원<br/>
-									자기신체사고 1천5백만원 한도
+									대인배상 무한<br /> 대물배상 1억원<br /> 자기신체사고 1천5백만원 한도
 								</p>
 								<!-- 							<p class="insuran-small-txt txt-l">*현재 대물배상 최대 1억원은 서울시에 한하며, <br />점차 확대 적용 예정입니다.</p> -->
 							</div>
 							<div class="insurance-guide-box g02">
 								<span class="insurance-img"><img
-									src="/rentacar/resources/images/icons/txt_insurance04.gif" alt="면책금" /></span>
+									src="/rentacar/resources/images/icons/txt_insurance04.gif"
+									alt="면책금" /></span>
 								<p style="padding-top: 4px;">
 									사고 1건당 자기부담금 30만원/70만원 중 선택 가능<br />(선택한 보험에 따라 보험료 차등 할인)
 								</p>
@@ -550,7 +550,8 @@
 							</div>
 							<div class="insurance-guide-box pdr20">
 								<span class="insurance-img"><img
-									src="/rentacar/resources/images/icons/txt_insurance01.png" alt="손해면책 예의적용" /></span>
+									src="/rentacar/resources/images/icons/txt_insurance01.png"
+									alt="손해면책 예의적용" /></span>
 								<p style="padding-top: 4px;">
 									사고 발생 미신고,허위신고,고의적파손인 경우<br />손해면책에서 제외 실수리비 전액 배상과 고발 및 이용불가<br />조치가
 									이루어 집니다.
@@ -558,7 +559,8 @@
 							</div>
 							<div class="insurance-guide-box">
 								<span class="insurance-img"><img
-									src="/rentacar/resources/images/icons/txt_insurance02.png" alt="휴차보상" /></span>
+									src="/rentacar/resources/images/icons/txt_insurance02.png"
+									alt="휴차보상" /></span>
 								<p style="padding-top: 4px;">
 									수리기간에 <strong class="col-grn">관계없이 최대 5일까지</strong>로 제한, <br />기준
 									대여요금의 50%부과
