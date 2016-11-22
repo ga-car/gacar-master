@@ -38,7 +38,7 @@
 				<li><a href="/rentacar/carpool/list.do" class="link"><i
 						class="nav-icon fa fa-slideshare"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">카풀모임</span></a></li>
-				<li><a href="/rentacar/method.do" class="link"><i
+				<li><a href="/rentacar/gacarIs.do" class="link"><i
 						class="nav-icon fa fa-info"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">이용안내</span></a></li>
 				<li><a href="/rentacar/review/list.do" class="link"><i
@@ -108,7 +108,7 @@
 						class="nav-icon fa fa-slideshare"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">카풀모임</span></a></li>
 
-				<li><a href="/rentacar/method.do" class="link"><i class="nav-icon fa fa-info"></i>
+				<li><a href="/rentacar/gacarIs.do" class="link"><i class="nav-icon fa fa-info"></i>
 						<span class="nav-sidebar-label nav-sidebar-category-label">이용안내</span></a></li>
 
 

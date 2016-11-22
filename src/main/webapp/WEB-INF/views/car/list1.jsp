@@ -15,7 +15,126 @@
 	src="//apis.daum.net/maps/maps3.js?apikey=079b4daabc5db4153ba00f0a15d911f0&libraries=services"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+<body>
+	<div id="list-article" class="content scaffold-list" role="main">
+		<div class="nav" role="navigation">
+			<h4>이용후기</h4>
+			<!-- 게시판 검색 시작 -->
+			<div class="category-filter-wrapper">
+				<div class="category-filter-wrapper">
+					<!-- 검색페이지  -->
+<!-- 					<div id="menu_wrap" class="bg_white">
+						<div class="option"> -->
+							<div style="float: left;">
+								<select name="car_addr" id="car_addr"
+									onChange="javascript:selectEvent(this);">
+									<option value="" selected="selected">지역</option>
+									<option value="강남구">강남구</option>
+									<option value="강동구">강동구</option>
+									<option value="강북구">강북구</option>
+									<option value="강서구">강서구</option>
+									<option value="관악구">관악구</option>
+									<option value="광진구">광진구</option>
+									<option value="구로구">구로구</option>
+									<option value="금천구">금천구</option>
+									<option value="노원구">노원구</option>
+									<option value="도봉구">도봉구</option>
+									<option value="동대문구">동대문구</option>
+									<option value="동작구">동작구</option>
+									<option value="마포구">마포구</option>
+									<option value="서대문구">서대문구</option>
+									<option value="서초구">서초구</option>
+									<option value="성동구">성동구</option>
+									<option value="성북구">성북구</option>
+									<option value="송파구">송파구</option>
+									<option value="양천구">양천구</option>
+									<option value="영등포구">영등포구</option>
+									<option value="용산구">용산구</option>
+									<option value="은평구">은평구</option>
+									<option value="종로구">종로구</option>
+									<option value="중구">중구</option>
+									<option value="중랑구">중랑구</option>
+								</select>
+							</div>
+							<form onsubmit="searchPlaces(); return false;">
+								<div style="float: left;">
+									키워드 : <input type="text" value="" id="keyword" size="15">
+									<button type="submit">검색하기</button>
+								</div>
+							</form>
+							<form onsubmit="searchDate()">
+								<div style="float: left;">
+									<label for="from">From</label> <input type="text" id="from"
+										name="from" value="${from}"> <label for="to">to</label>
+									<input type="text" id="to" name="to" value="${to}">
+									<button type="submit">검색하기</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+
+			<!-- 게시판 검색 끝 -->
+
+		<div class="avatar avatar-medium clearfix pull-left">
+			<!-- 왼쪽 페이지 시작 -->
+			<div id="containerLeft" >
+				<form name="reserveRight" id="reserveRight"
+					enctype="multipart/form-data">
+
+					<c:forEach var="rentacarLatlng" items="${rentacarLatlng}"
+						varStatus="stat">
+						<table>
+							<tr></tr>
+						</table>
+						<table
+							onClick="location.replace='/rentacar/car/reserve.do?car_no=${rentacarLatlng.car_no}'"
+							style="cursor: pointer;">
+							<tr></tr>
+							<tr>
+								<td rowspan="3"><img
+									src="../resources/carUpload/${rentacarLatlng.car_image}"
+									style="width: 70px; height: 70px;"></td>
+								<td>차종</td>
+								<td>${rentacarLatlng.car_type}</td>
+							</tr>
+							<tr>
+								<td>브랜드</td>
+								<td>${rentacarLatlng.car_brand}</td>
+
+							</tr>
+							<tr>
+								<td>모델명</td>
+								<td>${rentacarLatlng.car_name}</td>
+							</tr>
+						</table>
+						<table>
+							<tr></tr>
+						</table>
+					</c:forEach>
+				</form>
+			</div>
+			<!-- 왼쪽 페이지 끝 -->
+			</div>
+			<div id="containerRight"
+				style="background: #FFCCCC; height: 750px; width: 65%; float: left; margin: 0 0 10px 0;">
+
+				<!-- 지도시작 -->
+				<div id="map" style="width: 100%; height: 100%;"></div>
+
+
+			</div>
+		</div>
+</body>
 <script type="text/javascript">
+	window.onload = function() {
+		if ("${alert}" != "") {
+			alert("${alert}");
+			javascript: location.href = "/rentacar/car/list.do"
+		}
+	}
 	$(function() {
 		var dateFormat = "mm/dd/yy", from = $("#from").datepicker({
 			defaultDate : "+1w",
@@ -94,60 +213,6 @@
 		}
 	}
 </script>
-</head>
-<body>
-	<div id="map" style="width: 100%; height: 100%;"></div>
-	<div id="menu_wrap" class="bg_white">
-		<div class="option">
-
-			<div style="float: left;">
-				<select name="car_addr" id="car_addr"
-					onChange="javascript:selectEvent(this);">
-					<option value="" selected="selected">지역</option>
-					<option value="강남구">강남구</option>
-					<option value="강동구">강동구</option>
-					<option value="강북구">강북구</option>
-					<option value="강서구">강서구</option>
-					<option value="관악구">관악구</option>
-					<option value="광진구">광진구</option>
-					<option value="구로구">구로구</option>
-					<option value="금천구">금천구</option>
-					<option value="노원구">노원구</option>
-					<option value="도봉구">도봉구</option>
-					<option value="동대문구">동대문구</option>
-					<option value="동작구">동작구</option>
-					<option value="마포구">마포구</option>
-					<option value="서대문구">서대문구</option>
-					<option value="서초구">서초구</option>
-					<option value="성동구">성동구</option>
-					<option value="성북구">성북구</option>
-					<option value="송파구">송파구</option>
-					<option value="양천구">양천구</option>
-					<option value="영등포구">영등포구</option>
-					<option value="용산구">용산구</option>
-					<option value="은평구">은평구</option>
-					<option value="종로구">종로구</option>
-					<option value="중구">중구</option>
-					<option value="중랑구">중랑구</option>
-				</select>
-			</div>
-			<form onsubmit="searchPlaces(); return false;">
-				<div style="float: left;">
-					키워드 : <input type="text" value="" id="keyword" size="15">
-					<button type="submit">검색하기</button>
-				</div>
-			</form>
-			<form onsubmit="searchDate()">
-				<div style="float: left;">
-					<label for="from">From</label> <input type="text" id="from"
-						name="from" value="${from}"> <label for="to">to</label> <input
-						type="text" id="to" name="to" value="${to}">
-					<button type="submit">검색하기</button>
-				</div>
-			</form>
-		</div>
-	</div>
-</body>
 <script type="text/javascript">
 	var mapCenter = new daum.maps.LatLng("${car_lat}", "${car_lng}")
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div
