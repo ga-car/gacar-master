@@ -51,7 +51,7 @@
 						class="nav-sidebar-label nav-sidebar-category-label">카풀모임</span></a></li>
 
 				<li data-toggle="tooltip" data-placement="right"
-					data-container="body" title="이용안내"><a href="#" class="link"><i
+					data-container="body" title="이용안내"><a href="/rentacar/gacarIs.do" class="link"><i
 						class="nav-icon fa fa-info" aria-hidden="true"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">이용안내</span></a></li>
 

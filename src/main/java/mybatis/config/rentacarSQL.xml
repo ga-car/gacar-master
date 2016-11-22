@@ -59,10 +59,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="rentacarDateList" parameterType="searchModel"
 		resultMap="rentacarModelRes">
 		select * from car
-		where car_no in(
+		where not(car_no in(
 		select reserve_car_no
 		from reserve
-		where not(reserve_sdate <![CDATA[ > ]]>
+		where reserve_sdate <![CDATA[ > ]]>
 		#{reserve_sdate}
 		and reserve_edate <![CDATA[ < ]]>
 		#{reserve_edate}
@@ -80,10 +80,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="rentacarLatLngDateSearchList" parameterType="searchModel"
 		resultMap="rentacarModelRes">
 		select * from car
-		where car_no in(
+		where not(car_no in(
 		select reserve_car_no
 		from reserve
-		where not(reserve_sdate <![CDATA[ > ]]>
+		where reserve_sdate <![CDATA[ > ]]>
 		#{reserve_sdate}
 		and reserve_edate <![CDATA[ < ]]>
 		#{reserve_edate}
