@@ -208,7 +208,9 @@
 										</div>
 										<h3 class="list-group-item-heading ">
 											<c:if test="${list.imagefile_savname != 'NULL'}">
-												<a href="${viewURL}"> ${list.subject} [${list.car}]<img src="/rentacar/resources/reviewUpload/${list.imagefile_savname}" width="500px" height= "200px"/>
+												<a href="${viewURL}"><img src="/rentacar/resources/reviewUpload/${list.imagefile_savname}" width="500px" height= "200px"/>
+												</a>
+												<a href="${viewURL}"> ${list.subject} [${list.car}]
 												</a>
 											</c:if>
 											<c:if test="${list.imagefile_savname == 'NULL'}">
