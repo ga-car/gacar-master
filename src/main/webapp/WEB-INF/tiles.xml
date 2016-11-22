@@ -269,7 +269,7 @@
 			value="/WEB-INF/views/admin/member/withdrawList.jsp" />
 	</definition>
 
-	<definition name="qnaView" extends="main">
+	<definition name="qnaView" extends="sub5">
 		<put-attribute name="body" value="/WEB-INF/views/qna/qnaView.jsp" />
 	</definition>
 
