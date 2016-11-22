@@ -78,147 +78,183 @@
 </script>
 </head>
 <body onLoad="focus()">
-	<form enctype="multipart/form-data" method="post" name="writeFrom"
-		onsubmit="return check()">
-		<table>
-			<tr>
-				<td colspan="2" align="center">
-					<center>차량등록폼</center>
-				</td>
-			</tr>
-			<tr>
-				<td align="right">차량번호</td>
-				<td><input type="text" name="car_no"></td>
-			</tr>
-			<tr>
-				<td align="right">차종</td>
-				<td><select name="car_type"><option value=""
-							selected="selected"></option>
-						<option value="경형">경형</option>
-						<option value="소형">소형</option>
-						<option value="준중형">준중형</option>
-						<option value="중형">중형</option>
-						<option value="대형">대형</option>
-						<option value="스포츠카">스포츠카</option>
-				</select></td>
-			</tr>
-			<tr>
-				<td align="right">브랜드</td>
-				<td><input type="text" name="car_brand"></td>
-			</tr>
-			<tr>
-				<td align="right">차량명</td>
-				<td><input type="text" name="car_name"></td>
-			</tr>
-			<tr>
-				<td align="right">인승</td>
-				<td><select name="car_pnum"><option value=""
-							selected="selected"></option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-						<option value="9">9</option>
-				</select></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center">서비스위치</td>
-			</tr>
-			<tr>
-				<td align="right">주 &nbsp;&nbsp;&nbsp;&nbsp;소</td>
-				<td><input type="text" size="15" id="car_zipcode"
-					name="car_zipcode" value="${rentacarModel.car_zipcode}" readonly />&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="#" onClick="addrSearch()"> 찾기 </a></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><input type="text" size="50" id="car_addr" name="car_addr"
-					value="${rentacarModel.addr}" readonly />
-			</tr>
-			<tr>
-				<td></td>
-				<td><input type="text" size="50" id="car_addr2"
-					name="car_addr2" value="${rentacarModel.addr2}" /><input
-					type="hidden" name="car_lat" value="${rentacarModel.car_lat}"
-					id="car_lat" /> <input type="hidden" name="car_lng"
-					value="${rentacarModel.car_lng}" id="car_lng" /></td>
-			</tr>
-			<tr>
-				<td align="right">이미지</td>
-				<td><input type="file" name="car_image" size="30" value='' />
-					<p class="help-block">상품설명 이미지 입니다 1000x1000사이즈 권장</p></td>
-			</tr>
-			<tr>
-				<td align="right">요금</td>
-				<td><input type="text" name="car_charge"
-					style="ime-mode: disabled;" onkeydown="return onlyNumber(event)"></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><input type="submit" value="등록" />&nbsp;&nbsp;<input
-					type="reset" value="다시" />&nbsp;&nbsp;</td>
-			</tr>
-			<tr>
-				<td colspan="2" align="right"><a
-					href="/rentacar/admin/car/list.do">목록</a></td>
-			</tr>
-		</table>
+	<div class="row" style="padding-left: 15px; width: 900px;">
+		<h1 class="page-header">가카관리 > 가카등록</h1>
+	</div>
+	<div class="row">
+		<div class="panel panel-default">
+			<div class="panel-heading">가카 차량 등록 페이지입니다.</div>
+			<div class="panel-body">
+				<div class="dataTable_wrapper">
+					<div id="dataTables-example_wrapper"
+						class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+						<div class="row" style="margin-bottom: 5px;"></div>
+						<div class="row">
+							<div class="col-sm-12">
+								<form enctype="multipart/form-data" method="post"
+									name="writeFrom" onsubmit="return check()">
+									<table
+										class="table table-striped table-bordered table-hover dataTable no-footer"
+										id="dataTables-example" role="grid"
+										aria-describedby="dataTables-example_info">
 
-		<HR>
-		<script>
-			//주소-좌표 변환 객체를 생성
-			var geocoder = new daum.maps.services.Geocoder();
+										<tr>
+											<td colspan="2" align="center">
+												<center>차량등록폼</center>
+											</td>
+										</tr>
+										<tr>
+											<td align="right">차량번호</td>
+											<td><input type="text" name="car_no"></td>
+										</tr>
+										<tr>
+											<td align="right">차종</td>
+											<td><select name="car_type"><option value=""
+														selected="selected"></option>
+													<option value="경형">경형</option>
+													<option value="소형">소형</option>
+													<option value="준중형">준중형</option>
+													<option value="중형">중형</option>
+													<option value="대형">대형</option>
+													<option value="스포츠카">스포츠카</option>
+											</select></td>
+										</tr>
+										<tr>
+											<td align="right">브랜드</td>
+											<td><input type="text" name="car_brand"></td>
+										</tr>
+										<tr>
+											<td align="right">차량명</td>
+											<td><input type="text" name="car_name"></td>
+										</tr>
+										<tr>
+											<td align="right">인승</td>
+											<td><select name="car_pnum"><option value=""
+														selected="selected"></option>
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option value="4">4</option>
+													<option value="5">5</option>
+													<option value="6">6</option>
+													<option value="7">7</option>
+													<option value="8">8</option>
+													<option value="9">9</option>
+											</select></td>
+										</tr>
+										<tr>
+											<td colspan="2" align="center">서비스위치</td>
+										</tr>
+										<tr>
+											<td align="right">주 &nbsp;&nbsp;&nbsp;&nbsp;소</td>
+											<td><input type="text" size="15" id="car_zipcode"
+												name="car_zipcode" value="${rentacarModel.car_zipcode}"
+												readonly />&nbsp;&nbsp;&nbsp;&nbsp; <a href="#"
+												onClick="addrSearch()"> 찾기 </a></td>
+										</tr>
+										<tr>
+											<td></td>
+											<td><input type="text" size="50" id="car_addr"
+												name="car_addr" value="${rentacarModel.addr}" readonly />
+										</tr>
+										<tr>
+											<td></td>
+											<td><input type="text" size="50" id="car_addr2"
+												name="car_addr2" value="${rentacarModel.addr2}" /><input
+												type="hidden" name="car_lat"
+												value="${rentacarModel.car_lat}" id="car_lat" /> <input
+												type="hidden" name="car_lng"
+												value="${rentacarModel.car_lng}" id="car_lng" /></td>
+										</tr>
+										<tr>
+											<td align="right">이미지</td>
+											<td><input type="file" name="car_image" size="30"
+												value='' />
+												<p class="help-block">상품설명 이미지 입니다 1000x1000사이즈 권장</p></td>
+										</tr>
+										<tr>
+											<td align="right">요금</td>
+											<td><input type="text" name="car_charge"
+												style="ime-mode: disabled;"
+												onkeydown="return onlyNumber(event)"></td>
+										</tr>
+										<tr>
+											<td colspan="2" align="center"><input type="submit"
+												value="등록" />&nbsp;&nbsp;<input type="reset" value="다시" />&nbsp;&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2" align="right"><a
+												href="/rentacar/admin/car/list.do">목록</a></td>
+										</tr>
+									</table>
 
-			function addrSearch() {
-				var frm = eval("document.writeFrom");
-				new daum.Postcode(
-						{
-							oncomplete : function(data) {
+									<HR>
+									<script>
+										//주소-좌표 변환 객체를 생성
+										var geocoder = new daum.maps.services.Geocoder();
 
-								var fullAddr = data.address;
-								var zipcode = data.postcode;
-								var extraAddr = '';
+										function addrSearch() {
+											var frm = eval("document.writeFrom");
+											new daum.Postcode(
+													{
+														oncomplete : function(
+																data) {
 
-								if (data.addressType === 'R') {
-									if (data.bname !== '') {
-										extraAddr += data.bname;
-									}
-									if (data.buildingName !== '') {
-										extraAddr += (extraAddr !== '' ? ', '
-												+ data.buildingName
-												: data.buildingName);
-									}
-									fullAddr += (extraAddr !== '' ? ' ('
-											+ extraAddr + ')' : '');
-								}
+															var fullAddr = data.address;
+															var zipcode = data.postcode;
+															var extraAddr = '';
 
-								document.getElementById("car_addr").value = fullAddr;
-								document.getElementById("car_zipcode").value = zipcode;
-								geocoder
-										.addr2coord(
-												data.address,
-												function(status, result) {
-													frm.car_addr2.focus();
+															if (data.addressType === 'R') {
+																if (data.bname !== '') {
+																	extraAddr += data.bname;
+																}
+																if (data.buildingName !== '') {
+																	extraAddr += (extraAddr !== '' ? ', '
+																			+ data.buildingName
+																			: data.buildingName);
+																}
+																fullAddr += (extraAddr !== '' ? ' ('
+																		+ extraAddr
+																		+ ')'
+																		: '');
+															}
 
-													if (status === daum.maps.services.Status.OK) {
-														var coords = new daum.maps.LatLng(
-																result.addr[0].lat,
-																result.addr[0].lng);
-														document
-																.getElementById("car_lat").value = coords
-																.getLat();
-														document
-																.getElementById("car_lng").value = coords
-																.getLng();
-													}
-												});
-							}
-						}).open();
-			}
-		</script>
-	</form>
+															document
+																	.getElementById("car_addr").value = fullAddr;
+															document
+																	.getElementById("car_zipcode").value = zipcode;
+															geocoder
+																	.addr2coord(
+																			data.address,
+																			function(
+																					status,
+																					result) {
+																				frm.car_addr2
+																						.focus();
+
+																				if (status === daum.maps.services.Status.OK) {
+																					var coords = new daum.maps.LatLng(
+																							result.addr[0].lat,
+																							result.addr[0].lng);
+																					document
+																							.getElementById("car_lat").value = coords
+																							.getLat();
+																					document
+																							.getElementById("car_lng").value = coords
+																							.getLng();
+																				}
+																			});
+														}
+													}).open();
+										}
+									</script>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

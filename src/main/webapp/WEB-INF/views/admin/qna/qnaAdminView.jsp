@@ -71,14 +71,14 @@ function fnChkByte(obj, maxByte){
 }
 </script>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script><!-- 
 <link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
 <link href="/rentacar/resources/css/reset.css" rel="stylesheet">
-<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet"> -->
 <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<style type="text/css">
+<!-- <style type="text/css">
 .contents-wrap {
 	margin: 30px 0 0 0;
 	min-height: 500px;
@@ -101,22 +101,15 @@ function fnChkByte(obj, maxByte){
 .viewForm {
 	margin: 20px 0 0 0;
 }
-</style>
-<title>Q&A</title>
+</style> -->
+<title>1:1문의 글 상세보기</title>
 </head>
 <body>
-	<div class="category_top">
-		<ul>
-			<li class="post1">커뮤니티</li>
-			<li>></li>
-			<li class="post2">Q&A</li>
-		</ul>
-	</div>
 	<div id="wrapper">
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
-					<h3 class="page-header">Q&A 상세보기</h3>
+					<h3 class="page-header">고객센터관리 > 1:1문의 > 글 상세보기</h3>
 				</div>
 			</div>
 			<div class="row">

@@ -8,9 +8,9 @@
 <head>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <!-- <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script> -->
-<link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
+<!-- <link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
 <link href="/rentacar/resources/css/reset.css" rel="stylesheet">
-<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet"> --><!-- 
 <style type="text/css">
 .contents-wrap {
 	margin: 30px 0 0 0;
@@ -34,7 +34,7 @@
 .viewForm {
 	margin: 20px 0 0 0;
 }
-</style>
+</style> -->
 
 <script type="text/javascript">
 function noticeDelete() {
@@ -48,17 +48,10 @@ function noticeDelete() {
 
 
 	<div id="wrapper">
-		<div class="category_top">
-			<ul>
-				<li class="post1">커뮤니티</li>
-				<li>></li>
-				<li class="post2">공지사항</li>
-			</ul>
-		</div>
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1 class="page-header">NOTICE</h1>
+					<h1 class="page-header">고객센터관리 > 공지사항 > 작성글 확인 </h1>
 				</div>
 				<!-- /.col-lg-12 -->
 			</div>

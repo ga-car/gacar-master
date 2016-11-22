@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <html>
 <head>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
       google.charts.load('current', {'packages':['line']});
       google.charts.setOnLoadCallback(drawChart);
 
@@ -59,7 +60,16 @@
   </script>
 </head>
 <body>
-<div id="test"></div>
-  <div id="line_top_x"></div>
+	<div class="row" style="padding-left: 15px; width: 900px;">
+		<h1 class="page-header">회원관리 > 통계</h1>
+	</div>
+	<div class="row">
+		<div class="panel panel-default">
+		        <div class="panel-body">
+			<div id="test"></div>
+			<div id="line_top_x"></div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
