@@ -26,7 +26,7 @@ function delchk(){
 </head>
 
 <div class="row" style="padding-left:15px;width:900px;">    
-	<h1 class="page-header">회원목록</h1>
+	<h1 class="page-header">회원관리 > 회원목록</h1>
 </div>
 <div class="row">
 	<div class="panel panel-default">

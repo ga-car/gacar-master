@@ -9,11 +9,11 @@
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <!-- <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
- --><link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
+ --><!-- <link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
 <link href="/rentacar/resources/css/reset.css" rel="stylesheet">
-<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<style type="text/css">
+<!-- <style type="text/css">
 #boardWriteForm {
 	margin: 30px 0;
 }
@@ -45,17 +45,10 @@
 .viewForm {
 	margin: 20px 0 0 0;
 }
-</style>
-<title>NOTICE</title>
+</style> -->
+<title>공지사항 글 수정</title>
 </head>
 <body>
-	<div class="category_top">
-		<ul>
-			<li class="post1">커뮤니티</li>
-			<li>></li>
-			<li class="post2">NOTICE</li>
-		</ul>
-	</div>
 	<div id="wrapper">
 		<form:form commandName="notifyModel"
 			action="/rentacar/admin/notify/modifySuccess.do" method="post">
@@ -63,7 +56,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h3 class="page-header">
-							<br />notice 수정
+							<br />고객센터관리 > 공지사항 > 작성글 수정
 						</h3>
 						<table class="table table-striped table-bordered table-hover"
 							id="dataTables-example">

@@ -8,12 +8,12 @@
 <head>	
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script><!-- 
 <link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
 <link href="/rentacar/resources/css/reset.css" rel="stylesheet">
-<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet">
+<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<style type="text/css">
+<!-- <style type="text/css">
 #boardWriteForm{margin: 30px 0;}
 .menu-wrap{text-align: right; margin-right:50px;}
 .contents-wrap{margin:30px 0 0 0;min-height: 500px;}
@@ -22,21 +22,16 @@
    .hit-wrap{color:#888; margin: 10px 0;}
    .viewForm{margin: 20px 0 0 0;}
    .menu-wrap{text-align: right;}
-</style>
-<title>faq</title> 
+</style> -->
+<title>FAQ 글내용 수정</title> 
 </head>
-<body>
-<div class="category_top">
-	<ul>
-	 	<li class="post1">커뮤니티</li><li>></li><li class="post2">faq</li>			
-	</ul>
-</div>		
+<body>	
 	<div id="wrapper">
 		<form:form commandName="faqModel" action="modifySuccess.do" method="post"> 
 			<div id="page-wrapper">
         		 <div class="row">
            			 <div class="col-lg-12">
-						<h3 class="page-header"><br/>faq 수정</h3>
+						<h3 class="page-header"><br/>고객센터관리 > FAQ > 글내용 수정</h3>
 						<table class="table table-striped table-bordered table-hover"  id="dataTables-example">
 						
 				<thead>

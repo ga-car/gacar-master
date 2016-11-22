@@ -36,7 +36,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="reviewList_new" resultMap="reviewModelRes">
 			<![CDATA[
 			SELECT * FROM REVIEW
-			WHERE ROWNUM <= 3
+			WHERE ROWNUM <= 10
 			ORDER BY no DESC
 			]]>
 	</select>
