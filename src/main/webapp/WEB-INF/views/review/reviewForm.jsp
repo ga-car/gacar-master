@@ -24,7 +24,7 @@
 	<div id="article-create" class="content" role="main">
 		<!-- 헤드글 시작 -->
 		<div class="content-header">
-			<h3>새 글 쓰기</h3>
+			<h3>이용후기 > 새 글 쓰기</h3>
 		</div>
 		<!-- 헤드글 끝 -->
 
