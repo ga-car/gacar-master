@@ -6,7 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-</head>
 <script type="text/javascript">
 	function validation() {
 
@@ -20,9 +19,10 @@
 
 	}
 </script>
+</head>
 <body>
-	<c:if test="${session_email==null}">
-		<div class="sidebar ">
+	<c:if test="${session_email==null&&session_nick==null}">
+		<div class="sidebar sidebar-category">
 			<a href="javascript://" class="sidebar-header"> <i
 				class="fa fa-bars sidebar-header-icon"></i>
 			</a>
@@ -30,16 +30,11 @@
 			<h1>
 				<div class="logo">
 					<a href="/rentacar/main.do"><img
-						src="/rentacar/resources/images/GC_log.png" alt="OKKY"
-						title="OKKY" /></a>
+						src="/rentacar/resources/images/GC_log.png" alt="GaCar"
+						title="GaCar" /></a>
 				</div>
 			</h1>
-
-
 			<div class="nav-user nav-sidebar">
-
-
-
 				<ul class="nav nav-sidebar">
 					<li data-toggle="tooltip" data-container="body" title="로그인"><a
 						href="#" onclick="loginForm()"><i class="fa fa-sign-in"></i> <span
@@ -48,38 +43,35 @@
 						href="/rentacar/member/memberAgree.do" class="link"><i
 							class="fa fa-user"></i> <span class="nav-sidebar-label">회원가입</span></a></li>
 				</ul>
-
 			</div>
-
 			<ul class="nav nav-sidebar nav-main">
-
 				<li data-toggle="tooltip" data-placement="right"
 					data-container="body" title="가카예약"><a
 					href="/rentacar/car/list.do" class="link"><i
-						class="nav-icon fa fa-database"></i> <span
+						class="nav-icon fa fa-car" aria-hidden="true"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">가카예약</span></a></li>
 
 				<li data-toggle="tooltip" data-placement="right"
 					data-container="body" title="카풀모임"><a
 					href="/rentacar/carpool/list.do" class="link"><i
-						class="nav-icon fa fa-code"></i> <span
+						class="nav-icon fa fa-slideshare" aria-hidden="true"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">카풀모임</span></a></li>
 
 				<li data-toggle="tooltip" data-placement="right"
-					data-container="body" title="이용안내"><a href="#" class="link"><i
-						class="nav-icon fa fa-comments"></i> <span
+					data-container="body" title="이용안내"><a href="/rentacar/gacarIs.do" class="link"><i
+						class="nav-icon fa fa-info" aria-hidden="true"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">이용안내</span></a></li>
 
 				<li data-toggle="tooltip" data-placement="right"
 					data-container="body" title="이용후기"><a
 					href="/rentacar/review/list.do" class="link"><i
-						class="nav-icon fa fa-quote-left"></i> <span
+						class="nav-icon fa fa-star" aria-hidden="true"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">이용후기</span></a></li>
 
 				<li class="active" data-toggle="tooltip" data-placement="right"
 					data-container="body" title="고객센터"><a
 					href="/rentacar/notify/list.do" class="link"><i
-						class="nav-icon fa fa-group"></i> <span
+						class="nav-icon fa fa-group" aria-hidden="true"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">고객센터</span></a></li>
 
 
@@ -89,13 +81,14 @@
 				<li data-toggle="tooltip" data-placement="right"
 					data-container="body" title="Github Issues"><a
 					href="https://github.com/ga-car/gacar-master" class="" target=""><i
-						class="fa fa-github"></i> <span
+						class="nav-icon fa fa-github"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">Github
 							Issues</span></a></li>
 				<li data-toggle="tooltip" data-placement="right"
 					data-container="body" title="즐겨찾기 추가"><a
 					href="javascript:bookmarksite('http://localhost:8080/rentacar/main.do', '가치같이타')"
-					class="" target=""><i class="fa fa-github"></i> <span
+					class="" target=""><i class="nav-icon fa fa-bookmark"
+						aria-hidden="true"></i><span
 						class="nav-sidebar-label nav-sidebar-category-label">즐겨찾기
 							추가</span></a></li>
 			</ul>
@@ -126,7 +119,8 @@
 		</div>
 	</c:if>
 	<c:if test='${session_email!=null}'>
-		<div class="sidebar">
+
+		<div class="sidebar sidebar-category">
 			<a href="javascript://" class="sidebar-header"> <i
 				class="fa fa-bars sidebar-header-icon"></i>
 			</a>
@@ -138,15 +132,10 @@
 						title="OKKY" /></a>
 				</div>
 			</h1>
-
-
 			<div class="nav-user nav-sidebar">
-
-
-
 				<ul class="nav nav-sidebar">
 					<li><a href="/rentacar/member/logout.do" class="link"
-						title="로그아웃"><i class="fa fa-sign-in"></i> <span
+						title="로그아웃"><i class="fa fa-sign-out"></i> <span
 							class="nav-sidebar-label">로그아웃</span></a></li>
 					<!-- <li><a href="#" onclick="logout()"><i
 							class="fa fa-sign-in"></i> <span class="nav-sidebar-label">로그아웃</span></a></li> -->
@@ -158,41 +147,39 @@
 				</ul>
 
 			</div>
-
 			<ul class="nav nav-sidebar nav-main">
-
 				<li data-toggle="tooltip" data-placement="right"
 					data-container="body" title="가카예약"><a
 					href="/rentacar/car/list.do" class="link"><i
-						class="nav-icon fa fa-database"></i> <span
+						class="nav-icon fa fa-car" aria-hidden="true"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">가카예약</span></a></li>
 
 				<li data-toggle="tooltip" data-placement="right"
 					data-container="body" title="카풀모임"><a
 					href="/rentacar/carpool/list.do" class="link"><i
-						class="nav-icon fa fa-code"></i> <span
+						class="nav-icon fa fa-slideshare" aria-hidden="true"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">카풀모임</span></a></li>
 
 				<li data-toggle="tooltip" data-placement="right"
-					data-container="body" title="이용안내"><a href="#" class="link"><i
-						class="nav-icon fa fa-comments"></i> <span
+					data-container="body" title="이용안내"><a href="/rentacar/gacarIs.do" class="link"><i
+						class="nav-icon fa fa-info" aria-hidden="true"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">이용안내</span></a></li>
 
 				<li data-toggle="tooltip" data-placement="right"
 					data-container="body" title="이용후기"><a
 					href="/rentacar/review/list.do" class="link"><i
-						class="nav-icon fa fa-quote-left"></i> <span
+						class="nav-icon fa fa-star" aria-hidden="true"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">이용후기</span></a></li>
 
 				<li class="active" data-toggle="tooltip" data-placement="right"
 					data-container="body" title="고객센터"><a
 					href="/rentacar/notify/list.do" class="link"><i
-						class="nav-icon fa fa-group"></i> <span
+						class="nav-icon fa fa-group" aria-hidden="true"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">고객센터</span></a></li>
 				<li data-toggle="tooltip" data-placement="right"
 					data-container="body" title="마이페이지"><a
 					href="/rentacar/mypage/mypage.do" class="link"><i
-						class="nav-icon fa fa-group"></i> <span
+						class="nav-icon fa fa-user" aria-hidden="true"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">마이페이지</span></a></li>
 
 			</ul>
@@ -201,13 +188,14 @@
 				<li data-toggle="tooltip" data-placement="right"
 					data-container="body" title="Github Issues"><a
 					href="https://github.com/ga-car/gacar-master" class="" target=""><i
-						class="fa fa-github"></i> <span
+						class="nav-icon fa fa-github"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">Github
 							Issues</span></a></li>
 				<li data-toggle="tooltip" data-placement="right"
 					data-container="body" title="즐겨찾기 추가"><a
 					href="javascript:bookmarksite('http://localhost:8080/rentacar/main.do', '가치같이타')"
-					class="" target=""><i class="fa fa-github"></i> <span
+					class="" target=""><i class="nav-icon fa fa-bookmark"
+						aria-hidden="true"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">즐겨찾기
 							추가</span></a></li>
 			</ul>

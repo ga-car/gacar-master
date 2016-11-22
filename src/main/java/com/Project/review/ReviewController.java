@@ -37,8 +37,9 @@ import com.Project.review.ReviewService;
 @RequestMapping("/review")
 public class ReviewController {
 	
-	private static final String uploadPath = "C:\\JAVA\\App\\gacar-master\\src\\main\\webapp\\resources\\reviewUpload\\";
-	
+	/*private static final String uploadPath = "C:\\JAVA\\App\\gacar-master\\src\\main\\webapp\\resources\\reviewUpload\\";*/
+	private static final String uploadPath = "C:\\Users\\PC1\\Documents\\GitHub\\gacar-master\\src\\main\\webapp\\resources\\reviewUpload\\";
+
 	@Resource
 	private ReviewService reviewService;
 

@@ -153,6 +153,7 @@ function fnChkByte(obj, maxByte){
 		<div class="panel panel-default clearfix">
 			<!--작성 정보 시작-->
 			<div class="panel-heading clearfix">
+				
 				<div class='avatar avatar-medium clearfix pull-left'>
 					<!-- 제목 -->
 					<h2 class="panel-title">${reviewModel.subject }</h2>
@@ -180,6 +181,12 @@ function fnChkByte(obj, maxByte){
 			<div class="content-container ">
 				<div id="content-body" class="panel-body pull-left">
 					<!-- 글내용 -->
+				<div class='avatar avatar-medium clearfix pull-left'>
+						<h6>이용 차량 : [${reviewModel.car }]</h6> 
+				</div>	
+				<div class='avatar avatar-medium clearfix pull-right'>
+					<h6>이용 기간 : ${reviewModel.usedate }</h6> 
+				</div>	
 					<article class="content-text">${reviewModel.content }</article>
 					<img src="/rentacar/resources/reviewUpload/${reviewModel.imagefile_savname}" onerror="this.style.display='none'" style="max-width: 100%; height: auto;"/>
 				</div>

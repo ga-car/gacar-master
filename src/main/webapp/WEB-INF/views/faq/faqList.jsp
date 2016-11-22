@@ -100,118 +100,32 @@
 			<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
 		</div>
 		<!-- 글목록 버튼 끝 -->
-		<!-- 글쓰기 버튼 시작 -->
-		<div class="menu-wrap pull-right">
-			<c:if test="${session_email != null }">
-				<!-- 로그인을 해야 글을 쓸수 있음 -->
-				<button type="button" onclick="onWrite()" class="btn btn-primary">쓰기</button>
-			</c:if>
-		</div>
-		<!-- 글쓰기 버튼 끝 -->
 		<!-- 페이지 넘버 시작 -->
 		<div class="paging">${pagingHtml}</div>
 		<!-- 페이지 넘버 끝 -->
 	</div>
 </body>
-<%-- <body>
-<div class="category_top">
-	<ul>
-	 	<li class="post1">고객센터</li><li>></li><li class="post2">FAQ</li>			
-	</ul>
-</div>
-	<div id="wrapper">
-
-		<div id="page-wrapper">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="page-header">
-						<img src="/rentacar/resources/images/SkinImg/2.jpg">
-					<strong><font size="6px">FAQ</font></strong>&nbsp;&nbsp;
-					<font color="red">FAQ 게시판입니다.</font>
-					</div>
-				</div>
-				<!-- /.col-lg-12 -->
-			</div>
-			<!-- /.row -->
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="panel panel-default">
-
-						<!-- /.panel-heading -->
-
-		<div class="dataTable_wrapper">
-			<table class="table table-striped table-bordered table-hover"
-				id="dataTables-example">
-				<thead>
-					<tr class="danger">
-						<th style="width: 7%; text-align:center;"></th>
-						<th style="width: ; text-align:center;">제목</th>
-						<th style="width: 15%; text-align:center;">작성자</th>										
-						<th style="width: 15%; text-align:center;">작성일</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="list" items="${faqList}">
-					<tr>
-						<td><strong><font size="4px" color="pink">Q</font></strong>&nbsp;&nbsp;</td>
-						<td style="text-align:left;"><h6>${list.subject}</h6></td>
-						<td>${list.email}</td> 
-						<td><fmt:formatDate value="${list.regdate}" pattern="yyyy.MM.dd"/></td>
-					</tr>
-					<tr>
-						<td colspan = 5 >${list.content }</td>
-					</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-		</div>
-		</div>
-		</div>
-	</div>
-</div>
-			<c:if test="${fn:length(faqList) le 0}">
-				<br />
-				<center>등록된 게시물이 없습니다</center>
-				<br />
-			</c:if>
-			
-					<div class="paging" style= "font-size: 15px; text-align:center;">
-			${pagingHtml}
-		</div>
-		<div class="row">
-			<div style="text-align: center;">
-				<div id="dataTables-example_filter" class="dataTables_filter">
-
-
-
-					<form action="">
-						<select class="slcte" name="searchNum" id="searchNum">
-
-							<option value="0">제목</option>
-							<option value="1">내용</option>
-							<option value="2">글쓴이</option>
-						</select> <input class="txte" type="text" name="isSearch" id="isSearch" />
-						<span class="btn btnC_03 btnP_04 mr10"> <input
-							type="submit" value="검색"
-							style="font-size: 11px; padding-bottom: 20; vertical-align: middle;" />
-						</span>
-					</form>
-				</div>
-			</div>
-
-		</div>
-
-	</div>
-</div>
-
-
-
-</body> --%>
 <script type="text/javascript">
+	$('.searchOption').val($('.searchOptionVal').val());
+	var onWrite = function() {
+		location.href = 'write.do';
+	};
+	var onList = function() {
+		location.href = 'list.do';
+	};
+	var goPage = function(page) {
+		var form = $('.form-wrap')[0];
+		$('.page').val(page);
+		form.submit();
+	};
 
-$('.searchOption').val($('.searchOptionVal').val());
-var onWrite = function(){
-	location.href = 'faq/write.do'; 
-};
+	var onSearch = function() {
+		var form = $('.form-wrap')[0];
+		form.submit();
+	};
+
+	var onView = function(no) {
+		location.href = 'view.do?no=' + no;
+	};
 </script>
 </html>

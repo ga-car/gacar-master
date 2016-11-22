@@ -23,9 +23,6 @@
 			location.replace("/rentacar/main.do");
 		}
 	}
-</script>
-
-<script type="text/javascript">
 	function bookmarksite(url, title) {
 		// Internet Explorer
 		if (document.all || window.external) {
@@ -50,69 +47,65 @@
 		}
 	}
 </script>
-
 </head>
 <body>
-
-	adminleft(project)
 	<br />
 	<c:if test='${session_email!=null && session_email=="admin"}'>
-		<strong>관리자님</strong>
-		<br />
-		<a href="/rentacar/member/logout.do">로그아웃</a>
+		<div class="sidebar">
+			<strong>관리자님</strong> <br /> <a href="/rentacar/member/logout.do">로그아웃</a>
 
-		<a href="/rentacar/admin/adminInfoDetail.do">관리자정보</a>
-		<br />
-		-----------------------------------
-		<h4>
-			<a href="/rentacar/admin/memberList.do">회원관리</a>
-			<!-- //1104수정 -->
-		</h4>
-		<ul>
-			<li><a href="/rentacar/admin/memberList.do">회원목록</a></li>
-			<li><a href="/rentacar/admin/withdrawList.do">탈퇴목록</a></li>
-			<li><a href="/rentacar/admin/stats.do">통계</a></li>
-		</ul>
+			<a href="/rentacar/admin/adminInfoDetail.do">관리자정보</a> <br />
+			---------------------------------
+			<h4>
+				<a href="/rentacar/admin/memberList.do">회원관리</a>
+				<!-- //1104수정 -->
+			</h4>
+			<ul>
+				<li><a href="/rentacar/admin/memberList.do">회원목록</a></li>
+				<li><a href="/rentacar/admin/withdrawList.do">탈퇴목록</a></li>
+				<li><a href="/rentacar/admin/stats.do">통계</a></li>
+			</ul>
 
-		<h4>
-			<a href="#">이용안내</a>
-		</h4>
-		<ul>
-			<li><a href="#">이용방법</a></li>
-			<li><a href="#">이용요금</a></li>
-			<li><a href="#">이용규칙</a></li>
-		</ul>
+			<h4>
+				<a href="#">이용안내</a>
+			</h4>
+			<ul>
+				<li><a href="#">이용방법</a></li>
+				<li><a href="#">이용요금</a></li>
+				<li><a href="#">이용규칙</a></li>
+			</ul>
 
-		<h4>
-			<a href="/rentacar/admin/car/list.do">가카관리</a>
-		</h4>
-		<ul>
-			<li><a href="/rentacar/admin/car/list.do">가카목록</a></li>
-			<li><a href="/rentacar/admin/car/write.do">가카등록</a></li>
-			<li><a href="/rentacar/admin/car/reserveList.do">예약목록</a></li>
-		</ul>
+			<h4>
+				<a href="/rentacar/admin/car/list.do">가카관리</a>
+			</h4>
+			<ul>
+				<li><a href="/rentacar/admin/car/list.do">가카목록</a></li>
+				<li><a href="/rentacar/admin/car/write.do">가카등록</a></li>
+				<li><a href="/rentacar/admin/car/reserveList.do">예약목록</a></li>
+			</ul>
 
-		<h4>
-			<a href="/rentacar/admin/carpool/list.do">카풀모임관리</a>
-		</h4>
-		
-		<h4>
-			<a href="/rentacar/admin/carpool/attendlist.do">카풀모임관리</a>
-		</h4>
+			<h4>
+				<a href="/rentacar/admin/carpool/list.do">카풀모임관리</a>
+			</h4>
 
-		<h4>
-			<a href="/rentacar/admin/review/list.do">이용후기관리</a>
-		</h4>
+			<h4>
+				<a href="/rentacar/admin/carpool/attendlist.do">카풀모임관리</a>
+			</h4>
 
-		<h4>
-			<a href="/rentacar/admin/notify/list.do">고객센터관리</a>
-		</h4>
-		<ul>
-			<li><a href="/rentacar/admin/notify/list.do">공지사항</a></li>
-			<li><a href="/rentacar/admin/faq/list.do">FAQ</a></li>
-			<li><a href="/rentacar/admin/qna/list.do">1:1문의</a></li>
-		</ul>
+			<h4>
+				<a href="/rentacar/admin/review/list.do">이용후기관리</a>
+			</h4>
+
+			<h4>
+				<a href="/rentacar/admin/notify/list.do">고객센터관리</a>
+			</h4>
+			<ul>
+				<li><a href="/rentacar/admin/notify/list.do">공지사항</a></li>
+				<li><a href="/rentacar/admin/faq/list.do">FAQ</a></li>
+				<li><a href="/rentacar/admin/qna/list.do">1:1문의</a></li>
+			</ul>
+
+		</div>
 	</c:if>
-
 </body>
 </html>

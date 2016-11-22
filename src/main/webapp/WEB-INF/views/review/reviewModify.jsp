@@ -85,7 +85,12 @@ function reviewList() {
 						
 						<tr><!-- 글내용 -->
 							<th>글내용</th>
-							
+							<div class='avatar avatar-medium clearfix pull-left'>
+						<h6>이용 차량 : ;[${list.car }]</h6> 
+							</div>	
+							<div class='avatar avatar-medium clearfix pull-right'>
+								<h6>이용 기간 : ${list.usedate }</h6> 
+							</div>	
 							<td colspan=3 height=400 style="padding: 0px !important;">
 							   <textarea name="content" value="${reviewModel.content}"
 							   		style=" margin: 1px; width: 100%; height: 98%;">${reviewModel.content}</textarea> 
