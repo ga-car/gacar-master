@@ -1,0 +1,483 @@
+@charset "UTF-8";
+
+
+/* Header */
+#header {position:relative;}
+.toplinks {background-color:#e8e8e8; height:30px}
+.toplinks:after {content:""; display:block; clear:both;}
+.toplinks .inbox {width:1000px; margin:0 auto;}
+.links-01 {float:left;}
+.links-01 a {margin-left:20px;}
+.links-01 a:first-child {margin-left:0;}
+.links-01 span {margin-left:20px;}
+.links-01 span:first-child {margin-left:0;}
+
+.links-02 {float:right;}
+.links-02 span {margin-left:20px;}
+
+.hgroup {position:relative; z-index:7000; border-bottom:1px solid #e1e1e1;}
+.hgroup .inbox {
+	position:relative;
+	width:1000px; 
+	height:80px; 
+	margin:0 auto;
+	z-index:555;
+}
+
+
+/* navigation */
+.nvalinks {
+	position:absolute;
+	top:0;
+	right:0;
+}
+.nvalinks:after {content:""; display:block; clear:both;}
+.nvalinks a {
+	float:left; 
+	padding:8px 0; 
+	margin-left:10px;
+	background:url(../images/common/bg_link_bar.gif) no-repeat right center;
+	padding-right:10px;
+	font-size:11px;
+}
+.nvalinks .user {
+	float:left; 
+	margin-right:10px;
+	height:30px;
+	line-height:29px;
+}
+.nvalinks .allmenu {padding-right:0; background:none; margin-left:15px;}
+.nvalinks .lst {padding-right:0; background:none;}
+.nvalinks a:hover {text-decoration:underline;}
+.nvalinks a.login-color {color:#ff5907;}
+
+.reserv_go {
+	position:absolute;
+	right:0;
+	bottom:14px;
+}
+
+.navigation {
+	width:600px; 
+	position:absolute;
+	top:42px;
+	left:200px;
+}
+.navigation:after {content:""; display:block; clear:both;}
+.navigation li {
+	float:left; 
+	text-align:center;
+}
+.navigation li a {
+	position:relative;
+	display:block; 
+	color:#000; 
+	font-size:16px;
+	font-weight:bold;
+	width:150px;
+	height:23px;
+}
+.navigation li a.on {color:#0db14b; height:38px;}
+.navigation li a.on:after {
+	content:"";
+	position:absolute;
+	left:50%;
+	bottom:-1px;
+	z-index:888888;
+	background:url(../images/common/icons_nav02_on.gif) repeat-x 0 bottom;
+	width:120px;
+	height:5px;
+	margin-left:-60px;
+}
+
+
+.navi-sublist {
+	position:absolute;
+	width:150px;
+	height:164px;
+	z-index:9000;
+	padding-top:25px;
+	display:none;
+}
+.navi-sublist li {
+	float:none; 
+	text-align:left;
+	margin-top:8px;
+}
+.navi-sublist li:first-child {margin-top:0;}
+.navi-sublist li a {
+	display:block;
+	width:auto;
+	height:auto;
+	line-height:20px;
+	color:#666;
+	font-size:13px;
+	background:url(../images/icons/bullet_nav_off.gif) no-repeat 0 8px;
+	padding-left:8px;
+	font-weight:normal;
+}
+.navi-sublist li a:hover {
+	background:url(../images/icons/bullet_nav_on.gif) no-repeat 0 8px; 
+	color:#0db14b; 
+	text-decoration:underline;
+}
+
+.subnav01 {top:39px; left:35px; width:152px;}
+.subnav02 {top:39px; left:190px; width:143px;}
+.subnav03 {top:39px; left:345px; width:130px;}
+.subnav04 {top:39px; left:490px; width:100px;}
+
+.subnav {display:none;}
+
+
+.nav-sub-wrap {
+	height:189px; 
+	border-bottom:4px solid #0db14b;
+	position:absolute;
+	top:111px;
+	left:0;
+	z-index:5555;
+	width:100%;
+	background-color:#fff;
+	display:none;
+}
+.nav-sub-wrap:after {content:""; display:block; clear:both;}
+.nav-sub-wrap .inbox {
+	width:1000px; 
+	height:189px;
+	margin:0 auto;
+	background:url(../images/common/bg_nav_sublist.jpg) no-repeat right bottom;
+}
+/* .sns-link {
+	float:left;
+	background:url(../images/common/bg_sns_bar.gif) no-repeat right center;
+	width:200px;
+	height:189px;
+}
+.sns-facebook {padding:35px 20px 10px 0;}
+.sns-facebook .inwrap {
+	background:url(../images/common/bg_lineGreencar.gif) no-repeat right bottom; 
+	height:122px;
+	position:relative;
+}
+.sns-facebook p {
+	font-size:18px;
+	color:#000;
+	line-height:20px;
+}
+.sns-facebook span {
+	font-size:13px; 
+	color:#707070; 
+	display:block; 
+	margin-bottom:1px;
+}
+.sns-facebook strong {color:#1dcd00;}
+.sns-facebook a {display:inline-block; margin-top:10px;}
+
+.sns-facebook .btn_event_go {
+	position:absolute;
+	left:0;
+	bottom:0;
+} */
+/*
+.sns-link {
+	float:left;
+	background:url(../images/common/bg_sns_bar.gif) no-repeat right center;
+	width:200px;
+	height:189px;
+}
+.sns-facebook {padding:35px 20px 10px 0;}
+.sns-facebook .inwrap {
+	background:url(../images/common/bg_lineGreencar.gif) no-repeat right bottom; 
+	height:122px;
+	position:relative;
+}
+.sns-facebook p {
+	font-size:18px;
+	color:#000;
+	line-height:20px;
+}
+.sns-facebook span {
+	font-size:13px; 
+	color:#707070; 
+	display:block; 
+	margin-bottom:1px;
+}
+.sns-facebook strong {color:#1dcd00;}
+.sns-facebook a {display:inline-block; margin-top:10px;}
+
+.sns-facebook .btn_event_go {
+	position:absolute;
+	left:0;
+	bottom:0;
+}
+*/
+
+.nav_banner {
+	float:left;
+	background:url(../images/common/bg_sns_bar.gif) no-repeat right center;
+	width:200px;
+	height:189px;
+}
+.nav_banner_img {padding-top:28px;} 
+
+/* container */
+.content-wrap {
+	width:1000px; 
+	margin:0 auto; 
+	position:relative;
+	padding-bottom:90px;
+}
+.content-wrap:after {content:""; display:block; clear:both;}
+.contentbox {width:750px;}
+.contentbox01 {width:1000px;}
+
+.lpoint_banner{margin-top:20px;}
+
+.left-tit {
+	font-size:28px;
+	font-weight:bold;
+	color:#0db14b;
+	height:49px;
+	line-height:33px;
+}
+
+.left-tit.type01 {letter-spacing:-4px;}
+.left-tit.type02 {height:82px;}/* 추가 (2015-12-14) */
+
+.leftMenu li a {
+	display:block;
+	height:48px;
+	padding:0 20px;
+	border-bottom:1px solid #e1e1e1;
+	cursor:pointer;
+}
+.leftMenu li.top a {
+	border-top:1px solid #e1e1e1;
+}
+.leftMenu li a span {
+	display:block;
+	height:48px;
+	line-height:50px;
+	font-size:13px;
+	color:#4d4c4c;
+	font-weight:bold;
+	background:url(../images/icons/left_menu_off.gif) no-repeat right center;
+}
+.leftMenu li a.on {	
+	border-bottom-color:#0db14b; 
+	background-color:#0db14b;
+}
+.leftMenu li.top a.on {	
+	border-top-color:#0db14b; 
+}
+.leftMenu li a.on span {background:url(../images/icons/left_menu_on.png) no-repeat right center; color:#fff;}
+.side_sns_wrap{width:200px; overflow:hidden;}
+.side_sns {width:107%; margin-top:22px;}
+.side_sns:after {content:""; display:block; clear:both;}
+.side_sns a {float:left; margin-right:15px;}
+.side_sns a.last-sns {margin-right:0;margin-left:0;}
+.side_sns a span {
+	padding-top:10px;
+	display:block;
+	font-size:14px;
+	font-weight:bold;
+	text-align:center;		
+	margin-bottom:10px;
+}
+.location {padding-top:15px;}
+.location_in:after {content:""; display:block; clear:both;}
+.location_in p {
+	float:right;
+	background:url(../images/icons/home.gif) no-repeat 0 3px; 
+	padding-left:18px;
+	font-size:13px;
+}
+.location_in p span {margin:0 4px;}
+.location_in p strong {margin:0 4px;}
+.subtop-content {background:url(../images/common/bg_subtop.jpg) no-repeat 96% 3px; padding-top:22px; height:135px;}
+.subtop-content.bg-none {
+	background-image:none;
+	height:auto;
+}
+.subtit {
+	background:url(../images/common/bg_subtit.gif) no-repeat 0 bottom;
+	padding-bottom:8px;
+	font-size:32px;
+	color:#4d4c4c;
+	font-weight:bold;
+}
+
+.subtop-content.bg-none .subtit {
+	background-image:none;
+}
+
+.subtxt	 {
+	font-size:15px;
+	color:#666;
+	line-height:19px;
+	margin-top:20px;
+}
+.subtxt strong {color:#333;}
+
+.bodystart {margin-top:41px;}
+.bodystart.top_mt01 {margin-top:50px;}
+.bodystart.top_mt02 {margin-top:10px;}
+.contentbox01 .bodystart {margin-top:55px;}
+
+/* left메뉴 없는 단일 페이지 container*/
+.one-layer .subtop-content {
+	margin-top:30px;
+}
+
+/* footer */
+#footer {border-top:1px solid #eae7e6; background-color:#fff;}
+.footbox-01 {width:1000px; margin:0 auto; position:relative;}
+.footbox-02 {border-top:1px solid #eae7e6;}
+.footbox-02 .inbox {width:1000px; margin:0 auto; padding:30px 0 40px 0;}
+.footbox-02 .inbox:after {content:""; display:block; clear:both;}
+
+.footbox_links:after {content:""; display:block; clear:both;}
+.footbox_links a {
+	float:left;
+	height:45px;
+	line-height:45px;
+	font-size:13px;
+	padding-right:10px;
+	margin-right:10px;
+	font-weight:bold; 
+	color:#555;
+	background:url(../images/common/bg_foot_link_bar.gif) no-repeat right center;
+}
+.footbox_links a.lst {
+	margin-right:0; 
+	padding-right:0; 
+	background-image:none;
+}
+.footbox_links a:hover {color:#0db14b;}
+
+.footbox_sns {
+	position:absolute;
+	top:11px;
+	right:0; 
+}
+.footbox_sns a {margin-left:10px;}
+
+.footbox_logo {float:left;}
+.footbox_infomation {float:left; margin-left:25px; font-size:11px;}
+.footinfo span {margin-right:13px;}
+address {margin-top:2px;}
+address span {margin:0 13px 0 0;}
+.copyright {margin-top:12px;}
+
+
+/* 퀵메뉴 */
+.quickmenu {
+	position:fixed;
+	left:50%;
+	top:120px;
+	margin-left:525px;
+	width:60px;
+}
+.quickmenu.fixed {position:fixed; top:15px; right:0;}
+.quickmenu li {position:relative; text-align:center; margin-top:13px; font-size:0;}
+.quickmenu li a {display:block; width:60px;}
+.quickmenu li .menu01 {background:url(../images/common/quick_bg_02.gif) no-repeat center 0; padding-top:50px;}
+.quickmenu li .menu02 {background:url(../images/common/quick_bg_02.png) no-repeat center 0; padding-top:50px;}
+.quickmenu li .menu03 {background:url(../images/common/quick_bg_03.png) no-repeat center 0; padding-top:50px;}
+.quickmenu li .menu04 {background:url(../images/common/quick_bg_04.png) no-repeat center 0; padding-top:58px;}
+.quickmenu li .menu05 {background:url(../images/common/quick_bg_05.png) no-repeat center 0; padding-top:50px;}
+.quickmenu li .menu06 {background:url(../images/common/quick_bg_06.png) no-repeat center 0; padding-top:50px;}
+.quickmenu li .menu07 {background:url(../images/common/quick_bg_07.png) no-repeat center 0; padding-top:58px;}
+.quickmenu li .new {position:absolute; top:-5px; right:-4px;}
+.quickmenu li.lst {margin-top:6px;}
+
+.coupon_num {
+	position:absolute;
+	top:-4px;
+	right:-8px;
+	background:url(../images/common/bg_coupon_num.png) no-repeat 0 0;
+	width:19px;
+	height:23px;
+}
+.coupon_num strong {
+	display:block;
+	height:23px;
+	line-height:19px;
+	font-size:13px;
+	color:#fff; 
+	font-weight:bold;
+}
+
+
+
+/* 서브 Background Image */
+.bg_subvisual_01_01 {background:url(../images/common/bg_subvisual_01_01.gif) no-repeat right bottom;} /* 그린카란? */
+.bg_subvisual_01_02 {background:url(../images/common/bg_subvisual_01_02.gif) no-repeat right bottom;} /* 이용안내 */
+.bg_subvisual_01_03 {background:url(../images/common/bg_subvisual_01_03.gif) no-repeat right bottom;} /* 그린존 신청*/
+.bg_subvisual_01_04 {background:url(../images/common/bg_subvisual_01_04.gif) no-repeat right bottom;} /* 홍보자료*/
+.bg_subvisual_01_05 {background:url(../images/common/bg_subvisual_01_05.gif) no-repeat right bottom;} /* 가입혜택 (2015-11-23)*/
+
+.bg_subvisual_02_01 {background:url(../images/common/bg_subvisual_02_01.gif) no-repeat right bottom;} /* 요금안내 */
+.bg_subvisual_02_02 {background:url(../images/common/bg_subvisual_02_02.gif) no-repeat right bottom; height:150px;} /* 특가상품 안내 */
+.bg_subvisual_02_03 {background:url(../images/common/bg_subvisual_02_03.gif) no-repeat right bottom;} /* 캐쉬구매 및 사용안내 */
+
+.bg_subvisual_03_01 {background:url(../images/common/bg_subvisual_03_01.gif) no-repeat right bottom;} /* 이벤트 */
+.bg_subvisual_03_02 {background:url(../images/common/bg_subvisual_03_02.gif) no-repeat right bottom;} /* 쿠폰북 */
+.bg_subvisual_03_03 {background:url(../images/common/bg_subvisual_03_03.gif) no-repeat right bottom;} /* 이용후기 */
+.bg_subvisual_03_04 {background:url(../images/common/bg_subvisual_03_04.gif) no-repeat right bottom;} /* 칭찬릴레이 */
+.bg_subvisual_03_05 {background:url(../images/common/bg_subvisual_03_05.gif) no-repeat right bottom;} /* 세차했어요 */
+
+.bg_subvisual_04_01 {background:url(../images/common/bg_subvisual_04_01.gif) no-repeat right bottom;} /* 이용안내 */
+.bg_subvisual_04_02 {background:url(../images/common/bg_subvisual_04_02.gif) no-repeat right bottom;} /* 가입방법 */
+.bg_subvisual_04_03 {background:url(../images/common/bg_subvisual_04_03.gif) no-repeat right bottom;} /* 자주찾는 질문 */
+.bg_subvisual_04_04 {background:url(../images/common/bg_subvisual_04_04.gif) no-repeat right bottom;} /* 그린존 신청 */
+
+.bg_subvisual_05_01 {background:url(../images/common/bg_subvisual_05_01.gif) no-repeat right bottom;} /* 자주찾는 질문 */
+.bg_subvisual_05_02 {background:url(../images/common/bg_subvisual_05_02.gif) no-repeat right bottom;} /* 1:1 문의 */
+.bg_subvisual_05_03 {background:url(../images/common/bg_subvisual_05_03.gif) no-repeat right bottom;} /* 공지사항 */
+
+.bg_subvisual_06_01 {background:url(../images/common/bg_subvisual_06_01.gif) no-repeat right bottom;} /* 회원탈퇴 */
+.bg_subvisual_06_02 {background:url(../images/common/bg_subvisual_06_02.gif) no-repeat right bottom;} /* 회원가입/제휴신청 */
+.bg_subvisual_06_03 {background:url(../images/common/bg_subvisual_06_03.gif) no-repeat right bottom;} /* 사이트맵 */
+.bg_subvisual_06_04 {background:url(../images/common/bg_subvisual_06_04.gif) no-repeat right bottom;} /* CI소개 (2015-12-03) */
+
+.bg_subvisual_07_01 {background:url(../images/common/bg_subvisual_07_01.gif) no-repeat right bottom;} /* 가입조회 (2016-10-13) */
+
+
+/* 웹/앱 어워드 */
+.footer_award {float:right;}
+.footer_award:after {content:""; display:block; clear:both;}
+.award01 {float:left; text-align:right; font-size:0;}
+.award01 strong {display:block; line-height:15px;}
+.award01 p {margin-top:11px;}
+.award02 {float:left; padding:0 0 0 15px;}
+.award03 {float:left; padding:0 0 0 12px;}
+
+
+/* footer emblem (2016-03-09) */
+.footbox-02 .inbox {position:relative;}
+.footbox_assist_info {position:absolute; top:23px; right:0;}
+.footbox_assist_info img {vertical-align:middle;}
+.foot_greencar_emblem {margin-left:5px;}
+
+
+/* footer emblem (2016-03-09) */
+.footbox_assist_info {top:22px; right:160px;}
+.foot_greencar_emblem {margin-left:0;}
+
+
+/* footer star emblem (2016-04-07) */
+.footbox_assist_info {right:0;}
+.foot_brand_star {margin-left:10px;}
+
+
+/* footer MAK emblem (2016-04-26) */
+.footbox_assist_info span {margin-left:5px;}
+.footbox_assist_info span:first-child {margin-left:0;}
+
+/*160923 퀵메뉴수정*/
+.quickmenu li .new-coupon {position:absolute; top:-5px; right:-4px;width:18px;height:23px;background:url(../images/common/bg_quick_coupon.png) no-repeat left top;}
+.quickmenu li .new-coupon span{display:block;margin-top:-2px;font-size:15px;font-weight:bold;color:#fff}
+.main-quickmenu li .new-coupon {position:absolute; top:-5px; right:-4px;width:18px;height:23px;background:url(../images/common/bg_quick_coupon.png) no-repeat left top;}
+.main-quickmenu li .new-coupon span{display:block;margin-top:-2px;font-size:15px;font-weight:bold;color:#fff}

@@ -316,10 +316,30 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/carpool/carpoolmypageapplyList.jsp" />
 	</definition>
-
+	
+	<!-- 카풀 실시간 모집 -->
 	<definition name="chat-sockjs" extends="main">
 		<put-attribute name="body" value="/WEB-INF/views/carpool/chat-sockjs.jsp"/>
-	</definition>  
+	</definition>
+	
+	
+	<!-- 이용안내 -->
+	<definition name="gacarIs" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/use/gacarIs.jsp"/>
+	</definition>
+	<definition name="method" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/use/method.jsp"/>
+	</definition>
+	<definition name="manner" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/use/etiquette.jsp"/>
+	</definition>
+	<definition name="rule" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/use/rule.jsp"/>
+	</definition>
+	<definition name="charge" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/use/charge.jsp"/>
+	</definition>
+	  
 </tiles-definitions>
 	
 	
