@@ -14,7 +14,8 @@ public class ReviewModel {
 	private int readcount;
 	private String imagefile_orgname;
 	private String imagefile_savname;
-	
+	private String car;
+	private String usedate;
 
 	public String getName() {
 		return name;
@@ -70,6 +71,18 @@ public class ReviewModel {
 	}
 	public void setImagefile_savname(String imagefile_savname) {
 		this.imagefile_savname = imagefile_savname;
+	}
+	public String getCar() {
+		return car;
+	}
+	public void setCar(String car) {
+		this.car = car;
+	}
+	public String getUsedate() {
+		return usedate;
+	}
+	public void setUsedate(String usedate) {
+		this.usedate = usedate;
 	}
 	
 	

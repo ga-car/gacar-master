@@ -341,19 +341,19 @@
 	
 	
 	<!-- 이용안내 -->
-	<definition name="gacarIs" extends="main">
+	<definition name="gacarIs" extends="sub3">
 		<put-attribute name="body" value="/WEB-INF/views/use/gacarIs.jsp"/>
 	</definition>
-	<definition name="method" extends="main">
+	<definition name="method" extends="sub3">
 		<put-attribute name="body" value="/WEB-INF/views/use/method.jsp"/>
 	</definition>
-	<definition name="manner" extends="main">
+	<definition name="manner" extends="sub3">
 		<put-attribute name="body" value="/WEB-INF/views/use/etiquette.jsp"/>
 	</definition>
-	<definition name="rule" extends="main">
+	<definition name="rule" extends="sub3">
 		<put-attribute name="body" value="/WEB-INF/views/use/rule.jsp"/>
 	</definition>
-	<definition name="charge" extends="main">
+	<definition name="charge" extends="sub3">
 		<put-attribute name="body" value="/WEB-INF/views/use/charge.jsp"/>
 	</definition>
 </tiles-definitions>
