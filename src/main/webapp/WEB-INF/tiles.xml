@@ -13,6 +13,14 @@
 			value="/WEB-INF/views/layout/container.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
+	<!-- sub3 Page(이용안내) -->
+	<definition name="sub3" template="/WEB-INF/views/layout/main_layout.jsp">
+		<put-attribute name="left"
+			value="/WEB-INF/views/layout/left_sub3.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/layout/container.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+	</definition>
 	<!-- sub5 Page(고객센터) -->
 	<definition name="sub5" template="/WEB-INF/views/layout/main_layout.jsp">
 		<put-attribute name="left"
