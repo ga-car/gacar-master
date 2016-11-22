@@ -18,61 +18,15 @@
 
 </head>
 <body>
-	<div id="list-article" class="content scaffold-list" role="main">
-		<!-- 상단 시작 -->
+	<div id="article" class="content scaffold-list" role="main">
 		<div class="nav" role="navigation">
 			<h4>가카예약</h4>
-		</div>
-						<div class="panel-heading clearfix">
-
-					<div class="avatar avatar-medium clearfix pull-left">
-					<!-- 왼쪽 페이지 시작 -->
-		<div id="containerLeft"
-			style="background: #FFDDDD; height: 750px; width: 35%; float: left; margin: 0 0 10px 0; overflow: scroll;">
-			<form name="reserveRight" id="reserveRight"
-				enctype="multipart/form-data">
-
-				<c:forEach var="rentacarLatlng" items="${rentacarLatlng}"
-					varStatus="stat">
-					<table>
-						<tr></tr>
-					</table>
-					<table
-						onClick="location.replace='/rentacar/car/reserve.do?car_no=${rentacarLatlng.car_no}'"
-						style="cursor: pointer;">
-						<tr></tr>
-						<tr>
-							<td rowspan="3"><img
-								src="../resources/carUpload/${rentacarLatlng.car_image}"
-								style="width: 70px; height: 70px;"></td>
-							<td>차종</td>
-							<td>${rentacarLatlng.car_type}</td>
-						</tr>
-						<tr>
-							<td>브랜드</td>
-							<td>${rentacarLatlng.car_brand}</td>
-
-						</tr>
-						<tr>
-							<td>모델명</td>
-							<td>${rentacarLatlng.car_name}</td>
-						</tr>
-					</table>
-					<table>
-						<tr></tr>
-					</table>
-				</c:forEach>
-			</form>
-		</div>
-			<!-- 왼쪽 페이지 끝 -->
-		<div id="containerRight"
-			style="background: #FFCCCC; height: 750px; width: 65%; float: left; margin: 0 0 10px 0;">
-
-<!-- 지도시작 -->
-			<div id="map" style="width: 100%; height: 100%;"></div>
-			<!-- 검색페이지  -->
-			<div id="menu_wrap" class="bg_white">
-				<div class="option">
+			<!-- 게시판 검색 시작 -->
+			<div class="category-filter-wrapper">
+				<div class="category-filter-wrapper">
+					<!-- 검색페이지  -->
+					<!-- 					<div id="menu_wrap" class="bg_white">
+						<div class="option"> -->
 					<div style="float: left;">
 						<select name="car_addr" id="car_addr"
 							onChange="javascript:selectEvent(this);">
@@ -121,6 +75,43 @@
 				</div>
 			</div>
 		</div>
+		<!-- 게시판 검색 끝 -->
+		<div class="panel panel-default clearfix">
+			<!-- 지도 출력 -->
+			<div id="containerRight"
+				style="height: 450px; width: 100%; float: top; margin: 0 0 10px 0;">
+				<div id="map" style="width: 100%; height: 100%;"></div>
+			</div>
+			<!-- 지도 출력 끝 -->
+			<form name="reserveRight" id="reserveRight"
+				enctype="multipart/form-data">
+				<c:forEach var="rentacarLatlng" items="${rentacarLatlng}"
+					varStatus="stat">
+					<!-- 차량 리스트 시작 -->
+					<div id="containerLeft">
+						<ul class="list-group">
+							<li class="list-group-item note-item clearfix"
+								onClick="location.replace='/rentacar/car/reserve.do?car_no=${rentacarLatlng.car_no}'"
+								style="cursor: pointer;">
+								<div class="content-left panel-body pull-left">
+									<h2>모델명 : ${rentacarLatlng.car_name}</h2>
+									<br>
+									<h5>차종 : ${rentacarLatlng.car_type} | 브랜드 :
+										${rentacarLatlng.car_brand}</h5>
+								</div>
+								<div class="content-right pull-body pull-right">
+									<img class="avatar-photo"
+										src="../resources/carUpload/${rentacarLatlng.car_image}"
+										style="width: 100px; height: 100px;">
+								</div>
+							</li>
+						</ul>
+					</div>
+					<!-- 왼쪽 페이지 끝 -->
+				</c:forEach>
+			</form>
+		</div>
+
 	</div>
 </body>
 <script type="text/javascript">
