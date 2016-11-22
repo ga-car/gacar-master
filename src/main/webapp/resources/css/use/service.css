@@ -1,0 +1,1842 @@
+@charset "UTF-8";
+
+/* index */
+.sevice_index .top_info_box {
+	padding:40px 0;
+	border-bottom:1px solid #dbdbdb;
+}	
+.sevice_index .top_info_box:after {
+	content:"";
+	display:block;
+	clear:both;
+}
+.sevice_index .top_info dl {
+	float:left;
+	text-align:center;
+	width:33.33%;
+}
+.sevice_index .top_info dt {
+	font-size:22px;
+	color:#0db14b;
+	font-weight:bold;
+	padding-top:150px;
+}
+.sevice_index .top_info dd {
+	font-size:14px;
+	color:#333;
+	font-weight:bold;
+}
+.sevice_index .top_info dd.point-color {
+	color:#666;
+}
+.sevice_index dl.top_info01 {
+	background:url("/rentacar/resources/images/icons/icon_greencar01.gif") 50% 0 no-repeat;
+}
+.sevice_index dl.top_info02 {
+	background:url("/rentacar/resources/images/icons/icon_greencar02.gif") 50% 0 no-repeat;
+}
+.sevice_index dl.top_info03 {
+	background:url("/rentacar/resources/images/icons/icon_greencar03.gif") 50% 0 no-repeat;
+}
+
+.data_box01 {
+	margin-top:50px;
+}
+.data_box01 li {
+	height:160px;
+	overflow:hidden;
+	background:url("/rentacar/resources/images/icons/dot_line01.gif") left bottom repeat-x;
+}
+.data_box01 li dl dt {
+	font-size:16px;
+	color:#333;
+	font-weight:bold;
+	margin-bottom:15px;
+}
+.data_box01 li dl dd {
+	font-size:13px;
+}
+.data_box01 li dl.txtbox01 {
+	height:139px;
+	padding:20px 0 0 20px;
+	background:url("/rentacar/resources/images/service/bg_service_index01.gif") 438px 5px no-repeat;
+}
+.data_box01 li dl.txtbox02 {
+	height:114px;
+	padding:45px 0 0 355px;
+	background:url("/rentacar/resources/images/service/bg_service_index02.gif") 55px 22px no-repeat;
+}
+.data_box01 li dl.txtbox03 {
+	height:137px;
+	padding:22px 0 0 20px;
+	background:url("/rentacar/resources/images/service/bg_service_index03.gif") 475px 20px no-repeat;
+}
+.data_box01 li dl.txtbox03 .btn {
+	margin-top:5px;
+}
+.data_box01 li dl.txtbox04 {
+	height:129px;
+	padding:30px 0 0 355px;
+	background:url("/rentacar/resources/images/service/bg_service_index04.gif") 55px 35px no-repeat;
+} 
+.data_box01 li dl.txtbox05 {
+	height:114px;
+	padding:45px 0 0 20px;
+	background:url("/rentacar/resources/images/service/bg_service_index05.gif") 455px 30px no-repeat;
+}
+.data_box01 li dl.txtbox06 {
+	height:114px;
+	padding:45px 0 0 355px;
+	background:url("/rentacar/resources/images/service/bg_service_index06.gif") 55px 30px no-repeat;
+} 
+.data_box01 li dl.txtbox07 {
+	height:114px;
+	padding:45px 0 0 20px;
+	background:url("/rentacar/resources/images/service/bg_service_index07.gif") 438px 30px no-repeat;
+}
+.data_box01 li dl.txtbox08 {
+	height:109px;
+	padding:50px 0 0 355px;
+	background:url("/rentacar/resources/images/service/bg_service_index08.gif") 20px 20px no-repeat;
+} 
+
+
+/* ******************** 서비스 안내 ************************** */
+/* tab*/
+.tab-service:after {
+	content:"";
+	display:block;
+	clear:both;
+}
+.tab-service li {
+	float:left;
+	width:33.33%;
+	position:relative;
+}
+.tab-service li a {
+	display:block;
+	height:108px;
+	border:1px solid #e1e1e1;
+	margin-left:-1px;
+	font-size:16px;
+	font-weight:bold;
+	padding:10px 0 0 15px;
+}
+.tab-service li.on a {
+	border:1px solid #0b9c42;
+	color:#fff;
+}
+.tab-service li.on:after {
+	content:"";
+	display:block;
+	background:url("/rentacar/resources/images/service/bul_down.gif") 50% bottom no-repeat;
+	width:23px;
+	height:13px;
+	position:absolute;
+	left:50%;
+	bottom:-12px;
+}
+.tab-service li.tab01 a {
+	background:url("/rentacar/resources/images/service/tab01_off.gif") 75px 15px  no-repeat;
+}
+.tab-service li.tab01.on a {
+	background:#0db14b url("/rentacar/resources/images/service/tab01_on.gif") 75px 15px no-repeat;
+}
+.tab-service li.tab02 a {
+	background:url("/rentacar/resources/images/service/tab02_off.gif") 110px 19px no-repeat;
+}
+.tab-service li.tab02.on a {
+	background:#0db14b url("/rentacar/resources/images/service/tab02_on.gif") 110px 19px no-repeat;
+}
+.tab-service li.tab03 a {
+	background:url("/rentacar/resources/images/service/tab03_off.gif") 105px 33px no-repeat;
+}
+.tab-service li.tab03.on a {
+	background:#0db14b url("/rentacar/resources/images/service/tab03_on.gif") 105px 33px no-repeat;
+}
+
+
+.tab-service.tab-service02 li {
+	float:left;
+	width:50%;
+	position:relative;
+}
+.tab-service.tab-service02 li.tab01 a {
+	background:url("/rentacar/resources/images/service/tab01_off.gif") 110px 15px  no-repeat;
+}
+.tab-service.tab-service02 li.tab01.on a {
+	background:#0db14b url("/rentacar/resources/images/service/tab01_on.gif") 110px 15px no-repeat;
+}
+.tab-service.tab-service02 li.tab03 a {
+	background:url("/rentacar/resources/images/service/tab03_off.gif") 135px 33px no-repeat;
+}
+.tab-service.tab-service02 li.tab03.on a {
+	background:#0db14b url("/rentacar/resources/images/service/tab03_on.gif") 135px 33px no-repeat;
+}
+
+
+
+
+/* 멤버십 안내 */
+.member-group .txt {
+		font-size:13px;
+}
+.tbl-member-group {
+	margin-top:10px;
+}
+.tbl-member-group th {
+	height:50px;
+	line-height:50px;
+	border-top:2px solid #4d4c4c;
+	border-right:1px solid #dbdbdb;
+	border-bottom:1px solid #dbdbdb;
+	background-color:#f3f3f3;
+	font-size:14px;
+}
+
+.tbl-member-group th .ico {display:inline-block; margin-top:12px;  vertical-align:top;}
+
+.tbl-member-group th.last-line,
+.tbl-member-group td.last-line {
+	border-right:none;
+}
+.tbl-member-group td {
+	padding:15px 0;
+	font-size:14px;
+	text-align:center;
+	border-right:1px solid #dbdbdb;
+	border-bottom:1px solid #dbdbdb;
+}
+.tbl-member-group td span {
+	font-weight:bold;
+}
+.membership-txtbox li {
+	margin-left:7px;
+}
+.membership-txtbox li.first-txt {
+	margin-left:0;
+}
+.membership-txtbox li span {
+	margin-left:-7px;
+}
+.member-subtxt {
+	padding:60px 0 50px 0;
+	font-size:22px;
+	text-align:center;
+	letter-spacing:-2px;
+	border-bottom:1px solid #e6e6e6;
+}
+.member-subtxt strong {
+	color:#333;
+}
+.member-subtxt.line-none {
+	border-bottom:none;
+}
+
+/* 이용에티켓 */
+.etiquette-wrap {
+	border:1px solid #ededed;
+	background-color:#fafafa;
+	margin-top:20px;
+}
+.etiquette-wrap li {
+	font-size:14px;
+	height:180px;
+	background: url("/rentacar/resources/images/service/dot_bar01.gif") 0 bottom repeat-x;
+}
+.etiquette-wrap li.line-none {
+	background-image:none;
+}
+.etiquette-wrap li.etiquette01 .bg-wrap {
+	height:179px;
+	background:#fafafa url("/rentacar/resources/images/service/etiquette01.gif") 100px 40px no-repeat;
+}
+.etiquette-wrap li.etiquette01 .txt {
+	padding-top:50px;
+	padding-left:266px;
+}
+.etiquette-wrap li.etiquette02 .bg-wrap {
+	height:179px;
+	background:#fafafa url("/rentacar/resources/images/service/etiquette02.gif") 520px 28px no-repeat;
+}
+.etiquette-wrap li.etiquette02 .txt {
+	padding-top:60px;
+	padding-left:124px;
+}
+.etiquette-wrap li.etiquette03 .bg-wrap {
+	height:179px;
+	background:#fafafa url("/rentacar/resources/images/service/etiquette03.gif") 100px 28px no-repeat;
+}
+.etiquette-wrap li.etiquette03 .txt {
+	padding-top:40px;
+	padding-left:266px;
+}
+.etiquette-wrap li.etiquette04 .bg-wrap {
+	height:179px;
+	background:#fafafa url("/rentacar/resources/images/service/etiquette04.gif") 520px 35px no-repeat;
+}
+.etiquette-wrap li.etiquette04 .txt {
+	padding-top:40px;
+	padding-left:124px;
+}
+.etiquette-wrap li.etiquette05 .bg-wrap {
+	height:179px;
+	background:#fafafa url("/rentacar/resources/images/service/etiquette05.gif") 100px 30px no-repeat;
+}
+.etiquette-wrap li.etiquette05 .txt {
+	padding-top:50px;
+	padding-left:266px;
+}
+.etiquette-wrap li.etiquette06 .bg-wrap {
+	height:179px;
+	background:#fafafa url("/rentacar/resources/images/service/etiquette06.gif") 520px 25px no-repeat;
+}
+.etiquette-wrap li.etiquette06 .txt {
+	padding-top:60px;
+	padding-left:124px;
+}
+
+/* 이용안내 */
+.youtube {
+	width:750px;
+	height:452px;
+	background-color:#ccc;
+}
+.use-system-wrap {
+	margin:40px 0 40px 30px;
+}
+.use-system-wrap:after {
+	content:"";
+	display:block;
+	clear:both;
+}
+.use-system-wrap li {
+	float:left;
+	padding-right:31px;
+	margin-right:25px;
+	background:url("/rentacar/resources/images/service/icon_next02.gif") right 35px no-repeat;
+}
+.use-system-wrap li.last-use {
+	background-image:none;
+	padding-right:0;
+	margin-right:0;
+}
+
+.use-system-wrap li a {
+	text-indent:-9999px;
+	display:block;
+	width:90px;
+	height:90px;
+}
+
+.use-system01 a {
+	background:url("/rentacar/resources/images/service/use01_off.gif") 0 0 no-repeat;
+}
+.use-system02 a {
+	background:url("/rentacar/resources/images/service/use02_off.gif") 0 0 no-repeat;
+}
+.use-system03 a {
+	background:url("/rentacar/resources/images/service/use03_off.gif") 0 0 no-repeat;
+}
+.use-system04 a {
+	background:url("/rentacar/resources/images/service/use04_off.gif") 0 0 no-repeat;
+}
+.use-system05 a {
+	background:url("/rentacar/resources/images/service/use05_off.gif") 0 0 no-repeat;
+}
+.use-system01 a:hover {
+	background:url("/rentacar/resources/images/service/use01_on.gif") 0 0 no-repeat;	
+}
+.use-system02 a:hover {
+	background:url("/rentacar/resources/images/service/use02_on.gif") 0 0 no-repeat;	
+}
+.use-system03 a:hover {
+	background:url("/rentacar/resources/images/service/use03_on.gif") 0 0 no-repeat;	
+}
+.use-system04 a:hover {
+	background:url("/rentacar/resources/images/service/use04_on.gif") 0 0 no-repeat;	
+}
+.use-system05 a:hover {
+	background:url("/rentacar/resources/images/service/use05_on.gif") 0 0 no-repeat;	
+}
+
+.btn-guide {
+	text-align:center;
+}
+.use-system-box {
+	padding-bottom:40px;
+	background:url("/rentacar/resources/images/service/dot_line01.gif") 0 bottom repeat-x;	
+}
+
+.use-system-txt-wrap {
+	padding:0 30px;
+	background-color:#fafafa;
+}
+.use-system-txt-wrap li {
+	font-size:14px;
+	height:auto;
+	background: url("/rentacar/resources/images/service/dot_bar01.gif") 0 bottom repeat-x;	
+}
+.use-system-txt-wrap li.last-line {
+	background-image:none;
+}
+.use-system-txt-wrap .sub-txt li {
+	background:url("/rentacar/resources/images/icons/blt06.gif") left 8px no-repeat;
+	padding-left:8px;
+	height:auto;
+}
+.use-system-txt-wrap li .title {
+	font-size:24px;
+	color:#333;
+	font-weight:bold;
+	margin-bottom:5px;
+}
+.use-system-txt-wrap li .title span {
+	color:#0db14b;
+}
+.use-system-txt-wrap li .subtitle {
+	font-size:16px;
+	color:#333;
+	font-weight:bold;
+	margin-bottom:10px;
+}
+.use-system-txt01 .bg-wrap {
+	background:url("/rentacar/resources/images/service/use01_big.gif") 48px center no-repeat;
+	padding:38px 0 38px 230px;
+}
+.use-system-txt02 .bg-wrap {
+	background:url("/rentacar/resources/images/service/use02_big.gif") 490px center no-repeat;
+	padding:38px 0 38px 48px;
+}
+.use-system-txt03 .bg-wrap {
+	background:url("/rentacar/resources/images/service/use03_big.gif") 48px center no-repeat;
+	padding:38px 0 38px 230px;
+}
+.use-system-txt04 .bg-wrap {
+	background:url("/rentacar/resources/images/service/use04_big.gif") 490px center no-repeat;
+	padding:38px 0 38px 48px;
+}
+.use-system-txt05 .bg-wrap {
+	background:url("/rentacar/resources/images/service/use05_big.gif") 48px center no-repeat;
+	padding:38px 0 38px 230px;
+}
+	/* 2016-01-05 */
+.use-system-txt03 .bg-wrap02 {
+	background:url("/rentacar/resources/images/service/use03_big02.gif") 490px 0 no-repeat;
+	padding:10px 230px 38px 48px;
+}
+.use-system-txt03 .bg-wrap02 .title {color:#f6680d;}
+.use-system-txt04 .bg-wrap {
+	background:url("/rentacar/resources/images/service/use04_big.gif") 48px center no-repeat;
+	padding:38px 0 38px 230px;
+}
+.use-system-txt05 .bg-wrap {
+	background:url("/rentacar/resources/images/service/use05_big.gif") 490px center no-repeat;
+	padding:38px 0 38px 48px;
+}
+
+.app-wrap {
+	display:inline-block;
+	margin-top:10px;
+}
+.app-wrap a{
+	margin-right:5px;
+}
+/*
+.app-wrap:after {
+	content:"";
+	display:block;
+	clear:both;
+}
+.app-wrap a {float:left;}
+*/
+/* ******************** 요금안내 ************************** */
+
+/* 요금안내 */
+.charges-wrap {
+	font-size:13px;
+}
+.charges-wrap h4{
+	padding-left:18px;
+	font-size:18px;
+	color:#0db14b;
+	font-weight:bold;
+	background: url("/rentacar/resources/images/icons/blt01.gif") left 6px no-repeat;		
+}
+.charges-wrap h4.mgtop {
+	margin-top:60px;
+}
+.tbl-green-member {
+	margin-top:20px;
+}
+.tbl-green-member th,
+.tbl-green-member td {
+	padding:15px 0;
+	padding-left:20px;
+	font-size:14px;
+	border-bottom:1px solid #dbdbdb;	
+}
+.tbl-green-member th {
+	font-weight:bold;
+	text-align:left;
+	background-color:#f3f3f3;
+}
+.tbl-green-member tr.top th,
+.tbl-green-member tr.top td {
+	border-top:2px solid #4d4c4c;
+}
+.tbl-green-member .btn_coupon_now a {
+	display:inline-block;
+	margin-left: 20px;
+}
+.tbl-green-member .btn_coupon_now  img{
+	vertical-align: middle;
+}
+
+.green-charges-txt-wrap {
+	font-size:14px;
+}
+.green-charges-txt-wrap .subtxt {
+	margin-top:5px;
+}
+.charges-boxing {
+	padding:20px;
+	border:1px solid #dbdbdb;
+}
+.green-charges-box {
+	margin-top:20px;
+}
+.green-charges-txt li {
+	padding-left:10px;
+	background: url("/rentacar/resources/images/icons/blt04.gif") left 6px no-repeat;
+	padding-bottom:15px;
+}
+.green-charges-txt li.last {
+	padding-bottom:0;
+}
+.green-charges-txt li span {
+	color:#ff5907;
+}
+.chargesImg01 {
+	margin:20px 0 10px 0;
+}
+
+.tbl-cars-type {
+	margin:20px 0 10px 0;
+}
+.tbl-cars-type th,
+.tbl-cars-type td {
+	padding:15px 0;
+	border-bottom:1px solid #dbdbdb;	
+	border-right:1px solid #dbdbdb;	
+	font-size:14px;
+}
+.tbl-cars-type tr.top th {
+	font-weight:bold;
+	border-top:2px solid #4d4c4c;
+}
+.tbl-cars-type thead th {
+	background-color:#f3f3f3;
+}
+.tbl-cars-type tbody th {
+	font-weight:normal;
+}
+.tbl-cars-type td {
+	text-align:center;
+}
+.tbl-cars-type td.cars-name {
+	padding-left:20px;
+	text-align:left;
+}
+.tbl-cars-type td.cars-charge,
+.tbl-cars-type td.cars-km {
+	text-align:right;
+	padding-right:20px;
+}
+.tbl-cars-type td.cars-km,
+.tbl-cars-type th.last-line {
+	border-right:none;
+}
+
+.insurance-guide-txt {
+	margin:10px 0 45px 0;
+}
+.insurance-guide-txt li {
+	margin-left:8px;
+	padding-bottom:5px;
+}
+.insurance-guide-txt li span {
+	margin-left:-8px;
+}
+.insurance-guide-wrap:after {
+	content:"";
+	display:block;
+	clear:both;
+}
+.insurance-guide-box {
+	width:362px;
+	padding:20px 0 30px 0;
+	border:1px solid #dbdbdb;
+	position:relative;
+	float:left;
+}
+.insurance-guide-box .insurance-img {
+	position:absolute;
+	left:70px;
+	top:-20px;
+}
+.insurance-guide-box p {
+	text-align:center;
+}
+.insurance-guide-box.pdr20 {
+	margin-right:20px;
+}
+.tbl-insurance {
+	margin-top:60px;
+}
+.tbl-insurance th,
+.tbl-insurance td {
+	padding:15px 0;
+	border-bottom:1px solid #dbdbdb;	
+	border-right:1px solid #dbdbdb;	
+}
+.tbl-insurance th {
+	font-weight:bold;
+	background-color:#f3f3f3;
+	border-top:2px solid #4d4c4c;
+}
+.tbl-insurance th.last-line,
+.tbl-insurance td.last-line {
+	border-right:none;
+}
+.tbl-insurance td {
+	text-align:center;
+}
+.tbl-insurance ul.list {
+	text-align:left;
+	padding-left:20px;
+}
+.charges-tip-wrap {
+	margin-top:30px;
+}
+.charges-tip-wrap dl {
+	margin-bottom:30px;
+}
+.charges-tip-wrap dt,
+.charges-tip-wrap dd {
+	padding-left:160px;
+}
+.charges-tip-wrap dt {
+	font-size:16px;
+	font-weight:bold;
+	color:#333;
+	padding-bottom:10px;
+}
+.charges-tip-wrap dd {
+	margin-left:8px;
+	font-size:14px;
+	padding-bottom:5px;
+	font-weight:bold;
+}
+.charges-tip-wrap dd span {
+	margin-left:-8px;
+}
+.charges-tip01 {	
+	height:112px;
+	background:url("/rentacar/resources/images/icons/charge_tip01.gif") 20px 0 no-repeat;
+}
+.charges-tip01 dt {
+	padding-top:2px;
+}
+.charges-tip02 {	
+	height:112px;
+	background:url("/rentacar/resources/images/icons/charge_tip02.gif") 20px 0 no-repeat;
+}
+.charges-tip02 dt {
+	padding-top:25px;
+}
+.charges-tip03 { 	
+	height:112px;
+	background:url("/rentacar/resources/images/icons/charge_tip03.gif") 20px 0 no-repeat;
+}
+.charges-tip03 dt {
+	padding-top:18px;
+}
+.charges-tip04 {	
+	height:140px;
+	background:url("/rentacar/resources/images/icons/charge_tip04.gif") 20px 0 no-repeat;
+}
+.charges-tip04 dt {
+	padding-top:20px;
+}
+.charge-txtbox .first-txt {
+	margin-bottom:15px;
+}
+.cars-charge-box {
+	position: relative;
+}
+.cars-charge-box .btn_charge_now {
+	position: absolute;
+	right:0;
+	top:0;
+}
+
+
+/* 특가상품안내 */
+.special-price-wrap  {
+	font-size:13px;
+}
+.special-price {
+	position:relative;
+	margin-bottom:60px;
+}
+.special-price .eventGo {
+	top:auto; 
+	left:auto; 
+	right:15px; 
+	bottom:-45px;
+}
+/*
+.tbl-special-price {
+	margin-top:40px;
+}
+.tbl-special-price th,
+.tbl-special-price td {
+	padding:15px 0;
+	font-size:14px;
+	text-align:center;
+	border-bottom:1px solid #dbdbdb;	
+	border-right:1px solid #dbdbdb;	
+}
+.tbl-special-price th {
+	font-weight:bold;
+	background-color:#f3f3f3;
+	border-top:2px solid #4d4c4c;
+}
+.tbl-special-price th.last-line,
+.tbl-special-price td.last-line {
+	border-right:none;
+}
+*/
+.chargesImg02 {
+	display:inline-block;
+	margin-top:40px;
+}
+.special-txt {
+	margin-top:15px;
+}
+
+.special-txt li {
+	background:url("/rentacar/resources/images/icons/blt06.gif") left 14px no-repeat;
+	padding:5px 0 0 8px;
+}
+.special-txt li.bul {
+	font-size:14px;
+	color:#333;
+	font-weight:bold;
+	padding-left:10px;
+	background:url("/rentacar/resources/images/icons/blt04.gif") left 50% no-repeat;
+}
+.special-txt li.point-color {
+	background:url("/rentacar/resources/images/icons/blt06_color.gif") left 14px no-repeat;
+	padding-left:8px;
+	color:#fe5a08;
+	font-weight:bold;
+}
+
+/* 캐쉬구매 및 사용안내 */
+.btn-cash {
+	display:inline-block;
+	margin-top:10px;
+}
+.cash-wrap {
+	font-size:13px;
+}
+.greencar-cash-txt {
+	margin:5px 0 10px 0;
+}
+.greencar-cash-txt li {
+	padding-bottom:5px;
+}
+.greencar-cash-txtbox {
+	height:243px;
+	background:url("/rentacar/resources/images/icons/bg_boxing.gif") 0 0 no-repeat;
+	margin:30px 0 60px 0;
+}
+.greencar-cash-txtbox ul li {
+	float:left;
+	width:250px;
+	padding-top:140px;
+	text-align:center;
+}
+.greencar-cash-txtbox li p.strong-txt {
+	font-size:18px;
+	font-weight:bold;
+	color:#333;
+	margin-bottom:10px;
+}
+.greencar-cash-txtbox_bg01 {
+	height:103px;
+	background:url("/rentacar/resources/images/icons/bg_cash01.gif") 80px 45px no-repeat;	
+}
+.greencar-cash-txtbox_bg02 {
+	height:103px;
+	background:url("/rentacar/resources/images/icons/bg_cash02.gif") 80px 30px no-repeat;	
+}
+.greencar-cash-txtbox_bg03 {
+	height:103px;
+	background:url("/rentacar/resources/images/icons/bg_cash03.gif") 80px 50px no-repeat;	
+}
+
+.tbl-chsh-benefit {
+	margin-top:15px;
+}
+.tbl-chsh-benefit th,
+.tbl-chsh-benefit td {
+	padding:15px 0;
+	font-size:14px;
+	color:#333;
+	font-weight:bold;
+	border-bottom:1px solid #dbdbdb;	
+}
+.tbl-chsh-benefit td img {
+	vertical-align:middle;
+}
+.tbl-chsh-benefit th.right-line,
+.tbl-chsh-benefit td.right-line  {
+	border-right:1px solid #dbdbdb;	
+	text-align:center;
+}
+.tbl-chsh-benefit th {
+	background-color:#f3f3f3;
+	border-top:2px solid #4d4c4c;
+}
+.tbl-chsh-benefit td.special-plus {
+	text-align:center;
+}
+.tbl-chsh-benefit td span.point-color {
+	color:#fe5a08;
+	padding-left:5px;
+}
+
+
+/* 회사소개 */
+.company-txt-wrap li {
+	font-size:14px;
+	height:210px;
+	background:url("/rentacar/resources/images/icons/dot_list.png") 0 bottom repeat-x;
+}
+.company-txt-wrap li.last-line {
+	background-image:none;
+}
+.company-txt-wrap li span {
+	font-weight:bold;
+	font-size:24px;
+	color:#333;
+}
+.company-txt-wrap li .company-txt01 {
+	padding:60px 390px 0  0;
+}
+.company-txt-wrap li .company-txt02 {
+	padding:70px 0  0 390px;
+}
+.company-txt-wrap li .company-txt03 {
+	padding:45px 390px 0  0;
+}
+.company-txt-wrap li .company-txt04 {
+	padding:55px 40px  0 380px;
+}
+.company-txt-wrap li .company-txt01-img {
+	width:750px;
+	height:100%;
+	background:url("/rentacar/resources/images/service/company01.jpg") 390px 30px no-repeat;
+}
+.company-txt-wrap li .company-txt02-img {
+	width:750px;
+	height:100%;
+	background:url("/rentacar/resources/images/service/company02.jpg") 40px 35px no-repeat;
+}
+.company-txt-wrap li .company-txt03-img {
+	width:750px;
+	height:100%;
+	background:url("/rentacar/resources/images/service/company03.jpg") 450px 30px no-repeat;
+}
+.company-txt-wrap li .company-txt04-img {
+	width:750px;
+	height:100%;
+	background:url("/rentacar/resources/images/service/company04.jpg") 65px 60px no-repeat;
+}
+
+/* 제휴신청 */
+.btn-partnership {
+	margin-top:10px;
+}
+.partnership-model {
+	border:1px solid #dbdbdb;
+	padding:20px 0;
+	margin-top:20px;
+}
+.partnership-model:after {
+	content:"";
+	display:block;
+	clear:both;
+}
+.partnership-model dl {
+	float:left;
+	text-align:center;
+	height:170px;
+	margin-right:70px;
+}
+.partnership-model dl.last-mr {
+	margin-right:0;
+}
+
+.partnership-model dl dt {
+	font-size:14px;
+	color:#333;
+	font-weight:bold;
+}
+.partnership-model dl dd {
+	font-size:13px;
+}
+dl.partnership-model01{
+	padding-left:40px;
+}
+dl.partnership-model01 dt {
+	padding-top:110px;
+	width:95px;
+	background:url("/rentacar/resources/images/service/partnership01.gif") 50% 0 no-repeat;
+}
+dl.partnership-model02 dt {
+	padding-top:110px;
+	width:130px;
+	background:url("/rentacar/resources/images/service/partnership02.gif") 50% 0 no-repeat;
+}
+dl.partnership-model03 dt {
+	padding-top:110px;
+	width:110px;
+	background:url("/rentacar/resources/images/service/partnership03.gif") 50% 0 no-repeat;
+}
+dl.partnership-model04 dt {
+	padding-top:110px;
+	width:120px;
+	background:url("/rentacar/resources/images/service/partnership04.gif") 50% 0 no-repeat;
+}
+
+.partnership-step {
+	padding-left:40px;
+	margin-top:20px;
+}
+.partnership-step:after {
+	content:"";
+	display:block;
+	clear:both;
+}
+.partnership-step li {
+	float:left;
+	width:160px;
+	padding-right:55px;
+	margin-right:45px;
+	background:url("/rentacar/resources/images/service/icon_next.gif") right 30px no-repeat;
+}
+.partnership-step li.last-step {
+	padding:0;
+	margin:0;
+	background-image:none;
+}
+.partnership-step dl {
+	text-align:center;
+	height:170px;
+}
+.partnership-step dl dt {
+	font-size:14px;
+	color:#333;
+	font-weight:bold;
+}
+.partnership-step dl dd {
+	font-size:13px;
+}
+li.partnership-step01 dt {
+	padding-top:100px;
+	width:160px;
+	background:url("/rentacar/resources/images/service/step01.gif") 50% 0 no-repeat;
+}
+li.partnership-step02 dt {
+	padding-top:100px;
+	width:160px;
+	background:url("/rentacar/resources/images/service/step02.gif") 50% 0 no-repeat;
+}
+li.partnership-step03 dt {
+	padding-top:100px;
+	width:160px;
+	background:url("/rentacar/resources/images/service/step03.gif") 50% 0 no-repeat;
+}
+
+.partner-list {
+	margin-top:20px;
+}
+.partner-list:after {
+	content:"";
+	display:block;
+	clear:both;
+}
+.partner-list li {
+	float:left;
+	padding-right:3px;
+}
+.partner-list li.last-pd {
+	padding-right:0;
+}
+.partner-list li span {
+	display:block;
+}
+.partner-list li span.txt {
+	text-align:center;
+	font-weight:bold;
+	font-size:14px;
+	color:#333;
+	margin-top:5px;
+}
+
+
+/* 사이트맵 */
+.site-map-wrap:after{
+	content:"";
+	display:block;
+	clear:both;
+}
+.site-map {
+	float:left;
+	width:148px;
+	margin-right:39px;
+}
+.site-map.none-gap {
+	margin-right:0;
+}
+.site-map-top {
+	display:inline-block;
+}
+.site-map-bottom {
+	display:inline-block;
+	margin-top:50px;
+}
+.site-map h4 {
+	font-size:16px;
+	color:#0db14b;
+	font-weight:bold;
+	border-bottom:1px solid #0db14b;
+	padding-bottom:15px;
+	margin-bottom:20px;
+}
+.site-map-menu li {
+	font-size:14px;
+	color:#333;
+	font-weight:bold;
+	background:url("/rentacar/resources/images/icons/blt04.gif") 0 8px no-repeat;
+	padding:0 0 10px 8px;
+}
+.site-map-menu li a {
+	display:block;
+	color:#333;
+}
+ul.site-map-submenu {
+	padding-top:10px;
+}
+ul.site-map-submenu li {
+	font-size:13px;
+	color:#666;
+	font-weight:normal;	
+	background:url("/rentacar/resources/images/icons/blt06.gif") 0 9px no-repeat;
+	padding-bottom:5px;
+}
+ul.site-map-submenu li a {
+	color:#666;
+}
+ul.site-map-submenu li.none-gap {
+	padding-bottom:0;
+}
+
+
+
+/* 이용가이드 팝업 */
+.pop-user-guide {overflow:hidden;}
+.userguide-slidebox {width:880px;}
+.userguide-slide-index {
+	position:relative;
+	background:url("/rentacar/resources/images/service/bg_guide_slide_index.jpg") no-repeat 0 0;
+	width:860px;
+	height:660px;
+}
+.userguide-slide-index .tit {position:absolute; top:108px; left:70px;}
+.userguide-slide-index p {font-size:14px; color:#fff; font-weight:bold;}
+.userguide-slide-index .txt01 {position:absolute; top:295px; left:70px;}
+.userguide-slide-index .txt02 {position:absolute; top:385px; left:70px;}
+.userguide-slide-index .txt02 em {display:block; font-size:20px; font-weight:bold;}
+.userguide-slide-index .appdown {position:absolute; top:475px; left:70px;}
+.userguide-slide-index .appdown a {margin-right:10px;}
+.userguide-slide-index .goto_btn {
+	position:absolute; 
+	bottom:20px; 
+	left:50%; 
+	margin-left:-30px;
+}
+
+.userguide-menu {width:860px; height:60px;}
+.userguide-menu:after {content:""; display:block; clear:both;}
+.userguide-menu a {
+	float:left;
+	width:160px;
+	height:59px;
+	text-align:center;
+	border-bottom:1px solid #e0e0e0;
+	background-color:#fff;
+}
+.userguide-menu .current {
+	border-bottom:none;
+	height:60px;
+	background:url(/rentacar/resources/images/service/bg_guidemenu_bar_on.gif) repeat-x 0 bottom #fff;
+}
+.userguide-menu .current span {color:#333;}
+.userguide-menu .home {
+	width:59px;
+	height:59px;
+	border-left:1px solid #e0e0e0;
+	background:url(/rentacar/resources/images/service/bg_guidemenu_home.gif) no-repeat center #fff;
+}
+.userguide-menu .home span {
+	font-size:0;
+	width:0;
+	height:0;
+	overflow:hidden;
+	visibility:hidden;
+}
+.userguide-menu span {
+	display:block;
+	height:59px;
+	line-height:59px;
+	color:#888;
+	font-size:20px;
+	font-weight:bold;
+	background:url(/rentacar/resources/images/service/bg_guidemenu_bar.gif) no-repeat left;
+}
+.userguide-menu li:first-child span {background-image:none;}
+
+
+/* JOIN */
+.slide .join {padding:120px 0 0 0; height:540px;}
+.guide-slide-tit {text-align:center;}
+.guide-slide-txt {
+	text-align:center; 
+	margin-top:20px;
+	font-size:13px;
+}
+.guide-slide-txt strong {color:#333;}
+.guide-slide-button {text-align:center; margin-top:10px;}
+
+.guide-slide-join-info {width:690px; margin:45px auto 0 auto;}
+.guide-slide-join-info:after {content:""; display:block; clear:both;}
+.guide-slide-join-info li {
+	float:left; 
+	width:230px;
+	height:205px;
+	padding:10px 0;
+	background:url(/rentacar/resources/images/service/bg_dot_line.gif) repeat-y 0 0;
+}
+.guide-slide-join-info li:first-child {background-image:none;}
+.guide-slide-join-info li span {
+	display:block; 
+	font-size:13px;
+	color:#333;
+	line-height:18px;
+	font-weight:bold; 
+	padding:0 0 5px 25px;
+	width:90px;
+	margin:0 auto;
+}
+.guide-slide-join-info li .box01 {background:url(/rentacar/resources/images/service/bg_guide_join_01.gif) no-repeat center 0; padding-top:160px;}
+.guide-slide-join-info li .box02 {background:url(/rentacar/resources/images/service/bg_guide_join_02.gif) no-repeat center 0; padding-top:160px;}
+.guide-slide-join-info li .box03 {background:url(/rentacar/resources/images/service/bg_guide_join_03.gif) no-repeat center 0; padding-top:160px;}
+
+.guide-slide-join-info li .box01 span {background:url(/rentacar/resources/images/service/bg_guide_join_04.gif) no-repeat 0 0;}
+.guide-slide-join-info li .box02 span {background:url(/rentacar/resources/images/service/bg_guide_join_05.gif) no-repeat 0 0;}
+.guide-slide-join-info li .box03 span {background:url(/rentacar/resources/images/service/bg_guide_join_06.gif) no-repeat 0 0;}
+
+.join-info-list {
+	background-color:#fbfbfb; 
+	padding:30px 50px; 
+	margin-top:16px;
+}
+.join-info-list li {
+	margin-top:3px; 
+	background:url(/rentacar/resources/images/icons/bullet_01.gif) no-repeat 0 8px;
+	padding-left:8px;
+	font-size:13px;
+}
+.join-info-list li:first-child {margin-top:0;}
+.join-info-list li strong {color:#333;}
+.join-info-list li em {color:#008c44;}
+
+
+/* reservation */
+.slide .reservation {
+	background-color:#4eb7a8; 
+	height:540px; 
+	padding-top:120px;
+}
+.slide .reservation .guide-slide-txt {color:#dcf1ee; font-size:13px; font-weight:bold;}
+.gudie-reserv-list {width:665px; margin:80px auto 0 auto;}
+.gudie-reserv-list:after {content:""; display:block; clear:both;}
+
+.gudie-reserv-list div {float:left; padding-top:280px; font-size:14px;}
+.gudie-reserv-list span {display:block; color:#174940; font-weight:bold;}
+.gudie-reserv-list .bg01 {background:url(/rentacar/resources/images/service/bg_reserv_01.gif) no-repeat 0 0; width:325px;}
+.gudie-reserv-list .bg02 {background:url(/rentacar/resources/images/service/bg_reserv_02.gif) no-repeat 0 0; width:187px;}
+.gudie-reserv-list .bg03 {background:url(/rentacar/resources/images/service/bg_reserv_03.gif) no-repeat 0 0; width:153px;}
+
+.gudie-reserv-list .bg01 span {padding-left:100px;}
+.gudie-reserv-list .bg02 span {padding-left:38px;}
+.gudie-reserv-list .bg03 span {padding-left:40px;}
+
+
+.slide .reservation02 {
+	position:relative;
+	background-color:#46ab9d;
+	height:660px; 
+}
+.slide .reservation02 .tit {
+	position:absolute;
+	top:170px;
+	left:433px;
+}
+.slide .reservation02 .img {
+	position:absolute;
+	top:105px;
+	left:115px;
+}
+.slide .reservation02 p {
+	position:absolute;
+	top:235px;
+	left:433px;
+	color:#e2f7f4;
+	font-weight:bold;
+	font-size:20px;
+	line-height:17px;
+}
+.slide .reservation02 p strong {font-size:36px;}
+.slide .reservation02 .ordernum {
+	position:absolute;
+	top:370px;
+	left:433px;
+}
+.ordernum div {
+	padding:0 0 5px 35px; 
+	font-size:14px; 
+	font-weight:bold; 
+	color:#15463d; 
+	line-height:23px;
+	margin-top:3px;
+}
+.ordernum:first-child {margin-top:0;}
+.ordernum .num1 {background:url(/rentacar/resources/images/service/resrv_num_01.gif) no-repeat 0 0;}
+.ordernum .num2 {background:url(/rentacar/resources/images/service/resrv_num_02.gif) no-repeat 0 0;}
+.ordernum .num3 {background:url(/rentacar/resources/images/service/resrv_num_03.gif) no-repeat 0 0;}
+.ordernum .num4 {background:url(/rentacar/resources/images/service/resrv_num_04.gif) no-repeat 0 0;}
+
+
+.slide .reservation03 {
+	position:relative;
+	background-color:#4eb7a8;
+	height:660px; 
+}
+.slide .reservation03 p {
+	position:absolute;
+	top:191px;
+	left:100px;
+	color:#fff;
+	font-weight:bold;
+	font-size:20px;
+	line-height:17px;
+}
+.slide .reservation03 p strong {font-size:36px;}
+.slide .reservation03 .tit {
+	position:absolute;
+	top:130px;
+	left:100px;
+}
+.slide .reservation03 .img1 {
+	position:absolute;
+	top:321px;
+	left:60px;
+}
+.slide .reservation03 .img1 span {
+	display:block; 
+	margin:15px 0 0 0;
+	padding-left:25px;
+	font-size:13px; 
+	color:#286d5f; 
+	font-weight:bold;
+	text-align:center;
+}
+.slide .reservation03 .img2 {
+	position:absolute;
+	top:181px;
+	left:445px;
+}
+
+
+/* Driving */
+.driving {
+	background:url(/rentacar/resources/images/service/bg_guide_driving.jpg) no-repeat 0 0;
+	height:660px;
+}
+.driving-tabmenu {
+	position:relative; 
+	width:740px; 
+	height:360px; 
+	margin:50px auto 0 auto;
+}
+.driving-tabmenu .tab {
+	position:absolute;
+	top:0;
+	left:0;
+	width:150px;
+}
+.driving-tabmenu .tab li {
+	position:relative; 
+	z-index:55;
+	width:150px;
+}
+.driving-tabmenu .tab li a {
+	display:block;
+	width:150px;
+	height:90px;
+	background-color:#1d1d1d;
+	color:#d2d2d2;
+	font-size:16px;
+	text-align:center;
+	font-weight:bold;
+	line-height:90px;
+}
+.driving-tabmenu .tab li a.selected {
+	background-color:#4eb7a8; 
+	color:#fff; 
+	text-decoration:underline;
+}
+.driving-tabmenu .tab li a.selected:after {
+	content:""; 
+	display:block; 
+	background:url(/rentacar/resources/images/service/bg_guide_tab_on.png) no-repeat 0 0;
+	width:12px;
+	height:22px;
+	position:absolute;
+	top:50%;
+	right:-12px;
+	z-index:55;
+	margin-top:-11px;
+}
+.driving-tabmenu .cont {
+	position:absolute;
+	top:0;
+	right:0;
+	z-index:2;
+	background:url(/rentacar/resources/images/service/bg_alpha.png) no-repeat 0 0;
+	width:590px;
+	height:360px;
+}
+.driving-tabmenu .inbox {position:relative; padding:15px 25px;}
+.driving-tabmenu .inbox p {
+	color:#bddd22; 
+	font-size:13px; 
+	text-align:left;
+	padding:0 30px;
+}
+.driving-tabmenu .inbox p span {color:#dadccf;}
+.driving .tit {padding-top:120px; text-align:center;}
+.driving p {
+	text-align:center; 
+	font-size:13px; 
+	color:#fff; 
+	margin-top:10px;
+}
+
+.dtab_infobox {
+	width:220px; 
+	position:absolute; 
+	top:95px; 
+	left:40px; 
+	text-align:center;
+}
+.dtab_infobox.right {left:auto; right:30px;}
+.dtab_infobox dl {text-align:center; margin-top:10px;}
+.dtab_infobox dl dt {font-size:14px; color:#d5d6d1; font-weight:bold;}
+.dtab_infobox dl dd {color:#a7a9a0;}
+
+.dtab_infobox02 {
+	position:absolute; 
+	top:110px; 
+	right:60px; 
+	width:250px;
+}
+.dtab_infobox02 strong {
+	display:block;
+	margin-bottom:20px;
+	line-height:24px;
+	font-size:18px; 
+	color:#fff;
+}
+.dtab_infobox02 div {
+	background:url(/rentacar/resources/images/service/bg_dtab_check.png) no-repeat 0 3px;
+	padding-left:23px;
+	font-size:14px; 
+	color:#fff;
+	margin-top:10px;
+}
+
+.dtab_txt {
+	position:absolute;
+	top:160px;
+	left:290px;
+	font-size:30px;
+	font-weight:bold;
+	color:#a8ad9b;
+}
+
+
+/* return */
+.slide .return {
+	background:url(/rentacar/resources/images/service/bg_dtab_return.gif) no-repeat 0 0;
+	height:660px;
+}
+.slide .return .guide-slide-tit {padding-top:120px;}
+.slide .return .guide-slide-txt {color:#fff;}
+.return-imgbox {width:761px; margin:65px auto 0 auto;}
+.return-imgbox:after {content:""; display:block; clear:both;}
+.return-imgbox p {
+	color:#fff; 
+	font-size:14px; 
+	font-weight:bold;
+	margin-top:15px;
+}
+.return-box1 {float:left; width:270px; text-align:center;}
+.return-box2 {float:left; width:491px; text-align:center;}
+
+.return-txt {
+	width:751px;
+	margin:50px auto 0 auto;
+	background-color:#f1660d;
+}
+.return-txt p {padding:30px 0; text-align:center;}
+.return-txt span {
+	display:inline-block;
+	background:url(/rentacar/resources/images/icons/ico_check03.png) no-repeat 0 0;
+	color:#fbd1b7;
+	font-size:13px;
+	padding-left:26px;
+	font-weight:bold;
+}
+
+/* payment */
+.slide .payment {
+	background:url(/rentacar/resources/images/service/bg_payment.gif) no-repeat 0 0;
+	height:660px;
+}
+.slide .payment .guide-slide-tit {padding-top:110px;}
+.slide .payment .guide-slide-txt {color:#666; font-weight:bold;}
+
+.slide-payment-tab {
+	width:729px; 
+	margin:50px auto 0 auto; 
+}
+.slide-payment-tab:after {content:""; display:block; clear:both;}
+.slide-payment-tab li {
+	float:left;
+	width:130px;
+	height:220px;
+	margin:0 10px;
+}
+.slide-payment-tab li .bg01 {background:url(/rentacar/resources/images/service/bg_payment_01.gif) no-repeat center 0; padding-top:70px;}
+.slide-payment-tab li .bg02 {background:url(/rentacar/resources/images/service/bg_payment_02.gif) no-repeat center 0; padding-top:70px;}
+.slide-payment-tab li .bg03 {background:url(/rentacar/resources/images/service/bg_payment_03.gif) no-repeat center 0; padding-top:70px;}
+.slide-payment-tab li .bg04 {background:url(/rentacar/resources/images/service/bg_payment_04.gif) no-repeat center 0;padding-top:70px;}
+
+.slide-payment-tab li.next {width:23px; position:relative;}
+.slide-payment-tab li.next div {
+	position:absolute;
+	top:15%;
+	background:url(/rentacar/resources/images/service/bg_payment_arrow.gif) no-repeat center;
+	width:23px;
+	height:21px;
+	font-size:0;
+}
+
+.slide-payment-tab li strong {
+	display:block;
+	width:120px;
+	height:27px;
+	line-height:27px;
+	background-color:#7d7e7e;
+	color:#fff;
+	text-align:center;
+	font-size:16px;
+}
+.slide-payment-tab li span {
+	display:block; 
+	text-align:center;
+	font-size:13px;
+	margin-top:10px;
+	color:#848484;
+	font-weight:bold;
+}
+.slide-payment-tab li p {
+	text-align:center; 
+	margin-top:15px; 
+	letter-spacing:0;
+	line-height:16px;
+	font-weight:bold;
+	color:#a2a2a2;
+}
+
+
+.tab-fixed {
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:9999;
+}
+
+.slidebox {width:860px;}
+.slidebox .slide {width:860px;}
+
+.reserv-slidewrap {position:relative; background-color:#000; height:660px;}
+.mask {height:660px; overflow:hidden;}
+ul.images {position:relative; top:0px;left:0px; }
+ul.images li {position:absolute; top:0px; left:0px; color:#fff; width:100%;}
+
+ul.triggers {position:absolute; bottom:25px; left:50%; margin-left:-24px;}
+ul.triggers li {
+	float:left;
+	margin:0 5px;
+	cursor:pointer;
+	background-color:#fff;
+	font-size:0;
+	overflow:hidden;
+	width:16px;
+	height:16px;
+	border-radius:50%;
+}
+ul.triggers li.active {background-color:#184e40;}
+
+
+
+/* 제휴신청 위치 변경 (2015-03-02) */
+.partnership_wrap {text-align:right; margin-top:-30px;}
+
+/* 추가 약관 (2015-04-03) */
+.terms_frame_wrap {padding:15px;}
+.terms_frame_tit {font-size:15px; color:#333; margin-top:25px;}
+.terms_frame_wrap p {margin-top:10px;}
+.terms_frame_wrap .empha {color:#2323ff;}
+.txt_normal {font-size:12px; color:#666; margin-left:15px; font-weight:normal; vertical-align:1px;}
+.tit_first_top {margin-top:0;}
+.terms_order_list li {text-indent:-15px; padding-left:0; margin:5px 0 0 0;}
+.terms_order_list li:first-child {margin-top:0;}
+
+.terms_page_tit {font-size:20px; text-align:center; color:#000;}
+
+
+/* 이용안내 (2015-07-28) */
+.txt-img-userguide {margin:50px 0;}
+
+
+/* 제휴안내 - 개인정보수집이용 (2015-08-25) */
+.boxline-terms {
+	margin-top:15px;
+	height:210px; 
+	overflow:auto; 
+	border:1px solid #ddd;
+}
+.boxline-agree {margin-top:35px; text-align:center;}
+.boxline-agree label {
+	font-size:14px; 
+	margin-left:3px; 
+	color:#333;
+	cursor:pointer;
+}
+
+
+/* 고유식별정보 수집 동의서 (2015-10-12) */
+.certify_temrs_unique {
+	margin-top:15px; 
+	border:1px solid #dbdbdb;
+}
+.certify_temrs_check {
+	text-align:center; 
+	margin-top:40px;
+}
+.certify_temrs_check label {
+	font-size:14px; 
+	vertical-align:middle; 
+	margin-left:3px;
+	cursor:pointer;
+}
+
+/* 이용안내 - 텍스트 변경 (2015-11-03) */
+.tbl-green-member .coupon-box li {margin-top:5px;}
+.tbl-green-member .coupon-box li:first-child {margin-top:0;}
+.tbl-green-member .btn_coupon_now {
+	display:inline-block;
+	padding-left:14px;
+}
+.tbl-green-member .btn_coupon_now a {
+	display:block;
+	margin:1px 0;
+}
+.tbl-green-member .btn_coupon_now img {
+	vertical-align:middle;
+}
+.tbl-green-member .txt_coupon {
+	color:#ff5907;
+}
+
+/* 가입혜택 (2015-11-23) */
+.wrap-coupon {overflow:hidden;}
+.wrap-coupon .coupon {float:left; padding-top:32px;}
+.wrap-coupon .coupon:first-child {padding-top:12px;}
+.wrap-coupon .coupon .coupon-list {float:left; width:359px; padding:0 0 0 16px;}
+.wrap-coupon .coupon .coupon-list:first-child {padding:0 16px 0 0;}
+
+.wrap-coupon .coupon .board {table-layout:fixed; margin-top:15px; border-top:1px solid #e1e1e1;}
+.wrap-coupon .coupon .board th {padding:10px 0 10px 10px; border-bottom:1px solid #e1e1e1; border-right:1px solid #e1e1e1; font-size:13px; line-height:1.2; color:#666; background:#f3f3f3; text-align:left; font-weight:normal;}
+.wrap-coupon .coupon .board th.tit {padding:12px 0; border-right:none; font-size:14px; text-align:center; font-weight:bold; color:#ff5907; background:#fff;}
+.wrap-coupon .coupon .board td {padding:10px 10px 10px 12px; border-bottom:1px solid #e1e1e1; font-size:13px; text-align:center; color:#666; background:#fff; text-align:left; box-sizing:border-box;}
+.wrap-coupon .coupon .board td .col-or {color:#ff5907;}
+
+.coupon .typ_list01 li {padding-left:8px; background:url(/rentacar/resources/images/icons/blt12.gif) no-repeat 0 8px;}
+.coupon .typ_list02 li {margin-left:7px; text-indent:-7px;}
+.mgt5 {margin-top:5px;}
+
+/* CI소개 (2015-12-03) */
+.wrap_ci_group .ci_group {padding-top:60px;}
+.wrap_ci_group .ci_group:first-child {padding-top:0;}
+.wrap_ci_group .ci_group .stit01 {margin-top:0;}
+.wrap_ci_group .ci_group .ci_inner {overflow:hidden; padding-top:30px;}
+.wrap_ci_group .ci_group .ci_inner .tit {padding-bottom:10px; font-size:16px; line-height:1.2; color:#666; font-weight:bold;}
+.wrap_ci_group .ci_group .ci_inner dl.pdt10 {padding-top:10px;}
+.wrap_ci_group .ci_group .ci_inner dl dt {padding-bottom:2px; font-size:16px; font-weight:bold;}
+.wrap_ci_group .ci_group .ci_inner dl dd {font-size:13px;}
+.wrap_ci_group .ci_group .ci_inner dl dd span {display:inline-block; padding:0 8px;}
+.wrap_ci_group .ci_group .ci_inner .fl_cont {display:table-cell; width:360px; vertical-align:middle;}
+.wrap_ci_group .ci_group .ci_inner .fl_cont.right {width:390px;}
+.wrap_ci_group .ci_group .ci_inner dl.fl_cont dt,
+.wrap_ci_group .ci_group .ci_inner dl.fl_cont dd{padding-left:25px; border-left:1px solid #dbdbdb; letter-spacing:-1px;}
+.wrap_ci_group .ci_group .ci_inner .list li {padding-top:20px;}
+.wrap_ci_group .ci_group .ci_inner .list li:first-child {padding-top:0;}
+.wrap_ci_group .ci_group .ci_inner .fl_cont02 {display:table-cell; width:145px; padding-top:30px; vertical-align:middle;}
+.wrap_ci_group .ci_group .ci_inner .fl_cont02.right {width:605px; padding-top:0;}
+.wrap_ci_group .ci_group .ci_inner .list02 {overflow:hidden; padding-top:30px;}
+.wrap_ci_group .ci_group .ci_inner .list02:first-child {padding-top:0;}
+.wrap_ci_group .ci_group .ci_inner .list02 .fl_cont02 .tit {padding-left:15px; background:url(/rentacar/resources/images/icons/blt05.gif) no-repeat 1px 8px;}
+.wrap_ci_group .ci_group .ci_inner .list02 .fl_cont02 .col_p {display:inline-block; width:100px; height:100px;}
+.wrap_ci_group .ci_group .ci_inner .list02 .fl_cont02 .col_p.green {background:#0db14b;}
+.wrap_ci_group .ci_group .ci_inner .list02 .fl_cont02 .col_p.l_green {background:#a6ce39;}
+.wrap_ci_group .ci_group .ci_inner .list02 .fl_cont02 .col_p.d_green {background:#008c44;}
+.wrap_ci_group .ci_group .ci_inner .list02 .fl_cont02 .col_p.gray {background:#58595b;}
+.wrap_ci_group .ci_group .ci_inner .list02 .fl_cont02 table {border-top:2px solid #4d4c4c;}
+.wrap_ci_group .ci_group .ci_inner .list02 .fl_cont02 table th {padding:10px 0 9px 25px; border-right:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb; background:#f3f3f3; text-align:left; font-size:13px; font-weight:bold; line-height:1.3; color:#666;}
+.wrap_ci_group .ci_group .ci_inner .list02 .fl_cont02 table td {padding:10px 0 9px 40px; border-bottom:1px solid #dbdbdb; text-align:left; font-size:13px; line-height:1.3; color:#666;}
+.wrap_ci_group .ci_group .ci_inner .list02 .fl_cont02 table td.color_g {color:#0db14b;}
+
+
+/* 서비스 이용안내 (2016-03-11) */
+.service-use-guide-wrap {margin-top:37px; padding:0 0px;}
+.use-guide-tit-box {
+	height:80px;
+	background:url("/rentacar/resources/images/service/bg_use_guide_top.jpg") no-repeat right bottom;
+	padding-right:346px;
+}
+.use-guide-slogan {display:inline-block; margin-top:37px;}
+.use-guide-tit {
+	font-size:48px;
+	letter-spacing:-1px;
+	color:#313934;
+	margin-left:-10px;
+}
+.use-guide-txt {margin-top:32px;}
+.use-guide-txt li {
+	height:22px;
+	margin-top:5px;
+	font-size:14px;
+	color:#313934;
+}
+.use-guide-txt li span {display:inline-block; width:87px; vertical-align:middle;}
+.use-guide-downlink {
+	margin-top:46px;
+	padding-top:20px;
+	border-top:1px solid #e4e4e4;	
+}
+.use-guide-downlink li {float:left;}
+.use-guide-downlink:after {content:""; display:block; clear:both;}
+
+.use-guide-step-tit {color:#0db14b; font-size:34px; margin-top:50px;}
+.use-guide-step-assist {
+	font-size:18px;
+	color:#313934;
+	font-weight:bold;
+	margin-top:5px;
+	letter-spacing:-1px;
+}
+.use-guide-step-txt {font-size:13px; color:#313934; margin-top:15px;}
+
+.use-guide-step li {
+	height:300px;
+	border-top:1px solid #d2e7dc;
+	background-repeat:no-repeat;
+	background-position:right center;
+}
+.use-guide-step-txt li {
+	height:auto;
+	border-top:none;
+	margin-top:3px;
+	/* background:url("/rentacar/resources/images/icons/blt06.gif") left 9px no-repeat; */
+}
+.use-guide-step li.join {background-image:url("/rentacar/resources/images/service/bg_use_step_join.jpg");}
+.use-guide-step li.reserv {background-image:url("/rentacar/resources/images/service/bg_use_step_reserv.jpg");}
+.use-guide-step li.use {
+	height:364px;
+	background-image:url("/rentacar/resources/images/service/bg_use_step_use.jpg");
+}
+.use-guide-step li.return {
+	float:left;
+	width:50%;
+	height:560px;
+	background-image:url("/rentacar/resources/images/service/bg_use_step_return.jpg");
+	background-position:bottom center;
+}
+.use-guide-step li.payment {
+	float:left;
+	width:50%;
+	height:560px;
+	background-image:url("/rentacar/resources/images/service/bg_use_step_payment.jpg");
+	background-position:bottom center;
+}
+
+.use-guide-step li.join .use-guide-step-tit,
+.use-guide-step li.join .use-guide-step-assist,
+.use-guide-step li.join .use-guide-step-txt {
+	padding-left:30px;
+}
+
+.use-guide-step li.reserv .use-guide-step-tit,
+.use-guide-step li.reserv .use-guide-step-assist,
+.use-guide-step li.reserv .use-guide-step-txt {
+	padding-left:30px;
+}
+
+.use-guide-step li.payment .use-guide-step-tit,
+.use-guide-step li.payment .use-guide-step-assist,
+.use-guide-step li.payment .use-guide-step-txt {
+	padding-left:30px;
+}
+
+.use-guide-step li.return .use-guide-step-tit,
+.use-guide-step li.return .use-guide-step-assist,
+.use-guide-step li.return .use-guide-step-txt {
+	padding-left:30px;
+}
+
+.use-guide-step li.use .use-guide-step-tit,
+.use-guide-step li.use .use-guide-step-assist,
+.use-guide-step li.use .use-guide-step-txt {
+	padding-left:30px;
+}
+
+.use-guide-step:after {content:""; display:block; clear:both;}
+
+
+/* 요금 안내 (2016-06-07) */
+/* 추가,수정 (2016-07-07) */
+.insurance-guide-txt {margin:0; margin-top:10px;}
+.insurance-guide-wrap .insurance-guide-box {margin-top:40px;}
+.insurance-guide-box .insurance-txt-expl {margin-top:10px; text-align:left; padding:0 15px;}
+.insurance-txt-car {padding:25px 0 24px 25px;}
+.charges-tbl-guide {margin-top:20px;}
+.tbl-green-member.charge th,
+.tbl-green-member.charge td {
+	padding:5px 0; 
+	text-align:center; 
+	border-right:1px solid #dbdbdb;
+}
+.tbl-green-member.charge th {padding:7px 0;}
+.tbl-green-member.charge th.last,
+.tbl-green-member.charge td.last {border-right:none;}
+.tbl-green-member.charge td.minute {background-color:#fffdfc;}
+.tbl-green-member.charge td.dc {background-color:#fef5f0;}
+.tbl-green-member.charge td.txt-l {text-align:left; padding-left:15px;}
+
+.insuran-small-txt {
+	font-size:12px;
+	color:#7f7f7f;
+	margin-top:5px;
+}
+.insuran-small-txt.txt-l {
+	text-align:left; 
+	padding-left:25px;
+	margin-top:-10px;
+}
+.insurance-guide-box.g01 {height:125px;}
+.insurance-guide-box.g01 .insurance-txt-car {padding-top:0;}
+.insurance-guide-box.g02 {height:125px;}
+.insurance-guide-box.g02 p {padding-top:10px;}
+
+.tbl-charge-box {border-top:2px solid #333; margin-top:15px;}
+.tbl-charge-box table {margin-top:0;}
+
+/* 특가상품 (2016-07-12) */
+.special-price-tit {
+	border:1px solid #dbdbdb; 
+	padding:20px 0;
+	margin-top:50px;
+}
+.special-price-tit.top {margin-top:0;}
+.special-price-tit .tblbox {
+	display:table; 
+	width:100%;
+}
+.special-price-tit .tblcell {
+	display:table-cell; 
+	vertical-align:middle;
+}
+.special-price-tit .img {width:270px; text-align:center;}
+.special-price-tit h4 {color:#0db14b; font-size:22px;}
+.special-price-tit strong {
+	display:block; 
+	color:#333; 
+	font-size:16px; 
+	margin-top:10px;
+}
+.special-price-tit p {margin-top:5px;}
+.special-price-container .charge-txtbox {margin-top:25px;}
+.charge-txtbox .greencar-cash-txt li {font-weight:normal;}
+.charge-txtbox .greencar-cash-txt li strong {margin-right:5px;}
+.tbl-linebox {border-top:2px solid #333; margin-top:40px;}
+.tbl-linebox .tbl-green-member {margin-top:0;}
+.special-price-container .tbl-green-member tr th {padding:15px 0; line-height:18px;}
+.special-price-container .tbl-green-member tr td {padding:10px 0; font-weight:normal;}
+.tbl-green-member tr td .opt {color:#e46c0a; font-weight:bold;}
+.charge-subtit {
+	position:relative;
+	font-size:15px;
+	color:#333;
+	padding-left:9px;
+	word-spacing:1px;
+}
+.charge-subtit:after {
+	content:"";
+	position:absolute;
+	top:50%;
+	left:0;
+	background-color:#86be26;
+	width:2px;
+	height:2px;
+	margin-top:-1px;
+}
