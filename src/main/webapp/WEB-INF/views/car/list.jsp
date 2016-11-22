@@ -91,7 +91,7 @@
 					<div id="containerLeft">
 						<ul class="list-group">
 							<li class="list-group-item note-item clearfix"
-								onClick="location.replace='/rentacar/car/reserve.do?car_no=${rentacarLatlng.car_no}'"
+								onClick="location.href='/rentacar/car/reserve.do?car_no=${rentacarLatlng.car_no}'"
 								style="cursor: pointer;">
 								<div class="content-left panel-body pull-left">
 									<h2>모델명 : ${rentacarLatlng.car_name}</h2>
