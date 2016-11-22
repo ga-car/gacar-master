@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
 <title>reserve List</title>
 </head>
 <body>
@@ -21,6 +23,7 @@
 				<td>금액</td>
 				<td>상태</td>
 				<td>변경/최소</td>
+				<td>후기 작성</td>
 			</tr>
 			<c:forEach var="reserveList" items="${reserveList}" varStatus="stat">
 				<tr>
@@ -61,6 +64,11 @@
 							</c:when>
 									<c:when test="${reserveList.reserve_edate <= rTime}">
 							예약 완료
+							 	<div class="menu-wrap pull-right">
+									<!-- 로그인을 해야 글을 쓸수 있음 -->
+								<button type="button" onclick="onWrite(${reserveList.reserve_no})" class="btn btn-primary">이용후기 작성</button>
+							</div>
+		<!-- 글쓰기 버튼 끝 -->
 							</c:when>
 								</c:choose>
 							</c:otherwise>
@@ -73,5 +81,10 @@
 		</table>
 		<HR>
 	</form>
+<script type="text/javascript">
+var onWrite = function(no) {
+	location.href = '/rentacar/review/write.do?reserve_no='+no;
+};
+</script>
 </body>
 </html>

@@ -3,6 +3,8 @@ package com.Project.review;
 import java.util.List;
 
 import com.Project.qna.qnaModel;
+import com.Project.rentacar.RentacarModel;
+import com.Project.rentacar.ReserveModel;
 
 public interface ReviewDAO {
 
@@ -29,7 +31,10 @@ public interface ReviewDAO {
 
 	//�� ����
 	int reviewModify(ReviewModel reviewModel);
-
+	
+	ReserveModel reserveOne(ReserveModel reserveModel);
+	
+	RentacarModel rentacarOne(String reserve_car_no);
 	
 	/*//��۸��
 	List<ReviewcommModel> reviewcommList(int no);
