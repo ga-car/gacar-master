@@ -9985,3 +9985,19 @@ white
 .paging a:first-child{margin-left:0;}
 .paging strong{color:#fff;background:#0059ab;}
 .paging .page_arw{font-size:11px;line-height:30px;}
+
+#menu_wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 750px;
+	height: 35px;
+	margin: 10px 0 30px 17%;
+	padding: 5px;
+	overflow-y: auto;
+	background: rgba(255, 255, 255, 0.7);
+	z-index: 1;
+	font-size: 12px;
+	border-radius: 10px;
+}
