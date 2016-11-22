@@ -26,6 +26,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.Project.util.Paging;
 import com.Project.validator.ReviewValidator;
+import com.Project.rentacar.RentacarModel;
+import com.Project.rentacar.ReserveModel;
 import com.Project.review.ReviewModel;
 import com.Project.review.ReviewService;
 /*import com.Project.validator.ReviewValidator;*/
@@ -43,6 +45,7 @@ public class ReviewController {
 	private ReviewService review;
 	private int searchNum;
 	private String isSearch;
+	private int reserve_no;
 	
 	private int currentPage = 1;	 
 	private int totalCount; 		 
@@ -130,27 +133,27 @@ public class ReviewController {
 	/*/////////////////////////////////////�۾��� �� �̵�/////////////////////////////////////*/
 	
 	@RequestMapping(value="/write.do", method=RequestMethod.GET)
-	public ModelAndView reviewForm(HttpServletRequest request) {
+	public ModelAndView reviewForm( ReserveModel reserveModel, HttpServletRequest request, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		
-		request.getParameter("reserve_no");
+		RentacarModel rentacarModel;
 		
+		reserveModel.setReserve_mem_no(Integer.parseInt(String.valueOf(session.getAttribute("session_num"))));
+		reserveModel.setReserve_no(Integer.parseInt(request.getParameter("reserve_no")));
+		reserveModel = reviewService.reserveOne(reserveModel);
+		rentacarModel = reviewService.rentacarOne(reserveModel.getReserve_car_no());
+		
+		mav.addObject("rentacarModel", rentacarModel);
+		mav.addObject("reserveModel", reserveModel);
 		mav.setViewName("reviewWrite");
 		return mav;
 	}
 	
 	/*/////////////////////////////�۾���/////////////////////////////////////*/
 	@RequestMapping(value="/write.do", method=RequestMethod.POST)
-	public String reviewWrite(ReviewModel reviewModel,  BindingResult result,
+	public ModelAndView reviewWrite(ReviewModel reviewModel,  BindingResult result,
 			MultipartHttpServletRequest multipartHttpServletRequest) throws Exception, Exception{
 		ModelAndView mav = new ModelAndView();
-		/*��������Ʈ
-		new ReviewValidator().validate(reviewModel, result);
-		if(result.hasErrors()) {
-			mav.setViewName("reviewWrite");
-			return "reviewWrite";
-		}
-		*/
 		/*�ٹٲ�*/
 		String content = reviewModel.getContent().replaceAll("\r\n", "<br />");
 		reviewModel.setContent(content);
@@ -171,7 +174,7 @@ public class ReviewController {
 	
 		mav.setViewName("redirect:list.do");
 		
-		return "redirect:list.do";
+		return mav;
 	}
 	
 /*	/////////////////////////////////////�ڸ�Ʈ/////////////////////////////////////

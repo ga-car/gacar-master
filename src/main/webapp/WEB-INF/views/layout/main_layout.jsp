@@ -16,18 +16,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>GaCar - 같이 가치타 카쉐어링 ~~ 가카</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="shortcut icon"
-	href="http://okky.kr/assets/favicon-4ddd8035b72404da5a8c298cbaacad86.ico"
+<link rel="shortcut icon" href="/rentacar/resources/images/GC_57x57.ico"
 	type="image/x-icon">
 <link rel="apple-touch-icon"
-	href="http://okky.kr/assets/icon_57x57-5611bd33d9f2b2d84c22219e248455b6.png">
+	href="/rentacar/resources/images/GC_57x57.png">
 <link rel="apple-touch-icon" sizes="114x114"
-	href="http://okky.kr/assets/icon_114x114-b2b627dfde8a040fe54fd257244ba191.png">
+	href="/rentacar/resources/images/GC_114x114.png">
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
 	rel="stylesheet">
 <meta property="og:image"
-	content="http://okky.kr/assets/okky_logo_fb-cea175ff727ef14a4d8be0e68cff730a.png">
+	content="/rentacar/resources/images/GC_200x200.png">
 <link rel="stylesheet" href="/rentacar/resources/css/gacar.css" />
 <!--[if lt IE 9]>
             <script src="http://okky.kr/assets/libs/html5-ca664f64318d191265abf57fdf467aec.js" type="text/javascript" ></script>
@@ -36,9 +35,6 @@
 <script type="text/javascript"
 	src="http://gc.kis.scr.kaspersky-labs.com/2937C990-247C-3A45-876C-A01E499A9025/main.js"
 	charset="UTF-8"></script>
-
-<meta name="google-site-verification"
-	content="DkGncyJVqYFVekHithdbYnKgklkyKVwruPZ18WUDjr0">
 
 <style type="text/css"></style>
 <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
@@ -55,8 +51,6 @@
 	margin-left: 0px !important;
 }
 </style>
-<script
-	src="https://api.dexplode.com/dFv1pZ/?key=7f52f8c3-852c-f7c9-2daf-271ffe50464a"></script>
 <!-- 재영이가 작업한 부분 끝 -->
 <!-- 미령이가 작업한 부분 시작 -->
 <!-- 로그인 팝업 시작 -->
@@ -107,27 +101,10 @@
 	}
 </script>
 <!-- 즐겨찾기 끝 -->
+
 <!-- 미령이가 작업한 부분 끝 -->
 </head>
 <body>
-<c:if test='${session_email!=null && session_email!="admin"}'>
-<!-- Tocplus -->
-<script type="text/javascript">
-tocplusAwayImage='https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQNh9gerNq1DFGPaL-Vmc3Ymf2fVEzTcD7kDud-drVbklUuKW9M';
-tocplusTop=1150;
-tocplusLeft=5;
-tocplusMinimizedImage='http://kr02.tocplus007.com/img/minimized_ko.gif';
-tocplusHAlign='right';
-tocplusWidth=180;
-tocplusHeight=220;
-tocplusUserName='${session_name}';
-tocplusFrameColor='#FF5757';
-tocplusFloatingWindow=true;
-var tocplusHost = (("https:" == document.location.protocol) ? "https://" : "http://");
-document.write(unescape("%"+"3Cscript src='" + tocplusHost + "kr02.tocplus007.com/chatLoader.do?userId=rrryung' type='text/javascript'"+"%"+"3E"+"%"+"3C/script"+"%"+"3E"));
-</script>
-<!-- End of Tocplus -->
-</c:if>
 	<div class="layout-container">
 		<div class="main index">
 			<!-- header -->
@@ -140,41 +117,39 @@ document.write(unescape("%"+"3Cscript src='" + tocplusHost + "kr02.tocplus007.co
 			<!-- footer -->
 			<tiles:insertAttribute name="footer" />
 			<!-- // footer -->
-			<script>
-				var contextPath = "", encodedURL = "%2F";
-			</script>
-			<script
-				src="http://okky.kr/assets/application-196466c60cf4e718162e141a5acdf612.js"
-				type="text/javascript"></script>
-			<script
-				src="http://okky.kr/assets/apps/search-a672360634f56105585df31fcdb69705.js"
-				type="text/javascript"></script>
-
-			<script
-				src="http://okky.kr/assets/apps/notification-f91d194e3ba2944508aa3af101c4498a.js"
-				type="text/javascript"></script>
-
-
-
-			<script
-				src="http://okky.kr/assets/libs/gwgpot-3b14d378cf04380fd7cf54ccc317c6a9.js"
-				type="text/javascript"></script>
-
-
-			<div id="userPrivacy" class="modal" tabindex="-1" role="dialog"
-				aria-labelledby="myLargeModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content"></div>
-				</div>
-			</div>
-
-			<div id="userAgreement" class="modal" tabindex="-1" role="dialog"
-				aria-labelledby="myLargeModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content"></div>
-				</div>
-			</div>
+		
 		</div>
 	</div>
+	<c:if
+		test='${session_email!=null && session_email!="admin" ||session_nick!=null}'>
+		<!-- Tocplus -->
+		<script type="text/javascript">
+			if ('${session_nick}' != "") {
+				var nickname = '${session_nick}';
+			} else {
+				var nickname = '${session_name}';
+			}
+			tocplusAwayImage = 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQNh9gerNq1DFGPaL-Vmc3Ymf2fVEzTcD7kDud-drVbklUuKW9M';
+			tocplusTop = 1150;
+			tocplusLeft = 5;
+			tocplusMinimizedImage = 'http://kr02.tocplus007.com/img/minimized_ko.gif';
+			tocplusHAlign = 'right';
+			tocplusWidth = 180;
+			tocplusHeight = 220;
+			tocplusUserName = nickname;
+			tocplusFrameColor = '#FF5757';
+			tocplusFloatingWindow = true;
+			var tocplusHost = (("https:" == document.location.protocol) ? "https://"
+					: "http://");
+			document
+					.write(unescape("%"
+							+ "3Cscript src='"
+							+ tocplusHost
+							+ "kr02.tocplus007.com/chatLoader.do?userId=rrryung' type='text/javascript'"
+							+ "%" + "3E" + "%" + "3C/script" + "%" + "3E"));
+		</script>
+		<!-- End of Tocplus -->
+	</c:if>
 </body>
+
 </html>

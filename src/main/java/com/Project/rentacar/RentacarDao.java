@@ -6,7 +6,9 @@ public interface RentacarDao {
 
 	List<RentacarModel> rentacarList();
 
-	List<RentacarModel> rentacarLatLng(RentacarModel rentacarModel);
+	List<RentacarModel> rentacarLatLng(SearchModel searchModel);
+
+	List<RentacarModel> rentacarLatLngDate(SearchModel searchModel);
 
 	RentacarModel rentacarOneView(String car_no);
 
@@ -20,4 +22,5 @@ public interface RentacarDao {
 
 	int reserveDelete(ReserveModel reserveModel);
 
+	List<RentacarModel> rentacarDateList(SearchModel searchModel);
 }

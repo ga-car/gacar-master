@@ -75,7 +75,6 @@
 						<div class="list-summary-wrapper clearfix">
 							<div class="list-group-item-summary clearfix">
 								<ul>
-									<li class=""><i class="item-icon fa fa-comment "></i>${list.readcount}</li>
 									<li class=""><i class="item-icon fa fa-eye"></i>${list.readcount}</li>
 								</ul>
 							</div>

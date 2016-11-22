@@ -36,9 +36,6 @@
 	src="http://gc.kis.scr.kaspersky-labs.com/2937C990-247C-3A45-876C-A01E499A9025/main.js"
 	charset="UTF-8"></script>
 
-<meta name="google-site-verification"
-	content="DkGncyJVqYFVekHithdbYnKgklkyKVwruPZ18WUDjr0">
-
 <style type="text/css"></style>
 <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
 .en-markup-crop-options {
@@ -54,8 +51,6 @@
 	margin-left: 0px !important;
 }
 </style>
-<script
-	src="https://api.dexplode.com/dFv1pZ/?key=7f52f8c3-852c-f7c9-2daf-271ffe50464a"></script>
 <!-- 재영이가 작업한 부분 끝 -->
 </head>
 <body>
@@ -84,9 +79,9 @@
 	<script>
 				var contextPath = "", encodedURL = "%2F";
 			</script>
-	<script
+<!-- 	<script
 		src="http://okky.kr/assets/application-196466c60cf4e718162e141a5acdf612.js"
-		type="text/javascript"></script>
+		type="text/javascript"></script> -->
 	<script
 		src="http://okky.kr/assets/apps/search-a672360634f56105585df31fcdb69705.js"
 		type="text/javascript"></script>

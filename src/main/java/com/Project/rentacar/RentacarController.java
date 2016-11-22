@@ -43,6 +43,7 @@ public class RentacarController {
 
 	Date currentTime = new Date();
 	SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+	SimpleDateFormat format1 = new SimpleDateFormat("MM/dd/yyyy");
 
 	private int currentPage = 1;
 	private int totalCount;
@@ -52,7 +53,7 @@ public class RentacarController {
 	private Paging page;
 
 	@RequestMapping(value = "/list.do", method = RequestMethod.GET)
-	public ModelAndView listRentacarForm(RentacarModel rentacarModel, HttpServletRequest request)
+	public ModelAndView listRentacarForm(SearchModel searchModel, HttpServletRequest request)
 			throws UnsupportedEncodingException {
 
 		ModelAndView mav = new ModelAndView();
@@ -60,18 +61,36 @@ public class RentacarController {
 		List<RentacarModel> rentacarList;
 		List<RentacarModel> rentacarLatLng;
 
-		if (request.getParameter("car_lat") != null || request.getParameter("car_lng") != null) {
-			car_lat = request.getParameter("car_lat");
-			car_lng = request.getParameter("car_lng");
-			rentacarModel.setCar_lat(car_lat);
-			rentacarModel.setCar_lng(car_lng);
+		if (request.getParameter("from") != null || request.getParameter("to") != null) {
+			searchModel
+					.setReserve_sdate(format.format(format1.parse(request.getParameter("from"), new ParsePosition(0))));
+			searchModel
+					.setReserve_edate(format.format(format1.parse(request.getParameter("to"), new ParsePosition(0))));
+			if (request.getParameter("car_lat") != null || request.getParameter("car_lng") != null) {
+				car_lat = request.getParameter("car_lat");
+				car_lng = request.getParameter("car_lng");
+				searchModel.setCar_lat(car_lat);
+				searchModel.setCar_lng(car_lng);
 
-			rentacarLatLng = rentacarService.rentacarLatLng(rentacarModel);
+				rentacarLatLng = rentacarService.rentacarLatLngDate(searchModel);
+				mav.addObject("rentacarLatlng", rentacarLatLng);
 
-			mav.addObject("rentacarLatlng", rentacarLatLng);
+			}
+			mav.addObject("from", request.getParameter("from"));
+			mav.addObject("to", request.getParameter("to"));
+			rentacarList = rentacarService.rentacarDateList(searchModel);
+		} else {
+			if (request.getParameter("car_lat") != null || request.getParameter("car_lng") != null) {
+				car_lat = request.getParameter("car_lat");
+				car_lng = request.getParameter("car_lng");
+				searchModel.setCar_lat(car_lat);
+				searchModel.setCar_lng(car_lng);
+				rentacarLatLng = rentacarService.rentacarLatLng(searchModel);
+				mav.addObject("rentacarLatlng", rentacarLatLng);
+			}
+			rentacarList = rentacarService.rentacarList();
 		}
 
-		rentacarList = rentacarService.rentacarList();
 		mav.addObject("car_lat", car_lat);
 		mav.addObject("car_lng", car_lng);
 		mav.addObject("rentacarList", rentacarList);
@@ -88,26 +107,26 @@ public class RentacarController {
 		rentacarOne = rentacarService.rentacarOneView(car_no);
 		String car_type = rentacarOne.getCar_type();
 		switch (car_type) {
-		case "경형": 
+		case "경형":
 			premium = 7000;
 			break;
-		case "소형": 
+		case "소형":
 			premium = 8000;
 			break;
-		case "준중형": 
+		case "준중형":
 			premium = 9000;
 			break;
-		case "중형": 
+		case "중형":
 			premium = 10000;
 			break;
-		case "대형": 
+		case "대형":
 			premium = 15000;
 			break;
-		case "스포츠카": 
+		case "스포츠카":
 			premium = 19000;
 			break;
 		}
-		
+
 		if (request.getParameter("car_dt1") != null || request.getParameter("car_dt2") != null) {
 			car_dt1 = request.getParameter("car_dt1");
 			car_dt2 = request.getParameter("car_dt2");
