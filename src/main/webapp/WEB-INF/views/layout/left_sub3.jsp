@@ -58,7 +58,7 @@
 						class="nav-sidebar-label nav-sidebar-category-label">카풀모임</span></a></li>
 
 				<li class="active" data-toggle="tooltip" data-placement="right"
-					data-container="body" title="이용안내"><a href="#" class="link"><i
+					data-container="body" title="이용안내"><a href="../rentacar/gacarIs.do" class="link"><i
 						class="nav-icon fa fa-info" aria-hidden="true"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">이용안내</span></a></li>
 
@@ -96,20 +96,25 @@
 
 
 		<div class="sidebar-category-nav">
-			<h3 class="sub-title">고객센터</h3>
+			<h3 class="sub-title">이용안내</h3>
 			<ul class="nav">
-				<li><a href="/rentacar/notify/list.do" class="link"> <span
-						class="nav-sidebar-label nav-sidebar-category-label">공지사항</span> <span
+				<li><a href="../rentacar/gacarIs.do" class="link"> <span
+						class="nav-sidebar-label nav-sidebar-category-label">가카란?</span> <span
 						class="nav-indicator nav-selected"> <span
 							class="nav-selected-dot"></span></span></a></li>
 
-				<li><a href="/rentacar/faq/list.do" class="link"> <span
-						class="nav-sidebar-label nav-sidebar-category-label">FAQ</span> <span
+				<li><a href="../rentacar/method.do" class="link"> <span
+						class="nav-sidebar-label nav-sidebar-category-label">이용안내</span> <span
 						class="nav-indicator nav-selected "> <span
 							class="nav-selected-dot"></span></span></a></li>
 
-				<li><a href="#" class="link" onclick="return validation()">
-						<span class="nav-sidebar-label nav-sidebar-category-label">1:1문의</span>
+				<li><a href="../rentacar/rule.do" class="link"> <span
+						class="nav-sidebar-label nav-sidebar-category-label">이용규칙</span>
+						<span class="nav-indicator nav-selected"> <span
+							class="nav-selected-dot"></span></span>
+				</a></li>
+				<li><a href="../rentacar/charge.do" class="link"> <span
+						class="nav-sidebar-label nav-sidebar-category-label">이용요금</span>
 						<span class="nav-indicator nav-selected"> <span
 							class="nav-selected-dot"></span></span>
 				</a></li>
@@ -161,7 +166,7 @@
 						class="nav-sidebar-label nav-sidebar-category-label">카풀모임</span></a></li>
 
 				<li class="active" data-toggle="tooltip" data-placement="right"
-					data-container="body" title="이용안내"><a href="#" class="link"><i
+					data-container="body" title="이용안내"><a href="../rentacar/gacarIs.do" class="link"><i
 						class="nav-icon fa fa-info" aria-hidden="true"></i> <span
 						class="nav-sidebar-label nav-sidebar-category-label">이용안내</span></a></li>
 
@@ -204,23 +209,23 @@
 
 		<div class="sidebar-category-nav">
 			<h3 class="sub-title">이용안내</h3>
-			<ul class="nav">
-				<li><a href="#" class="link"> <span
+					<ul class="nav">
+				<li><a href="../rentacar/gacarIs.do" class="link"> <span
 						class="nav-sidebar-label nav-sidebar-category-label">가카란?</span> <span
 						class="nav-indicator nav-selected"> <span
 							class="nav-selected-dot"></span></span></a></li>
 
-				<li><a href="#" class="link"> <span
-						class="nav-sidebar-label nav-sidebar-category-label">이용방법</span> <span
+				<li><a href="../rentacar/method.do" class="link"> <span
+						class="nav-sidebar-label nav-sidebar-category-label">이용안내</span> <span
 						class="nav-indicator nav-selected "> <span
 							class="nav-selected-dot"></span></span></a></li>
 
-				<li><a href="#" class="link"> <span
+				<li><a href="../rentacar/rule.do" class="link"> <span
 						class="nav-sidebar-label nav-sidebar-category-label">이용규칙</span>
 						<span class="nav-indicator nav-selected"> <span
 							class="nav-selected-dot"></span></span>
 				</a></li>
-				<li><a href="#" class="link"> <span
+				<li><a href="../rentacar/charge.do" class="link"> <span
 						class="nav-sidebar-label nav-sidebar-category-label">이용요금</span>
 						<span class="nav-indicator nav-selected"> <span
 							class="nav-selected-dot"></span></span>
