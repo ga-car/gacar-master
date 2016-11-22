@@ -111,12 +111,11 @@
 										<th scope="col" rowspan="2">차량 모델</th>
 										<th scope="col" rowspan="2">대여요금 <br />(1일기준)
 										</th>
-										<th scope="col" colspan="3">할인대여요금(1일기준)</th>
+										<th scope="col" colspan="2">할인대여요금(1일기준)</th>
 										<th scope="col" rowspan="2" class="last">주행요금</th>
 									</tr>
 									<tr>
 										<th scope="col">주중할인</th>
-										<th scope="col">주중심야</th>
 										<th scope="col">주말할인</th>
 									</tr>
 								</thead>
@@ -126,7 +125,6 @@
 										<td class="txt-l">넥스트 스파크</td>
 										<td class="minute">28,000원</td>
 										<td rowspan="3" class="dc">680원~</td>
-										<td rowspan="3">340원~</td>
 										<td rowspan="3">900원~</td>
 										<td class="last">160원</td>
 									</tr>
@@ -146,28 +144,25 @@
 										<td class="txt-l">레이</td>
 										<td class="minute">30,000원</td>
 										<td class="dc">690원~</td>
-										<td>340원~</td>
 										<td>910원~</td>
 										<td class="last">170원</td>
 									</tr>
-
 									<tr>
 										<td rowspan="3"><strong>소형</strong></td>
 										<td class="txt-l">엑센트</td>
-										<td class="minute">396,000원</td>
+										<td class="minute">36,000원</td>
 										<td rowspan="3" class="dc">700원~</td>
-										<td rowspan="3">350원~</td>
 										<td rowspan="3">930원~</td>
 										<td class="last">170원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">엑센트(디젤)</td>
-										<td class="minute">396,000원</td>
+										<td class="minute">36,000원</td>
 										<td class="last">150원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">올뉴프라이드</td>
-										<td class="minute">396,000원</td>
+										<td class="minute">36,000원</td>
 										<td class="last">160원</td>
 									</tr>
 
@@ -176,7 +171,6 @@
 										<td class="txt-l">K3</td>
 										<td class="minute">37,000원</td>
 										<td rowspan="12" class="dc">660원~</td>
-										<td rowspan="12">330원~</td>
 										<td rowspan="12">870원~</td>
 										<td class="last">170원</td>
 									</tr>
@@ -241,7 +235,6 @@
 										<td class="txt-l">i30(디젤)</td>
 										<td class="minute">51,000원</td>
 										<td rowspan="4" class="dc">910원~</td>
-										<td rowspan="4">455원~</td>
 										<td rowspan="4">1,210원~</td>
 										<td class="last">160원</td>
 									</tr>
@@ -266,7 +259,6 @@
 										<td class="txt-l">K5 하이브리드</td>
 										<td class="minute">51,000원</td>
 										<td rowspan="15" class="dc">880원~</td>
-										<td rowspan="15">440원~</td>
 										<td rowspan="15">1,180원~</td>
 										<td class="last">170원</td>
 									</tr>
@@ -346,7 +338,6 @@
 										<td class="txt-l">QM3</td>
 										<td class="minute">68,000원</td>
 										<td rowspan="10" class="dc">830원~</td>
-										<td rowspan="10">415원~</td>
 										<td rowspan="10">1,100원~</td>
 										<td class="last">120원</td>
 									</tr>
@@ -401,7 +392,6 @@
 										<td class="txt-l">BMW 118D</td>
 										<td class="minute">91,000원</td>
 										<td rowspan="8" class="dc">760원~</td>
-										<td rowspan="8">380원~</td>
 										<td rowspan="8">1,010원~</td>
 										<td class="last">160원</td>
 									</tr>
@@ -441,41 +431,16 @@
 										<td class="last">90원</td>
 									</tr>
 									<tr>
-										<td rowspan="4"><strong>전기</strong></td>
-										<td class="txt-l">BMW i3</td>
-										<td class="minute">139,000원</td>
-										<td rowspan="4" class="dc">900원~</td>
-										<td rowspan="4">450원~</td>
-										<td rowspan="4">1,200원~</td>
-										<td class="last">0원</td>
-									</tr>
-									<tr>
-										<td class="txt-l">SM3</td>
-										<td class="minute">72,000원</td>
-										<td class="last">0원</td>
-									</tr>
-									<tr>
-										<td class="txt-l">레이</td>
-										<td class="minute">72,000원</td>
-										<td class="last">0원</td>
-									</tr>
-									<tr>
-										<td class="txt-l">아이오닉</td>
-										<td class="minute">72,000원</td>
-										<td class="last">0원</td>
-									</tr>
-									<tr>
 										<td rowspan="2"><strong>승합</strong></td>
 										<td class="txt-l">그랜드카니발</td>
 										<td class="minute">79,000원</td>
 										<td rowspan="2" class="dc">1,500원~</td>
-										<td rowspan="2">750원~</td>
 										<td rowspan="2">2,000원~</td>
 										<td class="last">220원</td>
 									</tr>
 									<tr>
 										<td class="txt-l">뉴카니발 R(9인승)</td>
-										<td class="minute">3,500원</td>
+										<td class="minute">84,000원</td>
 										<td class="last">220원</td>
 									</tr>
 
@@ -484,7 +449,6 @@
 										<td class="txt-l">그랜저 HG(LPG)</td>
 										<td class="minute">96,000원</td>
 										<td rowspan="2" class="dc">960원~</td>
-										<td rowspan="2">480원~</td>
 										<td rowspan="2">1,280원~</td>
 										<td class="last">210원</td>
 									</tr>
@@ -508,18 +472,6 @@
 							<li>- 가카 이용요금은 기간별(비수기/성수기 등) 요금 정책에 따라 실시간 변동될 수 있습니다.</li>
 							<li>- 주행요금은 유가변동에 따라 변경될 수 있습니다.</li>
 						</ul>
-						<div class="charge-txtbox">
-							<p class="first-txt">시간안내(대여시작 기준)</p>
-							<ul>
-								<li>- 주중 : 일요일 19:00 ~ 금요일 18:50</li>
-								<li>- 주말 : 금요일 19:00 ~ 일요일 18:50</li>
-								<li>- 공휴일 : 00:00 ~ 23:50(주말 요금 적용)</li>
-								<li>- 심야 : 00:00 ~ 06:50(주말/공휴일 제외) <br />&nbsp;&nbsp;&nbsp;단,
-									심야요금은 대여시작 시간과 관계 없이 주중 대여 건에 적용됩니다.
-								</li>
-							</ul>
-						</div>
-
 
 						<h4 class="mgtop">보험안내</h4>
 						<ul class="insurance-guide-txt">
@@ -593,67 +545,67 @@
 										<th scope="col" colspan="2" class="last">자기부담금 70만원</th>
 									</tr>
 									<tr>
-										<th scope="col">30분</th>
+										<th scope="col">반나절</th>
 										<th scope="col">1일</th>
-										<th scope="col">30분</th>
+										<th scope="col">반나절</th>
 										<th scope="col" class="last">1일</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
 										<td><strong>경형</strong></td>
-										<td>350원~</td>
+										<td>2,800원~</td>
 										<td>7,000원~</td>
-										<td>250원~</td>
+										<td>2,000원~</td>
 										<td class="last">5,000원~</td>
 									</tr>
 									<tr>
 										<td><strong>소형</strong></td>
-										<td>400원~</td>
+										<td>3,200원~</td>
 										<td>8,000원~</td>
-										<td>300원~</td>
+										<td>3,400원~</td>
 										<td class="last">6,000원~</td>
 									</tr>
 									<tr>
 										<td><strong>준중형</strong></td>
-										<td>450원~</td>
+										<td>3,600원~</td>
 										<td>9,000원~</td>
-										<td>350원~</td>
+										<td>2,800원~</td>
 										<td class="last">7,000원~</td>
 									</tr>
 									<tr>
 										<td><strong>중형</strong></td>
-										<td>500원~</td>
+										<td>4,000원~</td>
 										<td>10,000원~</td>
-										<td>400원~</td>
+										<td>3,200원~</td>
 										<td class="last">8,000원~</td>
 									</tr>
 									<tr>
 										<td><strong>대형</strong></td>
-										<td>750원~</td>
+										<td>6,000원~</td>
 										<td>15,000원~</td>
-										<td>650원~</td>
+										<td>5,200원~</td>
 										<td class="last">13,000원~</td>
 									</tr>
 									<tr>
 										<td><strong>승합</strong></td>
-										<td>750원~</td>
+										<td>6,000원~</td>
 										<td>15,000원~</td>
-										<td>650원~</td>
+										<td>5,200원~</td>
 										<td class="last">13,000원~</td>
 									</tr>
 									<tr>
 										<td><strong>SUV</strong></td>
-										<td>600원~</td>
+										<td>4,800원~</td>
 										<td>12,000원~</td>
-										<td>500원~</td>
+										<td>4,000원~</td>
 										<td class="last">10,000원~</td>
 									</tr>
 									<tr>
 										<td><strong>수입차</strong></td>
-										<td>950원~</td>
+										<td>7,600원~</td>
 										<td>19,000원~</td>
-										<td>850원~</td>
+										<td>6,800원~</td>
 										<td class="last">17,000원~</td>
 									</tr>
 								</tbody>
@@ -677,14 +629,7 @@
 							<dl class="charges-tip02">
 								<dt>장시간 이용혜택</dt>
 								<dd>
-									<span>-</span> 최대 24시간까지 10시간 요금(보험료 포함)으로 할인 적용됩니다.
-								</dd>
-							</dl>
-							<dl class="charges-tip03">
-								<dt>신규 가카존 할인</dt>
-								<dd>
-									<span>-</span> 기본 할인요금에 추가 30% 할인! <br />신규 가카존은 지도 맵마커에
-									'N'뱃지로 표시되어 있습니다.
+									<span>-</span> 최대 24일까지 할인 적용됩니다.
 								</dd>
 							</dl>
 						</div>

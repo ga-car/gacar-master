@@ -20,6 +20,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			ORDER BY no DESC
 	</select>
 	
+	<select id="noticeList_new" resultMap="noticeModelRes">
+			<![CDATA[
+			SELECT * FROM NOTICE
+			WHERE ROWNUM <= 5
+			ORDER BY no DESC
+			]]>
+	</select>
+	
 	<!-- 글쓰기 -->
 	<insert id="noticeWrite" parameterType="Integer">
 			INSERT INTO NOTICE
