@@ -33,6 +33,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			SELECT * FROM REVIEW ORDER BY no DESC
 	</select>
 	
+	<select id="reviewList_new" resultMap="reviewModelRes">
+			<![CDATA[
+			SELECT * FROM REVIEW
+			WHERE ROWNUM <= 3
+			ORDER BY no DESC
+			]]>
+	</select>
+	
 		<select id="reviewMyList" resultMap="reviewModelRes" parameterType="String">
 		SELECT * FROM REVIEW
 		WHERE EMAIL = #{email} ORDER BY NO DESC
@@ -43,9 +51,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 글쓰기 -->
 	<insert id="reviewWrite" parameterType="reviewModel">
 			INSERT INTO REVIEW
-			(NO, SUBJECT, CONTENT, EMAIL, REGDATE, IMAGEFILE_SAVNAME)
+			(NO, SUBJECT, CONTENT, EMAIL, REGDATE, IMAGEFILE_SAVNAME, USEDATE, CAR)
 			VALUES
-			(REVIEW_SEQ.NEXTVAL, #{subject}, #{content}, #{email}, SYSDATE, #{imagefile_savname})
+			(REVIEW_SEQ.NEXTVAL, #{subject}, #{content}, #{email}, SYSDATE, #{imagefile_savname}, #{usedate}, #{car})
 	</insert>
 	<!-- , #{imagefile_savname} -->
 	
