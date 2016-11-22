@@ -58,16 +58,8 @@
 							<div class="note-editor panel panel-default">
 								<div class="note-editing-area">
 									<!-- <textarea name="content" id="content" class="note-codable"></textarea> -->
-									<textarea name="content" id="content"></textarea>
-									<div class="note-editable panel-body" contenteditable="true"
-										data-placeholder="내용을 입력해 주세요."
-										style="height: 300px; max-height: 860px;">
-
-										<p>
-											<br>
-										</p>
-
-									</div>
+									<textarea name="content" id="content" class="form-control input-block-level" data-placeholder="내용을 입력해 주세요."
+										style="height: 300px; max-height: 860px;"></textarea>
 								</div>
 							</div>
 							<!-- 파일 업로드 시작 -->
