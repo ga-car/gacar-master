@@ -120,7 +120,7 @@
 							class="nav-selected-dot"></span></span>
 				</a></li>
 				<li><a href="/rentacar/mypage/list.do" class="link"> <span
-						class="nav-sidebar-label nav-sidebar-category-label">이용후기</span> <span
+						class="nav-sidebar-label nav-sidebar-category-label">내가 쓴 이용후기</span> <span
 						class="nav-indicator nav-selected"> <span
 							class="nav-selected-dot"></span></span></a></li>
 				<li><a href="/rentacar/mypage/memberConfirm.do" class="link">

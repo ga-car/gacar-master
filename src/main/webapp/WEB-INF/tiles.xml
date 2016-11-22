@@ -5,10 +5,17 @@
        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 
 <tiles-definitions>
-
 	<!-- Main Page -->
 	<definition name="main" template="/WEB-INF/views/layout/main_layout.jsp">
 		<put-attribute name="left" value="/WEB-INF/views/layout/left.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/layout/container.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+	</definition>
+	<!-- sub3 Page(이용안내) -->
+	<definition name="sub3" template="/WEB-INF/views/layout/main_layout.jsp">
+		<put-attribute name="left"
+			value="/WEB-INF/views/layout/left_sub3.jsp" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/layout/container.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
@@ -326,10 +333,28 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/carpool/carpoolmypageapplyList.jsp" />
 	</definition>
-
+	
+	<!-- 카풀 실시간 모집 -->
 	<definition name="chat-sockjs" extends="main">
-		<put-attribute name="body"
-			value="/WEB-INF/views/carpool/chat-sockjs.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/carpool/chat-sockjs.jsp"/>
+	</definition>
+	
+	
+	<!-- 이용안내 -->
+	<definition name="gacarIs" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/use/gacarIs.jsp"/>
+	</definition>
+	<definition name="method" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/use/method.jsp"/>
+	</definition>
+	<definition name="manner" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/use/etiquette.jsp"/>
+	</definition>
+	<definition name="rule" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/use/rule.jsp"/>
+	</definition>
+	<definition name="charge" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/use/charge.jsp"/>
 	</definition>
 </tiles-definitions>
 	
