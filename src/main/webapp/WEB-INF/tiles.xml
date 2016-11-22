@@ -5,7 +5,6 @@
        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 
 <tiles-definitions>
-
 	<!-- Main Page -->
 	<definition name="main" template="/WEB-INF/views/layout/main_layout.jsp">
 		<put-attribute name="left" value="/WEB-INF/views/layout/left.jsp" />
@@ -357,8 +356,6 @@
 	<definition name="charge" extends="main">
 		<put-attribute name="body" value="/WEB-INF/views/use/charge.jsp"/>
 	</definition>
-	  
->>>>>>> origin/이미령
 </tiles-definitions>
 	
 	
