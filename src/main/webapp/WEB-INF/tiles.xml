@@ -5,7 +5,6 @@
        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 
 <tiles-definitions>
-
 	<!-- Main Page -->
 	<definition name="main" template="/WEB-INF/views/layout/main_layout.jsp">
 		<put-attribute name="left" value="/WEB-INF/views/layout/left.jsp" />
@@ -39,16 +38,12 @@
 	</definition>
 
 	<!-- 차량예약 -->
-	<definition name="carListForm" template="/WEB-INF/views/layout/car_layout.jsp">
-		<put-attribute name="left" value="/WEB-INF/views/layout/left.jsp" />
-		<put-attribute name="bodyLeft" value="/WEB-INF/views/car/listLeft.jsp" />
-		<put-attribute name="bodyRight" value="/WEB-INF/views/car/listForm.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+	<definition name="carListForm" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/car/list.jsp" />
 	</definition>
 
-	<definition name="carReserveForm" extends="carListForm">
-		<put-attribute name="bodyLeft" value="/WEB-INF/views/car/reserveLeft.jsp" />
-		<put-attribute name="bodyRight" value="/WEB-INF/views/car/reserveForm.jsp" />
+	<definition name="carReserveForm" extends="main">
+	<put-attribute name="body" value="/WEB-INF/views/car/reserve.jsp" />
 	</definition>
 
 	<!-- 차량 관리자 -->
@@ -338,10 +333,28 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/carpool/carpoolmypageapplyList.jsp" />
 	</definition>
-
+	
+	<!-- 카풀 실시간 모집 -->
 	<definition name="chat-sockjs" extends="main">
-		<put-attribute name="body"
-			value="/WEB-INF/views/carpool/chat-sockjs.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/carpool/chat-sockjs.jsp"/>
+	</definition>
+	
+	
+	<!-- 이용안내 -->
+	<definition name="gacarIs" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/use/gacarIs.jsp"/>
+	</definition>
+	<definition name="method" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/use/method.jsp"/>
+	</definition>
+	<definition name="manner" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/use/etiquette.jsp"/>
+	</definition>
+	<definition name="rule" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/use/rule.jsp"/>
+	</definition>
+	<definition name="charge" extends="main">
+		<put-attribute name="body" value="/WEB-INF/views/use/charge.jsp"/>
 	</definition>
 </tiles-definitions>
 	

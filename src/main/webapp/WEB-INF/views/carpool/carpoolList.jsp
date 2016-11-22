@@ -26,6 +26,9 @@
 						id="category-filter-form">
 						<div class="category-filter-query pull-right">
 							<div class="input-group input-group-sm">
+								<c:if test="${session_name != null || session_nick != null}">
+									<a href="chat.do">실시간 카풀 모집</a>
+								</c:if>
 								<input type="hidden" name="searchNum" id="searchNum" value="0">
 								<input class="form-control" type="text" name="isSearch"
 									id="isSearch" placeholder="출발지" /> <input class="form-control"

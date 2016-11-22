@@ -36,6 +36,8 @@
 					<div class="avatar avatar-medium clearfix pull-left">
 						<div class="avatar-info">${session_email }</div>
 						<input type="hidden" name="email" id="email" value="${session_email }"/>
+						<div class="avatar-info">${reserveModel.reserve_sdate}~${reserveModel.reserve_edate}</div>
+						<div class="avatar-info">${rentacarModel.car_brand}&nbsp;${rentacarModel.car_type}&nbsp;${rentacarModel.car_name}(${rentacarModel.car_no})</div>
 					</div>
 
 				</div>
