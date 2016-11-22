@@ -33,7 +33,7 @@
 					<!-- bodystart -->
 					<ul class="tab-service tab-service02">
 						<li class="tab01 on"><a href="#1">이용방법</a></li>
-						<li class="tab03"><a href="./manner.do/">이용에티켓</a></li>
+						<li class="tab03"><a href="./manner.do">이용에티켓</a></li>
 					</ul>
 
 					<!-- 이용방법 변경 (2016-03-11) -->

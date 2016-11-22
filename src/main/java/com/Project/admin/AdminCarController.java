@@ -34,7 +34,7 @@ public class AdminCarController {
 	private AdminService adminService;
 
 	ModelAndView mav = new ModelAndView();
-	String uploadPath = "C:\\Users\\HK\\Documents\\car";
+	String uploadPath = "F:\\car";
 
 	private int currentPage = 1;
 	private int totalCount;

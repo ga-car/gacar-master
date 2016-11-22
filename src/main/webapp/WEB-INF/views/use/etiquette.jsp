@@ -36,7 +36,7 @@
 				</ul>
 		-->
 				<ul class="tab-service tab-service02">
-					<li class="tab01"><a href="/rentacar/method.do">이용방법</a></li>
+					<li class="tab01"><a href="./method.do">이용방법</a></li>
 					<li class="tab03 on"><a href="#2">이용에티켓</a></li>
 				</ul>
 				<p class="member-subtxt"><strong>그린피플의 Pride! 그린피플 에티켓!</strong><br />다음 사용자를 위한 배려, 에티켓 실천은 기본입니다.</p>

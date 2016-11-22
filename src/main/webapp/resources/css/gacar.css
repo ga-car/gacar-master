@@ -9988,7 +9988,7 @@ white
 
 #menu_wrap {
 	position: absolute;
-	top: 0;
+	top: 5px;
 	left: 0;
 	bottom: 0;
 	width: 750px;
