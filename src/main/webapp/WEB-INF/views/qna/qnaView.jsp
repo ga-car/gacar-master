@@ -82,128 +82,127 @@ function fnChkByte(obj, maxByte){
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
 <title>Q&A</title>
 </head>
-	<div id="list-article" class="content scaffold-list" role="main">
-		<!-- 상단 시작 -->
-		<div class="nav" role="navigation">
-			<h4>고객센터 > 1:1 문의</h4>
-		</div>
-		<!-- 상단 끝 -->
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="panel panel-default">
+<body>
+<div id="list-article" class="content scaffold-list" role="main">
+	<!-- 상단 시작 -->
+	<div class="nav" role="navigation">
+		<h4>고객센터 > 1:1 문의</h4>
+	</div>
+	<!-- 상단 끝 -->
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
 
-						<div class="dataTable_wrapper">
-							<table class="table table-striped table-bordered table-hover"
-								id="dataTables-example">
-								<thead>
-									<tr class="danger">
-										<th>${qnaModel.subject}</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td align=right><strong> ${qnaModel.email} </strong>&nbsp;&nbsp;|&nbsp;&nbsp;<fmt:formatDate
-												value="${qnaModel.regdate}" pattern="yyyy-MM-dd" /></td>
-									</tr>
-									<tr>
-										<td>${qnaModel.contents}</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-				&nbsp;&nbsp;<input type="button"
-					onclick="location.href='list.do'" value="목록"
-					class="btn btn-primary" />
-				<!-- 작성자 아이디와 로그인한 아이디가 같거나 로그인한 아이디가 admin일때만 수정과 삭제 버튼을 보여줌-->
-				<c:if
-					test="${session_email == qnaModel.email || session_email == 'admin' }">
-					<input type="button" onclick="qnaModify()" value="수정"
-						class="btn btn-primary" />
-					<input type="button" onclick="qnaDelete()" value="삭제"
-						class="btn btn-primary" //>
-				</c:if>
-				<br /> <br /> <br /> <br />
-				<!-- 댓글쓰는 창	 -->
-				<div class="containerLeft">
-					<form class="commentForm" method="post"
-						onsubmit="return validation();">
-						<input type="hidden" name="content_num" value="${qnaModel.no}" />
-						<input type="hidden" name="commenter" value="${session_email}" />
-						<div class="reply_grp">
-							<div class="reply_form">
-
-								<div class="reply_write">
-									<div class="textarea_grp" style="width: 1000px;">
-										<!-- 로그인안했을 때 보여주는 댓글 요청 내용 -->
-										<br />
-										<c:if test="${session_email == null}">
-											<input type="text"
-												style="align: center; margin: 10px; width: 950px; height: 55px;"
-												value="로그인 후에  댓글 작성이 가능합니다." readonly="readonly" />
-										</c:if>
-										<!-- 댓글 쓰는 창 -->
-										<c:if test="${session_email != null}">
-											<!-- 글자 수 제한 -->
-											<textarea name="commentt" style="width: 885px; height: 55px;"
-												onKeyUp="javascript:fnChkByte(this,'200')"></textarea>
-											<button type="button" class="btn1 btn-primary1"
-												onclick="onComment()">입력</button>
-											<div style="margin-bottom: 10px;">
-												<br />&nbsp;&nbsp;&nbsp;<span id="byteInfo">0</span>/200Byte
-											</div>
-										</c:if>
-									</div>
-								</div>
-								<p class="reply_num">
-									<strong>댓글 총 개수 : ${comment_count}</strong>
-								</p>
-							</div>
-
-							<!-- 댓글 차례로 보여주는 창 -->
-							<c:forEach var="list" items="${CommList}">
-								<div style="margin-bottom: 50px;">
-									<div class="reply_view">
-										<div class="reply_tit">
-											<p class="tit">
-												<strong>${list.commenter}</strong>님
-												<fmt:formatDate value="${list.reg_date}" pattern="yy.MM.dd"></fmt:formatDate>
-												<span class="ip"></span>
-											</p>
-											<!-- 입력되어 있는 작성자와 아이디가 같거나, 아이디가 admin 일때만 삭제  창을 띄운다. -->
-											<c:if
-												test="${session_email == list.commenter || session_email == 'admin'}">
-												<td align="left">
-													<%-- <input type="button" onclick="qnaCommDelete(${list.comment_num},${session_email})&qnaCommUpdate2(${list.content_num})"  value="삭제" class="btn btnC_01 btnP_02"/> --%>
-													<a
-													href="commDelete.do?comment_num=${list.comment_num}&no=${qnaModel.no}&commenter=${list.commenter}">
-														<input type="button"
-														onclick="qnaCommDelete(${list.comment_num})" value="삭제"
-														class="btn btnC_01 btnP_02" />
-												</a>
-												</td>
-												<!-- 						<span class="btn btnC_05 reply_btn">	삭제</span> -->
-											</c:if>
-										</div>
-										<div class="reply_cts">
-											<p>${list.commentt}</p>
-											<br />
-										</div>
-									</div>
-								</div>
-							</c:forEach>
-
-						</div>
-					</form>
-					<c:if test="${fn:length(CommList) le 0}">
-						<br />
-						<center>등록된 댓글이 없습니다</center>
-						<br />
-					</c:if>
+				<div class="dataTable_wrapper">
+					<table class="table table-striped table-bordered table-hover"
+						id="dataTables-example">
+						<thead>
+							<tr class="danger">
+								<th>${qnaModel.subject}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align=right><strong> ${qnaModel.email} </strong>&nbsp;&nbsp;|&nbsp;&nbsp;<fmt:formatDate
+										value="${qnaModel.regdate}" pattern="yyyy-MM-dd" /></td>
+							</tr>
+							<tr>
+								<td>${qnaModel.contents}</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
+		&nbsp;&nbsp;<input type="button" onclick="location.href='list.do'"
+			value="목록" class="btn btn-primary" />
+		<!-- 작성자 아이디와 로그인한 아이디가 같거나 로그인한 아이디가 admin일때만 수정과 삭제 버튼을 보여줌-->
+		<c:if
+			test="${session_email == qnaModel.email || session_email == 'admin' }">
+			<input type="button" onclick="qnaModify()" value="수정"
+				class="btn btn-primary" />
+			<input type="button" onclick="qnaDelete()" value="삭제"
+				class="btn btn-primary" //>
+		</c:if>
+		<br /> <br /> <br /> <br />
+		<!-- 댓글쓰는 창	 -->
+		<div class="containerLeft">
+			<form class="commentForm" method="post"
+				onsubmit="return validation();">
+				<input type="hidden" name="content_num" value="${qnaModel.no}" /> <input
+					type="hidden" name="commenter" value="${session_email}" />
+				<div class="reply_grp">
+					<div class="reply_form">
+
+						<div class="reply_write">
+							<div class="textarea_grp" style="width: 1000px;">
+								<!-- 로그인안했을 때 보여주는 댓글 요청 내용 -->
+								<br />
+								<c:if test="${session_email == null}">
+									<input type="text"
+										style="align: center; margin: 10px; width: 950px; height: 55px;"
+										value="로그인 후에  댓글 작성이 가능합니다." readonly="readonly" />
+								</c:if>
+								<!-- 댓글 쓰는 창 -->
+								<c:if test="${session_email != null}">
+									<!-- 글자 수 제한 -->
+									<textarea name="commentt" style="width: 885px; height: 55px;"
+										onKeyUp="javascript:fnChkByte(this,'200')"></textarea>
+									<button type="button" class="btn1 btn-primary1"
+										onclick="onComment()">입력</button>
+									<div style="margin-bottom: 10px;">
+										<br />&nbsp;&nbsp;&nbsp;<span id="byteInfo">0</span>/200Byte
+									</div>
+								</c:if>
+							</div>
+						</div>
+						<p class="reply_num">
+							<strong>댓글 총 개수 : ${comment_count}</strong>
+						</p>
+					</div>
+
+					<!-- 댓글 차례로 보여주는 창 -->
+					<c:forEach var="list" items="${CommList}">
+						<div style="margin-bottom: 50px;">
+							<div class="reply_view">
+								<div class="reply_tit">
+									<p class="tit">
+										<strong>${list.commenter}</strong>님
+										<fmt:formatDate value="${list.reg_date}" pattern="yy.MM.dd"></fmt:formatDate>
+										<span class="ip"></span>
+									</p>
+									<!-- 입력되어 있는 작성자와 아이디가 같거나, 아이디가 admin 일때만 삭제  창을 띄운다. -->
+									<c:if
+										test="${session_email == list.commenter || session_email == 'admin'}">
+										<td align="left">
+											<%-- <input type="button" onclick="qnaCommDelete(${list.comment_num},${session_email})&qnaCommUpdate2(${list.content_num})"  value="삭제" class="btn btnC_01 btnP_02"/> --%>
+											<a
+											href="commDelete.do?comment_num=${list.comment_num}&no=${qnaModel.no}&commenter=${list.commenter}">
+												<input type="button"
+												onclick="qnaCommDelete(${list.comment_num})" value="삭제"
+												class="btn btnC_01 btnP_02" />
+										</a>
+										</td>
+										<!-- 						<span class="btn btnC_05 reply_btn">	삭제</span> -->
+									</c:if>
+								</div>
+								<div class="reply_cts">
+									<p>${list.commentt}</p>
+									<br />
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+
+				</div>
+			</form>
+			<c:if test="${fn:length(CommList) le 0}">
+				<br />
+				<center>등록된 댓글이 없습니다</center>
+				<br />
+			</c:if>
+		</div>
 	</div>
+</div>
 </body>
 </html>

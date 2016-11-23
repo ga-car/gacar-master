@@ -141,7 +141,7 @@
 													<a href="${viewURL}">${list.subject} </a>
 												</c:if> <!-- 관리자가 1개 이상의 댓글을 달면 답변완료라는 이미지가 뜬다 --> <c:if
 													test="${list.admin>=1}">
-													<img src="/rentacar/resources/images/consult_end.gif">
+													<img src="/rentacar/resources/images/end.png">
 												</c:if>
 											</td>
 
@@ -175,7 +175,7 @@
 														<a href="${viewURL}">${list.subject} </a>
 													</c:if> <!-- 관리자가 1개 이상의 댓글을 달면 답변완료라는 이미지가 뜬다 --> <c:if
 														test="${list.admin>=1}">
-														<img src="/rentacar/resources/images/consult_end.gif">
+														<img src="/rentacar/resources/images/end.png" width="20px">
 													</c:if>
 												</td>
 
