@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <script type="text/JavaScript">
 	function chkBox(bool) { // 전체선택/해제 
 		var obj = document.getElementsByName("join");
-		for (var i = 0; i < obj.length; i++)
+		for ( var i = 0; i < obj.length; i++)
 			obj[i].checked = bool;
 	}
 
@@ -28,26 +28,35 @@
 <title>이용약관</title>
 <!-- <link href="../style.css" rel="stylesheet" type="text/css"> -->
 </head>
+	<body>
+		<form name="join_agree" action="member.do" method="post" onsubmit="return check()">
+			<table width="30px" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td align="center" style="padding: 50px;">
 
-<body>
-	<div id="article" class="content" role="main">
-		<form name="join_agree" action="member.do" method="post"
-			onsubmit="return check()">
-			<div class="nav" role="navigation">
-				<h4>회원가입 > 이용약관</h4>
-			</div>
-			<div class="panel panel-default clearfix">
-				<div class="panel-heading clearfix">
-					<label for="agreeAll"> <strong>이용약관, 개인정보 수집 및 이용에
-							모두 동의합니다.</strong> <input type="checkbox" id="agreeAll" value=""
-						class="checkbox" onclick=chkBox(this.checked) /> <br /> <br />
-					</label>
-					<!-- 이용약관 시작 -->
-					<div class="form-group  has-feedback">
-						<h4>가카 이용약관</h4>
-
-						<textarea rows="10" cols="155"
-							class="form-control input-block-level">											
+						<table width="700" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td height="40" align="center" class="text01 formbar">이용약관</td>
+							</tr>
+							<tr>
+								<td height="60"></td>
+							</tr>
+							<tr>
+								<td align="right" class="edge">
+									<label for="agreeAll">
+										<strong>이용약관, 개인정보 수집 및 이용에 모두 동의합니다.</strong>
+										<input type="checkbox" id="agreeAll" value="" class="checkbox" onclick=chkBox(this.checked) /> <br/><br/>
+									</label>
+								</td>
+							</tr>
+							<tr>
+								<td align="center" style="border: #ccc 1px solid; border-top: #fff 1px solid;">
+									<table width="500" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td align="left" class="formtext">CARSHARE_C 이용약관</td>
+										</tr>
+										<tr>
+											<td align="center">&nbsp;<textarea rows="10" cols="155">											
 제1조(목적) 
 본 약관은 CARSHARE_C 가 제공하는 홈페이지의 인터넷 회원 서비스(이하 "서비스"라 한다)의 이용 및 회원가입에 관련된 사항과 절차 그리고 기타 필요한 사항을 규정함을 목적으로 합니다. 
 
@@ -124,17 +133,23 @@
 
 부 칙 
 본 약관은 2016년 10월 17일부터 시행합니다. 
-					</textarea>
-					</div>
-					<label for="agreeUse"> 가카 이용약관에 동의합니다. <input
-						type="checkbox" id="agreeUse" name="join" value=""
-						class="checkbox" />
-					</label>
-					<div class="form-group  has-feedback">
-						<h4>개인정보 수집, 이용 동의</h4>
-
-						<textarea rows="10" cols="155"
-							class="form-control input-block-level">
+					</textarea></td>
+										</tr>
+										<tr>
+											<td height="10">&nbsp;</td>
+										</tr>
+										<tr>
+											<td height="30" valign="top" align="right">
+												<label for="agreeUse"> CARSHARE_C 이용약관에 동의합니다.
+												<input type="checkbox" id="agreeUse" name="join" value="" class="checkbox" />
+												</label>
+											</td>
+										</tr>
+										<tr>
+											<td align="left" class="formtext">개인정보 수집, 이용 동의</td>
+										</tr>
+										<tr>
+											<td align="center"><textarea rows="10" cols="155">
 개인정보의 수집 항목 
 
 1. 필수 정보 
@@ -143,25 +158,40 @@
 2. 선택 정보 
 - 전화번호, 생년월일 
 수집ㆍ이용목적 
-- 성명, 아이디, 비밀번호  : 서비스 이용에 따른 본인 식별 절차에 이용 
-- 주소, 전화번호, 핸드폰번호, 이메일 주소, 이메일/SMS수신여부  : 공지사항 전달, 본인 의사 확인, 불만 처리 등 원활한 의사소통 경로의 확보와 새로운 서비스, 신상품 및 이벤트 정보 등의 최신 정보 안내
-- 생년월일, 거주지역 : 맞춤 서비스 제공 및 이용객 통계 분석을 위한 자료
-					</textarea>
-					</div>
-					<label for="agreePrivacy"> 개인정보수집, 이용 동의에 동의합니다. <input
-						type="checkbox" id="agreePrivacy" name="join" value=""
-						class="checkbox" />
-					</label>
-				</div>
-				<br>
-				<input type="submit" value="동의함" class="submit">
-				<!-- <input type="button" value="동의안함" onclick="location.href='main.dog'" class="hreflink"></td> -->
-				<a href="/rentacar/main.do"><input type="button" value="동의안함"
-					class="hreflink">
-					<br>
-			</div>
-		</form>
-	</div>
-</body>
+- 성명, 아이디, 비밀번호 
+: 서비스 이용에 따른 본인 식별 절차에 이용 
+- 주소, 전화번호, 핸드폰번호, 이메일 주소, 이메일/SMS수신여부 
+: 공지사항 전달, 본인 의사 확인, 불만 처리 등 원활한 의사소통 경로의 확보와 새로운 서비스, 신상품 및 이벤트 정보 등의 최신 정보 안내
+- 생년월일, 거주지역
+: 맞춤 서비스 제공 및 이용객 통계 분석을 위한 자료
 
+
+					</textarea></td>
+										</tr>
+										<tr>
+											<td height="10">&nbsp;</td>
+										</tr>
+										<tr>
+											<td valign="top" align="right"><label for="agreePrivacy">
+													개인정보수집, 이용 동의에 동의합니다. <input type="checkbox"
+													id="agreePrivacy" name="join" value="" class="checkbox" />
+											</label></td>
+										</tr>
+										<tr>
+											<td colspan="2" align="center" style="padding:20px 0px;">
+												<input type="submit" value="동의함" class="submit">
+												<!-- <input type="button" value="동의안함" onclick="location.href='main.dog'" class="hreflink"></td> -->
+												<a href="/rentacar/main.do"><input type="button" value="동의안함" class="hreflink"></a>
+											</td>
+										</tr>
+									</table></td>
+							</tr>
+						</table>
+
+					</td>
+				</tr>
+			</table>
+
+		</form>
+	</body>
 </html>
