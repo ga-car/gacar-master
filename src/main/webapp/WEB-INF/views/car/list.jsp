@@ -64,7 +64,7 @@
 							<button type="submit">검색하기</button>
 						</div>
 					</form>
-					<form onsubmit="searchDate()">
+					<form onsubmit="searchDate();">
 						<div style="float: left;">
 							<label for="from">From</label> <input type="text" id="from"
 								name="from" value="${from}"> <label for="to">to</label>
@@ -180,7 +180,7 @@
 	function searchDate() {
 		var sdate = document.getElementById('from').value;
 		var edate = document.getElementById('to').value;
-		if (sdate == "" && edate == "") {
+		if (sdate == "" || edate == "") {
 			alert('날짜를 입력해 주세요');
 			return false;
 		}
@@ -204,7 +204,7 @@
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 	mapOption = {
 		center : mapCenter, // 지도의 중심좌표
-		level : 3
+		level : 7
 	// 지도의 확대 레벨
 	};
 

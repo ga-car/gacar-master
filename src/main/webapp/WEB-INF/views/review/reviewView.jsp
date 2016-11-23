@@ -157,11 +157,12 @@ function fnChkByte(obj, maxByte){
 				<div class='avatar avatar-medium clearfix pull-left'>
 					<!-- 제목 -->
 					<h2 class="panel-title">${reviewModel.subject }</h2>
+						<div class="content-identity-count">${reviewModel.email }</div>
 				</div>
 				<div class="content-identity pull-right">
 
 							<!-- 작성자명 -->
-							<div class="content-identity-count">${reviewModel.email }</div>
+						
 
 							<!-- 조회수 -->
 							<div class="content-identity-count">
