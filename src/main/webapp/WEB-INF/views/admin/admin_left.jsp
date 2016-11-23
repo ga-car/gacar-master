@@ -65,16 +65,6 @@
 				<li><a href="/rentacar/admin/withdrawList.do">탈퇴목록</a></li>
 				<li><a href="/rentacar/admin/stats.do">통계</a></li>
 			</ul>
-
-			<h4>
-				<a href="#">이용안내</a>
-			</h4>
-			<ul>
-				<li><a href="#">이용방법</a></li>
-				<li><a href="#">이용요금</a></li>
-				<li><a href="#">이용규칙</a></li>
-			</ul>
-
 			<h4>
 				<a href="/rentacar/admin/car/list.do">가카관리</a>
 			</h4>
@@ -87,11 +77,10 @@
 			<h4>
 				<a href="/rentacar/admin/carpool/list.do">카풀모임관리</a>
 			</h4>
-
-			<h4>
-				<a href="/rentacar/admin/carpool/attendlist.do">카풀모임관리</a>
-			</h4>
-
+			<ul>
+				<li><a href="/rentacar/admin/carpool/list.do">카풀리스트관리</a></li>
+				<li><a href="/rentacar/admin/carpool/attendlist.do">카풀신청관리</a></li>
+			</ul>
 			<h4>
 				<a href="/rentacar/admin/review/list.do">이용후기관리</a>
 			</h4>

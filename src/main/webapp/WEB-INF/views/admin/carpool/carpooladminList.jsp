@@ -26,12 +26,12 @@ function delchk(){
 </head>
 
 <div class="row" style="padding-left:15px;width:900px;">    
-	<h1 class="page-header">공지사항</h1>
+	<h1 class="page-header">카풀모임관리 > 카풀 리스트 관리</h1>
 </div>
 <div class="row">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-                         공지사항  검색, 수정, 삭제 기능하는 페이지입니다.
+                         카풀 리스트 검색, 수정, 삭제 기능하는 페이지입니다.
         </div>
         <div class="panel-body">
 			<div class="dataTable_wrapper">

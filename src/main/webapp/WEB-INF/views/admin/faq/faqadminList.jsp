@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
+<html>
 <head>
 <script type="text/javascript">
 function delchk(){
@@ -13,7 +14,7 @@ function onWrite (){
 }
 
 </script>
-<style type="text/css">
+<!-- <style type="text/css">
 .paging{text-align:center;height:32px;margin-top:5px;margin-bottom:15px;}
 .paging a,
 .paging strong{display:inline-block;width:36px;height:32px;line-height:28px;font-size:14px;border:1px solid #e0e0e0;margin-left:5px;
@@ -28,16 +29,16 @@ function onWrite (){
 .paging strong{color:#fff;background:#337AB7;border:1px solid #337AB7;}
 .paging .page_arw{font-size:11px;line-height:30px;}
 .menu-wrap{text-align: right;}
-</style>
+</style> -->
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet">
-<link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet">
+<!-- <link href="/rentacar/resources/admincss/bootstrap.min.css" rel="stylesheet"> -->
+<!-- <link href="/rentacar/resources/admincss/sb-admin-2.css" rel="stylesheet"> -->
 </head>
-
+<body>
 <div class="row" style="padding-left:15px;width:900px;">    
-	<h1 class="page-header">FAQ</h1>
+	<h1 class="page-header">고객센터관리 > FAQ</h1>
 </div>
 <div class="row">
 	<div class="panel panel-default">
@@ -107,7 +108,7 @@ function onWrite (){
 						</div>
 					</div>
 					<div class="menu-wrap">
-									<button type="button" onclick="onWrite()" class="btn btn-primary">쓰기</button></div>
+									<button type="button" onclick="onWrite()" class="btn btn-primary">글쓰기</button></div>
 					<div class="paging">
 						${pagingHtml}
 					</div>
@@ -137,3 +138,5 @@ function onWrite (){
 	</div>
         <!-- /.panel -->   
 </div>
+</body>
+</html>
