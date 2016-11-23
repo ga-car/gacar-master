@@ -61,7 +61,7 @@ public class RentacarController {
 		List<RentacarModel> rentacarList;
 		List<RentacarModel> rentacarLatLng;
 
-		if (request.getParameter("from") != null || request.getParameter("to") != null) {
+		if ((request.getParameter("from") != "" && request.getParameter("from") != null) || (request.getParameter("to") != "" && request.getParameter("to") != null)) {
 			searchModel
 					.setReserve_sdate(format.format(format1.parse(request.getParameter("from"), new ParsePosition(0))));
 			searchModel
