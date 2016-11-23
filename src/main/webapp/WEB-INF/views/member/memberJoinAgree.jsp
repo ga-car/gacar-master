@@ -46,7 +46,7 @@
 					<div class="form-group  has-feedback">
 						<h4>가카 이용약관</h4>
 
-						<textarea rows="10" cols="155"
+						<textarea rows="10" cols="155" readonly
 							class="form-control input-block-level">											
 제1조(목적) 
 본 약관은 CARSHARE_C 가 제공하는 홈페이지의 인터넷 회원 서비스(이하 "서비스"라 한다)의 이용 및 회원가입에 관련된 사항과 절차 그리고 기타 필요한 사항을 규정함을 목적으로 합니다. 
@@ -126,14 +126,17 @@
 본 약관은 2016년 10월 17일부터 시행합니다. 
 					</textarea>
 					</div>
-					<label for="agreeUse"> 가카 이용약관에 동의합니다. <input
-						type="checkbox" id="agreeUse" name="join" value=""
-						class="checkbox" />
-					</label>
+					<table>
+						<tr>
+							<td><label for="agreeUse"> 가카 이용약관에 동의합니다. </label>&nbsp;&nbsp;</td>
+							<td><input type="checkbox" id="agreeUse" name="join"
+								value="" class="checkbox" /></td>
+						</tr>
+					</table>
 					<div class="form-group  has-feedback">
 						<h4>개인정보 수집, 이용 동의</h4>
 
-						<textarea rows="10" cols="155"
+						<textarea rows="10" cols="155" readonly
 							class="form-control input-block-level">
 개인정보의 수집 항목 
 
@@ -148,17 +151,20 @@
 - 생년월일, 거주지역 : 맞춤 서비스 제공 및 이용객 통계 분석을 위한 자료
 					</textarea>
 					</div>
-					<label for="agreePrivacy"> 개인정보수집, 이용 동의에 동의합니다. <input
-						type="checkbox" id="agreePrivacy" name="join" value=""
-						class="checkbox" />
-					</label>
+					<table>
+						<tr>
+							<td><label for="agreePrivacy"> 개인정보수집, 이용 동의에 동의합니다.
+							</label>&nbsp;&nbsp;</td>
+							<td><input type="checkbox" id="agreePrivacy" name="join"
+								value="" class="checkbox" /></td>
+						</tr>
+					</table>
+
 				</div>
-				<br>
-				<input type="submit" value="동의함" class="submit">
+				<br> <input type="submit" value="동의함" class="submit">
 				<!-- <input type="button" value="동의안함" onclick="location.href='main.dog'" class="hreflink"></td> -->
 				<a href="/rentacar/main.do"><input type="button" value="동의안함"
-					class="hreflink">
-					<br>
+					class="hreflink"> <br>
 			</div>
 		</form>
 	</div>

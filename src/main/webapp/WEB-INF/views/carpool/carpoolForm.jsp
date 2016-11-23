@@ -65,7 +65,6 @@
 							<td><select name="insure" id="insure">
     							<option value="대인배상Ⅰ">대인배상Ⅰ</option> 
     							<option value="대인배상Ⅱ">대인배상Ⅱ</option>
-    							<option value="대인배상Ⅱ">대인배상Ⅱ</option>
 								</select>
 							</td>
 						</tr>	
