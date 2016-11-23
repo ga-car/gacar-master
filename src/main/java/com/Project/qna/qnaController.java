@@ -94,7 +94,7 @@ public class qnaController {
 		}
 
 		totalCount = list.size();
-		page = new Paging(currentPage, totalCount, blockCount, blockPage, "list");
+		page = new Paging(currentPage, totalCount, blockCount, blockPage, "list", sortNum);
 		pagingHtml = page.getPagingHtml().toString();
 
 		int lastCount = totalCount;
