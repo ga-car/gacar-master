@@ -147,7 +147,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 참가자 입력 -->
 	<insert id="attendWrite" parameterType="Integer">
 			insert into ATTEND(
-			select m.email, m.name, m.phone, t.email, t.name, t.phone, t.subject, t.content, t.no
+			select m.email, m.name, m.phone, t.name, t.email, t.phone, t.subject, t.content, t.no
 			from member_c m inner join carpool t on m.name != t.name
 			where t.no=#{no} and m.email=#{email}) 
 	</insert>

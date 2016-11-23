@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript"
-	src="//apis.daum.net/maps/maps3.js?apikey=079b4daabc5db4153ba00f0a15d911f0&libraries=services"></script>
+	src="//apis.daum.net/maps/maps3.js?apikey=87e19089507641031c40df670c4c1fed&libraries=services"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -64,7 +64,7 @@
 							<button type="submit">검색하기</button>
 						</div>
 					</form>
-					<form onsubmit="searchDate()">
+					<form onsubmit="searchDate();">
 						<div style="float: left;">
 							<label for="from">From</label> <input type="text" id="from"
 								name="from" value="${from}"> <label for="to">to</label>
@@ -91,7 +91,7 @@
 					<div id="containerLeft">
 						<ul class="list-group">
 							<li class="list-group-item note-item clearfix"
-								onClick="location.replace='/rentacar/car/reserve.do?car_no=${rentacarLatlng.car_no}'"
+								onClick="location.href='/rentacar/car/reserve.do?car_no=${rentacarLatlng.car_no}'"
 								style="cursor: pointer;">
 								<div class="content-left panel-body pull-left">
 									<h2>모델명 : ${rentacarLatlng.car_name}</h2>
@@ -180,7 +180,7 @@
 	function searchDate() {
 		var sdate = document.getElementById('from').value;
 		var edate = document.getElementById('to').value;
-		if (sdate == "" && edate == "") {
+		if (sdate == "" || edate == "") {
 			alert('날짜를 입력해 주세요');
 			return false;
 		}
@@ -204,7 +204,7 @@
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 	mapOption = {
 		center : mapCenter, // 지도의 중심좌표
-		level : 3
+		level : 7
 	// 지도의 확대 레벨
 	};
 

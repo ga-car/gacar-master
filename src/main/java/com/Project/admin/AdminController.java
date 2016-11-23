@@ -64,7 +64,7 @@ public class AdminController {
 			mav.setViewName("main");
 			return mav;
 		} else {
-			mav.setViewName("adminMain");
+			mav.setViewName("redirect:memberList.do");
 			return mav;
 		}
 	}

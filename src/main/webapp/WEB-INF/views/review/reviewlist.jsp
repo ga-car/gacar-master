@@ -63,7 +63,7 @@
 							<h3 class="list-group-item-heading ">
 								<c:if test="${list.imagefile_savname != 'NULL'}">
 									<a href="${viewURL}"> ${list.subject}   [${list.car}]<img
-										src="/rentacar/resources/images/reviewImage.PNG" width="20"
+										src="/rentacar/resources/images/reviewImage.png" width="20"
 										height="20">&nbsp;
 									</a>
 								</c:if>

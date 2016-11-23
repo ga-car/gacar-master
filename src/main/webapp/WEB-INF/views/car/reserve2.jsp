@@ -62,6 +62,7 @@
 </script>
 </head>
 <body>
+<div id="article" class="content" role="main">
 	<div id="containerLeft"
 		style="background: #FFDDDD; height: 750px; width: 35%; float: left; margin: 0 0 10px 0;">
 		<form name="reserveRight" id="reserveRight"
@@ -167,6 +168,7 @@
 
 			</tr>
 		</table>
+	</div>
 	</div>
 </body>
 </html>

@@ -34,14 +34,19 @@
 				<div class="panel-heading clearfix">
 
 					<div class="avatar avatar-medium clearfix pull-left">
-						<div class="avatar-info">${session_email }</div>
-						<input type="hidden" name="email" id="email" value="${session_email }"/>
-						<div class="avatar-info">${reserveModel.reserve_sdate}~${reserveModel.reserve_edate}</div>
-						<input type="hidden" name="usedate" id="usedate" value="${reserveModel.reserve_sdate}~${reserveModel.reserve_edate}"/>
-						<div class="avatar-info">${rentacarModel.car_brand}&nbsp;${rentacarModel.car_type}&nbsp;${rentacarModel.car_name}(${rentacarModel.car_no})</div>
-						<input type="hidden" name="car" id="car" value="${rentacarModel.car_brand}/ ${rentacarModel.car_type}/ ${rentacarModel.car_name} (${rentacarModel.car_no})"/>
+						<div class="avatar-info">작성자: ${session_email }</div>
+						<input type="hidden" name="email" id="email"
+							value="${session_email }" />
+						<div class="avatar-info" style="float: right;">예약일:
+							${reserveModel.reserve_sdate}~${reserveModel.reserve_edate}</div>
+						<input type="hidden" name="usedate" id="usedate"
+							value="${reserveModel.reserve_sdate}~${reserveModel.reserve_edate}" />
+						<br /> <br />
+						<div class="avatar-info">차량정보:
+							${rentacarModel.car_brand}&nbsp;${rentacarModel.car_type}&nbsp;${rentacarModel.car_name}(${rentacarModel.car_no})</div>
+						<input type="hidden" name="car" id="car"
+							value="${rentacarModel.car_brand}/ ${rentacarModel.car_type}/ ${rentacarModel.car_name} (${rentacarModel.car_no})" />
 					</div>
-
 				</div>
 				<div class="panel-body">
 					<fieldset class="form">
@@ -54,38 +59,34 @@
 								<!-- 벨리데이터 표시 -->
 							</div>
 						</div>
-						<div class="form-group  has-feedback">
+						<div class="form-group has-feedback">
 							<div class="note-editor panel panel-default">
 								<div class="note-editing-area">
 									<!-- <textarea name="content" id="content" class="note-codable"></textarea> -->
-									<textarea name="content" id="content"></textarea>
-									<div class="note-editable panel-body" contenteditable="true"
+									<textarea name="content" id="content"
+										class="form-control input-block-level"
 										data-placeholder="내용을 입력해 주세요."
-										style="height: 300px; max-height: 860px;">
-
-										<p>
-											<br>
-										</p>
-
-									</div>
+										style="height: 300px; max-height: 860px;"></textarea>
 								</div>
 							</div>
-							<!-- 파일 업로드 시작 -->
-							<div class="form-group has-feedback">
-								<div>
-									<input type="file" name="file" id="file"
-										value="${reviewModel.imagefile_savname}" />
-								</div>
+						</div>
+						<!-- 파일 업로드 시작 -->
+						<div class="form-group has-feedback">
+							<div>
+								<input type="file" name="file" id="file"
+									value="${reviewModel.imagefile_savname}" />
 							</div>
-							<!-- 파일 업도르 끝 -->
-							<div class="nav" role="navigation">
-								<fieldset class="buttons">
-									<button type="button" onclick="this.form.submit();"
-										class="create btn btn-success btn-wide pull-right">작성완료</button>
-									<button type="button" onclick="reviewList();"
-										class="btn btn-default btn-wide">목록</button>
-								</fieldset>
-							</div>
+						</div>
+
+						<!-- 파일 업도르 끝 -->
+						<div class="nav" role="navigation">
+							<fieldset class="buttons">
+								<button type="button" onclick="this.form.submit();"
+									class="create btn btn-success btn-wide pull-right">작성완료</button>
+								<button type="button" onclick="reviewList();"
+									class="btn btn-default btn-wide">목록</button>
+							</fieldset>
+						</div>
 					</fieldset>
 
 				</div>

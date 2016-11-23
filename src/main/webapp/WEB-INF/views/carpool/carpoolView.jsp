@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -77,12 +77,15 @@ function noticeDelete() {
 
 									<tr>
 										<td align=right><strong>${carpoolModel.name }</strong>&nbsp;&nbsp;|&nbsp;&nbsp;
-										<fmt:formatDate value="${carpoolModel.regdate }" pattern="yyyy-MM-dd" /></td>
+											<fmt:formatDate value="${carpoolModel.regdate }"
+												pattern="yyyy-MM-dd" /></td>
 									</tr>
 									<tr>
-										<td align="center"><img src="http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/red_b.png">${carpoolModel.saddr }
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										<img src="http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/blue_b.png">${carpoolModel.eaddr }</td>
+										<td align="center"><img
+											src="http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/red_b.png">${carpoolModel.saddr }
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<img
+											src="http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/blue_b.png">${carpoolModel.eaddr }</td>
 									</tr>
 								</tbody>
 							</table>
@@ -98,14 +101,19 @@ function noticeDelete() {
 									<tr>
 										<td align="center" width="100">좌석수</td>
 										<td align="left">${carpoolModel.pnum1 }/${carpoolModel.pnum2 }
-										<c:choose>
-    										<c:when test="${carpoolModel.pnum1 != carpoolModel.pnum2 && attendModel.name != session_name }">
-    											<button type="button" onclick="return validation(${carpoolModel.no })" id="pnum1" name="pnum1" class="btn btn-primary">참가</button>
-    										</c:when>
-    										<c:when test="${attendModel.name == session_name}">
-    										<button type="button" onclick="return validation(${carpoolModel.no })" id="pnum1" name="pnum1" class="btn btn-primary">참가</button>
-    										</c:when>
-    									</c:choose>
+											<c:choose>
+												<c:when
+													test="${carpoolModel.pnum1 != carpoolModel.pnum2 && attendModel.name != session_name }">
+													<button type="button"
+														onclick="return validation(${carpoolModel.no })"
+														id="pnum1" name="pnum1" class="btn btn-primary">참가</button>
+												</c:when>
+												<c:when test="${attendModel.name == session_name}">
+													<button type="button"
+														onclick="return validation(${carpoolModel.no })"
+														id="pnum1" name="pnum1" class="btn btn-primary">참가</button>
+												</c:when>
+											</c:choose>
 										<td align="center" width="100">비용</td>
 										<td align="left">${carpoolModel.charge }원</td>
 									</tr>
@@ -121,16 +129,18 @@ function noticeDelete() {
 									</tr>
 								</tbody>
 							</table>
-							<div id="map" style="width:100%;height:300px;"></div>
+							<div id="map" style="width: 100%; height: 300px;"></div>
 						</div>
 						<form class="viewForm" method="post">
 							<input type="hidden" name="${carpoolModel.no }" />
 							<c:if test="${session_name == carpoolModel.name }">
 								<button type="button" onclick="onModify(${carpoolModel.no })"
 									class="btn btn-primary">수정</button>
+								<button type="button" onclick="onDelete()"
+									class="btn btn-primary">삭제</button>
 							</c:if>
 							<button type="button" onclick="onList()" class="btn btn-primary">목록</button>
-							<button type="button" onclick="onDelete()" class="btn btn-primary">삭제</button>
+
 						</form>
 
 					</div>
@@ -139,10 +149,11 @@ function noticeDelete() {
 			</div>
 		</div>
 	</div>
-	
 
-<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=079b4daabc5db4153ba00f0a15d911f0&libraries=services"></script>
-<script>
+
+	<script type="text/javascript"
+		src="//apis.daum.net/maps/maps3.js?apikey=87e19089507641031c40df670c4c1fed&libraries=services"></script>
+	<script>
 function validation() {
 	
 	if ("${session_name}" ==  "") {
@@ -283,6 +294,6 @@ map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
 	  			strokeOpacity: 0.9, // 선 투명도
 	  			strokeStyle: 'solid' // 선 스타일
 	  		});	
-	  </script>   
+	  </script>
 </body>
 </html>
