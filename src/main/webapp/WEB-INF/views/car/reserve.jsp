@@ -92,17 +92,21 @@
 				<div class="panel-heading clearfix">
 					<!-- 이용약관 시작 -->
 					<div class="form-group  has-feedback">
-						<h4>차량 이용 약관</h4>
-						<textarea rows="10" cols="155"
+						<h4>차량 이용 약관 </h4>
+						<iframe src="/rentacar/car/carclause.do" width="760" height="300"
+							class="input-block-level"> </iframe>
+						<!-- 		<textarea rows="10" cols="155"
 							class="form-control input-block-level" style="">
+							
 		제1조 (목적)
 		이 약관은 (주)그린카, 롯데렌탈(주) (이하 "임대인"/회사라 합니다)와 고객(이하 "임차인"이라 합니다.)
 			사이의 대여용자동차 임대차계약(이하 "대여계약"이라 합니다.)상의 권리, 의무에 관한 사항을 규정함을 목적으로 합니다.
-		</textarea>
-						<label for="agreeUse"> <input type="checkbox" value=""
-							id="agreeUse" name="GC_Agree" class="checkbox" />'가카 차량이용'이용약관에
-							동의합니다.
+		</textarea> -->
+						<label for="agreeUse">'가카 차량이용'이용약관에 동의합니다.<input
+							type="checkbox" value="" id="agreeUse" name="GC_Agree"
+							class="checkbox" />
 						</label>
+
 					</div>
 					<!-- 이용약관 끝  -->
 					<div id="containerLeft">
